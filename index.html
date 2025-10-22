@@ -82,6 +82,42 @@
   a{color:var(--teal)}
   .footer{color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding-top:12px;}
   :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
+  /* Pulsing teal glow for the hero header */
+.pulse-glow{
+  position: relative;
+  text-shadow:
+    0 0 0 rgba(15,181,201,0); /* fallback */
+  animation: pulseGlow 2.6s ease-in-out infinite;
+}
+@keyframes pulseGlow{
+  0%, 100%{
+    text-shadow:
+      0 0 0 rgba(15,181,201,0),
+      0 0 0 rgba(15,181,201,0);
+  }
+  50%{
+    text-shadow:
+      0 0 12px rgba(15,181,201,0.35),
+      0 0 28px rgba(15,181,201,0.18);
+  }
+}
+/* soft teal underline that also breathes */
+.pulse-glow::after{
+  content:"";
+  position:absolute; left:0; bottom:-6px;
+  width:100%; height:3px;
+  background: radial-gradient(closest-side, rgba(15,181,201,.55), transparent 70%);
+  filter: blur(0.5px);
+  animation: pulseBar 2.6s ease-in-out infinite;
+}
+@keyframes pulseBar{
+  0%,100%{ opacity:.45; transform: scaleX(.98); }
+  50%{ opacity:.9; transform: scaleX(1); }
+}
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .pulse-glow, .pulse-glow::after{ animation: none !important; text-shadow: none !important; }
+}
 </style>
 </head>
 
@@ -93,7 +129,7 @@
          width="1600" height="550">
 
     <!-- Hero -->
-    <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
+    <h1 class="pulse-glow">KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
     <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
 
     <p>
