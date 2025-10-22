@@ -78,13 +78,30 @@
     font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem;
     text-align:center;
   }
+
+  /* unified buttons: dark by default, teal on hover/focus */
   .btn{
-    display:inline-block; padding:.72rem 1rem; margin:.25rem .4rem .25rem 0;
-    border-radius:16px; text-decoration:none; font-weight:600; border:1px solid var(--line)
+    display:inline-block;
+    padding:.72rem 1rem;
+    margin:.25rem .4rem .25rem 0;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:600;
+    border:1px solid var(--line);
+    background: rgba(255,255,255,.06);
+    color: var(--ink);
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
-  .btn.primary{background:var(--teal); color:#001014;}
-  .btn.ghost{background:rgba(255,255,255,.06); color:var(--ink);}
-  .btn:hover,.btn:focus{transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.35);}
+  .btn:hover,
+  .btn:focus{
+    background: var(--teal);
+    color:#001014;
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+  }
+  .btn:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
+
   .section{padding:26px 0; border-top:1px solid var(--line);}
   .section h2{font-size:22px; margin:0 0 .6rem;}
   ul{padding-left:18px; margin:0;}
@@ -147,8 +164,8 @@
       <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
 
       <p style="text-align:center">
-        <a class="btn primary" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
+        <a class="btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
       </p>
 
       <!-- Featured repos -->
@@ -176,6 +193,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
