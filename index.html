@@ -91,9 +91,9 @@
   a{color:var(--teal)} a:visited{color:var(--teal)}
   :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
 
-  /* ===== BACKGROUND GLOW (centered, same width as text, synced with banner) ===== */
-  .headline{ text-align:center; margin:6px 0 0; }
-  .tag{ text-align:center; margin:6px 0 16px; color:var(--muted); }
+  /* ===== BACKGROUND GLOW (centered, text-width, synced with banner) ===== */
+  .headline { text-align:center; margin:6px 0 0; }
+  .tag { text-align:center; margin:6px 0 16px; color:var(--muted); }
 
   .headline .glow-core{
     position: relative;
@@ -104,14 +104,15 @@
   .headline .glow-core::before{
     content:"";
     position:absolute;
-    inset: -8px -3%;            /* tighten/loosen with these numbers */
+    /* widen + soften the glow to reach the text edges */
+    inset: -10px -8%;
     background: radial-gradient(ellipse at center,
                 rgba(15,181,201,.38) 0%,
                 rgba(15,181,201,.18) 45%,
                 rgba(15,181,201,0)   72%);
-    filter: blur(8px);
+    filter: blur(12px);
     z-index:0;
-    animation: headerGlow 4s ease-in-out infinite; /* same timing as banner */
+    animation: headerGlow 4s ease-in-out infinite; /* stays in sync with banner */
     pointer-events:none;
   }
   .headline h1{ position:relative; z-index:1; margin:0; }
@@ -175,6 +176,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
