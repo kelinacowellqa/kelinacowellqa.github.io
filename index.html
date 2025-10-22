@@ -61,36 +61,23 @@
   footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
   .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
 
-  /* Banner (cropped) + pulse */
-  .hero-wrap{
-    border-radius:20px; overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px;
-  }
-  .hero-img{
-    display:block; width:100%;
-    height:220px;           /* desktop default height */
-    object-fit:cover;       /* crop instead of stretching */
-  }
-  @keyframes bannerPulse {
-    0%, 100% { box-shadow: 0 0 25px rgba(15,181,201,0.25); filter: brightness(1); }
-    50% { box-shadow: 0 0 60px rgba(15,181,201,0.55); filter: brightness(1.1) saturate(1.1); }
-  }
+  /* Banner (cropped) + pulse (4s) */
+  .hero-wrap{ border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px; }
+  .hero-img{ display:block; width:100%; height:220px; object-fit:cover; }
   .banner-pulse { animation: bannerPulse 4s ease-in-out infinite; }
-
-  @media (min-width: 900px){ .hero-img{ height:260px; } }
-  @media (max-width: 520px){
-    .hero-img{ height:170px; }
-    h1{ font-size:40px; }
+  @keyframes bannerPulse{
+    0%,100%{ box-shadow:0 0 25px rgba(15,181,201,.25); filter:brightness(1); }
+    50%    { box-shadow:0 0 60px rgba(15,181,201,.55); filter:brightness(1.1) saturate(1.1); }
   }
+  @media (min-width: 900px){ .hero-img{ height:260px; } }
+  @media (max-width: 520px){ .hero-img{ height:170px; } h1{ font-size:40px; } }
 
   /* Typography & buttons */
   h1{
     font-family:"Bebas Neue",sans-serif; letter-spacing:.6px;
     font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem;
-    /* STATIC text: no animation on the text itself */
-    text-shadow:none;
+    text-align:center;
   }
-  .tag{color:var(--muted); margin:0 0 16px;}
   .btn{
     display:inline-block; padding:.72rem 1rem; margin:.25rem .4rem .25rem 0;
     border-radius:16px; text-decoration:none; font-weight:600; border:1px solid var(--line)
@@ -104,47 +91,39 @@
   a{color:var(--teal)} a:visited{color:var(--teal)}
   :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
 
-/* ===== BACKGROUND GLOW BEHIND STATIC HEADER (centered, sized to text) ===== */
-.headline{ text-align:center; margin: 8px 0 0; }
+  /* ===== BACKGROUND GLOW (centered, same width as text, synced with banner) ===== */
+  .headline{ text-align:center; margin:6px 0 0; }
+  .tag{ text-align:center; margin:6px 0 16px; color:var(--muted); }
 
-.headline .glow-core{
-  position: relative;
-  display: inline-block;     /* the glow now matches the text width */
-  padding: 4px 10px;
-  isolation: isolate;        /* local stacking so glow stays behind */
-}
+  .headline .glow-core{
+    position: relative;
+    display: inline-block;      /* glow hugs text width */
+    padding: 2px 8px;           /* tiny breathing room */
+    isolation: isolate;         /* keep glow behind text only */
+  }
+  .headline .glow-core::before{
+    content:"";
+    position:absolute;
+    inset: -8px -3%;            /* tighten/loosen with these numbers */
+    background: radial-gradient(ellipse at center,
+                rgba(15,181,201,.38) 0%,
+                rgba(15,181,201,.18) 45%,
+                rgba(15,181,201,0)   72%);
+    filter: blur(8px);
+    z-index:0;
+    animation: headerGlow 4s ease-in-out infinite; /* same timing as banner */
+    pointer-events:none;
+  }
+  .headline h1{ position:relative; z-index:1; margin:0; }
 
-.headline .glow-core::before{
-  content:"";
-  position:absolute;
-  inset: -12px -8%;          /* small aura around the text */
-  background: radial-gradient(ellipse at center,
-              rgba(15,181,201,0.36) 0%,
-              rgba(15,181,201,0.18) 44%,
-              rgba(15,181,201,0.00) 72%);
-  filter: blur(10px);
-  z-index:0;                 /* behind the text */
-  animation: headerGlow 3.6s ease-in-out infinite;
-  pointer-events:none;
-}
-
-.headline h1{ position:relative; z-index:1; margin:0; } /* text stays static */
-@keyframes headerGlow{
-  0%,100%{ opacity:.5; transform: scale(0.98); }
-  50%{ opacity:.9; transform: scale(1.03); }
-}
-
-/* center the subheading too */
-.tag{ color:var(--muted); margin:6px 0 16px; text-align:center; }
-
-/* reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .headline .glow-core::before{ animation:none !important; filter:none !important; }
-}
+  @keyframes headerGlow{
+    0%,100%{ opacity:.55; transform: scale(.98); }
+    50%    { opacity:.95; transform: scale(1.03); }
+  }
 
   /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .banner-pulse, .headline-pulse::before { animation: none !important; filter:none !important; }
+  @media (prefers-reduced-motion: reduce){
+    .banner-pulse, .headline .glow-core::before{ animation:none !important; filter:none !important; }
   }
 </style>
 </head>
@@ -158,15 +137,15 @@
              alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’.">
       </div>
 
-     <!-- Static header with centered background glow -->
-<div class="headline">
-  <div class="glow-core">
-    <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
-  </div>
-</div>
+      <!-- Static header with centered, synced background glow -->
+      <div class="headline">
+        <div class="glow-core">
+          <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
+        </div>
+      </div>
       <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
 
-      <p>
+      <p style="text-align:center">
         <a class="btn primary" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
       </p>
@@ -196,5 +175,6 @@
   </footer>
 </body>
 </html>
+
 
 
