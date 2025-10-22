@@ -104,40 +104,42 @@
   a{color:var(--teal)} a:visited{color:var(--teal)}
   :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
 
- /* ===== BACKGROUND GLOW BEHIND STATIC HEADER (stronger + guaranteed visible) ===== */
-.headline-pulse{
+/* ===== BACKGROUND GLOW BEHIND STATIC HEADER (centered, sized to text) ===== */
+.headline{ text-align:center; margin: 8px 0 0; }
+
+.headline .glow-core{
   position: relative;
-  isolation: isolate;       /* create a local stacking context */
-  padding: 10px 0 18px;
-  z-index: 0;
-}
-.headline-pulse::before{
-  content:"";
-  position:absolute;
-  /* make the glow bigger than the text area so it shows clearly */
-  inset: -28px -12% -24px -12%;
-  background: radial-gradient(ellipse at center,
-              rgba(15,181,201,0.42) 0%,
-              rgba(15,181,201,0.22) 38%,
-              rgba(15,181,201,0.00) 72%);
-  filter: blur(16px);
-  z-index: 0;               /* sit behind the text */
-  animation: headerGlow 3.6s ease-in-out infinite;
-  pointer-events: none;
-}
-.headline-pulse h1{
-  position: relative;
-  z-index: 1;               /* keep text above the glow */
-  text-shadow: none;        /* text stays static */
-}
-@keyframes headerGlow{
-  0%,100%{ opacity:.5; transform: scale(0.98); }
-  50%{ opacity:.95; transform: scale(1.04); }
+  display: inline-block;     /* the glow now matches the text width */
+  padding: 4px 10px;
+  isolation: isolate;        /* local stacking so glow stays behind */
 }
 
-/* reduce motion: keep static */
-@media (prefers-reduced-motion: reduce) {
-  .headline-pulse::before { animation: none !important; filter: none !important; }
+.headline .glow-core::before{
+  content:"";
+  position:absolute;
+  inset: -12px -8%;          /* small aura around the text */
+  background: radial-gradient(ellipse at center,
+              rgba(15,181,201,0.36) 0%,
+              rgba(15,181,201,0.18) 44%,
+              rgba(15,181,201,0.00) 72%);
+  filter: blur(10px);
+  z-index:0;                 /* behind the text */
+  animation: headerGlow 3.6s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.headline h1{ position:relative; z-index:1; margin:0; } /* text stays static */
+@keyframes headerGlow{
+  0%,100%{ opacity:.5; transform: scale(0.98); }
+  50%{ opacity:.9; transform: scale(1.03); }
+}
+
+/* center the subheading too */
+.tag{ color:var(--muted); margin:6px 0 16px; text-align:center; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .headline .glow-core::before{ animation:none !important; filter:none !important; }
 }
 
   /* Respect reduced motion */
@@ -156,10 +158,12 @@
              alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’.">
       </div>
 
-      <!-- Static header with background glow -->
-      <div class="headline-pulse">
-        <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
-      </div>
+     <!-- Static header with centered background glow -->
+<div class="headline">
+  <div class="glow-core">
+    <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
+  </div>
+</div>
       <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
 
       <p>
