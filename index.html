@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/img/favicon.ico">
-<link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
-<link rel="icon" href="assets/img/favicon-64.png" sizes="64x64" type="image/png">
-<link rel="icon" href="assets/img/favicon-96.png" sizes="96x96" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="manifest" href="assets/img/site.webmanifest">
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -18,7 +9,7 @@
 <link rel="canonical" href="https://kelinacowellqa.github.io/">
 <meta name="theme-color" content="#111418">
 
-<!-- Open Graph (used by LinkedIn, GitHub, Slack, etc.) -->
+<!-- Open Graph (LinkedIn/GitHub previews) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kelina Cowell — QA Portfolio">
 <meta property="og:description" content="Manual & Automation QA • Exploratory, functional & cross-platform testing.">
@@ -30,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- JSON-LD (Search/SEO) -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,14 +47,37 @@
     --muted:#b9c2c8; /* soft text */
     --line:rgba(255,255,255,.08);
   }
+
+  /* Layout & sticky footer */
+  html, body { height: 100%; }
   *{box-sizing:border-box}
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    display:flex; flex-direction:column;
   }
+  main{flex:1 0 auto;}
+  footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
   .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
-  .hero-img{width:100%; height:auto; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px;}
+
+  /* Banner (cropped) */
+  .hero-wrap{
+    border-radius:20px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px;
+  }
+  .hero-img{
+    display:block; width:100%;
+    height:220px;           /* desktop default height */
+    object-fit:cover;       /* crop instead of stretching */
+  }
+  @media (min-width: 900px){ .hero-img{ height:260px; } }
+  @media (max-width: 520px){
+    .hero-img{ height:170px; }
+    h1{ font-size:40px; }
+  }
+
+  /* Typography & buttons */
   h1{
     font-family:"Bebas Neue",sans-serif; letter-spacing:.6px;
     font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem;
@@ -79,84 +93,124 @@
   .section{padding:26px 0; border-top:1px solid var(--line);}
   .section h2{font-size:22px; margin:0 0 .6rem;}
   ul{padding-left:18px; margin:0;}
-  a{color:var(--teal)}
-  .footer{color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding-top:12px;}
+  a{color:var(--teal)} a:visited{color:var(--teal)}
   :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
-  /* Pulsing teal glow for the hero header */
-.pulse-glow{
-  position: relative;
-  text-shadow:
-    0 0 0 rgba(15,181,201,0); /* fallback */
-  animation: pulseGlow 2.6s ease-in-out infinite;
-}
-@keyframes pulseGlow{
-  0%, 100%{
+
+  /* ===== TEAL PULSE EFFECT (HEADER + BANNER) ===== */
+
+  /* Text glow for header */
+  .pulse-glow {
+    position: relative;
+    color: #ffffff;
     text-shadow:
-      0 0 0 rgba(15,181,201,0),
-      0 0 0 rgba(15,181,201,0);
+      0 0 8px rgba(15,181,201,0.6),
+      0 0 16px rgba(15,181,201,0.4);
+    animation: pulseGlow 2.8s ease-in-out infinite;
   }
-  50%{
-    text-shadow:
-      0 0 12px rgba(15,181,201,0.35),
-      0 0 28px rgba(15,181,201,0.18);
+  @keyframes pulseGlow {
+    0%, 100% {
+      text-shadow:
+        0 0 8px rgba(15,181,201,0.6),
+        0 0 16px rgba(15,181,201,0.4);
+      transform: scale(1);
+    }
+    50% {
+      text-shadow:
+        0 0 18px rgba(15,181,201,0.85),
+        0 0 42px rgba(15,181,201,0.55);
+      transform: scale(1.02);
+    }
   }
-}
-/* soft teal underline that also breathes */
-.pulse-glow::after{
-  content:"";
-  position:absolute; left:0; bottom:-6px;
-  width:100%; height:3px;
-  background: radial-gradient(closest-side, rgba(15,181,201,.55), transparent 70%);
-  filter: blur(0.5px);
-  animation: pulseBar 2.6s ease-in-out infinite;
-}
-@keyframes pulseBar{
-  0%,100%{ opacity:.45; transform: scaleX(.98); }
-  50%{ opacity:.9; transform: scaleX(1); }
-}
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .pulse-glow, .pulse-glow::after{ animation: none !important; text-shadow: none !important; }
-}
+
+  /* Header underline pulse */
+  .pulse-glow::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #0fb5c9, transparent);
+    animation: pulseBar 2.8s ease-in-out infinite;
+  }
+  @keyframes pulseBar {
+    0%, 100% { opacity: 0.4; transform: scaleX(0.95); }
+    50% { opacity: 1; transform: scaleX(1.05); }
+  }
+
+  /* Banner pulse */
+  .banner-pulse {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    animation: bannerPulse 4s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(15,181,201,0.25);
+  }
+  @keyframes bannerPulse {
+    0%, 100% {
+      box-shadow: 0 0 25px rgba(15,181,201,0.25);
+      filter: brightness(1);
+    }
+    50% {
+      box-shadow: 0 0 60px rgba(15,181,201,0.55);
+      filter: brightness(1.1) saturate(1.1);
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-glow, .banner-pulse {
+      animation: none !important;
+      text-shadow: none !important;
+      box-shadow: none !important;
+      filter: none !important;
+    }
+  }
 </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <!-- Banner -->
-    <img class="hero-img" src="assets/img/profile-banner.webp"
-         alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’."
-         width="1600" height="550">
+  <main>
+    <div class="wrap">
+      <!-- Banner (cropped + pulsing) -->
+      <div class="hero-wrap banner-pulse">
+        <img class="hero-img" src="assets/img/profile-banner.webp"
+             alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’.">
+      </div>
 
-    <!-- Hero -->
-    <h1 class="pulse-glow">KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
-    <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
+      <!-- Hero -->
+      <h1 class="pulse-glow">KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
+      <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
 
-    <p>
-      <a class="btn primary" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
+      <p>
+        <a class="btn primary" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
 
-    <!-- Featured repos -->
-    <section class="section" aria-labelledby="repos">
-      <h2 id="repos">Featured Repositories</h2>
-      <ul>
-        <li><a href="https://github.com/kelinacowellqa/Functional-Testing-Examples">Functional-Testing-Examples</a></li>
-        <li><a href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions">Exploratory-Testing-Sessions</a></li>
-        <li><a href="https://github.com/kelinacowellqa/Bug-Reports-Samples">Bug-Reports-Samples</a></li>
-        <li><a href="https://github.com/kelinacowellqa/QA-Templates-and-Resources">QA-Templates-and-Resources</a></li>
-      </ul>
-    </section>
+      <!-- Featured repos -->
+      <section class="section" aria-labelledby="repos">
+        <h2 id="repos">Featured Repositories</h2>
+        <ul>
+          <li><a href="https://github.com/kelinacowellqa/Functional-Testing-Examples">Functional-Testing-Examples</a></li>
+          <li><a href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions">Exploratory-Testing-Sessions</a></li>
+          <li><a href="https://github.com/kelinacowellqa/Bug-Reports-Samples">Bug-Reports-Samples</a></li>
+          <li><a href="https://github.com/kelinacowellqa/QA-Templates-and-Resources">QA-Templates-and-Resources</a></li>
+        </ul>
+      </section>
 
-    <!-- Contact -->
-    <section class="section" aria-labelledby="contact">
-      <h2 id="contact">Contact</h2>
-      <p>Email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a> •
-         LinkedIn: <a href="https://www.linkedin.com/in/kelina-cowell-qa-tester/">/in/kelina-cowell-qa-tester/</a></p>
-    </section>
-
-    <p class="footer">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</p>
+      <!-- Contact -->
+      <section class="section" aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <p>Email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a> •
+           LinkedIn: <a href="https://www.linkedin.com/in/kelina-cowell-qa-tester/">/in/kelina-cowell-qa-tester/</a></p>
+      </section>
+    </div>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
+  </footer>
 </body>
 </html>
+
 
