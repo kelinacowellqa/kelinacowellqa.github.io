@@ -1,0 +1,11 @@
+{
+  "name": "Kelina Cowell — QA Portfolio",
+  "short_name": "Kelina QA",
+  "icons": [
+    { "src": "favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#111418",
+  "background_color": "#111418",
+  "display": "standalone"
+}
