@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- JSON-LD: ItemList of projects (filled with examples; update as you add) -->
+<!-- JSON-LD: ItemList of projects -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,30 +47,20 @@
 </script>
 
 <style>
-  /* ===== Brand lock (do not change) ===== */
-  :root{
-    --teal:#0fb5c9; --bg:#111418; --ink:#e9eef2; --muted:#b9c2c8; --line:rgba(255,255,255,.08);
-  }
-  html, body { height:100% }
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    display:flex; flex-direction:column;
-  }
-  main{flex:1 0 auto;}
-  footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
+  :root{--teal:#0fb5c9; --bg:#111418; --ink:#e9eef2; --muted:#b9c2c8; --line:rgba(255,255,255,.08);}
+  html, body { height:100% } *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; display:flex; flex-direction:column;}
+  main{flex:1 0 auto;} footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
   .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
 
-  /* Tiny nav (Home • Projects • Contact) */
+  /* Tiny nav */
   .nav{display:flex; gap:12px; align-items:center; justify-content:center; margin:10px 0 6px;}
   .nav a{display:inline-block; padding:.5rem .8rem; border-radius:12px; text-decoration:none;
          border:1px solid var(--line); background:rgba(255,255,255,.06); color:var(--ink);}
   .nav a:hover,.nav a:focus{background:var(--teal); color:#001014; border-color:transparent;}
   .nav a:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
 
-  /* Header glow (synced look, static text) */
+  /* Header glow */
   .headline{text-align:center; margin:8px 0 4px;}
   .headline .glow-core{position:relative; display:inline-block; padding:2px 8px; isolation:isolate;}
   .headline .glow-core::before{
@@ -79,23 +69,17 @@
     filter: blur(12px); pointer-events:none;
   }
   h1{font-family:"Bebas Neue",sans-serif; letter-spacing:.6px; font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem; text-align:center;}
-
   .tag { text-align:center; margin:6px 0 16px; color:var(--muted); }
 
   /* Grid */
   .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-top:8px;}
-  .card{
-    grid-column: span 12;
-    border:1px solid var(--line); border-radius:20px; padding:16px;
-    background:rgba(255,255,255,.03); box-shadow:0 6px 18px rgba(0,0,0,.35);
-  }
+  .card{grid-column: span 12; border:1px solid var(--line); border-radius:20px; padding:16px; background:rgba(255,255,255,.03); box-shadow:0 6px 18px rgba(0,0,0,.35);}
   @media (min-width:700px){ .card{grid-column: span 6;} }
   @media (min-width:1000px){ .card{grid-column: span 4;} }
 
   .card h3{margin:.2rem 0 .4rem; font-size:20px}
   .meta{color:var(--muted); font-size:.95rem; margin:.2rem 0 .6rem}
-  .btn{display:inline-block; padding:.6rem .9rem; margin:.2rem .35rem .2rem 0;
-       border-radius:14px; text-decoration:none; font-weight:600; border:1px solid var(--line);
+  .btn{display:inline-block; padding:.6rem .9rem; margin:.2rem .35rem .2rem 0; border-radius:14px; text-decoration:none; font-weight:600; border:1px solid var(--line);
        background:rgba(255,255,255,.06); color:var(--ink); transition:transform .15s ease, box-shadow .2s ease}
   .btn:hover,.btn:focus{background:var(--teal); color:#001014; border-color:transparent; transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.35)}
   .btn:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
@@ -114,14 +98,12 @@
 <body>
   <main>
     <div class="wrap">
-      <!-- Tiny nav -->
       <nav class="nav" aria-label="Primary">
         <a href="/" aria-current="page">Home</a>
         <a href="/projects.html">Projects</a>
         <a href="mailto:kelinacowell.qa@gmail.com">Contact</a>
       </nav>
 
-      <!-- Static header + glow (no animation to respect reduced motion users here) -->
       <div class="headline">
         <div class="glow-core">
           <h1>PROJECTS — QA EVIDENCE & RESULTS</h1>
@@ -129,19 +111,14 @@
       </div>
       <p class="tag">Manual & Automation QA • Repos • Screenshots • STAR outcomes</p>
 
-      <!-- Projects grid -->
       <section class="section" aria-labelledby="projects">
         <h2 id="projects" class="sr-only">Projects</h2>
         <div class="grid">
-
-          <!-- Project card template: duplicate and fill -->
           <article class="card" aria-labelledby="p1-title">
             <h3 id="p1-title">Functional Testing — Battletoads (PC Game Pass)</h3>
             <p class="meta">Gameplay logic • UI flow • Co-op • Bug documentation</p>
             <p>Summary: Manual QA fundamentals with clear repro steps and evidence. STAR: 22 bugs logged (8 critical, 10 major, 4 minor), 100% repro consistency.</p>
-            <p>
-              <a class="btn" href="https://github.com/kelinacowellqa/Functional-Testing-Examples" target="_blank" rel="noopener">View Repo</a>
-            </p>
+            <p><a class="btn" href="https://github.com/kelinacowellqa/Functional-Testing-Examples" target="_blank" rel="noopener">View Repo</a></p>
             <div class="media" role="list" aria-label="Screenshots">
               <img src="assets/img/battletoads-1.webp" alt="Battletoads bug report screenshot: annotated UI misalignment on pause menu with arrows and notes." loading="lazy" role="listitem">
               <img src="assets/img/battletoads-2.webp" alt="Spreadsheet with 20-bug sample, showing IDs, titles, repro steps, severity, and status columns." loading="lazy" role="listitem">
@@ -153,9 +130,7 @@
             <h3 id="p2-title">Exploratory — Rebel Racing (Mobile)</h3>
             <p class="meta">Device compatibility • UI scaling • Crash handling</p>
             <p>Summary: Device matrix across Android/iOS; surfaced 6 major UI bugs across 9 devices with 30 test cases. Evidence includes logs and clips.</p>
-            <p>
-              <a class="btn" href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions" target="_blank" rel="noopener">View Repo</a>
-            </p>
+            <p><a class="btn" href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions" target="_blank" rel="noopener">View Repo</a></p>
             <div class="media" role="list" aria-label="Screenshots">
               <img src="assets/img/rebel-1.webp" alt="Device comparison matrix showing model, OS version, DPI, and pass/fail status for UI scaling." loading="lazy" role="listitem">
               <img src="assets/img/rebel-2.webp" alt="Bug log snippet with thumbnails highlighting layout break on 19.5:9 aspect ratio." loading="lazy" role="listitem">
@@ -164,27 +139,5 @@
           </article>
 
           <article class="card" aria-labelledby="p3-title">
-            <h3 id="p3-title">Regression — Sworn (PC Game Pass)</h3>
-            <p class="meta">Quest triggers • Stamina logic • Patch verification</p>
-            <p>Summary: Structured retesting post-fix. Metrics: 12 issues retested, 10 fixed, 2 reopened. Evidence includes pre/post logs and video comparison.</p>
-            <p>
-              <a class="btn" href="https://github.com/kelinacowellqa/Bug-Reports-Samples" target="_blank" rel="noopener">View Repo</a>
-            </p>
-            <div class="media" role="list" aria-label="Screenshots">
-              <img src="assets/img/sworn-1.webp" alt="CSV diff table listing Fixed / Not Fixed / Reopened with issue IDs and patch notes references." loading="lazy" role="listitem">
-              <img src="assets/img/sworn-2.webp" alt="Trello regression board with cards grouped by feature area and status." loading="lazy" role="listitem">
-              <img src="assets/img/sworn-3.webp" alt="Side-by-side video frames comparing pre-patch and post-patch quest trigger behavior." loading="lazy" role="listitem">
-            </div>
-          </article>
+            <h3 id="p3-title">Regression — Sw
 
-          <!-- Add additional cards as you publish (VR parity, Recompile inputs, Five Dates localization, etc.) -->
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
-  </footer>
-</body>
-</html>
