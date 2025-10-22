@@ -1,164 +1,54 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects — Kelina Cowell QA Portfolio</title>
-<meta name="description" content="Projects by Kelina Cowell — Manual & Automation QA for games and software. Evidence-driven writeups with repos, images, and STAR results.">
+<meta name="description" content="Projects by Kelina Cowell — Manual & Automation QA.">
 <link rel="canonical" href="https://kelinacowellqa.github.io/projects.html">
 <meta name="theme-color" content="#111418">
-
-<!-- Open Graph -->
+<meta name="robots" content="noindex,nofollow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projects — Kelina Cowell QA Portfolio">
-<meta property="og:description" content="Manual & Automation QA • Evidence-driven projects with screenshots and results.">
+<meta property="og:description" content="Manual & Automation QA projects — coming soon.">
 <meta property="og:url" content="https://kelinacowellqa.github.io/projects.html">
 <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/profile-banner.webp">
-
-<!-- Fonts (brand lock) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<!-- JSON-LD: ItemList of projects -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Kelina Cowell — QA Projects",
-  "itemListElement": [
-    {
-      "@type": "CreativeWork",
-      "position": 1,
-      "name": "Functional Testing — Battletoads (PC Game Pass)",
-      "url": "https://github.com/kelinacowellqa/Functional-Testing-Examples",
-      "description": "Manual QA fundamentals — bug documentation, clarity, co-op logic testing."
-    },
-    {
-      "@type": "CreativeWork",
-      "position": 2,
-      "name": "Exploratory — Rebel Racing (Mobile)",
-      "url": "https://github.com/kelinacowellqa/Exploratory-Testing-Sessions",
-      "description": "Device-specific exploratory testing on Android/iOS with logs and evidence."
-    }
-  ]
-}
-</script>
-
 <style>
-  :root{--teal:#0fb5c9; --bg:#111418; --ink:#e9eef2; --muted:#b9c2c8; --line:rgba(255,255,255,.08);}
-  html, body { height:100% } *{box-sizing:border-box}
-  body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; display:flex; flex-direction:column;}
-  main{flex:1 0 auto;} footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
-  .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
-
-  /* Tiny nav */
-  .nav{display:flex; gap:12px; align-items:center; justify-content:center; margin:10px 0 6px;}
-  .nav a{display:inline-block; padding:.5rem .8rem; border-radius:12px; text-decoration:none;
-         border:1px solid var(--line); background:rgba(255,255,255,.06); color:var(--ink);}
-  .nav a:hover,.nav a:focus{background:var(--teal); color:#001014; border-color:transparent;}
-  .nav a:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
-
-  /* Header glow */
-  .headline{text-align:center; margin:8px 0 4px;}
-  .headline .glow-core{position:relative; display:inline-block; padding:2px 8px; isolation:isolate;}
-  .headline .glow-core::before{
-    content:""; position:absolute; inset:-10px -8%;
-    background: radial-gradient(ellipse at center, rgba(15,181,201,.38) 0%, rgba(15,181,201,.18) 45%, rgba(15,181,201,0) 72%);
-    filter: blur(12px); pointer-events:none;
-  }
-  h1{font-family:"Bebas Neue",sans-serif; letter-spacing:.6px; font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem; text-align:center;}
-  .tag { text-align:center; margin:6px 0 16px; color:var(--muted); }
-
-  /* Grid */
-  .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-top:8px;}
-  .card{grid-column: span 12; border:1px solid var(--line); border-radius:20px; padding:16px; background:rgba(255,255,255,.03); box-shadow:0 6px 18px rgba(0,0,0,.35);}
-  @media (min-width:700px){ .card{grid-column: span 6;} }
-  @media (min-width:1000px){ .card{grid-column: span 4;} }
-
-  .card h3{margin:.2rem 0 .4rem; font-size:20px}
-  .meta{color:var(--muted); font-size:.95rem; margin:.2rem 0 .6rem}
-  .btn{display:inline-block; padding:.6rem .9rem; margin:.2rem .35rem .2rem 0; border-radius:14px; text-decoration:none; font-weight:600; border:1px solid var(--line);
-       background:rgba(255,255,255,.06); color:var(--ink); transition:transform .15s ease, box-shadow .2s ease}
-  .btn:hover,.btn:focus{background:var(--teal); color:#001014; border-color:transparent; transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.35)}
-  .btn:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
-
-  .media{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px}
-  .media img{width:100%; height:120px; object-fit:cover; border-radius:12px; border:1px solid var(--line)}
-  @media (min-width:800px){ .media img{height:140px} }
-
-  .section{padding:10px 0;}
-  a{color:var(--teal)} a:visited{color:var(--teal)}
-  :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
-  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
-</style>
-</head>
-
-<body>
-  <main>
-    <div class="wrap">
-      <nav class="nav" aria-label="Primary">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/projects.html">Projects</a>
-        <a href="mailto:kelinacowell.qa@gmail.com">Contact</a>
-      </nav>
-
-      <div class="headline">
-        <div class="glow-core">
-          <h1>PROJECTS — QA EVIDENCE & RESULTS</h1>
-        </div>
-      </div>
-      <p class="tag">Manual & Automation QA • Repos • Screenshots • STAR outcomes</p>
-
-      <section class="section" aria-labelledby="projects">
-        <h2 id="projects" class="sr-only">Projects</h2>
-        <div class="grid">
-          <article class="card" aria-labelledby="p1-title">
-            <h3 id="p1-title">Functional Testing — Battletoads (PC Game Pass)</h3>
-            <p class="meta">Gameplay logic • UI flow • Co-op • Bug documentation</p>
-            <p>Summary: Manual QA fundamentals with clear repro steps and evidence. STAR: 22 bugs logged (8 critical, 10 major, 4 minor), 100% repro consistency.</p>
-            <p><a class="btn" href="https://github.com/kelinacowellqa/Functional-Testing-Examples" target="_blank" rel="noopener">View Repo</a></p>
-            <div class="media" role="list" aria-label="Screenshots">
-              <img src="assets/img/battletoads-1.webp" alt="Battletoads bug report screenshot: annotated UI misalignment on pause menu with arrows and notes." loading="lazy" role="listitem">
-              <img src="assets/img/battletoads-2.webp" alt="Spreadsheet with 20-bug sample, showing IDs, titles, repro steps, severity, and status columns." loading="lazy" role="listitem">
-              <img src="assets/img/battletoads-3.webp" alt="Jira board view with columns: To Do, In Progress, Verify, Done — several issues in Verify with labels for co-op logic." loading="lazy" role="listitem">
-            </div>
-          </article>
-
-          <article class="card" aria-labelledby="p2-title">
-            <h3 id="p2-title">Exploratory — Rebel Racing (Mobile)</h3>
-            <p class="meta">Device compatibility • UI scaling • Crash handling</p>
-            <p>Summary: Device matrix across Android/iOS; surfaced 6 major UI bugs across 9 devices with 30 test cases. Evidence includes logs and clips.</p>
-            <p><a class="btn" href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions" target="_blank" rel="noopener">View Repo</a></p>
-            <div class="media" role="list" aria-label="Screenshots">
-              <img src="assets/img/rebel-1.webp" alt="Device comparison matrix showing model, OS version, DPI, and pass/fail status for UI scaling." loading="lazy" role="listitem">
-              <img src="assets/img/rebel-2.webp" alt="Bug log snippet with thumbnails highlighting layout break on 19.5:9 aspect ratio." loading="lazy" role="listitem">
-              <img src="assets/img/rebel-3.webp" alt="Screen recording frame showing delayed input response with stopwatch overlay." loading="lazy" role="listitem">
-            </div>
-          </article>
-
-          <article class="card" aria-labelledby="p3-title">
-            <h3 id="p3-title">Regression — Sworn (PC Game Pass)</h3>
-            <p class="meta">Quest triggers • Stamina logic • Patch verification</p>
-            <p>Summary: Structured retesting post-fix. Metrics: 12 issues retested, 10 fixed, 2 reopened. Evidence includes pre/post logs and video comparison.</p>
-            <p><a class="btn" href="https://github.com/kelinacowellqa/Bug-Reports-Samples" target="_blank" rel="noopener">View Repo</a></p>
-            <div class="media" role="list" aria-label="Screenshots">
-              <img src="assets/img/sworn-1.webp" alt="CSV diff table listing Fixed / Not Fixed / Reopened with issue IDs and patch notes references." loading="lazy" role="listitem">
-              <img src="assets/img/sworn-2.webp" alt="Trello regression board with cards grouped by feature area and status." loading="lazy" role="listitem">
-              <img src="assets/img/sworn-3.webp" alt="Side-by-side frames comparing pre-patch and post-patch quest trigger behavior." loading="lazy" role="listitem">
-            </div>
-          </article>
-
-          <!-- Add more project cards as you publish repos -->
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
-  </footer>
-</body>
-</html>
+:root{--teal:#0fb5c9;--bg:#111418;--ink:#e9eef2;--muted:#b9c2c8;--line:rgba(255,255,255,.08)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;display:flex;flex-direction:column}
+main{flex:1 0 auto}.wrap{max-width:1080px;margin:0 auto;padding:28px 20px}
+footer.footer{flex-shrink:0;color:var(--muted);border-top:1px solid var(--line);margin-top:14px;padding:12px 20px}
+.nav{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px 0 6px}
+.nav a{display:inline-block;padding:.5rem .8rem;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink)}
+.nav a:hover,.nav a:focus{background:var(--teal);color:#001014;border-color:transparent}
+.nav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.headline{text-align:center;margin:8px 0 4px}
+.headline .glow-core{position:relative;display:inline-block;padding:2px 8px;isolation:isolate}
+.headline .glow-core::before{content:"";position:absolute;inset:-10px -8%;background:radial-gradient(ellipse at center,rgba(15,181,201,.38),rgba(15,181,201,.18) 45%,rgba(15,181,201,0) 72%);filter:blur(12px)}
+h1{font-family:"Bebas Neue",sans-serif;letter-spacing:.6px;font-size:clamp(36px,6vw,56px);margin:.25rem 0 .35rem;text-align:center}
+.tag{text-align:center;margin:6px 0 16px;color:var(--muted)}
+.panel{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.03);padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.panel h2{margin:.2rem 0 .6rem;font-size:22px}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:10px}
+</style></head>
+<body><main><div class="wrap">
+<nav class="nav" aria-label="Primary">
+  <a href="/" aria-current="page">Home</a>
+  <a href="/projects.html">Projects</a>
+  <a href="mailto:kelinacowell.qa@gmail.com">Contact</a>
+</nav>
+<div class="headline"><div class="glow-core"><h1>PROJECTS — Coming Soon</h1></div></div>
+<p class="tag">Manual & Automation QA • Repos • Screenshots • STAR outcomes</p>
+<section aria-labelledby="coming" class="panel">
+  <h2 id="coming">What’s landing here</h2>
+  <ul>
+    <li>Repo link (public or redacted samples)</li>
+    <li>3–8 screenshots/GIFs (≤1920px, WebP) with descriptive alt text</li>
+    <li>Concise summary + measurable results (STAR)</li>
+  </ul>
+  <p>Preview by email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a></p>
+</section>
+</div></main>
+<footer class="footer"><div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div></footer>
+</body></html>
 
