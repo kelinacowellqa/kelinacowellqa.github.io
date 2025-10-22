@@ -3,30 +3,25 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
 <title>Kelina Cowell — Manual & Automation QA Engineer | Games & Software Testing Portfolio</title>
 <meta name="description" content="Guardian of the Player Experience. Manual & Automation QA for games and software — exploratory, functional & cross-platform testing (PC • Console • VR • Mobile).">
 <link rel="canonical" href="https://kelinacowellqa.github.io/">
 <meta name="theme-color" content="#111418">
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph (used by LinkedIn, GitHub, Slack, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kelina Cowell — QA Portfolio">
 <meta property="og:description" content="Manual & Automation QA • Exploratory, functional & cross-platform testing.">
 <meta property="og:url" content="https://kelinacowellqa.github.io/">
 <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/profile-banner.webp">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kelina Cowell — QA Portfolio">
-<meta name="twitter:description" content="Guardian of the Player Experience • Multi-Platform QA">
-<meta name="twitter:image" content="https://kelinacowellqa.github.io/assets/img/profile-banner.webp">
-
-<!-- Fonts (brand) -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Structured Data -->
+<!-- JSON-LD (Search/SEO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,8 +37,9 @@
   ]
 }
 </script>
+
 <style>
-  /* BRAND LOCK */
+  /* ===== Brand lock ===== */
   :root{
     --teal:#0fb5c9;  /* brand teal */
     --bg:#111418;    /* charcoal */
@@ -52,40 +48,53 @@
     --line:rgba(255,255,255,.08);
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-  .wrap{max-width:1024px;margin:0 auto;padding:28px 20px}
-  h1{font-family:"Bebas Neue",sans-serif;letter-spacing:.5px;font-size:clamp(36px,6vw,56px);margin:.25rem 0 .35rem}
-  .tag{color:var(--muted);margin:0 0 16px}
-  .btn{display:inline-block;padding:.72rem 1rem;margin:.25rem .4rem .25rem 0;border-radius:16px;text-decoration:none;font-weight:600;border:1px solid var(--line)}
-  .btn.primary{background:var(--teal);color:#001014}
-  .btn.ghost{background:rgba(255,255,255,.06);color:var(--ink)}
-  .section{padding:22px 0;border-top:1px solid var(--line)}
-  .section h2{font-size:22px;margin:0 0 .6rem}
-  ul{padding-left:18px;margin:0}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
+  .hero-img{width:100%; height:auto; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px;}
+  h1{
+    font-family:"Bebas Neue",sans-serif; letter-spacing:.6px;
+    font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem;
+  }
+  .tag{color:var(--muted); margin:0 0 16px;}
+  .btn{
+    display:inline-block; padding:.72rem 1rem; margin:.25rem .4rem .25rem 0;
+    border-radius:16px; text-decoration:none; font-weight:600; border:1px solid var(--line)
+  }
+  .btn.primary{background:var(--teal); color:#001014;}
+  .btn.ghost{background:rgba(255,255,255,.06); color:var(--ink);}
+  .btn:hover,.btn:focus{transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.35);}
+  .section{padding:26px 0; border-top:1px solid var(--line);}
+  .section h2{font-size:22px; margin:0 0 .6rem;}
+  ul{padding-left:18px; margin:0;}
   a{color:var(--teal)}
-  .footer{color:var(--muted);border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
-  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:10px}
-  .hero-img{width:100%;height:auto;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.4);margin:8px 0 14px}
-  /* tiny layout tweaks */
-.wrap { max-width: 1080px; }
-.hero-img { margin: 12px 0 18px; }
-h1 { letter-spacing: .6px; }
-.btn:hover, .btn:focus { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.35); }
-.section { padding: 26px 0; }
+  .footer{color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding-top:12px;}
+  :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
 </style>
 </head>
+
 <body>
   <main class="wrap">
-    <img class="hero-img" src="assets/img/profile-banner.webp" alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’." width="1600" height="550">
+    <!-- Banner -->
+    <img class="hero-img" src="assets/img/profile-banner.webp"
+         alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’."
+         width="1600" height="550">
+
+    <!-- Hero -->
     <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
     <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
+
     <p>
       <a class="btn primary" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
     </p>
 
-    <section class="section">
-      <h2>Featured Repositories</h2>
+    <!-- Featured repos -->
+    <section class="section" aria-labelledby="repos">
+      <h2 id="repos">Featured Repositories</h2>
       <ul>
         <li><a href="https://github.com/kelinacowellqa/Functional-Testing-Examples">Functional-Testing-Examples</a></li>
         <li><a href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions">Exploratory-Testing-Sessions</a></li>
@@ -94,8 +103,9 @@ h1 { letter-spacing: .6px; }
       </ul>
     </section>
 
-    <section class="section">
-      <h2>Contact</h2>
+    <!-- Contact -->
+    <section class="section" aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
       <p>Email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a> •
          LinkedIn: <a href="https://www.linkedin.com/in/kelina-cowell-qa-tester/">/in/kelina-cowell-qa-tester/</a></p>
     </section>
@@ -104,3 +114,4 @@ h1 { letter-spacing: .6px; }
   </main>
 </body>
 </html>
+
