@@ -18,13 +18,16 @@
     }
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
     a{color:var(--brand)}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    /* Navbar */
-    .nav{display:flex;align-items:center;gap:10px;justify-content:center;margin:10px 0 20px}
-    .chip{appearance:none;border:1px solid var(--line);background:#11161c;color:var(--text);padding:8px 14px;border-radius:999px;box-shadow:none;text-decoration:none;font-weight:600}
-    .chip:hover{border-color:rgba(255,255,255,.18)}
-    /* Hero */
-    .hero{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}    /* Hero */
+
+    .hero{padding:0;margin:0 0 8px}
+    .hero img{width:100%;display:block;border-radius:18px}
+    .title{font-size:clamp(28px,4.2vw,46px);letter-spacing:.4px;margin:18px 6px 6px;font-weight:900}
+    .subtitle{color:var(--muted);margin:0 6px 16px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 6px 0}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:#121820;border:1px solid #2b2f36;color:var(--text);font-weight:700;letter-spacing:.2px;text-decoration:none;transition:background .15s,color .15s,transform .05s}
+    .btn:hover{background:var(--brand);color:#0b0f14}
+    .btn.secondary{background:rgba(0,255,240,.08);border:1px solid rgba(0,255,240,.35);color:var(--brand)}
     .hero img{width:100%;display:block;border-radius:18px}
     .title{font-size:clamp(28px,4.2vw,46px);letter-spacing:.4px;margin:18px 6px 6px;font-weight:900}
     .subtitle{color:var(--muted);margin:0 6px 16px}
@@ -50,12 +53,6 @@
 <body>
   <div class="wrap">
     <!-- Simple navbar to match existing pages -->
-    <nav class="nav" aria-label="Primary">
-      <a class="chip" href="./">Home</a>
-      <a class="chip" href="./projects/">Projects</a>
-      <a class="chip" href="./contact/">Contact</a>
-    </nav>
-
     <!-- Hero banner -->
     <header class="hero" aria-labelledby="site-title">
       <!-- Replace the image below if your filename differs -->
@@ -126,6 +123,5 @@
   </div>
 </body>
 </html>
-
 
 
