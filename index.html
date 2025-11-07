@@ -38,9 +38,9 @@
   <div class="grid-3">
     <article class="card">
       <h3>Manual Testing Portfolio</h3>
-      <p>Functional • UI/UX • Co-op • Performance • Regression</p>
+      <p>Functional • Exploritory/Edge Testing • Regression • Cross Platform (Quest 3 VR & PCVR) • Multi-Input/Controller Parity • Narrative/Localisation • Lite Automation Testing </p>
       <hr>
-      <p class="meta">8 projects • PC • Mobile • VR • Jira workflows</p>
+      <p class="meta">7 projects • PC • Mobile • VR</p>
       <p><a class="btn" href="https://kelinacowell.github.io/">View Manual QA Portfolio →</a></p>
     </article>
 
@@ -60,15 +60,22 @@
   </div>
 </section>
 
-<!-- QA Chronicles -->
-<section aria-labelledby="qa-chronicles" class="wrap">
-  <h2 id="qa-chronicles">QA Chronicles</h2>
-  <p>A monthly LinkedIn carousel with witty, sarcastic humour — comic-style illustrations created by me, featuring myself, my cat, and anthropomorphic hardware.</p>
-  <a class="qc-thumb" href="https://kelinacowellqa.github.io/QA-Chronicles-Kelina-Cowell/" aria-label="Browse QA Chronicles">
-    <img src="/assets/img/page-1.png.png"
-         alt="QA Chronicles — Issue 1 cover: If it doesn’t function, nothing else matters.">
-  </a>
-</section>
+/* QA Chronicles card with right-docked thumbnail */
+.card.with-thumb{ position:relative; padding-right:235px; min-height:190px; }
+.card.with-thumb .card-body{ max-width: 76ch; }
+.card.with-thumb .thumb{
+  position:absolute; top:16px; right:18px; width:170px; height:auto; aspect-ratio:1/1;
+  object-fit:cover; border-radius:10px; border:1px solid var(--line);
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+/* Stack on mobile */
+@media (max-width:780px){
+  .card.with-thumb{ padding-right:18px; }
+  .card.with-thumb .thumb{
+    position:static; display:block; margin:0 0 10px auto; width:60%; max-width:260px;
+  }
+}
 
   <footer>
     <h2>Contact</h2>
