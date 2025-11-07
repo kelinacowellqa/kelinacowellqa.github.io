@@ -1,211 +1,131 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kelina Cowell – Manual & Automation QA Engineer</title>
+  <meta name="description" content="Kelina Cowell — Manual & Automation QA Engineer. Multi‑Platform QA: PC • Console • VR • Mobile. Guardian of the Player Experience." />
+  <meta property="og:title" content="Kelina Cowell – QA Portfolio" />
+  <meta property="og:description" content="Manual & Automation QA • Multi‑Platform: PC • Console • VR • Mobile" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/qa-tester-multi-platform-banner.png" />
+  <meta name="theme-color" content="#0d1117" />
+  <style>
+    :root{
+      --bg:#0d1117; --panel:#0f1215; --muted:#a9b1bb; --text:#e6edf3; --line:rgba(255,255,255,.08);
+      --brand:#00fff0; --brand-2:#5be7ff; --shadow:0 10px 28px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    a{color:var(--brand)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    /* Navbar */
+    .nav{display:flex;align-items:center;gap:10px;justify-content:center;margin:10px 0 20px}
+    .chip{appearance:none;border:1px solid var(--line);background:#11161c;color:var(--text);padding:8px 14px;border-radius:999px;box-shadow:none;text-decoration:none;font-weight:600}
+    .chip:hover{border-color:rgba(255,255,255,.18)}
+    /* Hero */
+    .hero{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+    .hero img{width:100%;display:block;border-radius:18px}
+    .title{font-size:clamp(28px,4.2vw,46px);letter-spacing:.4px;margin:18px 6px 6px;font-weight:900}
+    .subtitle{color:var(--muted);margin:0 6px 16px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 6px 0}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:#121820;border:1px solid #2b2f36;color:var(--text);font-weight:700;letter-spacing:.2px;text-decoration:none;transition:background .15s,color .15s,transform .05s}
+    .btn:hover{background:var(--brand);color:#0b0f14}
+    .btn.secondary{background:rgba(0,255,240,.08);border:1px solid rgba(0,255,240,.35);color:var(--brand)}
 
-<title>Kelina Cowell — Manual & Automation QA Engineer | Games & Software Testing Portfolio</title>
-<meta name="description" content="Guardian of the Player Experience. Manual & Automation QA for games and software — exploratory, functional & cross-platform testing (PC • Console • VR • Mobile).">
-<link rel="canonical" href="https://kelinacowellqa.github.io/">
-<meta name="theme-color" content="#111418">
+    /* Sections */
+    h2{font-size:1.4rem;margin:28px 6px 12px}
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:820px){ .grid{grid-template-columns:1.2fr .9fr .9fr} }
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .pill{font-size:.9rem;padding:6px 10px;border-radius:999px;border:1px solid var(--line);opacity:.95}
 
-<!-- Open Graph (LinkedIn/GitHub previews) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kelina Cowell — QA Portfolio">
-<meta property="og:description" content="Manual & Automation QA • Exploratory, functional & cross-platform testing.">
-<meta property="og:url" content="https://kelinacowellqa.github.io/">
-<meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/profile-banner.webp">
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kelina Cowell",
-  "jobTitle": "Manual & Automation QA Engineer",
-  "description": "Guardian of the Player Experience — Games & Software Testing Portfolio.",
-  "url": "https://kelinacowellqa.github.io/",
-  "image": "https://kelinacowellqa.github.io/assets/img/profile-banner.webp",
-  "sameAs": [
-    "https://github.com/kelinacowellqa",
-    "https://www.linkedin.com/in/kelina-cowell-qa-tester/"
-  ]
-}
-</script>
-
-<style>
-  /* ===== Brand lock ===== */
-  :root{
-    --teal:#0fb5c9;  /* brand teal */
-    --bg:#111418;    /* charcoal */
-    --ink:#e9eef2;   /* light text */
-    --muted:#b9c2c8; /* soft text */
-    --line:rgba(255,255,255,.08);
-  }
-  /* Tiny nav (Home • Projects • Contact) */
-.nav{display:flex; gap:12px; align-items:center; justify-content:center; margin:10px 0 6px;}
-.nav a{display:inline-block; padding:.5rem .8rem; border-radius:12px; text-decoration:none;
-       border:1px solid var(--line); background:rgba(255,255,255,.06); color:var(--ink);}
-.nav a:hover,.nav a:focus{background:var(--teal); color:#001014; border-color:transparent;}
-.nav a:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
-
-  /* Layout & sticky footer */
-  html, body { height: 100%; }
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    display:flex; flex-direction:column;
-  }
-  main{flex:1 0 auto;}
-  footer.footer{flex-shrink:0; color:var(--muted); border-top:1px solid var(--line); margin-top:14px; padding:12px 20px;}
-  .wrap{max-width:1080px; margin:0 auto; padding:28px 20px;}
-
-  /* Banner (cropped) + pulse (4s) */
-  .hero-wrap{ border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.4); margin:12px 0 18px; }
-  .hero-img{ display:block; width:100%; height:220px; object-fit:cover; }
-  .banner-pulse { animation: bannerPulse 4s ease-in-out infinite; }
-  @keyframes bannerPulse{
-    0%,100%{ box-shadow:0 0 25px rgba(15,181,201,.25); filter:brightness(1); }
-    50%    { box-shadow:0 0 60px rgba(15,181,201,.55); filter:brightness(1.1) saturate(1.1); }
-  }
-  @media (min-width: 900px){ .hero-img{ height:260px; } }
-  @media (max-width: 520px){ .hero-img{ height:170px; } h1{ font-size:40px; } }
-
-  /* Typography & buttons */
-  h1{
-    font-family:"Bebas Neue",sans-serif; letter-spacing:.6px;
-    font-size:clamp(36px,6vw,56px); margin:.25rem 0 .35rem;
-    text-align:center;
-  }
-
-  /* unified buttons: dark by default, teal on hover/focus */
-  .btn{
-    display:inline-block;
-    padding:.72rem 1rem;
-    margin:.25rem .4rem .25rem 0;
-    border-radius:16px;
-    text-decoration:none;
-    font-weight:600;
-    border:1px solid var(--line);
-    background: rgba(255,255,255,.06);
-    color: var(--ink);
-    transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-  }
-  .btn:hover,
-  .btn:focus{
-    background: var(--teal);
-    color:#001014;
-    border-color: transparent;
-    transform: translateY(-1px);
-    box-shadow:0 8px 20px rgba(0,0,0,.35);
-  }
-  .btn:focus-visible{ outline:2px solid var(--teal); outline-offset:2px; }
-
-  .section{padding:26px 0; border-top:1px solid var(--line);}
-  .section h2{font-size:22px; margin:0 0 .6rem;}
-  ul{padding-left:18px; margin:0;}
-  a{color:var(--teal)} a:visited{color:var(--teal)}
-  :focus-visible{outline:2px solid var(--teal); outline-offset:2px; border-radius:10px}
-
-  /* ===== BACKGROUND GLOW (centered, text-width, synced with banner) ===== */
-  .headline { text-align:center; margin:6px 0 0; }
-  .tag { text-align:center; margin:6px 0 16px; color:var(--muted); }
-
-  .headline .glow-core{
-    position: relative;
-    display: inline-block;      /* glow hugs text width */
-    padding: 2px 8px;           /* tiny breathing room */
-    isolation: isolate;         /* keep glow behind text only */
-  }
-  .headline .glow-core::before{
-    content:"";
-    position:absolute;
-    /* widen + soften the glow to reach the text edges */
-    inset: -10px -8%;
-    background: radial-gradient(ellipse at center,
-                rgba(15,181,201,.38) 0%,
-                rgba(15,181,201,.18) 45%,
-                rgba(15,181,201,0)   72%);
-    filter: blur(12px);
-    z-index:0;
-    animation: headerGlow 4s ease-in-out infinite; /* stays in sync with banner */
-    pointer-events:none;
-  }
-  .headline h1{ position:relative; z-index:1; margin:0; }
-
-  @keyframes headerGlow{
-    0%,100%{ opacity:.55; transform: scale(.98); }
-    50%    { opacity:.95; transform: scale(1.03); }
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .banner-pulse, .headline .glow-core::before{ animation:none !important; filter:none !important; }
-  }
-</style>
+    /* Footer */
+    footer{border-top:1px solid var(--line);margin-top:36px;padding-top:18px}
+  </style>
 </head>
-
 <body>
-  <main>
-    <div class="wrap">
-      <nav class="nav" aria-label="Primary">
-  <a href="/" aria-current="page">Home</a>
-  <a href="/projects.html">Projects</a>
-  <a href="mailto:kelinacowell.qa@gmail.com">Contact</a>
-</nav>
-      <!-- Banner (cropped + pulsing) -->
-      <div class="hero-wrap banner-pulse">
-        <img class="hero-img" src="assets/img/profile-banner.webp"
-             alt="Cinematic banner with controller, macro keypad, VR headset, and phone; ‘Guardian of the Player Experience’.">
-      </div>
+  <div class="wrap">
+    <!-- Simple navbar to match existing pages -->
+    <nav class="nav" aria-label="Primary">
+      <a class="chip" href="./">Home</a>
+      <a class="chip" href="./projects/">Projects</a>
+      <a class="chip" href="./contact/">Contact</a>
+    </nav>
 
-      <!-- Static header with centered, synced background glow -->
-      <div class="headline">
-        <div class="glow-core">
-          <h1>KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
-        </div>
-      </div>
-      <p class="tag">Guardian of the Player Experience • Multi-Platform QA (PC • Console • VR • Mobile)</p>
-
-      <p style="text-align:center">
+    <!-- Hero banner -->
+    <header class="hero" aria-labelledby="site-title">
+      <!-- Replace the image below if your filename differs -->
+      <img src="./qa-tester-multi-platform-pc-console-vr-mobile.png" alt="Kelina Cowell – Multiplatform Games Tester" />
+      <h1 id="site-title" class="title">KELINA COWELL — MANUAL & AUTOMATION QA ENGINEER</h1>
+      <p class="subtitle">Guardian of the Player Experience • Multi‑Platform QA (PC • Console • VR • Mobile)</p>
+      <div class="cta-row">
         <a class="btn" href="https://github.com/kelinacowellqa" target="_blank" rel="noopener">GitHub Profile</a>
-        <a class="btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/kelina-cowell-qa-tester/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- Portfolio Hub -->
+    <section aria-labelledby="portfolio-hub">
+      <h2 id="portfolio-hub">Portfolio Hub</h2>
+      <div class="grid">
+        <!-- Manual Testing (LIVE) -->
+        <article class="card">
+          <h3>Manual Testing Portfolio</h3>
+          <p class="muted">Functional • UI/UX • Co‑op • Performance • Regression</p>
+          <div class="cta-row">
+            <a class="btn" href="https://kelinacowell.github.io/">View Manual QA Portfolio →</a>
+          </div>
+          <div class="pills">
+            <span class="pill">8 projects</span>
+            <span class="pill">PC • Mobile • VR</span>
+            <span class="pill">Jira workflows</span>
+          </div>
+        </article>
+
+        <!-- Automation Testing (COMING SOON) -->
+        <article class="card">
+          <h3>Automation Testing Portfolio</h3>
+          <p class="muted">Smoke/regression helpers • UI checks • Tooling experiments</p>
+          <p class="muted">Status: Coming soon — page stub will outline scope and roadmap.</p>
+          <div class="cta-row">
+            <a class="btn secondary" href="./portfolio/automation/">Learn more →</a>
+          </div>
+        </article>
+
+        <!-- Mini Game (COMING SOON) -->
+        <article class="card">
+          <h3>Mini Game: Build &amp; Test</h3>
+          <p class="muted">Small playable prototype • Test plan • Bug triage • Post‑mortem</p>
+          <p class="muted">Status: Coming soon — page stub will show milestones.</p>
+          <div class="cta-row">
+            <a class="btn secondary" href="./portfolio/minigame/">Learn more →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- QA Chronicles -->
+    <section aria-labelledby="qa-chronicles">
+      <h2 id="qa-chronicles">QA Chronicles</h2>
+      <p class="muted" style="max-width:68ch">
+        A monthly, light‑hearted carousel series from LinkedIn — each post distils a real testing lesson from a project, with cartoon illustrations.
       </p>
+      <div class="cta-row">
+        <a class="btn" href="./QA-Chronicles-Kelina-Cowell/">Browse QA Chronicles →</a>
+      </div>
+    </section>
 
-      <!-- Featured repos -->
-      <section class="section" aria-labelledby="repos">
-        <h2 id="repos">Featured Repositories</h2>
-        <ul>
-          <li><a href="https://github.com/kelinacowellqa/Functional-Testing-Examples">Functional-Testing-Examples</a></li>
-          <li><a href="https://github.com/kelinacowellqa/Exploratory-Testing-Sessions">Exploratory-Testing-Sessions</a></li>
-          <li><a href="https://github.com/kelinacowellqa/Bug-Reports-Samples">Bug-Reports-Samples</a></li>
-          <li><a href="https://github.com/kelinacowellqa/QA-Templates-and-Resources">QA-Templates-and-Resources</a></li>
-        </ul>
-      </section>
-
-      <!-- Contact -->
-      <section class="section" aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
-        <p>Email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a> •
-           LinkedIn: <a href="https://www.linkedin.com/in/kelina-cowell-qa-tester/">/in/kelina-cowell-qa-tester/</a></p>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
-  </footer>
+    <footer>
+      <h2>Contact</h2>
+      <p class="muted">Email: <a href="mailto:kelinacowell.qa@gmail.com">kelinacowell.qa@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/kelina-cowell-qa-tester/">/in/kelina-cowell-qa-tester/</a></p>
+    </footer>
+  </div>
 </body>
 </html>
-
-
 
 
 
