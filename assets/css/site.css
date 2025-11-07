@@ -67,3 +67,19 @@ footer{max-width:980px;margin:40px auto 0;padding:20px 18px 0;text-align:center;
   .grid-3{grid-template-columns:1fr}
 }
 
+/* QA Chronicles card with right-docked thumbnail */
+.card.with-thumb{ position:relative; padding-right:235px; min-height:190px; }
+.card.with-thumb .card-body{ max-width: 76ch; }
+.card.with-thumb .thumb{
+  position:absolute; top:16px; right:18px; width:170px; height:auto; aspect-ratio:1/1;
+  object-fit:cover; border-radius:10px; border:1px solid var(--line);
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+/* Stack on mobile */
+@media (max-width:780px){
+  .card.with-thumb{ padding-right:18px; }
+  .card.with-thumb .thumb{
+    position:static; display:block; margin:0 0 10px auto; width:60%; max-width:260px;
+  }
+}
