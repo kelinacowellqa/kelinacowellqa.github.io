@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Freelance Game QA Services | Kelina Cowell</title>
+
+  <meta name="description" content="Freelance Game QA services by Kelina Cowell for indie developers and solo devs. Structured exploratory, functional, regression, accessibility and early build testing across PC, mobile and VR, with clear bug reports and video evidence." />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Freelance Game QA Services | Kelina Cowell">
+  <meta property="og:description" content="Freelance Game QA services for indie developers and solo devs, focused on player-impacting issues, system clarity, onboarding problems, core loop blockers and reproducible bug reports with evidence." />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/linkedinbanner.png">
+  <meta property="og:url" content="https://kelinacowellqa.github.io/freelance-game-qa-services.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Freelance Game QA Services | Kelina Cowell">
+  <meta name="twitter:description" content="Freelance Game QA services for indie developers and solo devs, focused on practical testing, clear bug reporting and player-impacting issues." />
+
+  <!-- Jekyll / GitHub Pages stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<style>
+  :root{
+    --bg:#0b0f14;
+    --panel:#0f1215;
+    --text:#cfd6dd;
+    --muted:#a9b3bd;
+    --line:rgba(255,255,255,.08);
+    --teal:#00fff0;
+    --teal-soft:#66fff7;
+
+    --thumb-size:220px;
+    --thumb-gap:18px;
+
+    --s-1: 8px;
+    --s-2: 12px;
+    --s-3: 16px;
+    --s-4: 20px;
+    --s-5: 28px;
+    --s-6: 36px;
+  }
+
+  html,body{
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    margin:0;
+    line-height:1.55;
+  }
+  a{color:var(--teal);text-decoration:none}
+  a:hover{color:var(--teal-soft)}
+  strong{color:inherit}
+  h1,h2,h3,h4,h5,h6{color:var(--teal)}
+  hr{border:0;border-top:1px solid var(--teal);opacity:.35}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  @media (min-width:1400px){
+    .wrap{ max-width:1280px; }
+  }
+
+  .hero{max-width:1100px;margin:30px auto 20px;padding:0 18px;text-align:center}
+  .hero img{display:block;max-width:100%;height:auto;margin:0 auto 24px;border-radius:14px}
+
+  .cta-btn{
+    display:inline-block; padding:12px 18px; border-radius:12px;
+    background:#0d1117; border:1px solid #2b2f36; color:var(--teal); font-weight:700;
+    text-decoration:none;
+  }
+  .cta-btn:hover{background:var(--teal); color:var(--bg)}
+
+  .primary-cta{
+    background:var(--teal);
+    color:var(--bg);
+    border-color:var(--teal);
+  }
+  .primary-cta:hover{
+    background:var(--teal-soft);
+    color:var(--bg);
+  }
+
+  h1{ margin-block: var(--s-5) var(--s-3); }
+  h2{ margin-block: var(--s-5) var(--s-2); }
+  h3{ margin-block: var(--s-4) var(--s-2); }
+  p, ul, ol{ margin-block: var(--s-2) var(--s-3); }
+  li + li{ margin-top: var(--s-1); }
+  hr{ margin-block: var(--s-5); }
+
+  .project-block,
+  .service-card,
+  .section,
+  header.hero,
+  footer{
+    display: flow-root;
+    padding-block: 0.5px;
+  }
+
+  .intro{
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+    margin-top: 12px;
+  }
+  .intro .headshot{
+    flex: 0 0 264px;
+    width: 264px;
+    height: auto;
+    display:block;
+    margin:0;
+  }
+  .intro > div{
+    flex: 1;
+    min-width: 0;
+  }
+  @media (max-width: 760px){
+    .intro{ flex-direction:column; }
+    .intro .headshot{ width: 220px; flex-basis:auto; }
+  }
+
+  .intro p{ line-height: 1.6; }
+  .intro p:last-child{ margin-bottom: 0; }
+
+  .hero-copy{
+    text-align:center;
+    max-width:920px;
+    margin:0 auto;
+  }
+  .hero-copy h1{
+    font-size:clamp(2rem, 5vw, 4rem);
+    line-height:1.08;
+    margin-bottom:14px;
+  }
+  .hero-copy .lead{
+    font-size:1.18rem;
+    color:var(--text);
+    max-width:850px !important;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 12px;
+    margin:18px auto 0;
+  }
+
+  .metrics-look table{
+    width:100%;
+    border-collapse:collapse;
+    background:transparent;
+    border:1px solid var(--line);
+    margin:12px 0;
+  }
+  .metrics-look thead th{
+    background:rgba(0,255,240,.08);
+    color:var(--teal);
+    text-align:left;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+  }
+  .metrics-look tbody th,
+  .metrics-look tbody td{
+    padding:12px 14px;
+    vertical-align:top;
+    color:var(--text);
+    background:transparent;
+  }
+  .metrics-look thead th + th,
+  .metrics-look tbody td + td,
+  .metrics-look tbody th + td{ border-left:1px solid var(--line); }
+  .metrics-look tbody tr + tr td,
+  .metrics-look tbody tr + tr th{ border-top:1px solid var(--line); }
+
+  .chips{
+    display:flex; flex-wrap:wrap; gap:8px 10px; margin:0; padding:0; list-style:none;
+  }
+  .chips li{
+    display:inline-flex; align-items:center;
+    padding:.35rem .6rem; border-radius:12px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.04);
+    color:var(--text); line-height:1.2; font-weight:500;
+  }
+  .chips li:focus-within{ outline:2px solid var(--teal); outline-offset:2px; }
+  .section .hint{ color:var(--muted); margin:.25rem 0 0; font-size:.95rem; }
+  .skills-block{ margin:12px 0 20px; }
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+    margin:18px 0;
+  }
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    padding:16px 18px;
+  }
+  .service-card h3{margin-top:0}
+  .service-card p{margin-bottom:0}
+  @media (max-width: 900px){
+    .service-grid{grid-template-columns:1fr;}
+  }
+
+  .project-block{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    margin:22px 0;
+    padding:16px 18px;
+    position:relative;
+    overflow:hidden;
+    transition: transform .22s ease, filter .22s ease, box-shadow .22s ease;
+    will-change: transform, filter;
+    filter: drop-shadow(0 0 0 rgba(15,181,201,0));
+  }
+  .project-block.with-thumb{
+    padding-right:calc(var(--thumb-size) + var(--thumb-gap) + 18px);
+    min-height:calc(var(--thumb-size) + 32px);
+  }
+  .project-block .thumb{
+    position:absolute;
+    top:16px;
+    right:18px;
+    width:var(--thumb-size);
+    height:var(--thumb-size);
+    object-fit:cover;
+    object-position:center;
+    border-radius:10px;
+    border:1px solid var(--line);
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+  }
+  .project-block em{color:var(--muted)}
+  .project-block p{margin:6px 0 8px;}
+  .project-block:hover{
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 28px rgba(15,181,201,.38));
+  }
+  .project-block:focus-within{
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 28px rgba(15,181,201,.38));
+    outline: 2px solid rgba(15,181,201,.55);
+    outline-offset: 2px;
+  }
+  .project-block:hover:focus-within{
+    filter: drop-shadow(0 0 34px rgba(15,181,201,.45));
+  }
+
+  .banner-pulse{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:16px;
+    animation: imgOutPulse 4s ease-in-out infinite;
+  }
+  @keyframes imgOutPulse{
+    0%,100%{ filter: drop-shadow(0 0 0 rgba(15,181,201,0)) brightness(1); }
+    50%{ filter: drop-shadow(0 0 34px rgba(15,181,201,.75)) brightness(1.06) saturate(1.04); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .banner-pulse{ animation:none !important; filter:none !important; }
+    .project-block,
+    .project-block:hover,
+    .project-block:focus-within{
+      transition: filter .01s linear, box-shadow .01s linear;
+      transform: none;
+    }
+  }
+
+  p, .intro p, .project-block p{ max-width:none !important; }
+  header.hero::before,
+  header.hero::after{
+    content:none !important;
+    animation:none !important;
+    box-shadow:none !important;
+  }
+
+  @media (max-width: 900px){
+    .project-block.with-thumb{
+      padding-right:18px;
+      min-height:auto;
+    }
+    .project-block .thumb{
+      position:static;
+      display:block;
+      width:100%;
+      max-width:220px;
+      height:auto;
+      aspect-ratio:1/1;
+      margin:0 0 14px auto;
+    }
+  }
+
+  footer{
+    max-width:980px;margin:40px auto 0;padding:20px 18px 0;
+    text-align:center;font-size:.85em;opacity:.8;
+    border-top:1px solid rgba(255,255,255,.05)
+  }
+
+  .faq-accordion details{
+    margin: 10px 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,.03);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .faq-accordion details:hover{
+    background: rgba(255,255,255,.05);
+    border-color: rgba(255,255,255,.18);
+  }
+  .faq-accordion summary{
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--teal);
+    line-height: 1.4;
+    list-style: none;
+  }
+  .faq-accordion summary::-webkit-details-marker{display: none;}
+  .faq-accordion summary::before{
+    content: "▸";
+    margin-right: 8px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  .faq-accordion details[open] summary::before{transform: rotate(90deg);}
+  .faq-answer{
+    margin-top: 10px;
+    opacity: .95;
+    line-height: 1.6;
+  }
+  .faq-answer p{margin: 0 0 10px;}
+  .faq-answer ul{margin: 8px 0;padding-left: 18px;}
+  .faq-answer li{margin: 6px 0;}
+</style>
+
+  <script data-goatcounter="https://kelina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="wrap">
+
+      <header class="hero">
+        <img class="banner-pulse"
+             src="assets/img/linkedinbanner.png"
+             alt="Games QA portfolio banner showing multi-platform testing across PC, mobile, and VR">
+      </header>
+
+     <nav class="site-nav cta-row" style="text-align:initial;">
+  <a class="cta-btn" href="/">Home</a>
+  <a class="cta-btn" href="/freelance-game-qa-services.html">QA Services</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/">Game QA Portfolio</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/">Exploratory QA &amp; Live Testing</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/articles/">Game QA Articles</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">About Me</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/education/">Education &amp; Professional Development</a>
+  <a class="cta-btn" href="/QA-Chronicles-Kelina-Cowell/">QA Chronicles</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">Contact</a>
+</nav>
+
+      <hr>
+
+      <section class="section hero-copy" aria-labelledby="page-title">
+        <h1 id="page-title">Freelance Game QA for Indie Developers</h1>
+
+        <p class="lead">
+          I test early builds, demos and live games to identify player-impacting issues, system confusion, onboarding problems and core loop blockers before they reach your players.
+        </p>
+
+   <p class="cta-row">
+  <a class="cta-btn primary-cta" href="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/contact/">
+    Contact Me About QA Testing
+  </a>
+  <a class="cta-btn" href="#case-studies">View Sample QA Work</a>
+</p>
+
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://kelinacowellqa.github.io/#kelina",
+      "name": "Kelina Cowell",
+      "jobTitle": "Freelance Game QA Tester",
+      "url": "https://kelinacowellqa.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/kelina-cowell-qa-tester/"
+      ],
+      "knowsAbout": [
+        "Game QA",
+        "Manual testing",
+        "Exploratory testing",
+        "Functional testing",
+        "Regression testing",
+        "Accessibility testing",
+        "Bug reporting",
+        "Evidence capture",
+        "PC game testing",
+        "Mobile game testing",
+        "VR testing"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kelinacowellqa.github.io/#website",
+      "url": "https://kelinacowellqa.github.io/",
+      "name": "Kelina Cowell - Game QA Portfolio",
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://kelinacowellqa.github.io/#kelina" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kelinacowellqa.github.io/freelance-game-qa-services.html#service",
+      "name": "Freelance Game QA Testing",
+      "serviceType": "Game QA testing",
+      "provider": { "@id": "https://kelinacowellqa.github.io/#kelina" },
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Indie game developers and solo developers"
+      },
+      "description": "Freelance game QA testing for indie developers and solo devs, focused on exploratory testing, early build QA, player experience, bug reporting and video evidence."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kelinacowellqa.github.io/freelance-game-qa-services.html#webpage",
+      "url": "https://kelinacowellqa.github.io/freelance-game-qa-services.html",
+      "name": "Freelance Game QA Services - Kelina Cowell",
+      "isPartOf": { "@id": "https://kelinacowellqa.github.io/#website" },
+      "about": { "@id": "https://kelinacowellqa.github.io/freelance-game-qa-services.html#service" }
+    }
+  ]
+}
+</script>
+
+      <hr>
+
+      <section class="section" aria-labelledby="what-i-do">
+        <h2 id="what-i-do">What I Do</h2>
+
+        <div class="intro">
+          <img
+            class="headshot"
+            src="assets/img/manual-qa-bug-hunt-illustration.png"
+            alt="Illustration of a QA tester character chasing a bug with a net"
+            width="528" height="528"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div>
+            <p class="card-intro">
+              I provide focused QA testing for indie teams and solo developers who need practical, structured feedback without a bloated corporate testing process getting in the way.
+            </p>
+
+            <p class="card-intro">
+              My work focuses on the things players actually feel: confusing onboarding, unclear systems, broken progression, unstable core loops, input issues, accessibility barriers and bugs that need clear evidence before a developer can fix them.
+            </p>
+
+            <p class="card-intro">
+              Each pass is timeboxed, evidence-driven and adapted to the build. I can work with Jira, Trello, Notion, Google Sheets, Discord reports or whatever lightweight system your team already uses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="services">
+        <h2 id="services">Freelance QA Services</h2>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>Demo &amp; Early Build QA</h3>
+            <p>
+              Focused testing for demos, alphas, betas and early builds, aimed at finding blockers, confusing flows and high-impact player-facing issues before wider release.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Exploratory Testing</h3>
+            <p>
+              Charter-based sessions designed around your game systems, risks and current development priorities, rather than generic test templates pasted onto the wrong project.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Bug Reporting &amp; Evidence</h3>
+            <p>
+              Clear, reproducible bug reports with steps, expected result, actual result, severity, repro rate, environment details and short video evidence where useful.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Player Experience &amp; Clarity Review</h3>
+            <p>
+              Testing focused on where player understanding breaks, including onboarding, UI feedback, system communication, cause and effect, and decision-making under pressure.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Accessibility-Focused QA</h3>
+            <p>
+              Practical accessibility checks informed by APX training, including readability, input strain, cognitive load, feedback redundancy, subtitles and recovery behaviour.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Regression &amp; Fix Verification</h3>
+            <p>
+              Retesting fixes, checking patch-note claims against the live build, and validating that changes have not broken nearby systems or core gameplay flows.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="section metrics-look" aria-labelledby="how-i-work">
+        <h2 id="how-i-work">How I Work</h2>
+
+        <p>
+          My testing is built around clear scope, visible evidence and reports a developer can act on without needing to decode vague player feedback. Fancy, I know.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">What You Get</th>
+              <th scope="col">Why It Helps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Scope</th>
+              <td>Agreed test focus, platform, build details, timebox and priority risks.</td>
+              <td>Keeps the pass useful and avoids random testing for the sake of looking busy.</td>
+            </tr>
+            <tr>
+              <th scope="row">Testing</th>
+              <td>Structured exploratory, functional, regression or accessibility-focused sessions depending on the build.</td>
+              <td>Targets the areas most likely to hurt the player experience or block progress.</td>
+            </tr>
+            <tr>
+              <th scope="row">Evidence</th>
+              <td>Short clips, screenshots, environment details, reproduction notes and session context.</td>
+              <td>Makes issues easier to understand, reproduce, triage and fix.</td>
+            </tr>
+            <tr>
+              <th scope="row">Handover</th>
+              <td>Bug reports, summary findings, risk notes and practical recommendations.</td>
+              <td>Gives the developer clear next steps, not a vague list of complaints wearing a QA hat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section skills-block" aria-labelledby="platforms-tools">
+        <h2 id="platforms-tools">Platforms, Tools &amp; Testing Focus</h2>
+
+        <ul class="chips" aria-label="Platforms, tools and QA focus areas">
+          <li>PC Game QA</li>
+          <li>Mobile Game QA</li>
+          <li>VR QA</li>
+          <li>Meta Quest 3</li>
+          <li>Android Testing</li>
+          <li>OBS Studio</li>
+          <li>Jira</li>
+          <li>Google Sheets</li>
+          <li>Bug Reporting</li>
+          <li>Exploratory Testing</li>
+          <li>Functional Testing</li>
+          <li>Regression Testing</li>
+          <li>Accessibility Testing</li>
+          <li>Player Experience</li>
+          <li>Evidence Capture</li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <h2 id="case-studies">Sample QA Work</h2>
+
+      <p>
+        These case studies show the kind of QA output I can provide: structured scope, practical testing, clear findings and evidence-backed reporting.
+      </p>
+
+      <section class="project-block with-thumb">
+  <img class="thumb" src="../assets/img/live-testing-demos-alphas-betas-thumbnail.png" alt="Cartoon QA tester testing rapid input interactions in a card-based game, representing exploratory QA under real gameplay pressure">
+
+  <h3>Corpus Et Spiritus - <em>Targeted QA Pass: Card Systems & State Integrity (PC)</em></h3>
+
+  <p class="card-intro">
+    <strong>What I tested:</strong> A short, targeted QA pass on a PC build, focused on card resolution, input handling (click vs drag), and card lifecycle clarity under rapid player interaction.
+  </p>
+
+  <p class="card-intro">
+    <strong>Key finding:</strong> Card resolution remained stable, but rapid clicking introduced input instability, causing failed triggers and unintended multi-card activation during subsequent drag interactions.
+  </p>
+
+  <p class="card-intro">
+    <strong>Why it matters:</strong> Systems can be technically stable but still break under player pressure. Input inconsistency and unclear card states reduce player trust and make fast decision-making unreliable.
+  </p>
+
+  <p class="cta">
+    <a href="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/demos-alphas-betas/corpus_et_spiritus.html">
+      View QA Case Study
+    </a>
+  </p>
+</section>
+        
+      <section class="project-block with-thumb">
+        <img class="thumb" src="assets/img/game-jams-qa-thumbnail.png" alt="Cartoon QA tester chasing bugs with a net, representing rapid exploratory QA and live build testing">
+
+        <h3>Cult of PiN - <em>Live Demo Exploratory QA</em></h3>
+
+        <p class="card-intro">
+          <strong>What I tested:</strong> A short exploratory QA pass on a PC demo, focused on ritual systems, player clarity, timing behaviour, system stacking and progression flow.
+        </p>
+
+        <p class="card-intro">
+          <strong>Key finding:</strong> Key systems were technically stable but not always clearly communicated, especially when rituals, multipliers and boss effects overlapped during high-intensity gameplay.
+        </p>
+
+        <p class="card-intro">
+          <strong>Why it matters:</strong> Not every QA finding is a crash or blocker. Sometimes the problem is that the player cannot understand what the game is doing quickly enough to make good decisions.
+        </p>
+
+        <p class="cta">
+          <a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/demos-alphas-betas/cult-of-pin.html">View Cult of PiN QA Case Study</a>
+        </p>
+      </section>
+
+      <section class="project-block with-thumb">
+        <img class="thumb" src="assets/img/live-testing-demos-alphas-betas-thumbnail.png" alt="Cartoon QA tester testing multiple game platforms, representing structured portfolio QA projects">
+
+        <h3>Portfolio Case Studies - <em>PC, Mobile &amp; VR QA</em></h3>
+
+        <p class="card-intro">
+          <strong>What I tested:</strong> Longer structured QA case studies across PC, mobile and VR, covering functional testing, exploratory testing, regression testing and VR comfort/accessibility.
+        </p>
+
+        <p class="card-intro">
+          <strong>Key finding:</strong> The work shows repeatable QA process across different platforms, build types and testing goals, not just one lucky bug report thrown onto a page.
+        </p>
+
+        <p class="card-intro">
+          <strong>Why it matters:</strong> Developers need testers who can adapt to the project in front of them, not force every game through the same tired checklist.
+        </p>
+
+        <p class="cta">
+          <a href="/exploratory-qa-live-testing/">View Live QA Work (Demos & Early Builds)</a>
+        </p>
+      </section>
+
+      <hr>
+
+      <section class="section" aria-labelledby="who-this-is-for">
+        <h2 id="who-this-is-for">Who This Is For</h2>
+
+        <p>
+          This service is best suited to indie developers, solo devs and small teams who need focused QA support without hiring a full-time tester or sending a build into a massive agency pipeline.
+        </p>
+
+        <ul>
+          <li>You have a demo, alpha, beta or early build that needs an outside QA pass.</li>
+          <li>You need clear bug reports with steps, evidence and player impact, not vague feedback.</li>
+          <li>You want someone who can test the game as a system, not just list surface-level complaints.</li>
+          <li>You need practical findings that fit your current tools and workflow.</li>
+        </ul>
+      </section>
+
+      <section class="section faq-accordion" aria-labelledby="faq">
+        <h2 id="faq">Freelance Game QA FAQ</h2>
+
+        <details>
+          <summary>Do you only work with indie developers?</summary>
+          <div class="faq-answer">
+            <p>No. Indie teams and solo developers are my main focus, but the same structured QA approach can also support small studios, student teams, jam teams and early-stage projects.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What platforms can you test on?</summary>
+          <div class="faq-answer">
+            <p>I can test PC, Android mobile and standalone VR on Meta Quest 3. Platform availability depends on the build, access method and project requirements.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can you use Jira?</summary>
+          <div class="faq-answer">
+            <p>Yes. I can use Jira for bug reporting where applicable, but I can also adapt to lightweight indie workflows such as Trello, Notion, Google Sheets, Discord-based reporting or your existing tracker.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What do you deliver after a QA pass?</summary>
+          <div class="faq-answer">
+            <p>Deliverables depend on scope, but can include bug reports, reproduction steps, severity notes, repro rate, environment details, video clips, screenshots, session notes, summary findings and practical recommendations.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do you provide playtesting or QA?</summary>
+          <div class="faq-answer">
+            <p>My focus is QA, not casual playtesting. I can include player experience analysis, but the output is structured around reproducible issues, risks, clarity problems and actionable findings for development.</p>
+          </div>
+        </details>
+      </section>
+
+      <hr>
+
+      <section class="section hero-copy" aria-labelledby="contact">
+        <h2 id="contact">Need a QA Pass on Your Game?</h2>
+
+        <p class="lead">
+          If you are working on a demo, early build, update, live build or small indie project and need structured QA feedback, send me a short message with your build type, platform and what you need tested.
+        </p>
+
+        <p class="cta-row">
+          <a class="cta-btn primary-cta" href="mailto:kelinacowell.qa@gmail.com?subject=Freelance%20Game%20QA%20Enquiry">Email Me</a>
+          <a class="cta-btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="cta-btn" href="/exploratory-qa-live-testing/">View Live QA Work (Demos & Early Builds)</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <hr>
+
+  <footer>© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • Freelance Game QA  📎 Disclaimer: This is a personal freelance QA and portfolio page. I’m not affiliated with or endorsed by any game studios or publishers shown in case studies unless explicitly stated. All trademarks, logos and game assets are the property of their respective owners. Screenshots or short clips are included solely to document testing outcomes. If anything here needs to be removed or credited differently, please contact me and I’ll update it promptly.</footer>
+</body>
+</html>
