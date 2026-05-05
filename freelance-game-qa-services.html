@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
- <style>
+<style>
 :root{
   --bg:#0b0f14;
   --panel:#0f1215;
@@ -46,7 +46,7 @@ html,body{
 }
 
 a{color:var(--teal);text-decoration:none}
-a:hover{color:var(--teal-soft)}
+a:hover{color:var(--teal-soft);text-decoration:none}
 strong{color:inherit}
 h1,h2,h3,h4,h5,h6{color:var(--teal)}
 hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5);}
@@ -57,7 +57,6 @@ hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5)
   .wrap{max-width:1280px;}
 }
 
-/* Banner */
 .banner-pulse{
   display:block;
   width:100%;
@@ -73,7 +72,6 @@ hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5)
   50%{filter:drop-shadow(0 0 34px rgba(15,181,201,.75)) brightness(1.06) saturate(1.04);}
 }
 
-/* NAV */
 .site-nav{
   display:flex;
   flex-wrap:wrap;
@@ -84,7 +82,6 @@ hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5)
   margin:10px auto 0;
 }
 
-/* Buttons */
 .cta-btn{
   display:inline-flex;
   align-items:center;
@@ -98,39 +95,52 @@ hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5)
   text-decoration:none;
 }
 
-/* Hover */
+.cta-btn:visited{
+  color:var(--teal);
+}
+
 .cta-btn:hover{
   background:var(--teal);
   color:var(--bg);
+  border-color:var(--teal);
+  text-decoration:none;
 }
 
-/* ✅ CURRENT PAGE (THIS IS THE FIX) */
 .cta-btn[aria-current="page"]{
   background:var(--teal);
   color:var(--bg);
   border-color:var(--teal);
+  text-decoration:none;
 }
 
-/* Primary CTA (separate, still allowed) */
+.cta-btn[aria-current="page"]:visited,
+.cta-btn[aria-current="page"]:hover{
+  color:var(--bg);
+}
+
 .primary-cta{
   background:var(--teal);
   color:var(--bg);
   border-color:var(--teal);
 }
 
-.primary-cta:hover{
-  background:var(--teal-soft);
+.primary-cta:visited{
   color:var(--bg);
 }
 
-/* Typography spacing */
+.primary-cta:hover{
+  background:var(--teal-soft);
+  color:var(--bg);
+  border-color:var(--teal-soft);
+  text-decoration:none;
+}
+
 h1{margin-block:var(--s-5) var(--s-3);}
 h2{margin-block:var(--s-5) var(--s-2);}
 h3{margin-block:var(--s-4) var(--s-2);}
 p,ul,ol{margin-block:var(--s-2) var(--s-3);}
 li + li{margin-top:var(--s-1);}
 
-/* Layout blocks */
 .section,
 .service-card,
 footer{
@@ -159,7 +169,6 @@ footer{
   margin-bottom:20px;
 }
 
-/* CTA row */
 .cta-row{
   display:flex;
   justify-content:center;
@@ -169,7 +178,6 @@ footer{
   margin:20px auto 0;
 }
 
-/* Intro */
 .intro{
   display:flex;
   align-items:flex-start;
@@ -187,7 +195,6 @@ footer{
   min-width:0;
 }
 
-/* Grid */
 .service-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -203,7 +210,6 @@ footer{
   padding:16px 18px;
 }
 
-/* Tables */
 .metrics-look table{
   width:100%;
   border-collapse:collapse;
@@ -221,7 +227,6 @@ footer{
   color:var(--teal);
 }
 
-/* FAQ */
 .faq-accordion details{
   margin:10px 0;
   padding:12px 14px;
@@ -235,7 +240,6 @@ footer{
   color:var(--teal);
 }
 
-/* Footer */
 footer{
   max-width:980px;
   margin:40px auto 0;
@@ -246,7 +250,6 @@ footer{
   border-top:1px solid rgba(255,255,255,.05);
 }
 
-/* Responsive */
 @media (max-width:900px){
   .service-grid{grid-template-columns:1fr;}
 }
@@ -263,6 +266,17 @@ footer{
   }
 }
 </style>
+
+<nav class="site-nav cta-row" aria-label="Primary">
+  <a class="cta-btn" href="/">Home</a>
+  <a class="cta-btn" href="/freelance-game-qa-services.html" aria-current="page">QA Services</a>
+  <a class="cta-btn" href="/Game-QA-Portfolio.html">QA Portfolio</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/">Early QA Projects</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/articles/">Game QA Articles</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">About Me</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">Contact</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/education/">Education</a>
+</nav>
 </head>
 
 <body>
@@ -273,16 +287,16 @@ footer{
            src="assets/img/linkedinbanner.png"
            alt="Freelance game QA tester for indie developers testing PC, mobile, and VR games">
 
-     <nav class="site-nav cta-row">
-        <a class="cta-btn" href="/">Home</a>
-        <a class="cta-btn" href="/freelance-game-qa-services.html" aria-current="page">QA Services</a>
-        <a class="cta-btn active" href="/Game-QA-Portfolio.html">QA Portfolio</a>
-        <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/">Early QA Projects</a>
-        <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/articles/">Game QA Articles</a>
-        <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">About Me</a>
-        <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">Contact</a>
-        <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/education/">Education</a>
-      </nav>
+<nav class="site-nav cta-row" aria-label="Primary">
+  <a class="cta-btn" href="/">Home</a>
+  <a class="cta-btn" href="/freelance-game-qa-services.html" aria-current="page">QA Services</a>
+  <a class="cta-btn" href="/Game-QA-Portfolio.html">QA Portfolio</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/">Early QA Projects</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/articles/">Game QA Articles</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">About Me</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">Contact</a>
+  <a class="cta-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/education/">Education</a>
+</nav>
 
       <hr>
 
