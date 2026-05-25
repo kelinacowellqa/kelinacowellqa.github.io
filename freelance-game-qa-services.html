@@ -295,6 +295,30 @@ footer{
     filter:none !important;
   }
 }
+
+  .dual-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:20px;
+}
+
+.split-card{
+  padding:24px;
+}
+
+.portfolio-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+}
+
+@media (max-width:900px){
+  .dual-section{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 
 <body>
@@ -483,26 +507,30 @@ footer{
 
 <hr>
 
-<section class="section" aria-labelledby="what-you-get">
-  <h2 id="what-you-get">What You Get</h2>
+<section class="section dual-section">
 
-  <ul>
-    <li>Clear, reproducible bug reports with repro steps and context</li>
-    <li>Short video clips and screenshots showing exactly how issues occur</li>
-    <li>Player-focused findings (confusion, feedback, progression issues)</li>
-    <li>Prioritised issues based on impact, not just volume</li>
-    <li>Actionable feedback you can fix without guesswork</li>
-  </ul>
-</section>
+  <div class="service-card split-card">
 
-<hr>
+    <h2>What You Get</h2>
 
-<section class="section" aria-labelledby="portfolio-hub">
-  <div class="service-card hero-copy">
-    <h2 id="portfolio-hub">View My QA Portfolio</h2>
+    <ul>
+      <li>Clear, reproducible bug reports with repro steps and context</li>
+      <li>Short video clips and screenshots showing exactly how issues occur</li>
+      <li>Player-focused findings (confusion, feedback, progression issues)</li>
+      <li>Prioritised issues based on impact, not just volume</li>
+      <li>Actionable feedback you can fix without guesswork</li>
+    </ul>
 
-    <p class="lead">
-      Want to see examples of my testing work? My QA Portfolio hub brings together real QA passes on indie demos, early builds, updates, and live systems, with clear findings and evidence.
+  </div>
+
+  <div class="service-card split-card portfolio-card">
+
+    <h2>View My QA Portfolio</h2>
+
+    <p>
+      Want to see examples of my testing work?
+      My QA Portfolio includes real QA passes on indie demos,
+      early builds, updates, and live systems with clear findings and evidence.
     </p>
 
     <div class="cta-row">
@@ -510,25 +538,12 @@ footer{
         View QA Portfolio
       </a>
     </div>
+
   </div>
+
 </section>
 
 <hr>
-
-<section class="section" aria-labelledby="who-this-is-for">
-  <h2 id="who-this-is-for">Is This Game Testing Service Right for You?</h2>
-
-  <p>
-    This is for indie developers, solo devs, and small teams who need help testing their game and finding issues before players run into them.
-  </p>
-
-  <ul>
-    <li>You have a demo, alpha, beta, or early build and need someone to test your game properly.</li>
-    <li>You’re getting player feedback, but it’s unclear, inconsistent, or hard to act on.</li>
-    <li>You want clear bug reports with steps, evidence, and context so issues can be fixed quickly.</li>
-    <li>You need someone to look at how the game actually plays, not just list surface-level problems.</li>
-  </ul>
-</section>
 
       <section class="section faq-accordion" aria-labelledby="faq">
         <h2 id="faq">Freelance Game QA FAQ</h2>
