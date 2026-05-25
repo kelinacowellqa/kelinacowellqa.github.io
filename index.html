@@ -137,45 +137,6 @@
     font-size:1.02rem;
   }
 
-  .home-links{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-    margin-top:28px;
-  }
-
-  .home-card{
-    display:block;
-    background:rgba(255,255,255,.03);
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:20px 22px;
-    text-decoration:none;
-    color:var(--text);
-    transition:border-color .2s ease, transform .2s ease, background .2s ease;
-  }
-
-  .home-card:hover,
-  .home-card:focus-visible{
-    background:rgba(0,255,240,.06);
-    border-color:var(--teal);
-    transform:translateY(-2px);
-    outline:none;
-  }
-
-  .home-card h3{
-    margin:0 0 8px;
-    color:var(--teal);
-    font-size:1.08rem;
-  }
-
-  .home-card p{
-    margin:0;
-    color:var(--text);
-    font-size:.98rem;
-    line-height:1.5;
-  }
-
   .featured-project{
     margin-top:32px;
     padding-top:28px;
@@ -232,6 +193,68 @@
     margin-top:10px;
   }
 
+  .home-links{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:16px;
+    margin-top:24px;
+  }
+
+  .home-card{
+    display:block;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    text-decoration:none;
+    color:var(--text);
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+
+  .home-card:hover,
+  .home-card:focus-visible{
+    background:rgba(0,255,240,.06);
+    border-color:var(--teal);
+    transform:translateY(-2px);
+    outline:none;
+  }
+
+  .primary-card{
+    border-color:rgba(0,255,240,.22);
+    background:linear-gradient(
+      145deg,
+      rgba(0,255,240,.05),
+      rgba(255,255,255,.02)
+    );
+  }
+
+  .home-card h3{
+    margin:0 0 8px;
+    color:var(--teal);
+    font-size:1.08rem;
+  }
+
+  .home-card p{
+    margin:0;
+    color:var(--text);
+    font-size:.98rem;
+    line-height:1.5;
+  }
+
+  .secondary-link{
+    margin-top:18px;
+    text-align:center;
+  }
+
+  .secondary-link a{
+    color:var(--muted);
+    font-size:.95rem;
+  }
+
+  .secondary-link a:hover{
+    color:var(--teal);
+  }
+
   section[aria-label="Disclaimer"]{
     font-size:.92rem;
     color:var(--muted);
@@ -247,11 +270,13 @@
     border-top:1px solid rgba(255,255,255,.05);
   }
 
-  @media (max-width:760px){
+  @media (max-width:900px){
     .home-links{
       grid-template-columns:1fr;
     }
+  }
 
+  @media (max-width:760px){
     .intro{
       padding:22px 20px;
     }
@@ -372,34 +397,40 @@
     </div>
   </div>
 
-</section>
+<div class="home-links">
+
+  <a class="home-card primary-card" href="/Game-QA-Portfolio.html">
+    <h3>QA Portfolio</h3>
+    <p>
+      Real QA work on playable builds, including bug reports, testing passes,
+      gameplay validation, release support, and player-impact findings across
+      indie game projects.
+    </p>
+  </a>
+
+  <a class="home-card" href="/freelance-game-qa-services.html">
+    <h3>QA Services</h3>
+    <p>
+      Structured QA support for demos, early builds, updates, release
+      preparation, and player-facing usability testing.
+    </p>
+  </a>
+
+  <a class="home-card" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">
+    <h3>Contact</h3>
+    <p>
+      Get in touch regarding QA support, freelance work, collaboration, or
+      recruitment opportunities.
+    </p>
+  </a>
+
 </div>
 
-  <div class="home-links">
-
-    <a class="home-card" href="/freelance-game-qa-services.html">
-      <h3>QA Services</h3>
-      <p>Focused testing support for demos, early builds, updates, and release preparation.</p>
-    </a>
-
-    <a class="home-card" href="/Game-QA-Portfolio.html">
-      <h3>QA Portfolio</h3>
-      <p>Real QA work on playable builds, including bug reports, testing passes, and player-impact findings.</p>
-    </a>
-
-    <a class="home-card" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">
-      <h3>About Me</h3>
-      <p>Background, testing focus areas, tools, and the type of QA work I specialise in.</p>
-    </a>
-
-    <a class="home-card" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">
-      <h3>Contact</h3>
-      <p>Get in touch regarding QA support, freelance work, collaboration, or recruitment opportunities.</p>
-    </a>
-
-  </div>
-
-</section>
+<div class="secondary-link">
+  <a href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">
+    Learn more about my background, tools, and QA approach →
+  </a>
+</div>
 
       <hr>
 
