@@ -17,174 +17,198 @@
 
   <meta name="theme-color" content="#0b0f14" />
 
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --panel:#0f1215;
-      --text:#cfd6dd;
-      --muted:#a9b3bd;
-      --line:rgba(255,255,255,.08);
-      --teal:#00fff0;
-      --teal-soft:#66fff7;
-      --s-2:12px;
-      --s-3:16px;
-      --s-4:20px;
-      --s-5:28px;
-      --s-6:36px;
-    }
+<style>
+  :root{
+    --bg:#0b0f14;
+    --panel:#0f1215;
+    --text:#cfd6dd;
+    --muted:#a9b3bd;
+    --line:rgba(255,255,255,.08);
+    --teal:#00fff0;
+    --teal-soft:#66fff7;
+    --s-2:12px;
+    --s-3:16px;
+    --s-4:20px;
+    --s-5:28px;
+    --s-6:36px;
+  }
 
-    html,body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      margin:0;
-      line-height:1.55;
-    }
+  html,body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    margin:0;
+    line-height:1.55;
+  }
 
-    a{color:var(--teal);text-decoration:none}
-    a:hover{color:var(--teal-soft)}
-    h1,h2,h3{color:var(--teal)}
-    hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5);}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{color:var(--teal-soft)}
+  h1,h2,h3{color:var(--teal)}
+  hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5);}
 
-    .wrap{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 24px;
-    }
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
 
-    .hero{
-      max-width:1100px;
-      margin:30px auto 20px;
-      padding:0 18px;
-      text-align:center;
-    }
+  .hero{
+    max-width:1100px;
+    margin:30px auto 20px;
+    padding:0 18px;
+    text-align:center;
+  }
 
-    .hero img{
-      display:block;
-      width:100%;
-      height:auto;
-      margin:0 auto 24px;
-      border-radius:16px;
-      animation:imgOutPulse 4s ease-in-out infinite;
-    }
+  .hero img{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:0 auto 24px;
+    border-radius:16px;
+    animation:imgOutPulse 4s ease-in-out infinite;
+  }
 
-    @keyframes imgOutPulse{
-      0%,100%{filter:drop-shadow(0 0 0 rgba(15,181,201,0)) brightness(1);}
-      50%{filter:drop-shadow(0 0 34px rgba(15,181,201,.75)) brightness(1.06) saturate(1.04);}
-    }
+  @keyframes imgOutPulse{
+    0%,100%{filter:drop-shadow(0 0 0 rgba(15,181,201,0)) brightness(1);}
+    50%{filter:drop-shadow(0 0 34px rgba(15,181,201,.75)) brightness(1.06) saturate(1.04);}
+  }
 
-    .hero h1{
-      font-size:clamp(2rem,5vw,4rem);
-      line-height:1.08;
-      margin:0 0 12px;
-    }
+  .hero h1{
+    font-size:clamp(2rem,5vw,4rem);
+    line-height:1.08;
+    margin:0 0 12px;
+  }
 
-    .hero p{
-      font-size:1.18rem;
-      max-width:850px;
-      margin:0 auto;
-    }
+  .hero p{
+    font-size:1.18rem;
+    max-width:850px;
+    margin:0 auto;
+  }
 
-    .site-nav{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      align-items:center;
-      gap:10px 12px;
-      max-width:1100px;
-      margin:20px auto 0;
-      padding:0 24px;
-    }
+  .site-nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:10px 12px;
+    max-width:1100px;
+    margin:20px auto 0;
+    padding:0 24px;
+  }
 
-    .cta-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 18px;
-      border-radius:12px;
-      background:#0d1117;
-      border:1px solid #2b2f36;
-      color:var(--teal);
-      font-weight:700;
-      text-decoration:none;
-    }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 18px;
+    border-radius:12px;
+    background:#0d1117;
+    border:1px solid #2b2f36;
+    color:var(--teal);
+    font-weight:700;
+    text-decoration:none;
+  }
 
-    .cta-btn:hover,
-    .cta-btn[aria-current="page"]{
-      background:var(--teal);
-      color:var(--bg);
-      border-color:var(--teal);
-      text-decoration:none;
-    }
+  .cta-btn:hover,
+  .cta-btn[aria-current="page"]{
+    background:var(--teal);
+    color:var(--bg);
+    border-color:var(--teal);
+    text-decoration:none;
+  }
 
-    main{
-      margin-top:var(--s-6);
+  main{
+    margin-top:var(--s-6);
+  }
+
+  .intro{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    padding:28px 30px;
+  }
+
+  .intro p{
+    max-width:900px;
+    margin:0 0 14px;
+    font-size:1.02rem;
+  }
+
+  .home-links{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    margin-top:28px;
+  }
+
+  .home-card{
+    display:block;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    text-decoration:none;
+    color:var(--text);
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+
+  .home-card:hover,
+  .home-card:focus-visible{
+    background:rgba(0,255,240,.06);
+    border-color:var(--teal);
+    transform:translateY(-2px);
+    outline:none;
+  }
+
+  .home-card h3{
+    margin:0 0 8px;
+    color:var(--teal);
+    font-size:1.08rem;
+  }
+
+  .home-card p{
+    margin:0;
+    color:var(--text);
+    font-size:.98rem;
+    line-height:1.5;
+  }
+
+  section[aria-label="Disclaimer"]{
+    font-size:.92rem;
+    color:var(--muted);
+  }
+
+  footer{
+    max-width:980px;
+    margin:40px auto 0;
+    padding:20px 18px;
+    text-align:center;
+    font-size:.85em;
+    opacity:.8;
+    border-top:1px solid rgba(255,255,255,.05);
+  }
+
+  @media (max-width:760px){
+    .home-links{
+      grid-template-columns:1fr;
     }
 
     .intro{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:0 4px 20px rgba(0,0,0,.25);
-      padding:22px 24px;
+      padding:22px 20px;
     }
+  }
 
-    .nav-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
+  @media (prefers-reduced-motion:reduce){
+    .hero img,
+    .home-card{
+      animation:none !important;
+      transition:none !important;
+      transform:none !important;
+      filter:none !important;
     }
-
-    .nav-list li{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:16px 18px;
-    }
-
-    .nav-list a{
-      display:block;
-      font-weight:800;
-      font-size:1.05rem;
-      margin-bottom:6px;
-    }
-
-    .desc{
-      display:block;
-      color:var(--text);
-    }
-
-    section[aria-label="Disclaimer"]{
-      font-size:.92rem;
-      color:var(--muted);
-    }
-
-    footer{
-      max-width:980px;
-      margin:40px auto 0;
-      padding:20px 18px;
-      text-align:center;
-      font-size:.85em;
-      opacity:.8;
-      border-top:1px solid rgba(255,255,255,.05);
-    }
-
-    @media (max-width:760px){
-      .nav-list{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion:reduce){
-      .hero img{
-        animation:none !important;
-        filter:none !important;
-      }
-    }
-  </style>
+  }
+</style>
 
   <script type="application/ld+json">
   {
@@ -236,48 +260,45 @@
     <section aria-labelledby="site-summary">
       <h2 id="site-summary">Choose What You Need:</h2>
 
-      <section class="intro" aria-labelledby="site-sections">
-          <p>
-  I’m a UK-based Game QA Tester currently providing structured QA support for indie games in active development, including mobile titles at Loom &amp; Lore Games preparing for Google Play Early Access release. I’m open to freelance, contract, and longer-term QA roles. Feel free to browse the site to see how I work.
-</p>
+<section class="intro" aria-labelledby="site-sections">
 
-        <ul class="nav-list">
-          <li>
-            <a href="/freelance-game-qa-services.html">QA Services</a>
-            <span class="desc">Focused testing for demos, early builds, and updates, with clear bugs, player-facing issues, and video evidence.</span>
-          </li>
+  <p>
+    I’m a UK-based Game QA Tester providing structured QA support for indie games in active development, including mobile titles at Loom &amp; Lore Games preparing for Google Play Early Access release.
+  </p>
 
-          <li>
-            <a href="/Game-QA-Portfolio.html">QA Portfolio</a>
-            <span class="desc">Real QA work on playable builds, including different testing types, bug reports, and player-impact findings.</span>
-          </li>
+  <p>
+    My work focuses on playable builds, player-facing issues, bug reporting, fix validation, gameplay clarity, and developer-facing QA documentation across PC and mobile platforms.
+  </p>
 
-          <li>
-            <a href="/Manual-QA-Portfolio-Kelina-Cowell/">QA Learning Projects</a>
-            <span class="desc">Foundational QA work showing how skills were developed through structured learning projects.</span>
-          </li>
+  <p>
+    I’m currently open to freelance, contract, and longer-term QA opportunities.
+  </p>
 
-          <li>
-            <a href="/Manual-QA-Portfolio-Kelina-Cowell/articles/">Game QA Articles</a>
-            <span class="desc">Practical QA insights, workflows, and testing approaches applied to real game scenarios.</span>
-          </li>
+  <div class="home-links">
 
-          <li>
-            <a href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">About Me</a>
-            <span class="desc">Background, QA focus areas, and what I’m building.</span>
-          </li>
+    <a class="home-card" href="/freelance-game-qa-services.html">
+      <h3>QA Services</h3>
+      <p>Focused testing support for demos, early builds, updates, and release preparation.</p>
+    </a>
 
-          <li>
-            <a href="/Manual-QA-Portfolio-Kelina-Cowell/education/">Education</a>
-            <span class="desc">Courses, certifications, and mentorship supporting my game QA career progression</span>
-          </li>
+    <a class="home-card" href="/Game-QA-Portfolio.html">
+      <h3>QA Portfolio</h3>
+      <p>Real QA work on playable builds, including bug reports, testing passes, and player-impact findings.</p>
+    </a>
 
-          <li>
-            <a href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">Contact</a>
-            <span class="desc">Get in touch about QA testing, freelance work, or recruiter enquiries.</span>
-          </li>
-        </ul>
-      </section>
+    <a class="home-card" href="/Manual-QA-Portfolio-Kelina-Cowell/aboutme.html">
+      <h3>About Me</h3>
+      <p>Background, testing focus areas, tools, and the type of QA work I specialise in.</p>
+    </a>
+
+    <a class="home-card" href="/Manual-QA-Portfolio-Kelina-Cowell/contact/">
+      <h3>Contact</h3>
+      <p>Get in touch regarding QA support, freelance work, collaboration, or recruitment opportunities.</p>
+    </a>
+
+  </div>
+
+</section>
 
       <hr>
 
