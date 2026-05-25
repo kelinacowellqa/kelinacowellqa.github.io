@@ -40,12 +40,31 @@
     line-height:1.55;
   }
 
-  a{color:var(--teal);text-decoration:none}
-  a:hover{color:var(--teal-soft)}
-  h1,h2,h3{color:var(--teal)}
-  hr{border:0;border-top:1px solid var(--teal);opacity:.35;margin-block:var(--s-5);}
+  a{
+    color:var(--teal);
+    text-decoration:none;
+  }
 
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  a:hover{
+    color:var(--teal-soft);
+  }
+
+  h1,h2,h3{
+    color:var(--teal);
+  }
+
+  hr{
+    border:0;
+    border-top:1px solid var(--teal);
+    opacity:.35;
+    margin-block:var(--s-5);
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px;
+  }
 
   .hero{
     max-width:1100px;
@@ -64,8 +83,15 @@
   }
 
   @keyframes imgOutPulse{
-    0%,100%{filter:drop-shadow(0 0 0 rgba(15,181,201,0)) brightness(1);}
-    50%{filter:drop-shadow(0 0 34px rgba(15,181,201,.75)) brightness(1.06) saturate(1.04);}
+    0%,100%{
+      filter:drop-shadow(0 0 0 rgba(15,181,201,0)) brightness(1);
+    }
+
+    50%{
+      filter:drop-shadow(0 0 34px rgba(15,181,201,.75))
+      brightness(1.06)
+      saturate(1.04);
+    }
   }
 
   .hero h1{
@@ -102,7 +128,10 @@
     color:var(--teal);
     font-weight:700;
     text-decoration:none;
-    transition:background .2s ease, color .2s ease, border-color .2s ease;
+    transition:
+      background .2s ease,
+      color .2s ease,
+      border-color .2s ease;
   }
 
   .cta-btn:hover,
@@ -115,7 +144,9 @@
     outline:none;
   }
 
-  main{margin-top:var(--s-6);}
+  main{
+    margin-top:var(--s-6);
+  }
 
   .intro{
     background:var(--panel);
@@ -143,11 +174,20 @@
   }
 
   .project-highlight{
-    background:linear-gradient(145deg, rgba(0,255,240,.05), rgba(255,255,255,.02));
+    background:linear-gradient(
+      145deg,
+      rgba(0,255,240,.05),
+      rgba(255,255,255,.02)
+    );
+
     border:1px solid rgba(0,255,240,.16);
     border-radius:16px;
     padding:26px;
-    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+
+    transition:
+      border-color .2s ease,
+      transform .2s ease,
+      background .2s ease;
   }
 
   .project-highlight:hover{
@@ -175,12 +215,17 @@
     color:#ffffff;
   }
 
-  .project-content p{margin-top:0;}
-  .project-content .cta-btn{margin-top:10px;}
+  .project-content p{
+    margin-top:0;
+  }
+
+  .project-content .cta-btn{
+    margin-top:10px;
+  }
 
   .home-links{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr;
+    grid-template-columns:repeat(3, 1fr);
     gap:16px;
     margin-top:24px;
   }
@@ -189,14 +234,20 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:110px;
+    min-height:80px;
+    padding:18px 20px;
+    text-align:center;
+
     background:rgba(255,255,255,.03);
     border:1px solid var(--line);
     border-radius:14px;
-    padding:20px;
+
     text-decoration:none;
-    color:var(--text);
-    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+
+    transition:
+      border-color .2s ease,
+      transform .2s ease,
+      background .2s ease;
   }
 
   .home-card:hover,
@@ -208,14 +259,16 @@
   }
 
   .primary-card{
-    border-color:rgba(0,255,240,.32);
-    background:linear-gradient(145deg, rgba(0,255,240,.06), rgba(255,255,255,.02));
+    border-color:var(--line);
+    background:rgba(255,255,255,.03);
   }
 
   .home-card h3{
+    width:100%;
     margin:0;
     color:var(--teal);
-    font-size:1.15rem;
+    font-size:1.05rem;
+    font-weight:700;
     text-align:center;
   }
 
@@ -229,7 +282,9 @@
     font-size:.95rem;
   }
 
-  .secondary-link a:hover{color:var(--teal);}
+  .secondary-link a:hover{
+    color:var(--teal);
+  }
 
   section[aria-label="Disclaimer"]{
     font-size:.92rem;
@@ -246,12 +301,15 @@
     border-top:1px solid rgba(255,255,255,.05);
   }
 
-  @media (max-width:900px){
-    .home-links{grid-template-columns:1fr;}
-  }
-
   @media (max-width:760px){
-    .intro{padding:22px 20px;}
+
+    .home-links{
+      grid-template-columns:1fr;
+    }
+
+    .intro{
+      padding:22px 20px;
+    }
 
     .project-header{
       flex-direction:column;
@@ -259,11 +317,17 @@
       gap:14px;
     }
 
-    .project-logo{width:95px;}
-    .project-highlight{padding:22px 20px;}
+    .project-logo{
+      width:95px;
+    }
+
+    .project-highlight{
+      padding:22px 20px;
+    }
   }
 
   @media (prefers-reduced-motion:reduce){
+
     .hero img,
     .home-card,
     .project-highlight,
