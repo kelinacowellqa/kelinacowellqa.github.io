@@ -17,51 +17,207 @@
   <link rel="canonical" href="https://kelinacowellqa.github.io/released-projects/mama-llama.html" />
   <link rel="stylesheet" href="/assets/css/site.css?v=5">
 
-  <style>
-    .hero{
-      width:100%;
-      height:260px;
-      position:relative;
-      margin:28px 0 26px !important;
-      padding:0 !important;
-      border:0;
-      border-radius:20px;
-      background:transparent !important;
-      box-shadow:none !important;
-      overflow:visible !important;
-    }
+ <style>
+  .hero{
+    width:100%;
+    height:260px;
+    position:relative;
+    margin:28px 0 26px !important;
+    padding:0 !important;
+    border:0;
+    border-radius:20px;
+    background:transparent !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
 
-    .hero img{
-      width:100%;
-      height:100%;
+  .hero img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center center;
+    border-radius:20px;
+    border:0;
+    box-shadow:none !important;
+    background:transparent;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    pointer-events:none;
+    box-shadow:
+      0 0 14px rgba(0,255,240,0.28),
+      0 0 28px rgba(0,255,240,0.16),
+      0 0 52px rgba(0,255,240,0.10);
+    animation:heroPulse 3.2s ease-in-out infinite;
+  }
+
+  @keyframes heroPulse{
+    0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+    100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+  }
+
+  body h2{ margin:32px 0 12px !important; }
+  body hr{ margin:28px 0 !important; }
+  body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+
+  body ul,
+  body ol{
+    margin:12px 0 20px !important;
+    padding-left:1.3rem !important;
+  }
+
+  body li{
+    line-height:1.7 !important;
+    margin:8px 0 !important;
+  }
+
+  .cta-row{
+    margin:20px 0 34px !important;
+    text-align:center;
+  }
+
+  .cta-row .cta-btn{
+    margin:6px 8px;
+  }
+
+  @media (max-width:560px){
+    .cta-row .cta-btn{
       display:block;
-      object-fit:cover;
-      object-position:center center;
-      border-radius:20px;
-      border:0;
-      box-shadow:none !important;
-      background:transparent;
+      margin:8px auto;
+      width:fit-content;
     }
+  }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:20px;
-      pointer-events:none;
-      box-shadow:
-        0 0 14px rgba(0,255,240,0.28),
-        0 0 28px rgba(0,255,240,0.16),
-        0 0 52px rgba(0,255,240,0.10);
-      animation:heroPulse 3.2s ease-in-out infinite;
-    }
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
 
-    @keyframes heroPulse{
-      0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
-      50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
-      100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+  .grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
+
+  .grid-3 .card,
+  .grid-2 .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+  }
+
+  .grid-3 .card h3,
+  .grid-2 .card h3{
+    margin-top:0;
+  }
+
+  @media (max-width:900px){
+    .grid-3,
+    .grid-2{
+      grid-template-columns:1fr 1fr;
     }
-  </style>
+  }
+
+  @media (max-width:640px){
+    .grid-3,
+    .grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0f1215;
+    border:1px solid rgba(255,255,255,.08);
+    margin:12px 0;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  thead th{
+    background:rgba(0,255,240,.08);
+    color:#00fff0;
+    text-align:left;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody td,
+  tbody th{
+    color:#cfd6dd;
+    padding:12px 14px;
+    vertical-align:top;
+  }
+
+  thead th+th,
+  tbody td+td,
+  tbody th+td{
+    border-left:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody tr+tr td,
+  tbody tr+tr th{
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  .method-note{
+    margin:-6px 0 10px;
+    font-size:.95rem;
+    color:#a9b3bd;
+    opacity:.9;
+  }
+
+  .method-note,
+  .method-note a{
+    color:inherit !important;
+    font-size:inherit !important;
+    line-height:inherit !important;
+    opacity:1 !important;
+  }
+
+  blockquote{
+    border-left:3px solid #00fff0;
+    margin:18px 0;
+    padding:12px 18px;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+  }
+
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+
+  .service-card.hero-copy{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 24px;
+    text-align:center;
+  }
+
+  .service-card.hero-copy h2{
+    margin-top:0;
+  }
+
+  .service-card.hero-copy .lead{
+    margin-bottom:20px;
+  }
+</style>
   
   <script data-goatcounter="https://kelina.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
