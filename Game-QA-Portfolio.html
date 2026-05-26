@@ -144,6 +144,61 @@
     .service-card h3{margin-top:0}
     .service-card li + li{margin-top:8px}
 
+    .service-card h3 {
+  margin-top: 0;
+}
+
+.service-card li + li {
+  margin-top: 8px;
+}
+
+.portfolio-button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.portfolio-link-btn {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(0, 255, 240, 0.35);
+  border-radius: 10px;
+  background: rgba(0, 255, 240, 0.05);
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.25;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.portfolio-link-btn:hover,
+.portfolio-link-btn:focus {
+  background: rgba(0, 255, 240, 0.13);
+  border-color: rgba(0, 255, 240, 0.75);
+  color: var(--teal-soft);
+  transform: translateY(-1px);
+}
+
+.portfolio-link-btn.disabled {
+  color: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  cursor: not-allowed;
+}
+
+.portfolio-link-btn.disabled:hover,
+.portfolio-link-btn.disabled:focus {
+  transform: none;
+  color: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+}
+
     .chips{
       display:flex;
       flex-wrap:wrap;
@@ -274,43 +329,46 @@
         </ul>
       </section>
 
-      <section class="section" aria-labelledby="browse-title">
-        <h2 id="browse-title">Browse My QA Work</h2>
+<section class="section" aria-labelledby="browse-title">
+  <h2 id="browse-title">Browse My QA Work</h2>
 
-        <div class="service-grid">
+  <div class="service-grid">
 
-          <article class="service-card">
-            <h3>By Platform</h3>
-            <ul>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/platform-pc.html">PC</a></li>
-              <li><a href="https://kelinacowellqa.github.io/Game-QA-Portfolio/Mobile-Game-QA.html">Mobile</a></li>
-              <li>VR / XR coming soon</li>
-            </ul>
-          </article>
+    <article class="service-card">
+      <h3>By Platform</h3>
 
-          <article class="service-card">
-            <h3>By Game Type</h3>
-            <ul>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/strategy-management-game-qa.html">Strategy / Management</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/card-decision-game-qa.html">Card / Decision-Based</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/roguelike-systems-heavy-game-qa.html">Roguelike / Systems</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/simulation-systems-based.html">Simulation</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/action-exploration.html">Action / Exploration</a></li>
-            </ul>
-          </article>
+      <div class="portfolio-button-list">
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/platform-pc.html">PC</a>
+        <a class="portfolio-link-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/Mobile-Game-QA.html">Mobile</a>
+        <span class="portfolio-link-btn disabled">VR / XR coming soon</span>
+      </div>
+    </article>
 
-          <article class="service-card">
-            <h3>By Gameplay Risk Area</h3>
-            <ul>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/onboarding-tutorialisation.html">Onboarding & Tutorialisation</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/systems-state-integrity.html">Systems State Integrity</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/enemy-ai-combat-state-integrity.html">Enemy AI & Combat-State Integrity</a></li>
-              <li><a href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/system-clarity-feedback-game-qa.html">System Clarity</a></li>
-            </ul>
-          </article>
+    <article class="service-card">
+      <h3>By Game Type</h3>
 
-        </div>
-      </section>
+      <div class="portfolio-button-list">
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/strategy-management-game-qa.html">Strategy / Management</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/card-decision-game-qa.html">Card / Decision-Based</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/roguelike-systems-heavy-game-qa.html">Roguelike / Systems</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/simulation-systems-based.html">Simulation</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/action-exploration.html">Action / Exploration</a>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <h3>By Gameplay Risk Area</h3>
+
+      <div class="portfolio-button-list">
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/onboarding-tutorialisation.html">Onboarding &amp; Tutorialisation</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/systems-state-integrity.html">Systems State Integrity</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/enemy-ai-combat-state-integrity.html">Enemy AI &amp; Combat-State Integrity</a>
+        <a class="portfolio-link-btn" href="/Manual-QA-Portfolio-Kelina-Cowell/exploratory-qa-live-testing/system-clarity-feedback-game-qa.html">System Clarity</a>
+      </div>
+    </article>
+
+  </div>
+</section>
 
  <section class="section qa-services-funnel">
   <h2>Looking for QA Support?</h2>
