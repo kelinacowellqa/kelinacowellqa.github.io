@@ -217,6 +217,58 @@
   .service-card.hero-copy .lead{
     margin-bottom:20px;
   }
+
+     .testimonial-card{
+    margin:24px 0 28px;
+    padding:20px 22px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid #00fff0;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.28);
+  }
+
+  .testimonial-card h2{
+    margin:0 0 12px !important;
+  }
+
+  .testimonial-card blockquote{
+    margin:0;
+    padding:14px 18px;
+    border-left:0;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+    font-size:1.05rem;
+    line-height:1.75;
+    font-style:italic;
+    border-radius:10px;
+  }
+
+  .testimonial-card blockquote em{
+    color:#ffffff;
+  }
+
+  .testimonial-author{
+    margin:14px 0 0 !important;
+    color:#00fff0;
+    font-weight:700;
+    text-align:right;
+  }
+
+  @media (max-width:640px){
+    .testimonial-card{
+      padding:16px;
+    }
+
+    .testimonial-card blockquote{
+      padding:12px 14px;
+      font-size:1rem;
+    }
+
+    .testimonial-author{
+      text-align:left;
+    }
+  }
 </style>
   
   <script data-goatcounter="https://kelina.goatcounter.com/count"
@@ -335,6 +387,22 @@
       <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.llamamomma.loomloregames" target="_blank" rel="noopener">View Google Play Version</a>
       <a class="cta-btn" href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">View Studio</a>
     </div>
+
+    <hr>
+
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+  <div class="testimonial-card">
+    <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
+
+    <blockquote class="testimonial-quote">
+      “Releasing a high-quality game is vital for a new studio. Kelina made sure our Google Play Store launch for <em>Mama Llama</em> went smoothly. She caught critical UI/UX and code bugs before release. Her delivery was highly organized. Every report included thorough documentation, reproducible steps, and helpful screenshots. Kelina handles QA with the finesse of a master.”
+    </blockquote>
+
+    <p class="testimonial-author">
+      — Emily Ray, Founder, Loom &amp; Lore Interactive
+    </p>
+  </div>
+</section>
 
     <hr>
 
