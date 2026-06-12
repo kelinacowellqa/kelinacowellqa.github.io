@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="91dd4980-fd90-49a2-bfd4-85a7a6778b60"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Nothing Is Strange Here - QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="QA case study for the Steam Next Fest demo of Nothing Is Strange Here  by Dandelion Developers, covering quest progression, Journal and Map synchronisation, Time Skip behaviour, objective guidance, save/load persistence, and player-facing demo readiness testing." />
+
+  <meta property="og:title" content="Nothing Is Strange Here - QA Case Study" />
+  <meta property="og:description" content="QA case study showing how Kelina Cowell supported the Steam Next Fest demo for Nothing Is Strange Here through structured exploratory testing, quest progression validation, player guidance review, and evidence-based reporting." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/nothing-is-strange-here.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/nothing-strange-here-logo.png" />
+
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/nothing-is-strange.html" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=5">
+
+  <style>
+    .hero{
+      width:100%;
+      height:260px;
+      position:relative;
+      margin:28px 0 26px !important;
+      padding:0 !important;
+      border:0;
+      border-radius:20px;
+      background:transparent !important;
+      box-shadow:none !important;
+      overflow:visible !important;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center center;
+      border-radius:20px;
+      border:0;
+      box-shadow:none !important;
+      background:transparent;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:20px;
+      pointer-events:none;
+      box-shadow:
+        0 0 14px rgba(0,255,240,0.28),
+        0 0 28px rgba(0,255,240,0.16),
+        0 0 52px rgba(0,255,240,0.10);
+      animation:heroPulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes heroPulse{
+      0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+      50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+      100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    }
+
+    body h2{ margin:32px 0 12px !important; }
+    body hr{ margin:28px 0 !important; }
+    body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+
+    body ul,
+    body ol{
+      margin:12px 0 20px !important;
+      padding-left:1.3rem !important;
+    }
+
+    body li{
+      line-height:1.7 !important;
+      margin:8px 0 !important;
+    }
+
+    .cta-row{
+      margin:20px 0 34px !important;
+      text-align:center;
+    }
+
+    .cta-row .cta-btn{
+      margin:6px 8px;
+    }
+
+    @media (max-width:560px){
+      .cta-row .cta-btn{
+        display:block;
+        margin:8px auto;
+        width:fit-content;
+      }
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-3 .card,
+    .grid-2 .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:16px;
+    }
+
+    .grid-3 .card h3,
+    .grid-2 .card h3{
+      margin-top:0;
+    }
+
+    @media (max-width:900px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#0f1215;
+      border:1px solid rgba(255,255,255,.08);
+      margin:12px 0;
+      border-radius:8px;
+      overflow:hidden;
+    }
+
+    thead th{
+      background:rgba(0,255,240,.08);
+      color:#00fff0;
+      text-align:left;
+      font-weight:700;
+      font-size:14px;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody td,
+    tbody th{
+      color:#cfd6dd;
+      padding:12px 14px;
+      vertical-align:top;
+    }
+
+    thead th+th,
+    tbody td+td,
+    tbody th+td{
+      border-left:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody tr+tr td,
+    tbody tr+tr th{
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    blockquote{
+      border-left:3px solid #00fff0;
+      margin:18px 0;
+      padding:12px 18px;
+      background:rgba(0,255,240,.04);
+      color:#cfd6dd;
+    }
+
+    .service-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .service-card.hero-copy{
+      max-width:900px;
+      margin:0 auto;
+      padding:20px 24px;
+      text-align:center;
+    }
+
+    .service-card.hero-copy h2{
+      margin-top:0;
+    }
+
+    .service-card.hero-copy .lead{
+      margin-bottom:20px;
+    }
+
+    .placeholder-note{
+      border:1px dashed rgba(0,255,240,.35);
+      background:rgba(0,255,240,.04);
+      padding:14px 16px;
+      border-radius:10px;
+      color:#cfd6dd;
+      margin:16px 0;
+    }
+  </style>
+
+  <script data-goatcounter="https://kelina.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <header class="hero">
+      <img src="https://kelinacowellqa.github.io/assets/img/nothing-strange-here-logo.png" alt="Nothing Is Strange Here QA case study banner">
+    </header>
+
+    <nav style="text-align:center;margin-bottom:20px;">
+      <a class="cta-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">Back to Portfolio Hub</a>
+    </nav>
+
+    <h1>Nothing Is Strange Here - QA Case Study</h1>
+    <p class="meta">Role: External QA Tester • Studio: Dandelion Developers • Demo: Steam Next Fest June 2026 • Platform Tested: Windows PC</p>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">🧾 Project Overview</h2>
+
+      <ul>
+        <li><strong>Game:</strong> Nothing Is Strange Here </li>
+        <li><strong>Studio:</strong> Dandelion Developers</li>
+        <li><strong>Role:</strong> External QA Tester</li>
+        <li><strong>Testing date:</strong> 29 May 2026</li>
+        <li><strong>Version tested:</strong> 0.5.5</li>
+        <li><strong>Build:</strong> 23434843</li>
+        <li><strong>Graphics API:</strong> DX11 Default</li>
+        <li><strong>Platform tested:</strong> Windows PC</li>
+        <li><strong>Public demo:</strong> Steam Next Fest June 2026</li>
+      </ul>
+    </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Indie Developer, QA Lead, Game QA Tester, Recruiter"
+  },
+  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/nothing-is-strange-here.html",
+  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/nothing-is-strange-here.html",
+  "name": "Nothing Is Strange Here: QA Case Study",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Person", "name": "Kelina Cowell" },
+  "isBasedOn": {
+    "@type": "VideoGame",
+    "name": "Nothing Is Strange Here",
+    "gamePlatform": ["Windows PC", "Steam"]
+  },
+  "about": [
+    { "@type": "Thing", "name": "Game QA" },
+    { "@type": "Thing", "name": "Steam Next Fest demo QA" },
+    { "@type": "Thing", "name": "External QA testing" },
+    { "@type": "Thing", "name": "Quest progression testing" },
+    { "@type": "Thing", "name": "Journal and Map synchronisation" },
+    { "@type": "Thing", "name": "Save and load persistence" },
+    { "@type": "Thing", "name": "Objective guidance" },
+    { "@type": "Thing", "name": "Player-facing issue analysis" },
+    { "@type": "Thing", "name": "Exploratory testing" },
+    { "@type": "Thing", "name": "Usability testing" }
+  ],
+  "keywords": [
+    "game QA",
+    "indie game QA",
+    "Steam Next Fest QA",
+    "demo QA",
+    "quest progression testing",
+    "objective guidance",
+    "journal map synchronisation",
+    "save load testing",
+    "external QA tester",
+    "structured QA reporting"
+  ],
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Role", "value": "External QA Tester" },
+    { "@type": "PropertyValue", "name": "Studio", "value": "Dandelion Developers" },
+    { "@type": "PropertyValue", "name": "Testing date", "value": "2026-05-29" },
+    { "@type": "PropertyValue", "name": "Version tested", "value": "0.5.5" },
+    { "@type": "PropertyValue", "name": "Build", "value": "23434843" },
+    { "@type": "PropertyValue", "name": "Platform", "value": "Windows PC" },
+    { "@type": "PropertyValue", "name": "Testing approach", "value": "Structured exploratory testing, quest progression validation, save/load persistence testing, player guidance review, boundary testing, and evidence-based reporting" },
+    { "@type": "PropertyValue", "name": "Communication workflow", "value": "Discord DMs with the producer, Google Docs QA summary report, Google Sheets bug log, unlisted YouTube video evidence, and Google Drive screenshot evidence" }
+  ]
+}
+</script>
+
+    <h2>Introduction</h2>
+
+    <p>
+      This case study covers my QA work on the Steam Next Fest demo for <em>Nothing Is Strange Here</em>, developed by Dandelion Developers.
+    </p>
+
+    <p>
+      The project was approaching a public demo release deadline for Steam Next Fest. After speaking directly with the producer, I focused my testing on recently added and higher-risk demo systems, including the Map, Time Skip, Journal, quest progression, and outcome validation.
+    </p>
+
+    <p>
+      This page focuses on the QA workflow, testing decisions, and player-facing risk analysis rather than exposing the full internal bug log. The aim is to show how I approached demo readiness testing, how I prioritised coverage, and how the final report supported the team before public release.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Game</th><th>Role</th><th>Demo Release</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nothing Is Strange Here</td>
+          <td>External QA Tester</td>
+          <td>Steam Next Fest June 2026 demo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta-row" style="text-align:center;">
+      <a class="cta-btn" href="#" target="_blank" rel="noopener">View Steam Page</a>
+      <a class="cta-btn" href="#" target="_blank" rel="noopener">View Studio</a>
+    </div>
+
+    <div class="placeholder-note">
+      <strong>Portfolio note:</strong> Replace the Steam and studio links above after the public demo page is finalised. Add the credit screenshot once the released demo is available.
+    </div>
+
+    <hr>
+
+    <h2 id="role">🎯 My QA Role</h2>
+
+    <p>
+      My role was to provide structured external QA support before the public Steam Next Fest demo release. The team had already been carrying out internal testing, so my focus was not broad random playtesting. I targeted areas where an external QA perspective could add the most value: quest flow, player guidance, system interaction, progression confidence, and early demo clarity.
+    </p>
+
+    <p>
+      The producer specifically highlighted that the newly added systems had received less internal testing. Based on that conversation, I built a focused QA pass around Map behaviour, Time Skip, Journal updates, quest progression, save/load persistence, objective guidance, boundary testing, and general stability.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>🧭 QA Focus</h3>
+        <ul>
+          <li>Quest progression</li>
+          <li>Objective guidance</li>
+          <li>Journal and Map synchronisation</li>
+          <li>Time Skip behaviour</li>
+          <li>Save/Load persistence</li>
+          <li>Early demo flow</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>📄 Reporting</h3>
+        <ul>
+          <li>Google Docs QA summary report</li>
+          <li>Google Sheets bug log</li>
+          <li>Structured session tracking</li>
+          <li>Linked screenshots</li>
+          <li>Unlisted YouTube evidence videos</li>
+          <li>Discord delivery to producer</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>🔍 Validation</h3>
+        <ul>
+          <li>New systems testing</li>
+          <li>Quest state validation</li>
+          <li>Player guidance review</li>
+          <li>Boundary and collision checks</li>
+          <li>Performance and stability sweep</li>
+          <li>Exploratory chaos testing</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="workflow">🛠️ Workflow & Communication</h2>
+
+    <p>
+      Communication was handled directly through Discord DMs with the producer. This kept the workflow lightweight and suitable for a small indie team working towards a fixed public demo deadline.
+    </p>
+
+    <p>
+      I delivered a Google Docs QA summary report and a Google Sheets bug log. Video evidence was uploaded as unlisted YouTube clips, while screenshots were linked through Google Drive inside the bug log. This gave the team both a high-level summary and detailed evidence they could review quickly.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Workflow Area</th><th>How It Worked</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Communication</td>
+          <td>Direct Discord DMs with the producer to confirm scope, priorities, and report delivery.</td>
+        </tr>
+        <tr>
+          <td>Planning</td>
+          <td>I focused the pass around the new and less-tested demo systems identified by the team.</td>
+        </tr>
+        <tr>
+          <td>Reporting</td>
+          <td>Findings were organised in a Google Sheets bug log with priority, repro rate, evidence, status, notes, and player impact.</td>
+        </tr>
+        <tr>
+          <td>Summary</td>
+          <td>A Google Docs QA summary gave the team a clearer overview of what was tested, what worked, and what needed attention.</td>
+        </tr>
+        <tr>
+          <td>Evidence</td>
+          <td>Issues were supported with linked screenshots and unlisted YouTube videos where useful.</td>
+        </tr>
+        <tr>
+          <td>Delivery</td>
+          <td>The report and bug log were sent directly to the producer before the Steam Next Fest demo deadline.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
+
+    <p>
+      The test plan was built around risk. Since the team was preparing for Steam Next Fest, I prioritised areas that could damage a new player's first impression of the demo: unclear objectives, stale guidance, missed event cues, progression uncertainty, and system behaviour that was technically functional but poorly communicated.
+    </p>
+
+    <p>
+      The producer mentioned that the newer systems had received the least internal testing, so those became the main focus of the pass. I tested each system directly, then tested how those systems interacted with each other during quest progression, save/load, NPC behaviour, player exploration, and time-based events.
+    </p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>Risk-Based Focus</h3>
+        <p>
+          I prioritised systems most likely to affect demo readiness: Map, Journal, Time Skip, quest flow, objective updates, event cues, and save/load persistence.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>Player-Facing Perspective</h3>
+        <p>
+          I looked beyond whether progression technically worked and focused on whether the player understood what was happening, where to go next, and why a system behaved the way it did.
+        </p>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
+
+    <p>
+      The QA pass followed a structured progression from quest validation and system interaction testing through to stability, boundary testing, and exploratory stress checks.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>Focus</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Quest and Time Skip interaction</td>
+          <td>Tested quest progression across Time Skip, NPC schedules, Journal updates, and follow-up quest states.</td>
+          <td>Check whether time-based progression remained functional and understandable.</td>
+        </tr>
+        <tr>
+          <td>2. Save/Load persistence</td>
+          <td>Tested save/load during active quests, after objective completion, and after quest completion.</td>
+          <td>Confirm quest state, Journal entries, NPC state, and completion state persisted correctly.</td>
+        </tr>
+        <tr>
+          <td>3. New systems interaction</td>
+          <td>Tested Quest, Journal, Map, NPC progression, progression updates, and Save/Load together.</td>
+          <td>Identify cross-system issues that might not appear when testing systems in isolation.</td>
+        </tr>
+        <tr>
+          <td>4. Journal robustness</td>
+          <td>Tested Journal navigation, readability, tabs, scrolling, rapid opening/closing, and Journal to Map switching.</td>
+          <td>Check whether the Journal remained stable, accurate, and usable during normal and repeated use.</td>
+        </tr>
+        <tr>
+          <td>5. Exploratory chaos testing</td>
+          <td>Stress-tested NPCs, interactables, Journal, Map, Pause menu, noticeboard, phone booth, Save/Load, and objective markers.</td>
+          <td>Look for crashes, stuck UI, duplicate interactions, input conflicts, or unexpected broken states.</td>
+        </tr>
+        <tr>
+          <td>6. Performance and stability sweep</td>
+          <td>Observed FPS, load times, menu transitions, Save/Load behaviour, audio, visual stability, and UI behaviour.</td>
+          <td>Check whether the demo remained stable during normal play and transitions.</td>
+        </tr>
+        <tr>
+          <td>7. Boundary and out-of-bounds testing</td>
+          <td>Tested world edges, fences, buildings, barriers, water, cliffs, slopes, stairs, and recovery behaviour.</td>
+          <td>Check for clipping, stuck locations, progression bypasses, terrain falls, and blocked-route confusion.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="qa-areas">🔍 QA Areas Covered</h2>
+
+    <p>
+      The pass covered functional behaviour, player guidance, system communication, accessibility-related discoverability risks, and general demo stability.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>Quest Progression</h3>
+        <ul>
+          <li>Quest acceptance</li>
+          <li>Objective updates</li>
+          <li>NPC interaction state</li>
+          <li>Quest completion state</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Journal & Map</h3>
+        <ul>
+          <li>Objective text accuracy</li>
+          <li>Map marker behaviour</li>
+          <li>Quest and location synchronisation</li>
+          <li>Save/Load consistency</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Time Skip</h3>
+        <ul>
+          <li>Time advancement</li>
+          <li>NPC schedule changes</li>
+          <li>System availability</li>
+          <li>Player feedback clarity</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Player Guidance</h3>
+        <ul>
+          <li>Tutorial instruction clarity</li>
+          <li>Objective signposting</li>
+          <li>Progression event discoverability</li>
+          <li>Objective marker visibility</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Stability & Persistence</h3>
+        <ul>
+          <li>Save/Load persistence</li>
+          <li>Quest state recovery</li>
+          <li>Main menu transition</li>
+          <li>Crash and softlock checks</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Boundaries & Navigation</h3>
+        <ul>
+          <li>Out-of-bounds attempts</li>
+          <li>Collision checks</li>
+          <li>Fall and water recovery</li>
+          <li>Blocked route review</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="findings">📌 Findings Summary</h2>
+
+    <p>
+      Overall, the tested build was stable. During testing I did not encounter crashes, freezes, soft locks, save corruption, major progression blockers, or out-of-bounds exploits.
+    </p>
+
+    <p>
+      Most findings were not technical stability issues. Instead, they centred around player-facing communication, objective clarity, system feedback, discoverability, and consistency between interconnected gameplay systems.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Finding Category</th><th>Focus Area</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Objective Guidance</td>
+          <td>Areas where player direction, next-step communication, or progression signposting could be clearer.</td>
+        </tr>
+        <tr>
+          <td>System Communication</td>
+          <td>Instances where system limitations, availability, or state changes could benefit from stronger player feedback.</td>
+        </tr>
+        <tr>
+          <td>Quest & Progression Flow</td>
+          <td>Review of how quest information, progression updates, and player expectations aligned throughout the demo.</td>
+        </tr>
+        <tr>
+          <td>Discoverability</td>
+          <td>Assessment of how easily players could notice important progression events and gameplay cues.</td>
+        </tr>
+        <tr>
+          <td>Accessibility Observations</td>
+          <td>Player-facing considerations related to visibility, audio awareness, attention management, and information delivery.</td>
+        </tr>
+        <tr>
+          <td>Navigation & World Interaction</td>
+          <td>Validation of player movement, world boundaries, interactables, and route clarity.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="positive-validation">✅ Positive Validation</h2>
+
+    <p>
+      The QA pass also confirmed several important areas were working well. This was useful because demo readiness is not only about identifying defects. It is also about confirming which systems are stable enough to rely on for public release.
+    </p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>Quest and Save Stability</h3>
+        <ul>
+          <li>Quest progress persisted correctly across Save/Load.</li>
+          <li>Objective state and completed quest state were preserved.</li>
+          <li>No duplicate rewards or progression resets were observed.</li>
+          <li>NPC state and world state remained stable after reloads.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Performance and Boundaries</h3>
+        <ul>
+          <li>Gameplay remained stable at around 60 FPS during normal play.</li>
+          <li>Save operations were effectively instant.</li>
+          <li>Load times remained under 2 seconds during testing.</li>
+          <li>No out-of-bounds access, stuck locations, or terrain falls were found.</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="developer-collaboration">🤝 Working With the Producer</h2>
+
+    <p>
+      The testing scope was shaped through direct conversation with the producer. I first suggested validating community playtest feedback, but the team explained that the current community feedback pool was limited. Based on that, I shifted the plan towards structured testing of new systems and demo-critical progression areas.
+    </p>
+
+    <p>
+      This meant the work stayed practical and relevant to the team's actual needs. Instead of waiting for player reports that did not yet exist, I focused on giving the team coverage information, evidence-backed findings, and clear player impact notes before the public demo deadline.
+    </p>
+
+    <blockquote>
+      The focus of this work was demo readiness: testing the new systems most likely to affect player understanding, validating that core progression remained stable, and reporting issues in a way the team could act on quickly before Steam Next Fest.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+
+    <table>
+      <thead>
+        <tr><th>Tool</th><th>Used For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google Docs</td>
+          <td>QA report covering test focus, build information, key findings, positive validation, and overall demo readiness observations.</td>
+        </tr>
+        <tr>
+          <td>Google Sheets</td>
+          <td>Structured bug log with charter ID, system area, repro steps, expected result, actual result, impact, priority, repro rate, evidence, status, and notes.</td>
+        </tr>
+        <tr>
+          <td>Discord</td>
+          <td>Direct communication with the producer, including scope discussion and report delivery.</td>
+        </tr>
+        <tr>
+          <td>YouTube Unlisted</td>
+          <td>Private video evidence links for issues where movement, timing, or event visibility needed to be shown clearly.</td>
+        </tr>
+        <tr>
+          <td>Google Drive</td>
+          <td>Screenshot evidence linked from the bug log for quick review.</td>
+        </tr>
+        <tr>
+          <td>Windows PC</td>
+          <td>Primary test platform for the Steam demo build.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="release-outcome">🚀 Release Outcome</h2>
+
+    <p>
+      The QA report and bug log were delivered directly to the producer ahead of the Steam Next Fest demo deadline. The report highlighted both stable areas and player-facing risks that could affect first-time demo players.
+    </p>
+
+    <p>
+      The build tested was stable overall, with the main concerns focused on guidance, discoverability, and system communication rather than crashes or major progression failure.
+    </p>
+
+    <p>
+      Following public release, I was credited for my QA contribution to the demo.
+    </p>
+
+    <div class="placeholder-note">
+      <strong>Credit screenshot placeholder:</strong> Add the final in-game credits screenshot here once the public demo has released.
+    </div>
+
+    <div class="cta-row" style="text-align:center;">
+      <a class="cta-btn" href="#" target="_blank" rel="noopener">View Steam Demo</a>
+    </div>
+
+    <hr>
+
+    <h2>✅ What This Case Study Shows</h2>
+
+    <ul>
+      <li>Created a focused QA pass around recently added demo systems identified as higher-risk by the team.</li>
+      <li>Used risk-based testing to prioritise player guidance, quest progression, Journal and Map synchronisation, Time Skip behaviour, and save/load persistence.</li>
+      <li>Balanced bug discovery with positive validation, confirming that key progression, persistence, performance, and boundary systems were stable.</li>
+      <li>Reported findings through a structured Google Docs QA Report and Google Sheets bug log with evidence links and player impact notes.</li>
+      <li>Identified issues that were technically non-blocking but important for player understanding and public demo readiness.</li>
+      <li>Worked directly with the producer and adapted the QA plan to match the team's current needs before Steam Next Fest.</li>
+    </ul>
+
+    <hr>
+
+    <section class="section" aria-labelledby="contact">
+      <div class="service-card hero-copy">
+
+        <h2 id="contact">Need QA Support for Your Game?</h2>
+
+        <p class="lead">
+          If you have a demo, early build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+        </p>
+
+        <div class="cta-row">
+          <a class="cta-btn primary-cta" href="https://discord.gg/66Tgq6We" target="_blank" rel="noopener">
+            Message Me on Discord
+          </a>
+
+          <a class="cta-btn" href="mailto:kelinacowell.qa@gmail.com?subject=Game%20Testing%20Enquiry">
+            Email Me
+          </a>
+
+          <a class="cta-btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+
+          <a class="cta-btn" href="https://kelinacowellqa.github.io/freelance-game-qa-services.html">
+            View QA Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <h2>📎 Disclaimer</h2>
+    <p><em>This page documents credited QA work completed by Kelina Cowell for portfolio and recruitment purposes. I am not the developer or publisher of Nothing Is Strange. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
+  </footer>
+</body>
+</html>
