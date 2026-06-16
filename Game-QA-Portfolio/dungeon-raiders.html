@@ -1,0 +1,798 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="91dd4980-fd90-49a2-bfd4-85a7a6778b60"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Dungeon Raiders - Ongoing Embedded QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="Ongoing embedded QA case study for Dungeon Raiders by Loom & Lore Interactive Games, covering Android gameplay testing, regression verification, mobile usability, UI stability, player-facing readability, and developer collaboration." />
+
+  <meta property="og:title" content="Dungeon Raiders - Ongoing Embedded QA Case Study" />
+  <meta property="og:description" content="Ongoing embedded QA case study showing how Kelina Cowell supports Android QA, regression testing, mobile usability, UI stability, player-facing readability, and release support for Dungeon Raiders." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/dungeon-raiders-header.png" />
+
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=5">
+
+ <style>
+  .hero{
+    width:100%;
+    height:260px;
+    position:relative;
+    margin:28px 0 26px !important;
+    padding:0 !important;
+    border:0;
+    border-radius:20px;
+    background:transparent !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
+
+  .hero img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center center;
+    border-radius:20px;
+    border:0;
+    box-shadow:none !important;
+    background:transparent;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    pointer-events:none;
+    box-shadow:
+      0 0 14px rgba(0,255,240,0.28),
+      0 0 28px rgba(0,255,240,0.16),
+      0 0 52px rgba(0,255,240,0.10);
+    animation:heroPulse 3.2s ease-in-out infinite;
+  }
+
+  @keyframes heroPulse{
+    0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+    100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+  }
+
+  body h2{ margin:32px 0 12px !important; }
+  body hr{ margin:28px 0 !important; }
+  body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+
+  body ul,
+  body ol{
+    margin:12px 0 20px !important;
+    padding-left:1.3rem !important;
+  }
+
+  body li{
+    line-height:1.7 !important;
+    margin:8px 0 !important;
+  }
+
+  .cta-row{
+    margin:20px 0 34px !important;
+    text-align:center;
+  }
+
+  .cta-row .cta-btn{
+    margin:6px 8px;
+  }
+
+  @media (max-width:560px){
+    .cta-row .cta-btn{
+      display:block;
+      margin:8px auto;
+      width:fit-content;
+    }
+  }
+
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
+
+  .grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
+
+  .grid-3 .card,
+  .grid-2 .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+  }
+
+  .grid-3 .card h3,
+  .grid-2 .card h3{
+    margin-top:0;
+  }
+
+  @media (max-width:900px){
+    .grid-3,
+    .grid-2{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    .grid-3,
+    .grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0f1215;
+    border:1px solid rgba(255,255,255,.08);
+    margin:12px 0;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  thead th{
+    background:rgba(0,255,240,.08);
+    color:#00fff0;
+    text-align:left;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody td,
+  tbody th{
+    color:#cfd6dd;
+    padding:12px 14px;
+    vertical-align:top;
+  }
+
+  thead th+th,
+  tbody td+td,
+  tbody th+td{
+    border-left:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody tr+tr td,
+  tbody tr+tr th{
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  .method-note{
+    margin:-6px 0 10px;
+    font-size:.95rem;
+    color:#a9b3bd;
+    opacity:.9;
+  }
+
+  .method-note,
+  .method-note a{
+    color:inherit !important;
+    font-size:inherit !important;
+    line-height:inherit !important;
+    opacity:1 !important;
+  }
+
+  blockquote{
+    border-left:3px solid #00fff0;
+    margin:18px 0;
+    padding:12px 18px;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+  }
+
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+
+  .service-card.hero-copy{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 24px;
+    text-align:center;
+  }
+
+  .service-card.hero-copy h2{
+    margin-top:0;
+  }
+
+  .service-card.hero-copy .lead{
+    margin-bottom:20px;
+  }
+
+     .testimonial-card{
+    margin:24px 0 28px;
+    padding:20px 22px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid #00fff0;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.28);
+  }
+
+  .testimonial-card h2{
+    margin:0 0 12px !important;
+  }
+
+  .testimonial-card blockquote{
+    margin:0;
+    padding:14px 18px;
+    border-left:0;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+    font-size:1.05rem;
+    line-height:1.75;
+    font-style:italic;
+    border-radius:10px;
+  }
+
+  .testimonial-card blockquote em{
+    color:#ffffff;
+  }
+
+  .testimonial-author{
+    margin:14px 0 0 !important;
+    color:#00fff0;
+    font-weight:700;
+    text-align:right;
+  }
+
+  @media (max-width:640px){
+    .testimonial-card{
+      padding:16px;
+    }
+
+    .testimonial-card blockquote{
+      padding:12px 14px;
+      font-size:1rem;
+    }
+
+    .testimonial-author{
+      text-align:left;
+    }
+  }
+</style>
+  
+  <script data-goatcounter="https://kelina.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <main class="wrap">
+
+ <header class="hero">
+  <img src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/dungeon-raiders-header.png" alt="Dungeon Raiders QA case study banner">
+</header>
+
+    <nav style="text-align:center;margin-bottom:20px;">
+      <a class="cta-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">Back to Portfolio Hub</a>
+    </nav>
+
+    <h1>Dungeon Raiders - Ongoing Embedded QA Case Study</h1>
+    <p class="meta">Role: Head of QA • Studio: Loom &amp; Lore Interactive Games • Platform: Android • Status: Released and receiving ongoing QA support</p>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">🧾 Project Overview</h2>
+
+      <ul>
+        <li><strong>Game:</strong> Dungeon Raiders</li>
+        <li><strong>Studio:</strong> <a href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">Loom &amp; Lore Interactive Games</a></li>
+        <li><strong>Role:</strong> Head of QA</li>
+        <li><strong>Testing dates:</strong> Ongoing from 17 May 2026</li>
+        <li><strong>Status:</strong> Released, with ongoing QA support across updates and new builds</li>
+        <li><strong>Platform:</strong> Android</li>
+        <li><strong>Credit:</strong> Credited in-game as “Head of QA Kelina Cowell”</li>
+      </ul>
+    </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Indie Developer, QA Lead, Game QA Tester, Recruiter"
+  },
+  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
+  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
+  "name": "Dungeon Raiders: Ongoing Embedded QA Case Study",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Person", "name": "Kelina Cowell" },
+  "isBasedOn": {
+    "@type": "VideoGame",
+    "name": "Dungeon Raiders",
+    "gamePlatform": ["Android"]
+  },
+  "about": [
+    { "@type": "Thing", "name": "Embedded QA" },
+    { "@type": "Thing", "name": "Game QA" },
+    { "@type": "Thing", "name": "Android QA" },
+    { "@type": "Thing", "name": "Mobile game testing" },
+    { "@type": "Thing", "name": "Regression testing" },
+    { "@type": "Thing", "name": "Fix validation" },
+    { "@type": "Thing", "name": "Player-focused exploratory testing" },
+    { "@type": "Thing", "name": "Patch-note targeted regression" },
+    { "@type": "Thing", "name": "UI stability" },
+    { "@type": "Thing", "name": "Gameplay readability" },
+    { "@type": "Thing", "name": "Save and resume persistence" },
+    { "@type": "Thing", "name": "Class and ability testing" }
+  ],
+  "keywords": [
+    "embedded game QA",
+    "Android game QA",
+    "mobile game testing",
+    "indie game QA",
+    "regression testing",
+    "fix validation",
+    "player-focused exploratory testing",
+    "UI stability testing",
+    "gameplay readability",
+    "save persistence testing",
+    "patch-note targeted regression",
+    "structured QA reporting"
+  ],
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Role", "value": "Head of QA" },
+    { "@type": "PropertyValue", "name": "Studio", "value": "Loom & Lore Interactive Games" },
+    { "@type": "PropertyValue", "name": "Platform", "value": "Android" },
+    { "@type": "PropertyValue", "name": "Status", "value": "Released with ongoing QA support" },
+    { "@type": "PropertyValue", "name": "Testing approach", "value": "Player-focused exploratory testing, patch-note targeted regression, fix validation, persistence testing, and Android mobile usability checks" },
+    { "@type": "PropertyValue", "name": "Credit", "value": "Head of QA Kelina Cowell" }
+  ]
+}
+</script>
+
+    <h2>Introduction</h2>
+
+    <p>
+      This case study covers my ongoing embedded QA work on <a href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener"><em>Dungeon Raiders</em></a>, an Android mobile game by Loom &amp; Lore Interactive Games.
+    </p>
+
+    <p>
+      Unlike a single public demo test or one-off QA mini-pass, this work has continued across multiple builds and updates. I have completed eight QA passes so far, with further testing expected as the game continues to receive updates, fixes, and new content.
+    </p>
+
+    <p>
+      This page focuses on the workflow, scope, QA judgement, and ongoing support provided across the project. It does not publish internal bug logs, private developer communication, or sensitive build details.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Game</th><th>Role</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dungeon Raiders</td>
+          <td>Head of QA</td>
+          <td>Released Android game with ongoing QA support</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta-row" style="text-align:center;">
+      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">View on Google Play</a>
+      <a class="cta-btn" href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">View Studio</a>
+    </div>
+
+    <hr>
+
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+  <div class="testimonial-card">
+    <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
+
+    <blockquote class="testimonial-quote">
+      “Kelina’s ability to take a piece of software and turn it inside out has been invaluable to our pipeline. She is immaculate, professional, and fiercely reliable, helping us ship games on timelines that would be impossible for a solo dev.”
+    </blockquote>
+
+    <p class="testimonial-author">
+      — Emily Ray, Lead Dev, Loom &amp; Lore Interactive Games
+    </p>
+  </div>
+</section>
+
+    <hr>
+
+    <h2 id="role">🎯 My QA Role</h2>
+
+    <p>
+      My role is to provide ongoing QA support for Dungeon Raiders across live updates, new features, regression cycles, and player-facing gameplay checks. The work combines exploratory testing, targeted regression, fix validation, smoke testing, persistence checks, and mobile usability review.
+    </p>
+
+    <p>
+      Because this is a small indie workflow, the aim is not to create unnecessary production overhead. The value comes from clear test focus, structured reporting, useful evidence, fast validation, and practical feedback that helps the developer prioritise fixes and improvements.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>🧭 QA Focus</h3>
+        <ul>
+          <li>Android mobile gameplay</li>
+          <li>UI and overlay stability</li>
+          <li>Gameplay readability</li>
+          <li>Class and ability behaviour</li>
+          <li>Save and resume persistence</li>
+          <li>Player-facing usability</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>📄 Reporting</h3>
+        <ul>
+          <li>Structured QA passes</li>
+          <li>Regression notes</li>
+          <li>Patch-note targeted verification</li>
+          <li>Player-impact explanations</li>
+          <li>Screenshot and video evidence</li>
+          <li>Clear handover summaries</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>🔁 Validation</h3>
+        <ul>
+          <li>Fix validation after updates</li>
+          <li>Regression checks around changed systems</li>
+          <li>New content smoke testing</li>
+          <li>Save/resume checks</li>
+          <li>Menu and transition checks</li>
+          <li>Release and update support</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="workflow">🛠️ Workflow & Communication</h2>
+
+    <p>
+      Testing is carried out as an ongoing embedded QA workflow, with each pass shaped around the current build, latest patch notes, known risk areas, and player-facing behaviour observed during Android gameplay.
+    </p>
+
+    <p>
+      The work is intentionally practical. I focus on what a player can see, misunderstand, break, lose progress through, or become frustrated by during normal play. Where needed, I also use targeted regression and debug-assisted coverage to reach specific systems or later progression states more efficiently.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Workflow Area</th><th>How It Worked</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Communication</td>
+          <td>Ongoing communication with the developer around new builds, patch notes, reported issues, fixes, and retest priorities.</td>
+        </tr>
+        <tr>
+          <td>Planning</td>
+          <td>Each QA pass was planned around the current build state, recent changes, known risk areas, and player-facing impact.</td>
+        </tr>
+        <tr>
+          <td>Testing</td>
+          <td>Testing combined player-focused exploratory gameplay, targeted regression, smoke testing, persistence checks, and Android mobile usability review.</td>
+        </tr>
+        <tr>
+          <td>Reporting</td>
+          <td>Findings were written clearly with player impact, reproducible behaviour, relevant context, and evidence where useful.</td>
+        </tr>
+        <tr>
+          <td>Regression</td>
+          <td>Fixes were retested in later builds, with nearby systems checked where changes could cause regressions.</td>
+        </tr>
+        <tr>
+          <td>Ongoing Support</td>
+          <td>Further QA passes are expected as Dungeon Raiders continues receiving updates, fixes, tuning, and new content.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
+
+    <p>
+      The test strategy changed depending on the build. Early passes focused on player-facing stability, readability, transition flow, menus, overlays, and mobile interaction behaviour. Later passes became more targeted, focusing on patch notes, regression fixes, class changes, save/resume behaviour, new content, and combat feedback.
+    </p>
+
+    <p>
+      I prioritised issues that could affect normal Android players: confusing UI states, unclear class mechanics, broken resume behaviour, unreliable menu flow, missing feedback, progression friction, shop and economy problems, and anything that could make the game feel unstable or unfinished.
+    </p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>Player-Focused Exploratory Testing</h3>
+        <p>
+          I tested the game as a normal Android player would experience it, focusing on menu flow, active gameplay clarity, transition behaviour, readability, touch interaction, Game Over flow, restart behaviour, and usability under pressure.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>Targeted Regression & Patch Verification</h3>
+        <p>
+          When new builds were provided, I tested specific fixes and patch-note changes, including class abilities, relic persistence, save/resume behaviour, reward pools, shop interactions, button feedback, and menu functionality after resume.
+        </p>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
+
+    <p>
+      The QA work has evolved across multiple passes. Each pass had a defined purpose rather than repeating the same coverage blindly.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>Focus</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Initial player-facing stability</td>
+          <td>Menu and overlay stability, relic/menu functionality, gameplay readability, transition flow, and mobile interaction behaviour.</td>
+          <td>Identify visible issues likely to appear during standard Android gameplay sessions.</td>
+        </tr>
+        <tr>
+          <td>2. UI and readability regression</td>
+          <td>Recent UI/readability fixes, first-time player clarity, rushed-player behaviour, Game Over flow, restart flow, and player-facing presentation.</td>
+          <td>Check whether the game felt stable, understandable, and presentable enough for more players to see it.</td>
+        </tr>
+        <tr>
+          <td>3. Run-state and economy coverage</td>
+          <td>Win, lose, menu, reset behaviour, save/persistence, gold, Soul Shards, shop purchases, upgrades, relics, unlocks, and Level 1 setup comparison.</td>
+          <td>Assess whether core run flow and player progression systems behaved consistently.</td>
+        </tr>
+        <tr>
+          <td>4. Combat and progression regression</td>
+          <td>Single sword attacks, Cleave behaviour, Warrior setup, weapon damage upgrades, level-up rewards, Character Sheet access, Legendary Weapon milestone, no-move board refresh, and shop behaviour.</td>
+          <td>Verify whether recent combat, stat, UI, reward, and progression fixes worked correctly.</td>
+        </tr>
+        <tr>
+          <td>5. Save/resume and persistence checks</td>
+          <td>Save/resume progression, Android backgrounding, no-move board refresh, Character Sheet scrolling, duplicate shop prevention, Warrior Thorns access, and shop item persistence.</td>
+          <td>Check whether the game preserved important player state correctly across mobile resume behaviour.</td>
+        </tr>
+        <tr>
+          <td>6. New class and patch-note smoke testing</td>
+          <td>Druid, Fisher, seven-class selection screen, class-specific level-up pools, relic resume regression, button visuals, pressed states, combat feedback, audio changes, and skull-death sound regression.</td>
+          <td>Smoke test new content while also checking regression risks introduced by the update.</td>
+        </tr>
+        <tr>
+          <td>7. Ability and menu regression verification</td>
+          <td>ENTANGLE behaviour, Cursed Blade description, empty-board ability handling, End Run feature, menu reopen behaviour, and Druid/Fisher weapon art persistence after resume.</td>
+          <td>Confirm specific patch-note fixes and ensure key menu and resume behaviours remained stable.</td>
+        </tr>
+        <tr>
+          <td>8. Ongoing update support</td>
+          <td>Further regression, fix validation, new feature testing, class behaviour checks, UI review, and Android gameplay stability.</td>
+          <td>Continue supporting Dungeon Raiders as the game receives additional updates and improvements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="qa-areas">🔍 QA Areas Covered</h2>
+
+    <p>
+      The QA work has covered both functional behaviour and player-facing experience. This includes systems that affect whether players understand what is happening, trust the game state, and feel confident continuing a run.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>UI Stability</h3>
+        <ul>
+          <li>Menu behaviour</li>
+          <li>Overlay persistence</li>
+          <li>Button feedback</li>
+          <li>Pressed-state visuals</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Gameplay Readability</h3>
+        <ul>
+          <li>Combat feedback</li>
+          <li>Class HUD clarity</li>
+          <li>Board icon readability</li>
+          <li>Reward display clarity</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Mobile Behaviour</h3>
+        <ul>
+          <li>Android interaction stability</li>
+          <li>Rapid tapping behaviour</li>
+          <li>Backgrounding and resume</li>
+          <li>Touch-based menu flow</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Combat Systems</h3>
+        <ul>
+          <li>Sword attack behaviour</li>
+          <li>Cleave behaviour</li>
+          <li>Thorns behaviour</li>
+          <li>Ability handling</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Progression & Economy</h3>
+        <ul>
+          <li>Gold behaviour</li>
+          <li>Soul Shards</li>
+          <li>Shop purchases</li>
+          <li>Upgrade persistence</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Regression Support</h3>
+        <ul>
+          <li>Patch-note verification</li>
+          <li>Fix validation</li>
+          <li>Relic resume checks</li>
+          <li>New content smoke tests</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
+
+    <p>
+      Dungeon Raiders is a live, evolving project, so the QA support needs to be flexible. Some passes are broad and exploratory. Others are tightly focused on a specific patch, feature, regression risk, or piece of player feedback.
+    </p>
+
+    <p>
+      I separate issues by player impact and test purpose, rather than treating every observation as the same kind of bug. A crash, a broken save/resume state, unclear ability behaviour, missing button feedback, confusing class onboarding, and a balance concern all need different handling.
+    </p>
+
+    <p>
+      This helps the developer understand not only what happened, but why it matters, how likely a player is to encounter it, and whether it blocks release, affects presentation, or belongs in a later tuning pass.
+    </p>
+
+    <blockquote>
+      The focus of this work is ongoing Android QA support: identifying player-facing risks, validating fixes, checking regressions, testing new content, and helping the developer keep Dungeon Raiders stable and readable across updates.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+
+    <table>
+      <thead>
+        <tr><th>Tool / Method</th><th>Used For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Android Test Device</td>
+          <td>Primary gameplay testing on the live Android platform.</td>
+        </tr>
+        <tr>
+          <td>Structured QA Notes</td>
+          <td>Capturing scope, test style, focus areas, results, regression status, and player-facing impact.</td>
+        </tr>
+        <tr>
+          <td>Patch Notes</td>
+          <td>Planning targeted regression passes around new fixes, features, changed systems, and known risk areas.</td>
+        </tr>
+        <tr>
+          <td>Screenshot Evidence</td>
+          <td>Capturing UI, menu, readability, reward, shop, class, and progression issues where visual evidence was useful.</td>
+        </tr>
+        <tr>
+          <td>Video Evidence</td>
+          <td>Recording gameplay behaviour, transition flow, ability handling, mobile interaction issues, and regression outcomes.</td>
+        </tr>
+        <tr>
+          <td>Developer Handover</td>
+          <td>Summarising what was tested, what passed, what failed, what needed fixing, and what should be checked in future builds.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="current-outcome">🚀 Current Outcome</h2>
+
+    <p>
+      So far, I have completed eight QA passes on Dungeon Raiders, covering Android gameplay stability, UI/readability fixes, class behaviour, combat systems, save/resume persistence, shop and economy interactions, new content smoke testing, and patch-note targeted regression verification.
+    </p>
+
+    <p>
+      The work has helped support ongoing updates by identifying player-facing risks, validating fixes, checking for regressions, and giving the developer clear information before wider player exposure.
+    </p>
+
+    <p>
+      I am credited in the released game as <strong>Head of QA Kelina Cowell</strong>, reflecting my ongoing QA contribution to the project.
+    </p>
+
+    <div class="cta-row" style="text-align:center;">
+      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">View Dungeon Raiders on Google Play</a>
+    </div>
+
+    <hr>
+
+<h2>✅ What This Case Study Shows</h2>
+
+<ul>
+  <li>Provided ongoing embedded QA support across eight Android QA passes, with more testing expected as the game continues to evolve.</li>
+
+  <li>Used player-focused exploratory testing to identify visible issues affecting normal Android gameplay sessions.</li>
+
+  <li>Performed patch-note targeted regression testing to verify fixes, features, class behaviour, menu behaviour, and save/resume stability.</li>
+
+  <li>Tested new content including Druid, Fisher, class-specific reward pools, ability behaviour, relic persistence, and updated UI feedback.</li>
+
+  <li>Separated functional bugs, usability concerns, readability issues, progression risks, regression failures, and smoke test outcomes clearly.</li>
+
+  <li>Supported a solo indie developer with practical QA feedback that helped keep the project stable, readable, and player-ready across updates.</li>
+</ul>
+    
+    <hr>
+
+    <section class="section" aria-labelledby="contact">
+      <div class="service-card hero-copy">
+
+        <h2 id="contact">Need QA Support for Your Game?</h2>
+
+        <p class="lead">
+          If you have a demo, Android build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+        </p>
+
+        <div class="cta-row">
+          <a class="cta-btn primary-cta" href="https://discord.gg/66Tgq6We" target="_blank" rel="noopener">
+            Message Me on Discord
+          </a>
+
+          <a class="cta-btn" href="mailto:kelinacowell.qa@gmail.com?subject=Game%20Testing%20Enquiry">
+            Email Me
+          </a>
+
+          <a class="cta-btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+
+          <a class="cta-btn" href="https://kelinacowellqa.github.io/freelance-game-qa-services.html">
+            View QA Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <h2>📎 Disclaimer</h2>
+    <p><em>This page documents credited QA work completed by Kelina Cowell for portfolio and recruitment purposes. I am not the developer or publisher of Dungeon Raiders. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
+  </footer>
+</body>
+</html>
+```
