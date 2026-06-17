@@ -313,7 +313,7 @@
     </p>
 
     <p>
-      This page focuses on the QA workflow, testing decisions, and player-facing risk analysis rather than exposing the full internal bug log. The aim is to show how I approached demo readiness testing, how I prioritised coverage, and how the final report supported the team before public release.
+      This page focuses on the QA workflow, testing strategy, and decision-making behind the project. Rather than listing individual findings, it shows how testing was planned, how coverage was prioritised, how updates were verified, and how ongoing QA support contributed to the project's development.
     </p>
 
     <table>
@@ -343,7 +343,7 @@
     </p>
 
     <p>
-      The producer specifically highlighted that the newly added systems had received least internal testing. Based on that conversation, I built a focused QA pass around Map behaviour, Time Skip, Journal updates, quest progression, save/load persistence, objective guidance, boundary testing, and general stability.
+      The producer specifically highlighted that the newly added systems had received the least internal testing. Based on that conversation, I built a focused QA pass around Map behaviour, Time Skip, Journal updates, quest progression, save/load persistence, objective guidance, boundary testing, and general stability.
     </p>
 
     <div class="grid-3">
@@ -362,7 +362,7 @@
       <section class="card">
         <h3>📄 Reporting</h3>
         <ul>
-          <li>Google Docs QA summary report</li>
+          <li>Google Docs QA report</li>
           <li>Google Sheets bug log</li>
           <li>Structured session tracking</li>
           <li>Linked screenshots</li>
@@ -393,7 +393,7 @@
     </p>
 
     <p>
-      I delivered a Google Docs QA summary report and a Google Sheets bug log. Video evidence was uploaded as unlisted YouTube clips, while screenshots were linked through Google Drive inside the bug log. This gave the team both a high-level summary and detailed evidence they could review quickly.
+      I delivered a detailed Google Docs QA report and a Google Sheets bug log. Video evidence was uploaded as unlisted YouTube clips, while screenshots were linked through Google Drive inside the bug log. This gave the team both a high-level summary and detailed evidence they could review quickly and action from.
     </p>
 
     <table>
@@ -411,11 +411,11 @@
         </tr>
         <tr>
           <td>Findings</td>
-         <td>Findings were documented in a structured Google Sheets bug log, capturing reproduction steps, expected and actual results, impact assessment, priority, repro rate, supporting evidence, status tracking, and additional QA notes.</td>
+         <td>Findings were documented in a structured bug log, capturing reproduction steps, expected and actual results, impact assessment, priority, repro rate, supporting evidence, status tracking, and additional QA notes.</td>
         </tr>
         <tr>
           <td>Reporting</td>
-          <td>A detailed Google Docs QA report gave the team a clearer overview of what was tested, what worked, what needed attention and suggested improvements.</td>
+          <td>A detailed QA report gave the team a clearer overview of what was tested, what worked, what needed attention and suggested improvements.</td>
         </tr>
         <tr>
           <td>Evidence</td>
@@ -423,7 +423,7 @@
         </tr>
         <tr>
           <td>Delivery</td>
-          <td>The report and bug log were sent directly to the producer before the Steam Next Fest demo deadline.</td>
+          <td>The report and bug log were sent directly to the producer before the deadline.</td>
         </tr>
       </tbody>
     </table>
@@ -432,13 +432,13 @@
 
     <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
 
-    <p>
-      The test plan was built around risk. Since the team was preparing for Steam Next Fest, I prioritised areas that could damage a new player's first impression of the demo: unclear objectives, stale guidance, missed event cues, progression uncertainty, and system behaviour that was technically functional but poorly communicated.
-    </p>
+   <p>
+  The test plan was built around risk. Since the team was preparing for Steam Next Fest, I prioritised recently added systems that had received less internal testing and were closely tied to player progression, navigation, and understanding.
+</p>
 
-    <p>
-      The producer mentioned that the newer systems had received the least internal testing, so those became the main focus of the pass. I tested each system directly, then tested how those systems interacted with each other during quest progression, save/load, NPC behaviour, player exploration, and time-based events.
-    </p>
+<p>
+  The producer mentioned that the newer systems had received the least internal testing, so those became the main focus of the pass. I tested the Map, Journal, Time Skip, quest progression, objective tracking, save/load behaviour, NPC behaviour, player exploration, and time-based events both individually and as connected systems.
+</p>
 
     <div class="grid-2">
       <section class="card">
@@ -579,51 +579,51 @@
 
     <hr>
 
-    <h2 id="findings">📌 Findings Summary</h2>
+<h2 id="player-facing-risks">📌 Player-Facing Risks Identified</h2>
 
-    <p>
-      Overall, the tested build was stable. During testing I did not encounter crashes, freezes, soft locks, save corruption, major progression blockers, or out-of-bounds exploits.
-    </p>
+<p>
+  The main findings centred on player-facing clarity rather than major technical failure. The issues I identified were mostly related to how the demo communicated objectives, system states, progression cues, and next steps to the player.
+</p>
 
-    <p>
-      Most findings were not technical stability issues. Instead, they centred around player-facing communication, objective clarity, system feedback, discoverability, and consistency between interconnected gameplay systems.
-    </p>
+<p>
+  For public portfolio purposes, I have grouped the findings by theme rather than publishing the internal bug log, repro steps, or evidence links.
+</p>
 
-    <table>
-      <thead>
-        <tr><th>Finding Category</th><th>Focus Area</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Objective Guidance</td>
-          <td>Areas where player direction, next-step communication, or progression signposting could be clearer.</td>
-        </tr>
-        <tr>
-          <td>System Communication</td>
-          <td>Instances where system limitations, availability, or state changes could benefit from stronger player feedback.</td>
-        </tr>
-        <tr>
-          <td>Quest & Progression Flow</td>
-          <td>Review of how quest information, progression updates, and player expectations aligned throughout the demo.</td>
-        </tr>
-        <tr>
-          <td>Discoverability</td>
-          <td>Assessment of how easily players could notice important progression events and gameplay cues.</td>
-        </tr>
-        <tr>
-          <td>Accessibility Observations</td>
-          <td>Player-facing considerations related to visibility, audio awareness, attention management, and information delivery.</td>
-        </tr>
-        <tr>
-          <td>Navigation & World Interaction</td>
-          <td>Validation of player movement, world boundaries, interactables, and route clarity.</td>
-        </tr>
-      </tbody>
-    </table>
+<table>
+  <thead>
+    <tr><th>Finding Category</th><th>Player-Facing Risk</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Objective Guidance</td>
+      <td>Players could lose direction if the next step was not clearly communicated after a quest interaction or progression event.</td>
+    </tr>
+    <tr>
+      <td>System Communication</td>
+      <td>Some system states or limitations needed clearer feedback so players could understand whether behaviour was intentional, unavailable, or progression-gated.</td>
+    </tr>
+    <tr>
+      <td>Quest & Progression Flow</td>
+      <td>Quest information and player expectations needed to stay aligned as objectives advanced, NPC states changed, or events triggered.</td>
+    </tr>
+    <tr>
+      <td>Discoverability</td>
+      <td>Important progression cues needed to be noticeable enough during normal exploration, not only when the player happened to be looking in the right place.</td>
+    </tr>
+    <tr>
+      <td>Accessibility Observations</td>
+      <td>Some feedback relied on visibility, audio awareness, or attention timing in ways that could affect players with hearing, processing, or attention-related difficulties.</td>
+    </tr>
+    <tr>
+      <td>Navigation & World Interaction</td>
+      <td>Some world elements needed review to confirm whether they were intended as usable routes, blocked paths, or decorative geometry.</td>
+    </tr>
+  </tbody>
+</table>
 
     <hr>
 
-    <h2 id="positive-validation">✅ Positive Validation</h2>
+    <h2 id="systems-validated">✅ Systems Validated</h2>
 
     <p>
       The QA pass also confirmed several important areas were working well. This was useful because demo readiness is not only about identifying defects. It is also about confirming which systems are stable enough to rely on for public release.
@@ -655,13 +655,13 @@
 
     <h2 id="developer-collaboration">🤝 Working With the Producer</h2>
 
-    <p>
-      The testing scope was shaped through direct conversation with the producer. I first suggested validating community playtest feedback, but the team explained that the current community feedback pool was limited. Based on that, I shifted the plan towards structured testing of new systems and demo-critical progression areas.
-    </p>
+<p>
+  The testing scope was shaped through direct conversation with the producer. We discussed two useful directions: validating any incoming playtester feedback, and running a structured pass on the newer demo systems. Since the available community feedback was limited at that stage, I continued with the planned structured pass on systems the producer identified as needing more coverage.
+</p>
 
-    <p>
-      This meant the work stayed practical and relevant to the team's actual needs. Instead of waiting for player reports that did not yet exist, I focused on giving the team coverage information, evidence-backed findings, and clear player impact notes before the public demo deadline.
-    </p>
+<p>
+  This kept the work aligned with the producer's priorities while still matching my intended second-pass approach. The focus was to provide coverage information, evidence-backed findings, and clear player impact notes across demo-critical systems before the public Steam Next Fest deadline.
+</p>
 
     <blockquote>
       The focus of this work was demo readiness: testing the new systems most likely to affect player understanding, validating that core progression remained stable, and reporting issues in a way the team could act on quickly before Steam Next Fest.
@@ -669,46 +669,54 @@
 
     <hr>
 
-    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+<h2 id="tools">🧰 Tools & Evidence Workflow</h2>
 
-    <table>
-      <thead>
-        <tr><th>Tool</th><th>Used For</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Google Docs</td>
-          <td>QA report covering test focus, build information, key findings, positive validation, and overall demo readiness observations.</td>
-        </tr>
-        <tr>
-          <td>Google Sheets</td>
-          <td>Structured bug log with charter ID, system area, repro steps, expected result, actual result, impact, priority, repro rate, evidence, status, and notes.</td>
-        </tr>
-        <tr>
-          <td>Discord</td>
-          <td>Direct communication with the producer, including scope discussion and report delivery.</td>
-        </tr>
-        <tr>
-          <td>YouTube Unlisted</td>
-          <td>Private video evidence links for issues where movement, timing, or event visibility needed to be shown clearly.</td>
-        </tr>
-        <tr>
-          <td>Google Drive</td>
-          <td>Screenshot evidence linked from the bug log for quick review.</td>
-        </tr>
-        <tr>
-          <td>Windows PC</td>
-          <td>Primary test platform for the Steam demo build.</td>
-        </tr>
-      </tbody>
-    </table>
+<table>
+  <thead>
+    <tr><th>Tool</th><th>Used For</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Windows PC</td>
+      <td>Primary test platform for the Steam demo build.</td>
+    </tr>
+    <tr>
+      <td>OBS Studio</td>
+      <td>Recording gameplay sessions and capturing issue evidence during testing.</td>
+    </tr>
+    <tr>
+      <td>Microsoft Clipchamp</td>
+      <td>Editing longer recordings into shorter evidence clips for easier developer review.</td>
+    </tr>
+    <tr>
+      <td>YouTube Unlisted</td>
+      <td>Private storage and sharing of evidence clips through unlisted video links.</td>
+    </tr>
+    <tr>
+      <td>Google Drive</td>
+      <td>Screenshot evidence storage, linked directly from the bug log where needed.</td>
+    </tr>
+    <tr>
+      <td>Google Docs</td>
+      <td>QA report covering test focus, build information, key findings, systems validated, and overall demo readiness observations.</td>
+    </tr>
+    <tr>
+      <td>Google Sheets</td>
+      <td>Structured bug log with charter ID, system area, repro steps, expected result, actual result, impact, priority, repro rate, evidence, status, and notes.</td>
+    </tr>
+    <tr>
+      <td>Discord</td>
+      <td>Direct communication with the producer, including scope discussion, clarification, and report delivery.</td>
+    </tr>
+  </tbody>
+</table>
 
     <hr>
 
     <h2 id="release-outcome">🚀 Release Outcome</h2>
 
     <p>
-      The QA report and bug log were delivered directly to the producer ahead of the Steam Next Fest demo deadline. The report highlighted both stable areas and player-facing risks that could affect first-time demo players.
+      The QA report and bug log were delivered directly to the producer ahead of the deadline. The report highlighted both stable areas and player-facing risks that could affect first-time demo players.
     </p>
 
     <p>
@@ -729,16 +737,17 @@
 
     <hr>
 
-    <h2>✅ What This Case Study Shows</h2>
+<h2>✅ What This QA Project Shows</h2>
 
-    <ul>
-      <li>Created a focused QA pass around recently added demo systems identified as higher-risk by the team.</li>
-      <li>Used risk-based testing to prioritise player guidance, quest progression, Journal and Map synchronisation, Time Skip behaviour, and save/load persistence.</li>
-      <li>Balanced bug discovery with positive validation, confirming that key progression, persistence, performance, and boundary systems were stable.</li>
-      <li>Reported findings through a structured Google Docs QA Report and Google Sheets bug log with evidence links and player impact notes.</li>
-      <li>Identified issues that were technically non-blocking but important for player understanding and public demo readiness.</li>
-      <li>Worked directly with the producer and adapted the QA plan to match the team's current needs before Steam Next Fest.</li>
-    </ul>
+<ul>
+  <li>Planned a focused QA pass around newer demo systems the producer identified as needing more coverage.</li>
+  <li>Used risk-based testing to prioritise quest progression, player guidance, Journal and Map behaviour, Time Skip interactions, and save/load persistence.</li>
+  <li>Tested both individual systems and how those systems interacted during quests, NPC behaviour, exploration, time-based events, and Save/Load.</li>
+  <li>Reported issues through a structured QA report and bug log with evidence links, repro information, priority, and player impact notes.</li>
+  <li>Identified player-facing risks that were important for demo readiness even where progression remained technically functional.</li>
+  <li>Confirmed key areas of stability, persistence, performance, and boundary behaviour during the tested scenarios.</li>
+  <li>Worked directly with the producer and kept the QA approach aligned with the project’s Steam Next Fest deadline.</li>
+</ul>
 
     <hr>
 
