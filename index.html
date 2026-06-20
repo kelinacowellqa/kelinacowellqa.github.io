@@ -303,7 +303,7 @@
     border-top:1px solid rgba(255,255,255,.05);
   }
 
-  .recognition-row{
+.recognition-row{
   display:grid;
   grid-template-columns:repeat(2, 1fr);
   gap:16px;
@@ -336,9 +336,37 @@
   border-radius:10px;
 }
 
+/* NEW */
+
+.recognition-card-featured{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.recognition-card-featured .recognition-badge{
+  width:120px;
+  margin:0;
+  flex-shrink:0;
+}
+
+.recognition-content{
+  flex:1;
+}
+
+.recognition-content h3{
+  margin-top:0;
+}
+
 @media (max-width:760px){
+
   .recognition-row{
     grid-template-columns:1fr;
+  }
+
+  .recognition-card-featured{
+    flex-direction:column;
+    text-align:center;
   }
 
   @media (max-width:760px){
@@ -442,7 +470,7 @@
 
   <div class="recognition-row">
 
-    <div class="recognition-card">
+    <div class="recognition-card recognition-card-featured">
       <img
         src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/LB_Mentee_Gif_SQ.gif"
         alt="Limit Break Mentee 2026"
