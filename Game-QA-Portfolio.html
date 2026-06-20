@@ -332,7 +332,7 @@
     border-top:1px solid rgba(255,255,255,.05);
   }
 
-  .credibility-row{
+.credibility-row{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:16px;
@@ -340,31 +340,30 @@
 }
 
 .credibility-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
   background:rgba(255,255,255,.03);
   border:1px solid rgba(0,255,240,.16);
   border-radius:14px;
-  padding:18px;
-  text-align:center;
+  padding:14px 16px;
+
+  min-height:80px;
 }
 
 .credibility-badge{
-  width:100px;
-  height:auto;
-  margin:0 auto 12px;
-  display:block;
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  flex-shrink:0;
+  margin:0;
 }
 
 .credibility-card p{
   margin:0;
   font-weight:600;
-}
-
-.credibility-title{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100%;
-  min-height:120px;
+  text-align:left;
 }
 
 @media (max-width:760px){
@@ -426,29 +425,27 @@
 
   <div class="credibility-row">
 
-    <div class="credibility-card">
-      <img
-        src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/APX Badge.png"
-        alt="APX Certified Practitioner"
-        class="credibility-badge"
-      >
-      <p>APX Certified Practitioner</p>
-    </div>
+<div class="credibility-card">
+  <img
+    src="assets/img/APX Badge.png"
+    alt="APX Certified Practitioner"
+    class="credibility-badge"
+  >
+  <p>APX Certified Practitioner</p>
+</div>
 
-    <div class="credibility-card">
-      <img
-        src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/LB_Mentee_Gif_SQ.gif"
-        alt="Limit Break Mentee 2026"
-        class="credibility-badge"
-      >
-      <p>Limit Break Mentee 2026</p>
-    </div>
+<div class="credibility-card">
+  <img
+    src="assets/img/LB_Mentee_Gif_SQ.gif"
+    alt="Limit Break Mentee 2026"
+    class="credibility-badge"
+  >
+  <p>Limit Break Mentee 2026</p>
+</div>
 
-    <div class="credibility-card">
-      <p class="credibility-title">
-        Prince William BAFTA Bursary Recipient 2026
-      </p>
-    </div>
+<div class="credibility-card">
+  <p>Prince William BAFTA Bursary Recipient 2026</p>
+</div>
 
     <!-- Add later -->
     <!--
