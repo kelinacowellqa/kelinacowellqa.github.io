@@ -332,6 +332,46 @@
     border-top:1px solid rgba(255,255,255,.05);
   }
 
+  .credibility-row{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
+  margin:24px 0;
+}
+
+.credibility-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(0,255,240,.16);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+}
+
+.credibility-badge{
+  width:100px;
+  height:auto;
+  margin:0 auto 12px;
+  display:block;
+}
+
+.credibility-card p{
+  margin:0;
+  font-weight:600;
+}
+
+.credibility-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  min-height:120px;
+}
+
+@media (max-width:760px){
+  .credibility-row{
+    grid-template-columns:1fr;
+  }
+
   /* Mobile */
 
   @media (max-width:900px){
@@ -390,6 +430,52 @@
           This is the practical testing work I bring to developers and teams.
         </p>
       </section>
+
+      <section class="credibility-strip" aria-labelledby="credibility">
+
+  <h2 id="credibility">Industry Recognition & Certifications</h2>
+
+  <div class="credibility-row">
+
+    <div class="credibility-card">
+      <img
+        src="assets/img/APX Badge.png"
+        alt="APX Certified Practitioner"
+        class="credibility-badge"
+      >
+      <p>APX Certified Practitioner</p>
+    </div>
+
+    <div class="credibility-card">
+      <img
+        src="assets/img/LB_Mentee_Gif_SQ.gif"
+        alt="Limit Break Mentee 2026"
+        class="credibility-badge"
+      >
+      <p>Limit Break Mentee 2026</p>
+    </div>
+
+    <div class="credibility-card">
+      <p class="credibility-title">
+        Prince William BAFTA Bursary Recipient 2026
+      </p>
+    </div>
+
+    <!-- Add later -->
+    <!--
+    <div class="credibility-card">
+      <img
+        src="assets/img/IG50-Badge.png"
+        alt="IG50 Winner 2026"
+        class="credibility-badge"
+      >
+      <p>IG50 Winner 2026</p>
+    </div>
+    -->
+
+  </div>
+
+</section>
 
 <section class="section" aria-labelledby="latest-project">
   <h2 id="latest-project">Released Projects</h2>
