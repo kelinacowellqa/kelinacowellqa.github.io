@@ -571,20 +571,20 @@
 
     <hr>
 
-    <h2 id="onboarding-pass">🧭 First Hands-On QA Pass</h2>
+   <h2 id="onboarding-pass">🧭 Onboarding & Early Progression Pass</h2>
 
-    <p>
-      The first hands-on QA pass was carried out on the closed PC playtest build on Windows 11. The testing style was player-focused onboarding and early progression exploratory testing.
-    </p>
+   <p>
+  This pass was carried out on the closed PC playtest build on Windows 11, focusing on onboarding and early progression from a first-time player perspective.
+</p>
 
-    <p>
-      This pass focused on whether a first-time player could understand early objectives, route expectations, environmental guidance, interaction feedback, readable notes, tutorial prompts, and progression flow without external help.
-    </p>
+<p>
+  I tested without using Discord hints or community discussion during progression, so I could see what the game communicated naturally through objectives, signage, environmental guidance, tutorial prompts, readable notes, and player feedback.
+</p>
 
-    <p>
-      The goal was not to perform deep systems testing, combat balancing, performance analysis, long-session progression testing, or late-game validation during this pass. Those areas are better suited to later focused testing once build access, debug tools, and current development priorities are aligned.
-    </p>
-
+<p>
+  This was not intended as a full-game systems, combat, performance, or late-game validation pass. Those areas are better suited to later focused testing, especially once debug tools are available for faster setup and repeatable issue reproduction.
+</p>
+    
     <table>
       <thead>
         <tr><th>Test Area</th><th>Observed Focus</th></tr>
@@ -615,59 +615,43 @@
 
     <hr>
 
-    <h2 id="findings">📌 Current Findings Summary</h2>
+ <h2 id="player-facing-risk">⚠️ Current Player-Facing Risk Areas</h2>
 
-    <p>
-      The onboarding structure generally functioned and several player guidance systems successfully communicated progression direction, including objective prompts, room signage, environmental rerouting, lock and key feedback, tutorial popups, and creature-driven route pressure.
-    </p>
+<p>
+  The first hands-on pass found that the onboarding structure generally worked: objectives, room signage, lock/key feedback, tutorial popups, environmental rerouting, and creature pressure all helped guide progression while keeping the horror tension intact.
+</p>
 
-    <p>
-      The strongest areas observed so far were objective visibility, readable tutorial presentation, clear room signage, and the use of horror pressure to guide movement without relying entirely on direct waypoints.
-    </p>
+<p>
+  The main risks came from the supporting systems around that progression. The objective usually made sense, but recovery, route readability, area naming, note review, and reading-mode clarity sometimes added extra strain during early play.
+</p>
 
-    <p>
-      The main friction areas identified during the first hands-on pass involved recovery from a hard-lock state, route clarity during blocked progression paths, difficulty identifying a referenced medical area, limited ability to review previously read notes, and readability concerns around highlighted clue text in reading mode.
-    </p>
-
-    <blockquote>
-      Most onboarding confusion observed during the first pass came from navigation strain, information retention, and route interpretation rather than the core objective system itself.
-    </blockquote>
-
-    <hr>
-
-    <h2 id="player-facing-risk">⚠️ Player-Facing Risk Areas</h2>
-
-    <p>
-      This section keeps the public case study NDA-safe by summarising issue types rather than exposing full internal bug logs or private development details.
-    </p>
-
-    <table>
-      <thead>
-        <tr><th>Risk Area</th><th>Player Impact</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Recovery and hard-lock risk</td>
-          <td>A player can lose control or become unable to recover during onboarding, which can force the game to be closed and damage first-session confidence.</td>
-        </tr>
-        <tr>
-          <td>Route readability</td>
-          <td>Players may understand the objective but struggle to identify the intended physical route when paths are blocked or rerouted.</td>
-        </tr>
-        <tr>
-          <td>Area naming and map clarity</td>
-          <td>If an objective references an area that is not clearly labelled or reachable through available map guidance, players may think progression is blocked.</td>
-        </tr>
-        <tr>
-          <td>Information retention</td>
-          <td>If important notes or clues cannot be reviewed later, players may be forced to rely on memory during stressful exploration.</td>
-        </tr>
-        <tr>
-          <td>Reading-mode readability</td>
-          <td>If clue text becomes harder to read in a dedicated reading mode, the system can reduce accessibility instead of improving it.</td>
-        </tr>
-      </tbody>
-    </table>
+<table>
+  <thead>
+    <tr><th>Risk Area</th><th>Player Impact</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recovery and hard-lock risk</td>
+      <td>Players may become unable to recover during onboarding, forcing them to close the game and breaking first-session confidence.</td>
+    </tr>
+    <tr>
+      <td>Route readability</td>
+      <td>Players may understand the objective but struggle to identify the intended physical route when paths are blocked, rerouted, or unclear.</td>
+    </tr>
+    <tr>
+      <td>Area naming and map clarity</td>
+      <td>Objective wording and map guidance need to work together clearly, otherwise players may think progression is blocked or that they have missed a required step.</td>
+    </tr>
+    <tr>
+      <td>Information retention</td>
+      <td>Progression clues that cannot be reviewed later can increase memory load during stressful exploration or after interruptions.</td>
+    </tr>
+    <tr>
+      <td>Reading-mode readability</td>
+      <td>If highlighted clue text becomes harder to read in reading mode, the feature risks reducing clarity instead of improving it.</td>
+    </tr>
+  </tbody>
+</table>
 
     <hr>
 
