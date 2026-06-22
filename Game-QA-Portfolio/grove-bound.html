@@ -217,79 +217,85 @@
   box-shadow:0 6px 18px rgba(0,0,0,.28);
 }
 
+.testimonial-card{
+  margin:24px 0 28px;
+  padding:20px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:4px solid #00fff0;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
+}
+
+.testimonial-card h2{
+  margin:0 0 12px !important;
+}
+
+.testimonial-card blockquote{
+  margin:0;
+  padding:14px 18px;
+  border-left:0;
+  background:rgba(0,255,240,.04);
+  color:#cfd6dd;
+  font-size:1.05rem;
+  line-height:1.75;
+  font-style:italic;
+  border-radius:10px;
+}
+
+.testimonial-card blockquote em{
+  color:#ffffff;
+}
+
+.testimonial-author{
+  margin:14px 0 0 !important;
+  color:#00fff0;
+  font-weight:700;
+  text-align:right;
+}
+
+.project-overview-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) 500px;
+  gap:28px;
+  align-items:start;
+}
+
+.project-overview-video{
+  padding-top:6px;
+}
+
+.project-overview-video iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  display:block;
+  border:none;
+  border-radius:12px;
+  box-shadow:
+    0 0 12px rgba(0,255,240,.18),
+    0 0 24px rgba(0,255,240,.08);
+}
+
+@media (max-width:900px){
+  .project-overview-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
   .testimonial-card{
-    margin:24px 0 28px;
-    padding:20px 22px;
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-left:4px solid #00fff0;
-    border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.28);
+    padding:16px;
   }
 
   .testimonial-card blockquote{
-    margin:0;
-    padding:14px 18px;
-    border-left:0;
-    background:rgba(0,255,240,.04);
-    color:#cfd6dd;
-    font-size:1.05rem;
-    line-height:1.75;
-    font-style:italic;
-    border-radius:10px;
-  }
-
-  .testimonial-label{
-    color:#00fff0;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    font-size:.82rem;
-    margin-bottom:10px !important;
+    padding:12px 14px;
+    font-size:1rem;
   }
 
   .testimonial-author{
-    margin:14px 0 0 !important;
-    color:#00fff0;
-    font-weight:700;
-    text-align:right;
+    text-align:left;
   }
-
-  .impact-image{
-    margin:18px auto;
-    max-width:520px;
-    text-align:center;
-  }
-
-  .impact-image img{
-    width:100%;
-    height:auto;
-    border-radius:14px;
-    border:1px solid var(--line);
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-  }
-
-  .caption{
-    color:#a9b3bd;
-    font-size:.92rem;
-    line-height:1.6;
-    margin-top:8px !important;
-  }
-
-  @media (max-width:640px){
-    .testimonial-card{
-      padding:16px;
-    }
-
-    .testimonial-card blockquote{
-      padding:12px 14px;
-      font-size:1rem;
-    }
-
-    .testimonial-author{
-      text-align:left;
-    }
-  }
+}
 </style>
 
   <script data-goatcounter="https://kelina.goatcounter.com/count"
@@ -309,9 +315,12 @@
 
     <h1>Grove Bound - Ongoing QA Case Study</h1>
     
-    <section aria-labelledby="overview">
-      <h2 id="overview">🧾 Project Overview</h2>
+  <section aria-labelledby="overview">
+  <h2 id="overview">🧾 Project Overview</h2>
 
+  <div class="project-overview-grid">
+
+    <div class="project-overview-text">
       <ul>
         <li><strong>Game:</strong> Grove Bound</li>
         <li><strong>Studio:</strong> GDO Games</li>
@@ -321,7 +330,20 @@
         <li><strong>Platform:</strong> PC / Browser / itch.io</li>
         <li><strong>Current focus:</strong> Onboarding, progression clarity, feature validation, regression testing, and Steam demo readiness</li>
       </ul>
-    </section>
+    </div>
+
+    <div class="project-overview-video">
+      <iframe
+        src="https://www.youtube.com/embed/ONHYoHddGGY"
+        title="Grove Bound Trailer"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
 
 <script type="application/ld+json">
 {
