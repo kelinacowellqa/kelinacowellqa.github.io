@@ -5,214 +5,272 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Grove Bound - QA Case Study | Kelina Cowell</title>
-  <meta name="description" content="QA case study for the Steam Next Fest demo of Nothing Strange Here by Dandelion Developers, covering quest progression, Journal and Map synchronisation, Time Skip behaviour, objective guidance, save/load persistence, and player-facing demo readiness testing." />
+  <title>Dungeon Raiders - Ongoing Embedded QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="Ongoing embedded QA case study for Dungeon Raiders by Loom & Lore Interactive Games, covering Android gameplay testing, regression verification, mobile usability, UI stability, player-facing readability, and developer collaboration." />
 
-  <meta property="og:title" content="Grove Bound - QA Case Study" />
-  <meta property="og:description" content="QA case study showing how Kelina Cowell supported the Steam Next Fest demo for Nothing Strange Here through structured exploratory testing, quest progression validation, player guidance review, and evidence-based reporting." />
+  <meta property="og:title" content="Dungeon Raiders - Ongoing Embedded QA Case Study" />
+  <meta property="og:description" content="Ongoing embedded QA case study showing how Kelina Cowell supports Android QA, regression testing, mobile usability, UI stability, player-facing readability, and release support for Dungeon Raiders." />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound-html" />
-  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/grove-bound-header.png" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-header.png" />
 
-  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound-html" />
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
   <link rel="stylesheet" href="/assets/css/site.css?v=5">
 
-  <style>
-    .hero{
-      width:100%;
-      height:260px;
-      position:relative;
-      margin:28px 0 26px !important;
-      padding:0 !important;
-      border:0;
-      border-radius:20px;
-      background:transparent !important;
-      box-shadow:none !important;
-      overflow:visible !important;
-    }
+ <style>
+  .hero{
+    width:100%;
+    height:260px;
+    position:relative;
+    margin:28px 0 26px !important;
+    padding:0 !important;
+    border:0;
+    border-radius:20px;
+    background:transparent !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
 
-    .hero img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      object-position:center center;
-      border-radius:20px;
-      border:0;
-      box-shadow:none !important;
-      background:transparent;
-    }
+  .hero img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center center;
+    border-radius:20px;
+    border:0;
+    box-shadow:none !important;
+    background:transparent;
+  }
 
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:20px;
-      pointer-events:none;
-      box-shadow:
-        0 0 14px rgba(0,255,240,0.28),
-        0 0 28px rgba(0,255,240,0.16),
-        0 0 52px rgba(0,255,240,0.10);
-      animation:heroPulse 3.2s ease-in-out infinite;
-    }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    pointer-events:none;
+    box-shadow:
+      0 0 14px rgba(0,255,240,0.28),
+      0 0 28px rgba(0,255,240,0.16),
+      0 0 52px rgba(0,255,240,0.10);
+    animation:heroPulse 3.2s ease-in-out infinite;
+  }
 
-    @keyframes heroPulse{
-      0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
-      50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
-      100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
-    }
+  @keyframes heroPulse{
+    0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+    100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+  }
 
-    body h2{ margin:32px 0 12px !important; }
-    body hr{ margin:28px 0 !important; }
-    body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+  body h2{ margin:32px 0 12px !important; }
+  body hr{ margin:28px 0 !important; }
+  body p{ line-height:1.7 !important; margin:0 0 14px !important; }
 
-    body ul,
-    body ol{
-      margin:12px 0 20px !important;
-      padding-left:1.3rem !important;
-    }
+  body ul,
+  body ol{
+    margin:12px 0 20px !important;
+    padding-left:1.3rem !important;
+  }
 
-    body li{
-      line-height:1.7 !important;
-      margin:8px 0 !important;
-    }
+  body li{
+    line-height:1.7 !important;
+    margin:8px 0 !important;
+  }
 
-    .cta-row{
-      margin:20px 0 34px !important;
-      text-align:center;
-    }
+  .cta-row{
+    margin:20px 0 34px !important;
+    text-align:center;
+  }
 
+  .cta-row .cta-btn{
+    margin:6px 8px;
+  }
+
+  @media (max-width:560px){
     .cta-row .cta-btn{
-      margin:6px 8px;
+      display:block;
+      margin:8px auto;
+      width:fit-content;
     }
+  }
 
-    @media (max-width:560px){
-      .cta-row .cta-btn{
-        display:block;
-        margin:8px auto;
-        width:fit-content;
-      }
-    }
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin:12px 0;
-    }
+  .grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:12px 0;
+  }
 
+  .grid-3 .card,
+  .grid-2 .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+  }
+
+  .grid-3 .card h3,
+  .grid-2 .card h3{
+    margin-top:0;
+  }
+
+  @media (max-width:900px){
+    .grid-3,
     .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin:12px 0;
+      grid-template-columns:1fr 1fr;
     }
+  }
 
-    .grid-3 .card,
-    .grid-2 .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:10px;
+  @media (max-width:640px){
+    .grid-3,
+    .grid-2{
+      grid-template-columns:1fr;
+    }
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#0f1215;
+    border:1px solid rgba(255,255,255,.08);
+    margin:12px 0;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  thead th{
+    background:rgba(0,255,240,.08);
+    color:#00fff0;
+    text-align:left;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody td,
+  tbody th{
+    color:#cfd6dd;
+    padding:12px 14px;
+    vertical-align:top;
+  }
+
+  thead th+th,
+  tbody td+td,
+  tbody th+td{
+    border-left:1px solid rgba(255,255,255,.08);
+  }
+
+  tbody tr+tr td,
+  tbody tr+tr th{
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  .method-note{
+    margin:-6px 0 10px;
+    font-size:.95rem;
+    color:#a9b3bd;
+    opacity:.9;
+  }
+
+  .method-note,
+  .method-note a{
+    color:inherit !important;
+    font-size:inherit !important;
+    line-height:inherit !important;
+    opacity:1 !important;
+  }
+
+  blockquote{
+    border-left:3px solid #00fff0;
+    margin:18px 0;
+    padding:12px 18px;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+  }
+
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+
+  .service-card.hero-copy{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 24px;
+    text-align:center;
+  }
+
+  .service-card.hero-copy h2{
+    margin-top:0;
+  }
+
+  .service-card.hero-copy .lead{
+    margin-bottom:20px;
+  }
+
+     .testimonial-card{
+    margin:24px 0 28px;
+    padding:20px 22px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid #00fff0;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.28);
+  }
+
+  .testimonial-card h2{
+    margin:0 0 12px !important;
+  }
+
+  .testimonial-card blockquote{
+    margin:0;
+    padding:14px 18px;
+    border-left:0;
+    background:rgba(0,255,240,.04);
+    color:#cfd6dd;
+    font-size:1.05rem;
+    line-height:1.75;
+    font-style:italic;
+    border-radius:10px;
+  }
+
+  .testimonial-card blockquote em{
+    color:#ffffff;
+  }
+
+  .testimonial-author{
+    margin:14px 0 0 !important;
+    color:#00fff0;
+    font-weight:700;
+    text-align:right;
+  }
+
+  @media (max-width:640px){
+    .testimonial-card{
       padding:16px;
     }
 
-    .grid-3 .card h3,
-    .grid-2 .card h3{
-      margin-top:0;
+    .testimonial-card blockquote{
+      padding:12px 14px;
+      font-size:1rem;
     }
 
-    @media (max-width:900px){
-      .grid-3,
-      .grid-2{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media (max-width:640px){
-      .grid-3,
-      .grid-2{
-        grid-template-columns:1fr;
-      }
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      background:#0f1215;
-      border:1px solid rgba(255,255,255,.08);
-      margin:12px 0;
-      border-radius:8px;
-      overflow:hidden;
-    }
-
-    thead th{
-      background:rgba(0,255,240,.08);
-      color:#00fff0;
+    .testimonial-author{
       text-align:left;
-      font-weight:700;
-      font-size:14px;
-      padding:12px 14px;
-      border-bottom:1px solid rgba(255,255,255,.08);
     }
-
-    tbody td,
-    tbody th{
-      color:#cfd6dd;
-      padding:12px 14px;
-      vertical-align:top;
-    }
-
-    thead th+th,
-    tbody td+td,
-    tbody th+td{
-      border-left:1px solid rgba(255,255,255,.08);
-    }
-
-    tbody tr+tr td,
-    tbody tr+tr th{
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-
-    blockquote{
-      border-left:3px solid #00fff0;
-      margin:18px 0;
-      padding:12px 18px;
-      background:rgba(0,255,240,.04);
-      color:#cfd6dd;
-    }
-
-    .service-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
-    }
-
-    .service-card.hero-copy{
-      max-width:900px;
-      margin:0 auto;
-      padding:20px 24px;
-      text-align:center;
-    }
-
-    .service-card.hero-copy h2{
-      margin-top:0;
-    }
-
-    .service-card.hero-copy .lead{
-      margin-bottom:20px;
-    }
-
-    .placeholder-note{
-      border:1px dashed rgba(0,255,240,.35);
-      background:rgba(0,255,240,.04);
-      padding:14px 16px;
-      border-radius:10px;
-      color:#cfd6dd;
-      margin:16px 0;
-    }
-  </style>
-
+  }
+</style>
+  
   <script data-goatcounter="https://kelina.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -220,30 +278,28 @@
 <body>
   <main class="wrap">
 
-    <header class="hero">
-      <img src="https://kelinacowellqa.github.io/assets/img/nothing-strange-here-header.png" alt="Nothing Is Strange Here QA case study banner">
-    </header>
+ <header class="hero">
+  <img src="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-header.png" alt="Dungeon Raiders QA case study banner">
+</header>
 
     <nav style="text-align:center;margin-bottom:20px;">
       <a class="cta-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">Back to Portfolio Hub</a>
     </nav>
 
-    <h1>Nothing Strange Here - QA Case Study</h1>
-    <p class="meta">Role: External QA Tester • Studio: Dandelion Developers • Demo: Steam Next Fest June 2026 • Platform Tested: Windows PC</p>
+    <h1>Dungeon Raiders - Ongoing Embedded QA Case Study</h1>
+    <p class="meta">Role: Head of QA • Studio: Loom &amp; Lore Interactive Games • Platform: Android • Status: Released and receiving ongoing QA support</p>
 
     <section aria-labelledby="overview">
       <h2 id="overview">🧾 Project Overview</h2>
 
       <ul>
-        <li><strong>Game:</strong> Nothing Strange Here </li>
-        <li><strong>Studio:</strong> Dandelion Developers</li>
-        <li><strong>Role:</strong> External QA Tester</li>
-        <li><strong>Testing date:</strong> 29 May 2026</li>
-        <li><strong>Version tested:</strong> 0.5.5</li>
-        <li><strong>Build:</strong> 23434843</li>
-        <li><strong>Graphics API:</strong> DX11 Default</li>
-        <li><strong>Platform tested:</strong> Windows PC</li>
-        <li><strong>Public demo:</strong> Steam Next Fest June 2026</li>
+        <li><strong>Game:</strong> Dungeon Raiders</li>
+        <li><strong>Studio:</strong> <a href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">Loom &amp; Lore Interactive Games</a></li>
+        <li><strong>Role:</strong> Head of QA</li>
+        <li><strong>Testing dates:</strong> Ongoing from 17 May 2026</li>
+        <li><strong>Status:</strong> Released, with ongoing QA support across updates and new builds</li>
+        <li><strong>Platform:</strong> Android</li>
+        <li><strong>Credit:</strong> Credited in-game as “Head of QA Kelina Cowell”</li>
       </ul>
     </section>
 
@@ -255,49 +311,51 @@
     "@type": "Audience",
     "audienceType": "Indie Developer, QA Lead, Game QA Tester, Recruiter"
   },
-  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/Nothing-Strange-Here.html",
-  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/Nothing-Strange-Here.html",
-  "name": "Nothing Strange Here: QA Case Study",
+  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
+  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
+  "name": "Dungeon Raiders: Ongoing Embedded QA Case Study",
   "inLanguage": "en-GB",
   "author": { "@type": "Person", "name": "Kelina Cowell" },
   "isBasedOn": {
     "@type": "VideoGame",
-    "name": "Nothing Strange Here",
-    "gamePlatform": ["Windows PC", "Steam"]
+    "name": "Dungeon Raiders",
+    "gamePlatform": ["Android"]
   },
   "about": [
+    { "@type": "Thing", "name": "Embedded QA" },
     { "@type": "Thing", "name": "Game QA" },
-    { "@type": "Thing", "name": "Steam Next Fest demo QA" },
-    { "@type": "Thing", "name": "External QA testing" },
-    { "@type": "Thing", "name": "Quest progression testing" },
-    { "@type": "Thing", "name": "Journal and Map synchronisation" },
-    { "@type": "Thing", "name": "Save and load persistence" },
-    { "@type": "Thing", "name": "Objective guidance" },
-    { "@type": "Thing", "name": "Player-facing issue analysis" },
-    { "@type": "Thing", "name": "Exploratory testing" },
-    { "@type": "Thing", "name": "Usability testing" }
+    { "@type": "Thing", "name": "Android QA" },
+    { "@type": "Thing", "name": "Mobile game testing" },
+    { "@type": "Thing", "name": "Regression testing" },
+    { "@type": "Thing", "name": "Fix validation" },
+    { "@type": "Thing", "name": "Player-focused exploratory testing" },
+    { "@type": "Thing", "name": "Patch-note targeted regression" },
+    { "@type": "Thing", "name": "UI stability" },
+    { "@type": "Thing", "name": "Gameplay readability" },
+    { "@type": "Thing", "name": "Save and resume persistence" },
+    { "@type": "Thing", "name": "Class and ability testing" }
   ],
   "keywords": [
-    "game QA",
+    "embedded game QA",
+    "Android game QA",
+    "mobile game testing",
     "indie game QA",
-    "Steam Next Fest QA",
-    "demo QA",
-    "quest progression testing",
-    "objective guidance",
-    "journal map synchronisation",
-    "save load testing",
-    "external QA tester",
+    "regression testing",
+    "fix validation",
+    "player-focused exploratory testing",
+    "UI stability testing",
+    "gameplay readability",
+    "save persistence testing",
+    "patch-note targeted regression",
     "structured QA reporting"
   ],
   "additionalProperty": [
-    { "@type": "PropertyValue", "name": "Role", "value": "External QA Tester" },
-    { "@type": "PropertyValue", "name": "Studio", "value": "Dandelion Developers" },
-    { "@type": "PropertyValue", "name": "Testing date", "value": "2026-05-29" },
-    { "@type": "PropertyValue", "name": "Version tested", "value": "0.5.5" },
-    { "@type": "PropertyValue", "name": "Build", "value": "23434843" },
-    { "@type": "PropertyValue", "name": "Platform", "value": "Windows PC" },
-    { "@type": "PropertyValue", "name": "Testing approach", "value": "Structured exploratory testing, quest progression validation, save/load persistence testing, player guidance review, boundary testing, and evidence-based reporting" },
-    { "@type": "PropertyValue", "name": "Communication workflow", "value": "Discord DMs with the producer, Google Docs QA summary report, Google Sheets bug log, unlisted YouTube video evidence, and Google Drive screenshot evidence" }
+    { "@type": "PropertyValue", "name": "Role", "value": "Head of QA" },
+    { "@type": "PropertyValue", "name": "Studio", "value": "Loom & Lore Interactive Games" },
+    { "@type": "PropertyValue", "name": "Platform", "value": "Android" },
+    { "@type": "PropertyValue", "name": "Status", "value": "Released with ongoing QA support" },
+    { "@type": "PropertyValue", "name": "Testing approach", "value": "Player-focused exploratory testing, patch-note targeted regression, fix validation, persistence testing, and Android mobile usability checks" },
+    { "@type": "PropertyValue", "name": "Credit", "value": "Head of QA Kelina Cowell" }
   ]
 }
 </script>
@@ -305,81 +363,101 @@
     <h2>Introduction</h2>
 
     <p>
-      This case study covers my QA work on the Steam Next Fest demo for <em>Nothing Strange Here</em>, developed by Dandelion Developers.
-    </p>
+  This case study covers my ongoing embedded QA work on <a href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener"><em>Dungeon Raiders</em></a>, an Android mobile game by Loom &amp; Lore Interactive Games.
+</p>
 
-    <p>
-      The project was approaching a public demo release deadline for Steam Next Fest. After speaking directly with the producer, I focused my testing on recently added and higher-risk demo systems, including the Map, Time Skip, Journal, quest progression, and outcome validation.
-    </p>
+<p>
+  My work on the project has continued across multiple builds, updates, fixes, and new content drops. I have completed eight QA passes so far, covering player-focused exploratory testing, targeted regression, fix validation, save/resume persistence, class behaviour, UI stability, and Android usability.
+</p>
 
-    <p>
-      This page focuses on the QA workflow, testing strategy, and decision-making behind the project. Rather than listing individual findings, it shows how testing was planned, how coverage was prioritised, how updates were verified, and how ongoing QA support contributed to the project's development.
-    </p>
+<p>
+  This page summarises the scope and structure of that ongoing QA support without publishing internal bug logs, private developer communication, or sensitive build details.
+</p>
 
     <table>
       <thead>
-        <tr><th>Game</th><th>Role</th><th>Demo Release</th></tr>
+        <tr><th>Game</th><th>Role</th><th>Status</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td>Nothing Strange Here</td>
-          <td>External QA Tester</td>
-          <td>Steam Next Fest June 2026 demo</td>
+          <td>Dungeon Raiders</td>
+          <td>Head of QA</td>
+          <td>Released Android game with ongoing QA support</td>
         </tr>
       </tbody>
     </table>
 
     <div class="cta-row" style="text-align:center;">
-      <a class="cta-btn" href="https://store.steampowered.com/app/3840010/Nothing_Strange_Here_Demo/" target="_blank" rel="noopener">View Steam Page</a>
-      <a class="cta-btn" href="https://www.linkedin.com/company/dandelion-developers" target="_blank" rel="noopener">View Studio</a>
+      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">View on Google Play</a>
+      <a class="cta-btn" href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">View Studio</a>
     </div>
+
+    <hr>
+
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+  <div class="testimonial-card">
+    <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
+
+    <blockquote class="testimonial-quote">
+      “Kelina is a pleasure to work with. She is hardworking and provides genuine insight into Grove Bound, approaching it from the perspective of a first time player. Her feedback on player onboarding was essential and greatly improved the overall flow through her suggestions.
+
+She was very good at understanding my needs as a developer and turning them into effective test plans. She required very little supervision and is more than capable of working independently. Her work was always delivered promptly and included excellent breakdowns and documentation.
+
+I would highly recommend working with her. The only area I would suggest improving is bug severity and priority classification, which could have been more consistent. However, this is something that could easily be addressed through regular weekly meetings to review and classify issues together or a list of classifications from my self to make putting them in category's easier.”
+    </blockquote>
+
+    <p class="testimonial-author">
+      — Ozzy, Lead Dev, GDO Games
+    </p>
+  </div>
+</section>
 
     <hr>
 
     <h2 id="role">🎯 My QA Role</h2>
 
     <p>
-     My role was to provide structured external QA support ahead of the public Steam Next Fest demo release. The team had already completed internal testing, so I focused on areas where an independent QA perspective could add the most value: quest flow, player guidance, system interaction, progression confidence, and early demo clarity.
+      My role is to provide ongoing QA support for Dungeon Raiders across live updates, new features, regression cycles, and player-facing gameplay checks. The work combines exploratory testing, targeted regression, fix validation, smoke testing, persistence checks, and mobile usability review.
     </p>
 
     <p>
-      The producer specifically highlighted that the newly added systems had received the least internal testing. Based on that conversation, I built a focused QA pass around Map behaviour, Time Skip, Journal updates, quest progression, save/load persistence, objective guidance, boundary testing, and general stability.
+      Because this is a small indie workflow, the aim is not to create unnecessary production overhead. The value comes from clear test focus, structured reporting, useful evidence, fast validation, and practical feedback that helps the developer prioritise fixes and improvements.
     </p>
 
     <div class="grid-3">
       <section class="card">
         <h3>🧭 QA Focus</h3>
         <ul>
-          <li>Quest progression</li>
-          <li>Objective guidance</li>
-          <li>Journal and Map synchronisation</li>
-          <li>Time Skip behaviour</li>
-          <li>Save/Load persistence</li>
-          <li>Early demo flow</li>
+          <li>Android mobile gameplay</li>
+          <li>UI and overlay stability</li>
+          <li>Gameplay readability</li>
+          <li>Class and ability behaviour</li>
+          <li>Save and resume persistence</li>
+          <li>Player-facing usability</li>
         </ul>
       </section>
 
       <section class="card">
         <h3>📄 Reporting</h3>
         <ul>
-          <li>Google Docs QA report</li>
-          <li>Google Sheets bug log</li>
-          <li>Structured session tracking</li>
-          <li>Linked screenshots</li>
-          <li>Unlisted YouTube evidence videos</li>
-          <li>Discord delivery to producer</li>
+          <li>Structured QA passes</li>
+          <li>Regression notes</li>
+          <li>Patch-note targeted verification</li>
+          <li>Player-impact explanations</li>
+          <li>Screenshot and video evidence</li>
+          <li>Clear handover summaries</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>🔍 Validation</h3>
+        <h3>🔁 Validation</h3>
         <ul>
-          <li>New systems testing</li>
-          <li>Quest state validation</li>
-          <li>Player guidance review</li>
-          <li>Boundary and collision checks</li>
-          <li>Performance and stability sweep</li>
-          <li>Exploratory chaos testing</li>
+          <li>Fix validation after updates</li>
+          <li>Regression checks around changed systems</li>
+          <li>New content smoke testing</li>
+          <li>Save/resume checks</li>
+          <li>Menu and transition checks</li>
+          <li>Release and update support</li>
         </ul>
       </section>
     </div>
@@ -389,11 +467,11 @@
     <h2 id="workflow">🛠️ Workflow & Communication</h2>
 
     <p>
-      Communication was handled directly through Discord DMs with the producer. This kept the workflow lightweight and suitable for a small indie team working towards a fixed public demo deadline.
+      Testing is carried out as an ongoing embedded QA workflow, with each pass shaped around the current build, latest patch notes, known risk areas, and player-facing behaviour observed during Android gameplay.
     </p>
 
     <p>
-      I delivered a detailed Google Docs QA report and a Google Sheets bug log. Video evidence was uploaded as unlisted YouTube clips, while screenshots were linked through Google Drive inside the bug log. This gave the team both a high-level summary and detailed evidence they could review quickly and action from.
+      The work is intentionally practical. I focus on what a player can see, misunderstand, break, lose progress through, or become frustrated by during normal play. Where needed, I also use targeted regression and debug-assisted coverage to reach specific systems or later progression states more efficiently.
     </p>
 
     <table>
@@ -403,27 +481,27 @@
       <tbody>
         <tr>
           <td>Communication</td>
-          <td>Direct Discord DMs with the producer to confirm scope, priorities, and report delivery.</td>
+          <td>Ongoing communication with the developer around new builds, patch notes, reported issues, fixes, and retest priorities.</td>
         </tr>
         <tr>
           <td>Planning</td>
-          <td>I focused the pass around the new and less-tested demo systems identified by the team.</td>
+          <td>Each QA pass was planned around the current build state, recent changes, known risk areas, and player-facing impact.</td>
         </tr>
         <tr>
-          <td>Findings</td>
-         <td>Findings were documented in a structured bug log, capturing reproduction steps, expected and actual results, impact assessment, priority, repro rate, supporting evidence, status tracking, and additional QA notes.</td>
+          <td>Testing</td>
+          <td>Testing combined player-focused exploratory gameplay, targeted regression, smoke testing, persistence checks, and Android mobile usability review.</td>
         </tr>
         <tr>
           <td>Reporting</td>
-          <td>A detailed QA report gave the team a clearer overview of what was tested, what worked, what needed attention and suggested improvements.</td>
+          <td>Findings were written clearly with player impact, reproducible behaviour, relevant context, and evidence where useful.</td>
         </tr>
         <tr>
-          <td>Evidence</td>
-          <td>Issues were supported with linked screenshots and unlisted YouTube videos where useful.</td>
+          <td>Regression</td>
+          <td>Fixes were retested in later builds, with nearby systems checked where changes could cause regressions.</td>
         </tr>
         <tr>
-          <td>Delivery</td>
-          <td>The report and bug log were sent directly to the producer before the deadline.</td>
+          <td>Ongoing Support</td>
+          <td>Further QA passes are expected as Dungeon Raiders continues receiving updates, fixes, tuning, and new content.</td>
         </tr>
       </tbody>
     </table>
@@ -432,26 +510,26 @@
 
     <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
 
-   <p>
-  The test plan was built around risk. Since the team was preparing for Steam Next Fest, I prioritised recently added systems that had received less internal testing and were closely tied to player progression, navigation, and understanding.
-</p>
+    <p>
+      The test strategy changed depending on the build. Early passes focused on player-facing stability, readability, transition flow, menus, overlays, and mobile interaction behaviour. Later passes became more targeted, focusing on patch notes, regression fixes, class changes, save/resume behaviour, new content, and combat feedback.
+    </p>
 
-<p>
-  The producer mentioned that the newer systems had received the least internal testing, so those became the main focus of the pass. I tested the Map, Journal, Time Skip, quest progression, objective tracking, save/load behaviour, NPC behaviour, player exploration, and time-based events both individually and as connected systems.
-</p>
+    <p>
+      I prioritised issues that could affect normal Android players: confusing UI states, unclear class mechanics, broken resume behaviour, unreliable menu flow, missing feedback, progression friction, shop and economy problems, and anything that could make the game feel unstable or unfinished.
+    </p>
 
     <div class="grid-2">
       <section class="card">
-        <h3>Risk-Based Focus</h3>
+        <h3>Player-Focused Exploratory Testing</h3>
         <p>
-          I prioritised systems most likely to affect demo readiness: Map, Journal, Time Skip, quest flow, objective updates, event cues, and save/load persistence.
+          I tested the game as a normal Android player would experience it, focusing on menu flow, active gameplay clarity, transition behaviour, readability, touch interaction, Game Over flow, restart behaviour, and usability under pressure.
         </p>
       </section>
 
       <section class="card">
-        <h3>Player-Facing Perspective</h3>
+        <h3>Targeted Regression & Patch Verification</h3>
         <p>
-          I looked beyond whether progression technically worked and focused on whether the player understood what was happening, where to go next, and why a system behaved the way it did.
+          When new builds were provided, I tested specific fixes and patch-note changes, including class abilities, relic persistence, save/resume behaviour, reward pools, shop interactions, button feedback, and menu functionality after resume.
         </p>
       </section>
     </div>
@@ -461,7 +539,7 @@
     <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
 
     <p>
-      The QA pass followed a structured progression from quest validation and system interaction testing through to stability, boundary testing, and exploratory stress checks.
+      The QA work has evolved across multiple passes. Each pass had a defined purpose rather than repeating the same coverage blindly.
     </p>
 
     <table>
@@ -470,39 +548,44 @@
       </thead>
       <tbody>
         <tr>
-          <td>1. Quest and Time Skip interaction</td>
-          <td>Tested quest progression across Time Skip, NPC schedules, Journal updates, and follow-up quest states.</td>
-          <td>Check whether time-based progression remained functional and understandable.</td>
+          <td>1. Initial player-facing stability</td>
+          <td>Menu and overlay stability, relic/menu functionality, gameplay readability, transition flow, and mobile interaction behaviour.</td>
+          <td>Identify visible issues likely to appear during standard Android gameplay sessions.</td>
         </tr>
         <tr>
-          <td>2. Save/Load persistence</td>
-          <td>Tested save/load during active quests, after objective completion, and after quest completion.</td>
-          <td>Confirm quest state, Journal entries, NPC state, and completion state persisted correctly.</td>
+          <td>2. UI and readability regression</td>
+          <td>Recent UI/readability fixes, first-time player clarity, rushed-player behaviour, Game Over flow, restart flow, and player-facing presentation.</td>
+          <td>Check whether the game felt stable, understandable, and presentable enough for more players to see it.</td>
         </tr>
         <tr>
-          <td>3. New systems interaction</td>
-          <td>Tested Quest, Journal, Map, NPC progression, progression updates, and Save/Load together.</td>
-          <td>Identify cross-system issues that might not appear when testing systems in isolation.</td>
+          <td>3. Run-state and economy coverage</td>
+          <td>Win, lose, menu, reset behaviour, save/persistence, gold, Soul Shards, shop purchases, upgrades, relics, unlocks, and Level 1 setup comparison.</td>
+          <td>Assess whether core run flow and player progression systems behaved consistently.</td>
         </tr>
         <tr>
-          <td>4. Journal robustness</td>
-          <td>Tested Journal navigation, readability, tabs, scrolling, rapid opening/closing, and Journal to Map switching.</td>
-          <td>Check whether the Journal remained stable, accurate, and usable during normal and repeated use.</td>
+          <td>4. Combat and progression regression</td>
+          <td>Single sword attacks, Cleave behaviour, Warrior setup, weapon damage upgrades, level-up rewards, Character Sheet access, Legendary Weapon milestone, no-move board refresh, and shop behaviour.</td>
+          <td>Verify whether recent combat, stat, UI, reward, and progression fixes worked correctly.</td>
         </tr>
         <tr>
-          <td>5. Exploratory chaos testing</td>
-          <td>Stress-tested NPCs, interactables, Journal, Map, Pause menu, noticeboard, phone booth, Save/Load, and objective markers.</td>
-          <td>Look for crashes, stuck UI, duplicate interactions, input conflicts, or unexpected broken states.</td>
+          <td>5. Save/resume and persistence checks</td>
+          <td>Save/resume progression, Android backgrounding, no-move board refresh, Character Sheet scrolling, duplicate shop prevention, Warrior Thorns access, and shop item persistence.</td>
+          <td>Check whether the game preserved important player state correctly across mobile resume behaviour.</td>
         </tr>
         <tr>
-          <td>6. Performance and stability sweep</td>
-          <td>Observed FPS, load times, menu transitions, Save/Load behaviour, audio, visual stability, and UI behaviour.</td>
-          <td>Check whether the demo remained stable during normal play and transitions.</td>
+          <td>6. New class and patch-note smoke testing</td>
+          <td>Druid, Fisher, seven-class selection screen, class-specific level-up pools, relic resume regression, button visuals, pressed states, combat feedback, audio changes, and skull-death sound regression.</td>
+          <td>Smoke test new content while also checking regression risks introduced by the update.</td>
         </tr>
         <tr>
-          <td>7. Boundary and out-of-bounds testing</td>
-          <td>Tested world edges, fences, buildings, barriers, water, cliffs, slopes, stairs, and recovery behaviour.</td>
-          <td>Check for clipping, stuck locations, progression bypasses, terrain falls, and blocked-route confusion.</td>
+          <td>7. Ability and menu regression verification</td>
+          <td>ENTANGLE behaviour, Cursed Blade description, empty-board ability handling, End Run feature, menu reopen behaviour, and Druid/Fisher weapon art persistence after resume.</td>
+          <td>Confirm specific patch-note fixes and ensure key menu and resume behaviours remained stable.</td>
+        </tr>
+        <tr>
+          <td>8. Ongoing update support</td>
+          <td>Further regression, fix validation, new feature testing, class behaviour checks, UI review, and Android gameplay stability.</td>
+          <td>Continue supporting Dungeon Raiders as the game receives additional updates and improvements.</td>
         </tr>
       </tbody>
     </table>
@@ -512,239 +595,171 @@
     <h2 id="qa-areas">🔍 QA Areas Covered</h2>
 
     <p>
-      The pass covered functional behaviour, player guidance, system communication, accessibility-related discoverability risks, and general demo stability.
+      The QA work has covered both functional behaviour and player-facing experience. This includes systems that affect whether players understand what is happening, trust the game state, and feel confident continuing a run.
     </p>
 
     <div class="grid-3">
       <section class="card">
-        <h3>Quest Progression</h3>
+        <h3>UI Stability</h3>
         <ul>
-          <li>Quest acceptance</li>
-          <li>Objective updates</li>
-          <li>NPC interaction state</li>
-          <li>Quest completion state</li>
+          <li>Menu behaviour</li>
+          <li>Overlay persistence</li>
+          <li>Button feedback</li>
+          <li>Pressed-state visuals</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Journal & Map</h3>
+        <h3>Gameplay Readability</h3>
         <ul>
-          <li>Objective text accuracy</li>
-          <li>Map marker behaviour</li>
-          <li>Quest and location synchronisation</li>
-          <li>Save/Load consistency</li>
+          <li>Combat feedback</li>
+          <li>Class HUD clarity</li>
+          <li>Board icon readability</li>
+          <li>Reward display clarity</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Time Skip</h3>
+        <h3>Mobile Behaviour</h3>
         <ul>
-          <li>Time advancement</li>
-          <li>NPC schedule changes</li>
-          <li>System availability</li>
-          <li>Player feedback clarity</li>
+          <li>Android interaction stability</li>
+          <li>Rapid tapping behaviour</li>
+          <li>Backgrounding and resume</li>
+          <li>Touch-based menu flow</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Player Guidance</h3>
+        <h3>Combat Systems</h3>
         <ul>
-          <li>Tutorial instruction clarity</li>
-          <li>Objective signposting</li>
-          <li>Progression event discoverability</li>
-          <li>Objective marker visibility</li>
+          <li>Sword attack behaviour</li>
+          <li>Cleave behaviour</li>
+          <li>Thorns behaviour</li>
+          <li>Ability handling</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Stability & Persistence</h3>
+        <h3>Progression & Economy</h3>
         <ul>
-          <li>Save/Load persistence</li>
-          <li>Quest state recovery</li>
-          <li>Main menu transition</li>
-          <li>Crash and softlock checks</li>
+          <li>Gold behaviour</li>
+          <li>Soul Shards</li>
+          <li>Shop purchases</li>
+          <li>Upgrade persistence</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Boundaries & Navigation</h3>
+        <h3>Regression Support</h3>
         <ul>
-          <li>Out-of-bounds attempts</li>
-          <li>Collision checks</li>
-          <li>Fall and water recovery</li>
-          <li>Blocked route review</li>
+          <li>Patch-note verification</li>
+          <li>Fix validation</li>
+          <li>Relic resume checks</li>
+          <li>New content smoke tests</li>
         </ul>
       </section>
     </div>
 
     <hr>
 
-<h2 id="player-facing-risks">📌 Player-Facing Risks Identified</h2>
-
-<p>
-  The main findings centred on player-facing clarity rather than major technical failure. The issues I identified were mostly related to how the demo communicated objectives, system states, progression cues, and next steps to the player.
-</p>
-
-<p>
-  For public portfolio purposes, I have grouped the findings by theme rather than publishing the internal bug log, repro steps, or evidence links.
-</p>
-
-<table>
-  <thead>
-    <tr><th>Finding Category</th><th>Player-Facing Risk</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Objective Guidance</td>
-      <td>Players could lose direction if the next step was not clearly communicated after a quest interaction or progression event.</td>
-    </tr>
-    <tr>
-      <td>System Communication</td>
-      <td>Some system states or limitations needed clearer feedback so players could understand whether behaviour was intentional, unavailable, or progression-gated.</td>
-    </tr>
-    <tr>
-      <td>Quest & Progression Flow</td>
-      <td>Quest information and player expectations needed to stay aligned as objectives advanced, NPC states changed, or events triggered.</td>
-    </tr>
-    <tr>
-      <td>Discoverability</td>
-      <td>Important progression cues needed to be noticeable enough during normal exploration, not only when the player happened to be looking in the right place.</td>
-    </tr>
-    <tr>
-      <td>Accessibility Observations</td>
-      <td>Some feedback relied on visibility, audio awareness, or attention timing in ways that could affect players with hearing, processing, or attention-related difficulties.</td>
-    </tr>
-    <tr>
-      <td>Navigation & World Interaction</td>
-      <td>Some world elements needed review to confirm whether they were intended as usable routes, blocked paths, or decorative geometry.</td>
-    </tr>
-  </tbody>
-</table>
-
-    <hr>
-
-    <h2 id="systems-validated">✅ Systems Validated</h2>
+    <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
 
     <p>
-      The QA pass also confirmed several important areas were working well. This was useful because demo readiness is not only about identifying defects. It is also about confirming which systems are stable enough to rely on for public release.
+      Dungeon Raiders is a live, evolving project, so the QA support needs to be flexible. Some passes are broad and exploratory. Others are tightly focused on a specific patch, feature, regression risk, or piece of player feedback.
     </p>
 
-    <div class="grid-2">
-      <section class="card">
-        <h3>Quest and Save Stability</h3>
-        <ul>
-          <li>Quest progress persisted correctly across Save/Load.</li>
-          <li>Objective state and completed quest state were preserved.</li>
-          <li>No duplicate rewards or progression resets were observed.</li>
-          <li>NPC state and world state remained stable after reloads.</li>
-        </ul>
-      </section>
+    <p>
+      I separate issues by player impact and test purpose, rather than treating every observation as the same kind of bug. A crash, a broken save/resume state, unclear ability behaviour, missing button feedback, confusing class onboarding, and a balance concern all need different handling.
+    </p>
 
-      <section class="card">
-        <h3>Performance and Boundaries</h3>
-        <ul>
-          <li>Gameplay remained stable at around 60 FPS during normal play.</li>
-          <li>Save operations were effectively instant.</li>
-          <li>Load times remained under 2 seconds during testing.</li>
-          <li>No out-of-bounds access, stuck locations, or terrain falls were found.</li>
-        </ul>
-      </section>
-    </div>
-
-    <hr>
-
-    <h2 id="developer-collaboration">🤝 Working With the Producer</h2>
-
-<p>
-  The testing scope was shaped through direct conversation with the producer. We discussed two useful directions: validating any incoming playtester feedback, and running a structured pass on the newer demo systems. Since the available community feedback was limited at that stage, I continued with the planned structured pass on systems the producer identified as needing more coverage.
-</p>
-
-<p>
-  This kept the work aligned with the producer's priorities while still matching my intended second-pass approach. The focus was to provide coverage information, evidence-backed findings, and clear player impact notes across demo-critical systems before the public Steam Next Fest deadline.
-</p>
+    <p>
+      This helps the developer understand not only what happened, but why it matters, how likely a player is to encounter it, and whether it blocks release, affects presentation, or belongs in a later tuning pass.
+    </p>
 
     <blockquote>
-      The focus of this work was demo readiness: testing the new systems most likely to affect player understanding, validating that core progression remained stable, and reporting issues in a way the team could act on quickly before Steam Next Fest.
+      The focus of this work is ongoing Android QA support: identifying player-facing risks, validating fixes, checking regressions, testing new content, and helping the developer keep Dungeon Raiders stable and readable across updates.
     </blockquote>
 
     <hr>
 
-<h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
 
-<table>
-  <thead>
-    <tr><th>Tool</th><th>Used For</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Windows PC</td>
-      <td>Primary test platform for the Steam demo build.</td>
-    </tr>
-    <tr>
-      <td>OBS Studio</td>
-      <td>Recording gameplay sessions and capturing issue evidence during testing.</td>
-    </tr>
-    <tr>
-      <td>Microsoft Clipchamp</td>
-      <td>Editing longer recordings into shorter evidence clips for easier developer review.</td>
-    </tr>
-    <tr>
-      <td>YouTube Unlisted</td>
-      <td>Private storage and sharing of evidence clips through unlisted video links.</td>
-    </tr>
-    <tr>
-      <td>Google Drive</td>
-      <td>Screenshot evidence storage, linked directly from the bug log where needed.</td>
-    </tr>
-    <tr>
-      <td>Google Docs</td>
-      <td>QA report covering test focus, build information, key findings, systems validated, and overall demo readiness observations.</td>
-    </tr>
-    <tr>
-      <td>Google Sheets</td>
-      <td>Structured bug log with charter ID, system area, repro steps, expected result, actual result, impact, priority, repro rate, evidence, status, and notes.</td>
-    </tr>
-    <tr>
-      <td>Discord</td>
-      <td>Direct communication with the producer, including scope discussion, clarification, and report delivery.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr><th>Tool / Method</th><th>Used For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Android Test Device</td>
+          <td>Primary gameplay testing on the live Android platform.</td>
+        </tr>
+        <tr>
+          <td>Structured QA Notes</td>
+          <td>Capturing scope, test style, focus areas, results, regression status, and player-facing impact.</td>
+        </tr>
+        <tr>
+          <td>Patch Notes</td>
+          <td>Planning targeted regression passes around new fixes, features, changed systems, and known risk areas.</td>
+        </tr>
+        <tr>
+          <td>Screenshot Evidence</td>
+          <td>Capturing UI, menu, readability, reward, shop, class, and progression issues where visual evidence was useful.</td>
+        </tr>
+        <tr>
+          <td>Video Evidence</td>
+          <td>Recording gameplay behaviour, transition flow, ability handling, mobile interaction issues, and regression outcomes.</td>
+        </tr>
+        <tr>
+          <td>Developer Handover</td>
+          <td>Summarising what was tested, what passed, what failed, what needed fixing, and what should be checked in future builds.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <hr>
 
-    <h2 id="release-outcome">🚀 Release Outcome</h2>
+<h2 id="current-outcome">🚀 Current Outcome</h2>
 
-    <p>
-      The QA report and bug log were delivered directly to the producer ahead of the deadline. The report highlighted both stable areas and player-facing risks that could affect first-time demo players.
-    </p>
+<p>
+  So far, I have completed eight QA passes on Dungeon Raiders, covering Android gameplay stability, UI/readability fixes, class behaviour, combat systems, save/resume persistence, shop and economy interactions, new content smoke testing, and patch-note targeted regression verification.
+</p>
 
-    <p>
-      The build tested was stable overall, with the main concerns focused on guidance, discoverability, and system communication rather than crashes or major progression failure.
-    </p>
+<p>
+  The work has helped support ongoing updates by identifying player-facing risks, validating fixes, checking for regressions, and giving the developer clear information before wider player exposure.
+</p>
 
-    <p>
-      Following public release, I was credited for my QA contribution to the demo.
-    </p>
+<p>
+  I am credited in the released game as <strong>Head of QA Kelina Cowell</strong>, reflecting my ongoing QA contribution to the project.
+</p>
 
-    <div class="cta-row" style="text-align:center;">
-      <a class="cta-btn" href="https://store.steampowered.com/app/3664070/Nothing_Strange_Here/" target="_blank" rel="noopener">View Steam Demo</a>
-    </div>
+<div class="cta-row" style="text-align:center;">
+ <a class="cta-btn" href="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-credit.jpeg" target="_blank" rel="noopener">
+    View Credit
+  </a>
+  
+  <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">
+    View Dungeon Raiders on Google Play
+  </a>
+</div>
 
     <hr>
 
-<h2>✅ What This QA Project Shows</h2>
+<h2>✅ What This Case Study Shows</h2>
 
 <ul>
-  <li>Planned a focused QA pass around newer demo systems the producer identified as needing more coverage.</li>
-  <li>Used risk-based testing to prioritise quest progression, player guidance, Journal and Map behaviour, Time Skip interactions, and save/load persistence.</li>
-  <li>Tested both individual systems and how those systems interacted during quests, NPC behaviour, exploration, time-based events, and Save/Load.</li>
-  <li>Reported issues through a structured QA report and bug log with evidence links, repro information, priority, and player impact notes.</li>
-  <li>Identified player-facing risks that were important for demo readiness even where progression remained technically functional.</li>
-  <li>Confirmed key areas of stability, persistence, performance, and boundary behaviour during the tested scenarios.</li>
-  <li>Worked directly with the producer and kept the QA approach aligned with the project’s Steam Next Fest deadline.</li>
-</ul>
+  <li>Provided ongoing embedded QA support across eight Android QA passes, with more testing expected as the game continues to evolve.</li>
 
+  <li>Used player-focused exploratory testing to identify visible issues affecting normal Android gameplay sessions.</li>
+
+  <li>Performed patch-note targeted regression testing to verify fixes, features, class behaviour, menu behaviour, and save/resume stability.</li>
+
+  <li>Tested new content including Druid, Fisher, class-specific reward pools, ability behaviour, relic persistence, and updated UI feedback.</li>
+
+  <li>Separated functional bugs, usability concerns, readability issues, progression risks, regression failures, and smoke test outcomes clearly.</li>
+
+  <li>Supported a solo indie developer with practical QA feedback that helped keep the project stable, readable, and player-ready across updates.</li>
+</ul>
+    
     <hr>
 
     <section class="section" aria-labelledby="contact">
@@ -753,7 +768,7 @@
         <h2 id="contact">Need QA Support for Your Game?</h2>
 
         <p class="lead">
-          If you have a demo, early build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+          If you have a demo, Android build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
         </p>
 
         <div class="cta-row">
@@ -780,7 +795,7 @@
     <hr>
 
     <h2>📎 Disclaimer</h2>
-    <p><em>This page documents credited QA work completed by Kelina Cowell for portfolio and recruitment purposes. I am not the developer or publisher of Nothing Is Strange. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
+    <p><em>This page documents credited QA work completed by Kelina Cowell for portfolio and recruitment purposes. I am not the developer or publisher of Dungeon Raiders. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
 
   </main>
 
