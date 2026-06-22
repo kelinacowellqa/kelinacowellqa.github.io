@@ -378,419 +378,312 @@
 }
 </script>
 
-    <h2>Introduction</h2>
-
-    <p>
-      This case study covers my ongoing QA support for <a href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener"><em>Grove Bound</em></a>, an in-development cozy incremental RPG by GDO Games.
-    </p>
-
-    <p>
-      My work on the project so far has focused on onboarding, first-session progression, player guidance, crafting and cooking clarity, buildable feature validation, regression testing, and practical feedback across active itch.io builds.
-    </p>
-
-    <p>
-      Grove Bound is still in development, so this page reflects the QA work completed so far rather than a final project summary. I will continue updating it as new builds are tested, fixes are validated, and the project moves closer to its Steam demo release.
-    </p>
-
-    <table>
-      <thead>
-        <tr><th>Game</th><th>Role</th><th>Status</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Grove Bound</td>
-          <td>QA Tester</td>
-          <td>In development with ongoing QA support</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="cta-row">
-      <a class="cta-btn" href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener">View on itch.io</a>
-    </div>
-
-    <hr>
-
-    <section class="testimonial-section" aria-labelledby="testimonial-heading">
-      <div class="testimonial-card">
-        <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
-
-        <blockquote class="testimonial-quote">
-          <p>
-            “Kelina is a pleasure to work with. She is hardworking and provides genuine insight into Grove Bound, approaching it from the perspective of a first-time player. Her feedback on player onboarding was essential and greatly improved the overall flow through her suggestions.
-          </p>
-
-          <p>
-            She was very good at understanding my needs as a developer and turning them into effective test plans. She required very little supervision and is more than capable of working independently. Her work was always delivered promptly and included excellent breakdowns and documentation.
-          </p>
-
-          <p>
-            I would highly recommend working with her. The only area I would suggest improving is bug severity and priority classification, which could have been more consistent. However, this is something that could easily be addressed through regular weekly meetings to review and classify issues together or a list of classifications from myself to make putting them into categories easier.”
-          </p>
-        </blockquote>
-
-        <p class="testimonial-author">
-          — Ozzy, Lead Dev, GDO Games
-        </p>
-      </div>
-    </section>
-
-    <hr>
-
-    <h2 id="role">🎯 My QA Role</h2>
-
-    <p>
-      My role is to provide ongoing QA support for Grove Bound across active builds, player-facing systems, early progression, new feature validation, and regression testing after updates.
-    </p>
-
-    <p>
-      The developer specifically wanted support around onboarding, object interaction clarity, player feedback, look and feel, and whether the first few minutes gave players enough reason to continue. My first passes were shaped around those needs.
-    </p>
-
-    <p>
-      Because this is an in-development indie project, the goal is to provide useful QA without creating unnecessary production overhead. I focus on clear test priorities, practical reports, player-facing risk, and feedback the developer can act on quickly.
-    </p>
-
-    <div class="grid-3">
-      <section class="card">
-        <h3>🧭 QA Focus</h3>
-        <ul>
-          <li>Onboarding clarity</li>
-          <li>First-session experience</li>
-          <li>Progression guidance</li>
-          <li>Quest direction</li>
-          <li>System discoverability</li>
-          <li>Player motivation</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>📄 Reporting</h3>
-        <ul>
-          <li>Structured QA summaries</li>
-          <li>Bug and friction logs</li>
-          <li>Player-impact notes</li>
-          <li>Priority recommendations</li>
-          <li>Screenshot and video evidence</li>
-          <li>Clear handover summaries</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>🔁 Validation</h3>
-        <ul>
-          <li>Regression testing after fixes</li>
-          <li>Feature validation</li>
-          <li>Buildable system checks</li>
-          <li>Quest guidance retesting</li>
-          <li>Crafting and cooking checks</li>
-          <li>Steam demo preparation support</li>
-        </ul>
-      </section>
-    </div>
-
-    <hr>
-
-    <h2 id="workflow">🛠️ Workflow & Communication</h2>
-
-    <p>
-      Testing began after the developer asked for feedback on onboarding, player guidance, object interaction, player feedback, and early engagement. The first QA pass was carried out from a completely new player perspective to assess whether the opening session clearly explained what Grove Bound wanted the player to do and why.
-    </p>
-
-    <p>
-      Later testing continued into post-tutorial progression and then into regression and feature validation after an updated build was released. This allowed me to check whether earlier player-facing concerns had improved and whether newly added systems were understandable during normal play.
-    </p>
-
-    <table>
-      <thead>
-        <tr><th>Workflow Area</th><th>How It Worked</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Communication</td>
-          <td>Ongoing Discord communication with the developer around test focus, current build state, newly added features, fixes, and follow-up regression needs.</td>
-        </tr>
-        <tr>
-          <td>Planning</td>
-          <td>Each QA pass was shaped around the current build, developer-requested focus areas, known player-facing risks, and what had changed since the previous session.</td>
-        </tr>
-        <tr>
-          <td>Testing</td>
-          <td>Testing combined first-time player exploratory QA, post-tutorial progression review, regression testing, and validation of newly added buildable systems.</td>
-        </tr>
-        <tr>
-          <td>Reporting</td>
-          <td>Reports summarised what was tested, what worked well, what caused friction, player impact, recommended next steps, and evidence where useful.</td>
-        </tr>
-        <tr>
-          <td>Regression</td>
-          <td>Later testing checked whether onboarding, progression guidance, quest direction, crafting, and cooking improvements had addressed earlier findings.</td>
-        </tr>
-        <tr>
-          <td>Ongoing Support</td>
-          <td>Further QA support is expected across future updates, bug fixes, feature additions, and Steam demo preparation.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr>
-
-    <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
-
-    <p>
-      The initial test strategy was based on the developer's stated concerns: onboarding, object interactions, lack of player feedback, information overload, look and feel, and whether the first few minutes encouraged players to continue.
-    </p>
-
-    <p>
-      I prioritised areas that could affect early retention: unclear goals, weak progression direction, hidden quest access, systems that were discoverable but not clearly useful, missing feedback, and new features that worked mechanically but did not yet communicate their purpose well enough to players.
-    </p>
-
-    <div class="grid-2">
-      <section class="card">
-        <h3>Player-Focused Exploratory QA</h3>
-        <p>
-          I tested Grove Bound as a new player, focusing on what the game communicated naturally without external explanation. This included tutorial flow, first-session goals, NPC interaction, resource use, early systems, and whether the player had enough reason to keep going.
-        </p>
-      </section>
-
-      <section class="card">
-        <h3>Regression & Feature Validation</h3>
-        <p>
-          After updates were made, I retested earlier friction areas and validated new buildable features. The focus was not just whether systems functioned, but whether their purpose, value, feedback, and progression role were clear during normal gameplay.
-        </p>
-      </section>
-    </div>
-
-    <hr>
-
-    <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
-
-    <p>
-      The QA work so far has moved through three main stages. Each pass had a different purpose rather than repeating the same coverage blindly.
-    </p>
-
-    <table>
-      <thead>
-        <tr><th>Stage</th><th>Focus</th><th>Purpose</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1. First-time player onboarding pass</td>
-          <td>Onboarding, tutorial flow, player guidance, feedback, fatigue, lantern communication, interaction clarity, and first-session engagement.</td>
-          <td>Assess whether a new player could understand Grove Bound's core mechanics and opening flow without developer guidance.</td>
-        </tr>
-        <tr>
-          <td>2. Post-tutorial progression pass</td>
-          <td>Quest-led exploration, crafting discovery, cooking discovery, new area progression, system purpose, and continued motivation after onboarding.</td>
-          <td>Check whether players had a clear reason to keep playing once the tutorial had ended and more systems began opening up.</td>
-        </tr>
-        <tr>
-          <td>3. Regression and feature validation pass</td>
-          <td>Tutorial improvements, progression guidance, quest guidance, crafting clarity, cooking clarity, buildable campfires, and storage crate validation.</td>
-          <td>Validate whether previous concerns had improved and assess whether newly added buildable systems were understandable from a player perspective.</td>
-        </tr>
-        <tr>
-          <td>4. Ongoing update support</td>
-          <td>Further regression testing, new feature validation, bug fix checks, storage system validation, buildable system review, and Steam demo readiness.</td>
-          <td>Continue supporting the project as Grove Bound moves through active development toward a Steam demo release.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr>
-
-    <h2 id="qa-areas">🔍 QA Areas Covered</h2>
-
-    <p>
-      The QA work has covered both functional behaviour and player-facing experience. The main focus has been whether players understand what they are doing, why they are doing it, and how new systems connect to progression.
-    </p>
-
-    <div class="grid-3">
-      <section class="card">
-        <h3>Onboarding</h3>
-        <ul>
-          <li>Tutorial flow</li>
-          <li>Information pacing</li>
-          <li>Early mechanics</li>
-          <li>First-session clarity</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>Progression Guidance</h3>
-        <ul>
-          <li>Post-tutorial direction</li>
-          <li>Short-term goals</li>
-          <li>Quest-led exploration</li>
-          <li>Player motivation</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>Quest & NPC Flow</h3>
-        <ul>
-          <li>Quest discoverability</li>
-          <li>NPC interaction expectations</li>
-          <li>Dialogue guidance</li>
-          <li>Objective clarity</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>Crafting & Cooking</h3>
-        <ul>
-          <li>Recipe clarity</li>
-          <li>Ingredient communication</li>
-          <li>System purpose</li>
-          <li>Progression value</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>Buildable Systems</h3>
-        <ul>
-          <li>Campfire crafting</li>
-          <li>Placement validation</li>
-          <li>Fuel feedback</li>
-          <li>Storage crate test blocking</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h3>Regression Support</h3>
-        <ul>
-          <li>Onboarding retests</li>
-          <li>Quest guidance checks</li>
-          <li>Crafting/cooking validation</li>
-          <li>New feature follow-up</li>
-        </ul>
-      </section>
-    </div>
-
-    <hr>
-
-    <h2 id="early-impact">📈 Early Impact</h2>
-
-    <p>
-  After onboarding, tutorial, crafting, and early progression improvements were implemented, the developer shared browser play data showing stronger activity on the updated itch.io build, including a peak of 762 browser plays on 17/06/2026.
-</p>
-
-<p>
-  This is included as supporting context rather than a direct claim that QA alone caused the increase.
-</p>
-
-    <div class="impact-image">
-      <img src="https://kelinacowellqa.github.io/assets/img/grove-bound-browser-plays-graph.png" alt="Grove Bound browser play data showing a peak of 762 browser plays on 17 June 2026">
-      <p class="caption">
-        Browser play data shared by the developer after early onboarding, tutorial, crafting, and progression improvements were implemented.
-      </p>
-    </div>
-
-<blockquote>
-  The graph is included as supporting context. Following onboarding, tutorial, crafting, and progression improvements, the updated build saw a noticeable increase in player activity.
-</blockquote>
-
-    <hr>
-
-    <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
-
-    <p>
-      Grove Bound is a solo-dev indie project, so the QA support needs to be flexible, practical, and directly useful. Some passes are broad and exploratory. Others are focused on regression testing, specific features, or checking whether previous feedback has been successfully addressed.
-    </p>
-
-    <p>
-      I separate issues by player-facing impact rather than treating every observation as the same kind of bug. A progression blocker, unclear quest direction, missing feedback, confusing system purpose, and a minor dialogue polish issue all need different handling.
-    </p>
-
-    <p>
-      This helps the developer understand what matters most, what should be fixed before wider player exposure, what can be improved later, and what needs further discussion or shared classification.
-    </p>
-
-    <blockquote>
-      The focus of this work is ongoing QA support: identifying player-facing risks, validating fixes, checking regressions, testing new systems, and helping Grove Bound become clearer and more demo-ready across updates.
-    </blockquote>
-
-    <hr>
-
-    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
-
-    <table>
-      <thead>
-        <tr><th>Tool / Method</th><th>Used For</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>PC / Browser Testing</td>
-          <td>Testing the public itch.io build from a player-facing perspective.</td>
-        </tr>
-        <tr>
-          <td>Structured QA Reports</td>
-          <td>Summarising scope, test style, focus areas, strong areas, friction areas, outcomes, and recommended next steps.</td>
-        </tr>
-        <tr>
-          <td>Bug and Friction Logs</td>
-          <td>Capturing issues by charter, area, repro steps, expected result, actual result, player impact, priority, evidence, and status.</td>
-        </tr>
-        <tr>
-          <td>Screenshot Evidence</td>
-          <td>Capturing player-facing clarity, UI, dialogue, progression, and feature validation issues where visual evidence was useful.</td>
-        </tr>
-        <tr>
-          <td>Video Evidence</td>
-          <td>Recording behaviours that were easier to understand through gameplay footage than written description alone.</td>
-        </tr>
-        <tr>
-          <td>Discord Communication</td>
-          <td>Discussing test focus, developer priorities, fixed issues, regression needs, feature behaviour, and portfolio feedback.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr>
-
-    <h2 id="current-outcome">🚀 Current Outcome</h2>
-
-    <p>
-      So far, my QA work has helped identify and validate improvements to Grove Bound's tutorial flow, onboarding clarity, early progression guidance, quest direction, crafting usability, cooking behaviour, buildable campfires, and storage progression.
-    </p>
-
-    <p>
-      Several findings from my reports have already been fixed or improved by the developer, including tutorial messaging, early progression flow, quest guidance, cooking behaviour, chest-related issues, and first-session friction.
-    </p>
-
-    <p>
-      Testing is ongoing. Future passes are expected to cover further regression checks, newly fixed issues, additional buildable systems, storage crate validation, and Steam demo readiness.
-    </p>
-
-    <p>
-      I am credited as a QA contributor on Grove Bound and continue to provide ongoing QA support ahead of the planned Steam demo release.
-    </p>
-
-    <div class="cta-row">
-      <a class="cta-btn" href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener">
-        View Grove Bound on itch.io
-      </a>
-    </div>
-
-    <hr>
-
-    <h2>✅ What This Case Study Shows</h2>
-
-    <ul>
-      <li>Provided ongoing QA support for an in-development PC/browser game across active itch.io builds.</li>
-
-      <li>Tested onboarding, first-session progression, tutorial clarity, quest guidance, crafting, cooking, inventory, resource interaction, and buildable systems.</li>
-
-      <li>Used regression testing to validate whether previous onboarding and progression concerns had improved after updates.</li>
-
-      <li>Identified player-facing friction around unclear system purpose, missing feedback, progression uncertainty, quest guidance, and blocked feature validation.</li>
-
-      <li>Provided structured QA reports with practical recommendations, repro steps, player impact, evidence, and follow-up notes.</li>
-
-      <li>Supported the developer with testing that will continue as Grove Bound moves toward its Steam demo release.</li>
-    </ul>
-
-    <hr>
+<section aria-labelledby="role">
+  <h2 id="role">🎯 My QA Role</h2>
+
+  <p>
+    I was brought onto Grove Bound to provide external QA support focused on onboarding, player guidance,
+    object interaction clarity, progression flow, and the overall first-session experience.
+  </p>
+
+  <p>
+    Testing began while the game was actively in development, allowing feedback to be incorporated directly
+    into ongoing updates and feature improvements.
+  </p>
+
+  <p>
+    My responsibilities included exploratory testing, player-facing risk identification, structured reporting,
+    regression testing, feature validation, and practical recommendations to support future demo readiness.
+  </p>
+</section>
+
+<hr>
+
+<section aria-labelledby="triage-planning">
+  <h2 id="triage-planning">🧠 Triage &amp; Planning</h2>
+
+  <ul>
+    <li>Reviewed developer concerns around onboarding, guidance, feedback, and player retention.</li>
+    <li>Prioritised first-session experience and early progression risks.</li>
+    <li>Identified player-facing friction affecting understanding and motivation.</li>
+    <li>Planned testing around tutorial flow, quest progression, crafting, cooking, and newly introduced systems.</li>
+    <li>Used follow-up testing to reproduce reported issues and validate fixes.</li>
+  </ul>
+</section>
+
+<hr>
+
+<section aria-labelledby="testing-focus">
+  <h2 id="testing-focus">🎮 Testing Focus</h2>
+
+  <ul>
+    <li>Tutorial and onboarding flow</li>
+    <li>Early progression and player guidance</li>
+    <li>Quest direction and objective clarity</li>
+    <li>NPC interaction and dialogue guidance</li>
+    <li>Crafting systems</li>
+    <li>Cooking systems</li>
+    <li>Buildable campfires and storage systems</li>
+    <li>Feature validation</li>
+    <li>Regression testing</li>
+    <li>Steam demo readiness preparation</li>
+  </ul>
+</section>
+
+<hr>
+
+<section aria-labelledby="ongoing-support">
+  <h2 id="ongoing-support">🔁 Ongoing Support</h2>
+
+  <ul>
+    <li>Regression testing following onboarding and progression updates.</li>
+    <li>Validation of newly added features and systems.</li>
+    <li>Reproduction of reported player-facing issues.</li>
+    <li>Continued support across active development builds.</li>
+    <li>Future testing planned around Steam demo preparation and additional feature releases.</li>
+  </ul>
+</section>
+
+<hr>
+
+<section aria-labelledby="workflow">
+  <h2 id="workflow">🛠️ Workflow &amp; Communication</h2>
+
+  <p>
+    Testing was carried out through ongoing collaboration with the developer using Discord. Each pass focused
+    on current development priorities, player-facing risks, and recently implemented changes.
+  </p>
+
+  <p>
+    Findings were delivered through structured QA reports supported by screenshots, video evidence, bug logs,
+    friction logs, and practical recommendations. Follow-up sessions were then used to validate fixes and assess
+    whether previous concerns had improved.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Workflow Area</th>
+        <th>How It Worked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Communication</td>
+        <td>Direct Discord communication with the developer.</td>
+      </tr>
+      <tr>
+        <td>Planning</td>
+        <td>Testing aligned with current build priorities and known risks.</td>
+      </tr>
+      <tr>
+        <td>Testing</td>
+        <td>Exploratory testing, feature validation, and regression testing.</td>
+      </tr>
+      <tr>
+        <td>Reporting</td>
+        <td>Structured reports covering findings, impact, and recommendations.</td>
+      </tr>
+      <tr>
+        <td>Evidence</td>
+        <td>Screenshots and gameplay recordings used where appropriate.</td>
+      </tr>
+      <tr>
+        <td>Follow-up</td>
+        <td>Fix validation and regression testing across later builds.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<section aria-labelledby="main-testing">
+  <h2 id="main-testing">🧭 Onboarding, Progression &amp; Feature Validation</h2>
+
+  <p>
+    A significant portion of testing focused on whether Grove Bound successfully communicated its mechanics,
+    objectives, and progression systems to a new player without external guidance.
+  </p>
+
+  <p>
+    Testing covered tutorial flow, post-tutorial progression, NPC guidance, crafting discovery, cooking systems,
+    buildable structures, resource management, and feature usability.
+  </p>
+
+  <p>
+    The objective was not simply to verify functionality, but to assess whether players understood why systems
+    existed, how they connected to progression, and what actions they should take next.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Test Area</th>
+        <th>Observed Focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tutorial Flow</td>
+        <td>Clarity of onboarding and information pacing.</td>
+      </tr>
+      <tr>
+        <td>Early Progression</td>
+        <td>Player motivation and direction after onboarding.</td>
+      </tr>
+      <tr>
+        <td>Quest Guidance</td>
+        <td>Objective communication and discoverability.</td>
+      </tr>
+      <tr>
+        <td>NPC Interaction</td>
+        <td>Dialogue clarity and progression support.</td>
+      </tr>
+      <tr>
+        <td>Crafting</td>
+        <td>Recipe understanding and progression value.</td>
+      </tr>
+      <tr>
+        <td>Cooking</td>
+        <td>System usability and player feedback.</td>
+      </tr>
+      <tr>
+        <td>Buildable Systems</td>
+        <td>Campfires, storage, and feature discoverability.</td>
+      </tr>
+      <tr>
+        <td>Regression Testing</td>
+        <td>Validation of fixes and previously reported concerns.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<section aria-labelledby="risk-areas">
+  <h2 id="risk-areas">⚠️ Current Player-Facing Risk Areas</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Risk Area</th>
+        <th>Player Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Progression Clarity</td>
+        <td>Players may become unsure what to do next after completing objectives.</td>
+      </tr>
+      <tr>
+        <td>System Discoverability</td>
+        <td>Some systems can be overlooked or misunderstood without sufficient guidance.</td>
+      </tr>
+      <tr>
+        <td>Feature Communication</td>
+        <td>Mechanics may function correctly while their purpose remains unclear.</td>
+      </tr>
+      <tr>
+        <td>Crafting &amp; Building Guidance</td>
+        <td>Players may struggle to understand unlock paths and progression requirements.</td>
+      </tr>
+      <tr>
+        <td>Feedback Visibility</td>
+        <td>Important information can occasionally be easy to miss during normal play.</td>
+      </tr>
+      <tr>
+        <td>Retention Risk</td>
+        <td>Confusion during early gameplay can reduce motivation to continue playing.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<section aria-labelledby="developer-collaboration">
+  <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
+
+  <p>
+    Testing priorities were agreed collaboratively based on the developer's current concerns, active feature work,
+    and player-facing risks identified during earlier passes.
+  </p>
+
+  <p>
+    Feedback was reported in a practical way, separating progression blockers, usability concerns, clarity issues,
+    and lower-priority observations to help support development decisions.
+  </p>
+
+  <p>
+    The project remains an ongoing collaboration, with future testing expected to focus on new features,
+    regression coverage, and Steam demo readiness as development continues.
+  </p>
+</section>
+
+<hr>
+
+<section aria-labelledby="tools">
+  <h2 id="tools">🧰 Tools &amp; Evidence Workflow</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tool / Method</th>
+        <th>Used For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PC / Browser Testing</td>
+        <td>Testing active itch.io builds.</td>
+      </tr>
+      <tr>
+        <td>Google Docs</td>
+        <td>QA summaries and reporting.</td>
+      </tr>
+      <tr>
+        <td>Google Sheets</td>
+        <td>Bug logs and friction logs.</td>
+      </tr>
+      <tr>
+        <td>Discord</td>
+        <td>Communication and feedback discussion.</td>
+      </tr>
+      <tr>
+        <td>Screenshot Evidence</td>
+        <td>Visual issue documentation.</td>
+      </tr>
+      <tr>
+        <td>Video Evidence</td>
+        <td>Capturing gameplay behaviour and repro evidence.</td>
+      </tr>
+      <tr>
+        <td>itch.io</td>
+        <td>Build access and testing.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<section aria-labelledby="case-study-shows">
+  <h2 id="case-study-shows">✅ What This Case Study Shows</h2>
+
+  <ul>
+    <li>Ongoing QA support for an actively developed indie project.</li>
+    <li>Player-focused exploratory testing from a first-time user perspective.</li>
+    <li>Identification of onboarding, progression, and usability risks.</li>
+    <li>Structured reporting with clear player-impact analysis.</li>
+    <li>Regression testing and feature validation across multiple updates.</li>
+    <li>Practical collaboration with a solo indie developer.</li>
+    <li>Support for long-term demo readiness and player experience improvements.</li>
+  </ul>
+</section>
+
+<hr>
 
     <section class="section" aria-labelledby="contact">
       <div class="service-card hero-copy">
