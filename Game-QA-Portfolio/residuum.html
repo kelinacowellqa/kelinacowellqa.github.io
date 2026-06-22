@@ -1,1 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="91dd4980-fd90-49a2-bfd4-85a7a6778b60"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+  <title>RESIDUUM - Ongoing QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="Ongoing QA case study for RESIDUUM by Will Nightingale, covering closed PC playtest support, player feedback triage, onboarding clarity, early progression testing, usability review, and planned future regression testing." />
+
+  <meta property="og:title" content="RESIDUUM - Ongoing QA Case Study" />
+  <meta property="og:description" content="Ongoing QA case study showing how Kelina Cowell supports RESIDUUM through playtest feedback triage, onboarding review, early progression testing, player-facing usability analysis, and future regression support." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/residuum.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/residuum-header.png" />
+
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/residuum.html" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=5">
+
+  <style>
+    .hero{
+      width:100%;
+      height:260px;
+      position:relative;
+      margin:28px 0 26px !important;
+      padding:0 !important;
+      border:0;
+      border-radius:20px;
+      background:transparent !important;
+      box-shadow:none !important;
+      overflow:visible !important;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center center;
+      border-radius:20px;
+      border:0;
+      box-shadow:none !important;
+      background:transparent;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:20px;
+      pointer-events:none;
+      box-shadow:
+        0 0 14px rgba(0,255,240,0.28),
+        0 0 28px rgba(0,255,240,0.16),
+        0 0 52px rgba(0,255,240,0.10);
+      animation:heroPulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes heroPulse{
+      0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+      50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+      100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    }
+
+    body h2{ margin:32px 0 12px !important; }
+    body hr{ margin:28px 0 !important; }
+    body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+
+    body ul,
+    body ol{
+      margin:12px 0 20px !important;
+      padding-left:1.3rem !important;
+    }
+
+    body li{
+      line-height:1.7 !important;
+      margin:8px 0 !important;
+    }
+
+    .cta-row{
+      margin:20px 0 34px !important;
+      text-align:center;
+    }
+
+    .cta-row .cta-btn{
+      margin:6px 8px;
+    }
+
+    @media (max-width:560px){
+      .cta-row .cta-btn{
+        display:block;
+        margin:8px auto;
+        width:fit-content;
+      }
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-3 .card,
+    .grid-2 .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:16px;
+    }
+
+    .grid-3 .card h3,
+    .grid-2 .card h3{
+      margin-top:0;
+    }
+
+    @media (max-width:900px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#0f1215;
+      border:1px solid rgba(255,255,255,.08);
+      margin:12px 0;
+      border-radius:8px;
+      overflow:hidden;
+    }
+
+    thead th{
+      background:rgba(0,255,240,.08);
+      color:#00fff0;
+      text-align:left;
+      font-weight:700;
+      font-size:14px;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody td,
+    tbody th{
+      color:#cfd6dd;
+      padding:12px 14px;
+      vertical-align:top;
+    }
+
+    thead th+th,
+    tbody td+td,
+    tbody th+td{
+      border-left:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody tr+tr td,
+    tbody tr+tr th{
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    blockquote{
+      border-left:3px solid #00fff0;
+      margin:18px 0;
+      padding:12px 18px;
+      background:rgba(0,255,240,.04);
+      color:#cfd6dd;
+    }
+
+    .service-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .service-card.hero-copy{
+      max-width:900px;
+      margin:0 auto;
+      padding:20px 24px;
+      text-align:center;
+    }
+
+    .service-card.hero-copy h2{
+      margin-top:0;
+    }
+
+    .service-card.hero-copy .lead{
+      margin-bottom:20px;
+    }
+
+    .testimonial-card{
+      margin:24px 0 28px;
+      padding:20px 22px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-left:4px solid #00fff0;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.28);
+    }
+
+    .testimonial-card blockquote{
+      margin:0;
+      padding:14px 18px;
+      border-left:0;
+      background:rgba(0,255,240,.04);
+      color:#cfd6dd;
+      font-size:1.05rem;
+      line-height:1.75;
+      font-style:italic;
+      border-radius:10px;
+    }
+
+    .testimonial-label{
+      color:#00fff0;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      font-size:.82rem;
+      margin-bottom:10px !important;
+    }
+
+    .testimonial-author{
+      margin:14px 0 0 !important;
+      color:#00fff0;
+      font-weight:700;
+      text-align:right;
+    }
+
+    .caption{
+      color:#a9b3bd;
+      font-size:.92rem;
+      line-height:1.6;
+      margin-top:8px !important;
+    }
+
+    @media (max-width:640px){
+      .testimonial-card{
+        padding:16px;
+      }
+
+      .testimonial-card blockquote{
+        padding:12px 14px;
+        font-size:1rem;
+      }
+
+      .testimonial-author{
+        text-align:left;
+      }
+    }
+  </style>
+
+  <script data-goatcounter="https://kelina.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <header class="hero">
+      <img src="https://kelinacowellqa.github.io/assets/img/residuum-header.png" alt="RESIDUUM QA case study banner">
+    </header>
+
+    <nav style="text-align:center;margin-bottom:20px;">
+      <a class="cta-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">Back to Portfolio Hub</a>
+    </nav>
+
+    <h1>RESIDUUM - Ongoing QA Case Study</h1>
+    <p class="meta">Role: Systems QA Tester • Developer: Will Nightingale • Platform: PC / Windows 11 • Status: In development, with ongoing QA support across closed playtest builds</p>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">🧾 Project Overview</h2>
+
+      <ul>
+        <li><strong>Game:</strong> RESIDUUM</li>
+        <li><strong>Developer:</strong> Will Nightingale</li>
+        <li><strong>Role:</strong> Systems QA Tester</li>
+        <li><strong>Testing dates:</strong> Ongoing from May 2026</li>
+        <li><strong>Status:</strong> In development, with ongoing QA support across closed playtest builds</li>
+        <li><strong>Platform:</strong> PC / Windows 11</li>
+        <li><strong>Current focus:</strong> Playtest feedback triage, onboarding clarity, early progression testing, usability review, reproduction planning, and future regression support</li>
+        <li><strong>Coverage note:</strong> This page reflects QA work completed so far and will be updated as additional passes are completed.</li>
+      </ul>
+    </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Indie Developer, QA Lead, Game QA Tester, Recruiter"
+  },
+  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/residuum.html",
+  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/residuum.html",
+  "name": "RESIDUUM: Ongoing QA Case Study",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Person", "name": "Kelina Cowell" },
+  "isBasedOn": {
+    "@type": "VideoGame",
+    "name": "RESIDUUM",
+    "gamePlatform": ["PC", "Windows"]
+  },
+  "about": [
+    { "@type": "Thing", "name": "Game QA" },
+    { "@type": "Thing", "name": "Indie game QA" },
+    { "@type": "Thing", "name": "PC game testing" },
+    { "@type": "Thing", "name": "Closed playtest QA" },
+    { "@type": "Thing", "name": "Playtest feedback triage" },
+    { "@type": "Thing", "name": "Onboarding clarity" },
+    { "@type": "Thing", "name": "Early progression testing" },
+    { "@type": "Thing", "name": "Player-focused exploratory testing" },
+    { "@type": "Thing", "name": "Reproduction testing" },
+    { "@type": "Thing", "name": "Regression testing" }
+  ],
+  "keywords": [
+    "game QA",
+    "indie game QA",
+    "PC game testing",
+    "closed playtest QA",
+    "playtest feedback triage",
+    "onboarding clarity",
+    "early progression testing",
+    "player-focused exploratory testing",
+    "reproduction testing",
+    "regression testing",
+    "structured QA reporting"
+  ],
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Role", "value": "Systems QA Tester" },
+    { "@type": "PropertyValue", "name": "Developer", "value": "Will Nightingale" },
+    { "@type": "PropertyValue", "name": "Platform", "value": "PC / Windows 11" },
+    { "@type": "PropertyValue", "name": "Status", "value": "In development with ongoing QA support" },
+    { "@type": "PropertyValue", "name": "Testing approach", "value": "Playtest feedback triage, player-focused onboarding review, early progression testing, usability analysis, reproduction planning, and future regression testing" }
+  ]
+}
+</script>
+
+    <h2>Introduction</h2>
+
+    <p>
+      This case study covers my ongoing QA support for <em>RESIDUUM</em>, an in-development PC psychological horror game by Will Nightingale.
+    </p>
+
+    <p>
+      The work documented here reflects the QA activity completed so far, including initial playtest feedback triage, first-time player onboarding testing, early progression review, usability analysis, issue reproduction planning, and developer communication around future QA support.
+    </p>
+
+    <p>
+      Because RESIDUUM is still actively evolving, this page is not intended to be a final project retrospective. It is a living case study that will be updated after future QA passes, debug-build testing, feature validation, regression cycles, and playtest updates.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Game</th><th>Role</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RESIDUUM</td>
+          <td>Systems QA Tester</td>
+          <td>In development with ongoing QA support</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+      <div class="testimonial-card">
+        <p class="testimonial-label" id="testimonial-heading">Developer Feedback</p>
+
+        <blockquote class="testimonial-quote">
+          <p>
+            Developer feedback will be added here once approved for public use.
+          </p>
+        </blockquote>
+
+        <p class="testimonial-author">
+          — Will Nightingale, Developer of RESIDUUM
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <h2 id="role">🎯 My QA Role</h2>
+
+    <p>
+      My role is to provide structured QA support for RESIDUUM during closed playtesting and active development. The current work focuses on organising playtest feedback, identifying player-facing risks, testing onboarding and early progression, and preparing future reproduction and regression testing.
+    </p>
+
+    <p>
+      The project is under development, so my current focus is not to present final outcomes. Instead, I am supporting the developer by turning player feedback and first-hand testing into clear, useful QA information that can help prioritise fixes, improve usability, and prepare later playtest phases.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>🧠 Triage & Planning</h3>
+        <ul>
+          <li>Grouped playtest feedback</li>
+          <li>Identified duplicate reports</li>
+          <li>Flagged softlock risks</li>
+          <li>Separated bugs from clarity issues</li>
+          <li>Prepared focused test priorities</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>🎮 Testing Focus</h3>
+        <ul>
+          <li>Onboarding clarity</li>
+          <li>Early progression flow</li>
+          <li>Navigation readability</li>
+          <li>Interaction feedback</li>
+          <li>Note and clue readability</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>🔁 Ongoing Support</h3>
+        <ul>
+          <li>Reproduction testing</li>
+          <li>Debug-build testing</li>
+          <li>Regression validation</li>
+          <li>Final-area playtest support</li>
+          <li>Future full-game playtest support</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="initial-qa">🧩 Initial QA Contribution</h2>
+
+    <p>
+      Before beginning hands-on testing, I carried out an initial QA triage pass using community playtest feedback gathered during the closed playtest period.
+    </p>
+
+    <p>
+      The purpose of this work was to organise incoming player reports into actionable QA areas, identify progression and softlock risks, group duplicate feedback, separate intended horror tension from accidental confusion, and prepare focused testing priorities for the developer.
+    </p>
+
+    <p>
+      Rather than treating every report as an isolated issue, I looked for repeated patterns that could suggest wider system-level problems. This included player collision behaviour, equipment-state interactions, item handling, door and locker interaction states, inspection-menu behaviour, rendering concerns, and navigation clarity.
+    </p>
+
+    <blockquote>
+      This early triage work helped turn scattered playtest feedback into a clearer QA signal, making it easier to decide what needed reproduction, what needed developer clarification, and what could be grouped as duplicate or related feedback.
+    </blockquote>
+
+    <table>
+      <thead>
+        <tr><th>Triage Area</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>High-risk reports</td>
+          <td>Highlighted possible progression blockers, softlock risks, save/load concerns, puzzle bypasses, and major gameplay-system issues.</td>
+        </tr>
+        <tr>
+          <td>Repeated feedback themes</td>
+          <td>Grouped related reports so repeated player concerns could be reviewed as possible system-level issues rather than isolated one-off bugs.</td>
+        </tr>
+        <tr>
+          <td>Usability and clarity concerns</td>
+          <td>Separated functional defects from areas where the game may be working as intended but communicating poorly to players.</td>
+        </tr>
+        <tr>
+          <td>Developer questions</td>
+          <td>Prepared targeted clarification questions around intended behaviour, pause rules, inspection systems, encounter readability, and future debug options.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="workflow">🛠️ Workflow & Communication</h2>
+
+    <p>
+      I offered support as a Systems QA Tester to help with functional, exploratory, and regression testing focused around gameplay systems, progression flow, usability, and validating recent fixes or changes.
+    </p>
+
+    <p>
+      After access was arranged through the closed playtest process, I began by reviewing current feedback and then completed an initial onboarding and early progression QA pass. I kept private findings internal during development and organised the work into clear documents, summaries, bug logs, evidence links, and follow-up notes for the developer.
+    </p>
+
+    <p>
+      As the reproduction workload expanded, I also identified that repeated setup would become inefficient without basic debug support. I suggested QA-focused debug tools such as area teleport, key item unlocks, monster disable or god mode, unstuck/reset options, and quick checkpoint reloads to make future reproduction and regression testing more efficient.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Workflow Area</th><th>How It Worked</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Communication</td>
+          <td>Ongoing Discord communication with the developer around testing support, closed build access, internal findings, future QA needs, and planned debug-build support.</td>
+        </tr>
+        <tr>
+          <td>Feedback Triage</td>
+          <td>Community playtest feedback was reviewed, grouped, prioritised, and converted into focused reproduction areas and developer clarification questions.</td>
+        </tr>
+        <tr>
+          <td>Hands-On Testing</td>
+          <td>Initial testing focused on first-time player onboarding, early progression, navigation clarity, interaction readability, note readability, and usability.</td>
+        </tr>
+        <tr>
+          <td>Evidence</td>
+          <td>Findings were supported with structured bug log entries, screenshots, video evidence, repro notes, player impact, priority, and status tracking.</td>
+        </tr>
+        <tr>
+          <td>Process Improvement</td>
+          <td>Debug-tool recommendations were raised to reduce repeated setup time and improve future issue reproduction efficiency.</td>
+        </tr>
+        <tr>
+          <td>Future Support</td>
+          <td>Further QA support is planned around the final gameplay area, a dedicated debug build, reproduction testing, and later regression validation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
+
+    <p>
+      The first testing priorities were driven by two sources: community playtest feedback and my own first-time player experience during the closed build.
+    </p>
+
+    <p>
+      The initial triage work highlighted likely high-risk areas such as progression blockers, softlock risks, collision and equipment-state behaviour, puzzle bypasses, interaction line-of-sight concerns, inspection-system issues, and player confusion during tense encounters.
+    </p>
+
+    <p>
+      My first hands-on pass then focused on onboarding and early progression because those areas shape the player's first impression of the game. I intentionally avoided Discord hints or community discussion while testing, so the pass preserved a genuine first-time player perspective.
+    </p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>Playtest Feedback Triage</h3>
+        <p>
+          I reviewed existing player feedback to identify which issues needed reproduction, which reports appeared duplicated, which concerns could affect progression, and which areas needed developer clarification before classification.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>First-Time Player Onboarding Pass</h3>
+        <p>
+          I tested the early game without outside guidance, focusing on whether objectives, route guidance, tutorial prompts, interaction feedback, note readability, and progression logic were understandable during normal play.
+        </p>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="testing-lifecycle">📈 Testing Lifecycle So Far</h2>
+
+    <p>
+      The QA work completed so far has moved through several early stages. Each stage had a different purpose rather than repeating the same coverage.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Stage</th><th>Focus</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Initial QA offer and setup</td>
+          <td>Defined the support I could provide, confirmed internal handling of findings, and gained access to the closed playtest build.</td>
+          <td>Establish a clear and professional QA workflow before starting hands-on testing.</td>
+        </tr>
+        <tr>
+          <td>2. Playtest feedback triage</td>
+          <td>Grouped community reports, highlighted repeated feedback, identified likely softlock and progression risks, and prepared focused reproduction priorities.</td>
+          <td>Convert player feedback into a clearer QA signal for the developer.</td>
+        </tr>
+        <tr>
+          <td>3. Onboarding and early progression pass</td>
+          <td>Tested onboarding flow, objective clarity, navigation readability, interaction feedback, note readability, and first-time player progression.</td>
+          <td>Assess whether the opening experience remained understandable without external guidance.</td>
+        </tr>
+        <tr>
+          <td>4. QA process recommendations</td>
+          <td>Suggested debug options including area teleport, item unlocks, monster disable, unstuck/reset, and quick reload support.</td>
+          <td>Improve the efficiency of future reproduction testing and regression validation.</td>
+        </tr>
+        <tr>
+          <td>5. Planned future testing</td>
+          <td>Debug-build testing, final-area playtesting, reproduction testing, regression checks, and future full-game playtest support.</td>
+          <td>Continue supporting RESIDUUM as development moves toward later playtest stages.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="qa-areas">🔍 QA Areas Covered So Far</h2>
+
+    <p>
+      The QA work so far has focused on player-facing clarity, early progression reliability, and turning feedback into structured testing priorities. More areas will be added as future passes are completed.
+    </p>
+
+    <div class="grid-3">
+      <section class="card">
+        <h3>Playtest Feedback</h3>
+        <ul>
+          <li>Feedback grouping</li>
+          <li>Duplicate report review</li>
+          <li>Risk identification</li>
+          <li>Priority classification</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Onboarding</h3>
+        <ul>
+          <li>First-time player flow</li>
+          <li>Tutorial readability</li>
+          <li>Early objective clarity</li>
+          <li>Interaction expectations</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Progression</h3>
+        <ul>
+          <li>Route readability</li>
+          <li>Blocked path communication</li>
+          <li>Environmental guidance</li>
+          <li>Player understanding</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Usability</h3>
+        <ul>
+          <li>Navigation friction</li>
+          <li>Input recovery</li>
+          <li>Readable feedback</li>
+          <li>Menu expectations</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Accessibility Observations</h3>
+        <ul>
+          <li>Note readability</li>
+          <li>Clue readability</li>
+          <li>Information retention</li>
+          <li>Cognitive load</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Future Validation</h3>
+        <ul>
+          <li>Bug reproduction</li>
+          <li>Debug-build testing</li>
+          <li>Regression checks</li>
+          <li>Final-area support</li>
+        </ul>
+      </section>
+    </div>
+
+    <hr>
+
+    <h2 id="onboarding-pass">🧭 First Hands-On QA Pass</h2>
+
+    <p>
+      The first hands-on QA pass was carried out on the closed PC playtest build on Windows 11. The testing style was player-focused onboarding and early progression exploratory testing.
+    </p>
+
+    <p>
+      This pass focused on whether a first-time player could understand early objectives, route expectations, environmental guidance, interaction feedback, readable notes, tutorial prompts, and progression flow without external help.
+    </p>
+
+    <p>
+      The goal was not to perform deep systems testing, combat balancing, performance analysis, long-session progression testing, or late-game validation during this pass. Those areas are better suited to later focused testing once build access, debug tools, and current development priorities are aligned.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Test Area</th><th>Observed Focus</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Onboarding clarity</td>
+          <td>Checked whether tutorial prompts, objective direction, room signage, and early progression guidance supported a first-time player.</td>
+        </tr>
+        <tr>
+          <td>Navigation flow</td>
+          <td>Reviewed whether route changes, blocked paths, map information, and environmental rerouting remained understandable during early play.</td>
+        </tr>
+        <tr>
+          <td>Interaction clarity</td>
+          <td>Observed whether doors, locks, notes, environmental objects, and player feedback communicated enough information during exploration.</td>
+        </tr>
+        <tr>
+          <td>Note readability</td>
+          <td>Checked whether readable notes and highlighted clue text remained clear and usable during normal play.</td>
+        </tr>
+        <tr>
+          <td>Early-game usability</td>
+          <td>Identified friction around recovery, information retention, route interpretation, and player confidence during first-time progression.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="findings">📌 Current Findings Summary</h2>
+
+    <p>
+      The onboarding structure generally functioned and several player guidance systems successfully communicated progression direction, including objective prompts, room signage, environmental rerouting, lock and key feedback, tutorial popups, and creature-driven route pressure.
+    </p>
+
+    <p>
+      The strongest areas observed so far were objective visibility, readable tutorial presentation, clear room signage, and the use of horror pressure to guide movement without relying entirely on direct waypoints.
+    </p>
+
+    <p>
+      The main friction areas identified during the first hands-on pass involved recovery from a hard-lock state, route clarity during blocked progression paths, difficulty identifying a referenced medical area, limited ability to review previously read notes, and readability concerns around highlighted clue text in reading mode.
+    </p>
+
+    <blockquote>
+      Most onboarding confusion observed during the first pass came from navigation strain, information retention, and route interpretation rather than the core objective system itself.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="player-facing-risk">⚠️ Player-Facing Risk Areas</h2>
+
+    <p>
+      This section keeps the public case study NDA-safe by summarising issue types rather than exposing full internal bug logs or private development details.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Risk Area</th><th>Player Impact</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Recovery and hard-lock risk</td>
+          <td>A player can lose control or become unable to recover during onboarding, which can force the game to be closed and damage first-session confidence.</td>
+        </tr>
+        <tr>
+          <td>Route readability</td>
+          <td>Players may understand the objective but struggle to identify the intended physical route when paths are blocked or rerouted.</td>
+        </tr>
+        <tr>
+          <td>Area naming and map clarity</td>
+          <td>If an objective references an area that is not clearly labelled or reachable through available map guidance, players may think progression is blocked.</td>
+        </tr>
+        <tr>
+          <td>Information retention</td>
+          <td>If important notes or clues cannot be reviewed later, players may be forced to rely on memory during stressful exploration.</td>
+        </tr>
+        <tr>
+          <td>Reading-mode readability</td>
+          <td>If clue text becomes harder to read in a dedicated reading mode, the system can reduce accessibility instead of improving it.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
+
+    <p>
+      RESIDUUM is an active development project, so the QA workflow needs to be practical, clear, and respectful of private development information. Findings are kept internal during development, while this public case study focuses on process, testing approach, and general QA contribution.
+    </p>
+
+    <p>
+      The developer confirmed that further QA support will be useful around the final gameplay area and future playtest stages. A separate debug build is also planned, which should help with faster reproduction testing, safer positioning checks, and more efficient regression coverage.
+    </p>
+
+    <p>
+      My aim is to support the project without adding unnecessary admin. That means clear summaries, structured logs, useful evidence, concise developer questions, and practical recommendations that can be acted on during development.
+    </p>
+
+    <blockquote>
+      The focus of this work is ongoing QA support: triaging playtest feedback, identifying player-facing risks, testing onboarding and progression clarity, preparing reproduction work, and supporting future debug-build and regression testing.
+    </blockquote>
+
+    <hr>
+
+    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+
+    <table>
+      <thead>
+        <tr><th>Tool / Method</th><th>Used For</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PC / Windows 11 Testing</td>
+          <td>Testing the closed playtest build from a player-facing perspective.</td>
+        </tr>
+        <tr>
+          <td>Structured QA Summary</td>
+          <td>Summarising scope, test style, focus areas, strong areas, friction areas, outcomes, and potential improvement areas.</td>
+        </tr>
+        <tr>
+          <td>Bug Log</td>
+          <td>Capturing issues by charter, title, area/system, repro steps, expected result, actual result, player impact, priority, repro rate, evidence, status, and notes.</td>
+        </tr>
+        <tr>
+          <td>Screenshot Evidence</td>
+          <td>Supporting readability, UI, objective clarity, map guidance, and player-facing usability observations.</td>
+        </tr>
+        <tr>
+          <td>Video Evidence</td>
+          <td>Recording behaviours that required movement, input, collision, or recovery context to understand clearly.</td>
+        </tr>
+        <tr>
+          <td>Discord Communication</td>
+          <td>Discussing testing access, internal handling of findings, developer priorities, debug-build needs, and future playtest support.</td>
+        </tr>
+        <tr>
+          <td>Google Docs / Drive</td>
+          <td>Organising internal QA summaries, logs, linked evidence, and developer handover materials.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="current-outcome">🚀 Current Outcome</h2>
+
+    <p>
+      So far, my QA work on RESIDUUM has helped organise closed playtest feedback into clearer testing priorities, identify repeated player-facing risk areas, complete an initial onboarding and early progression QA pass, and provide structured findings for the developer.
+    </p>
+
+    <p>
+      The first hands-on pass identified that the onboarding structure is generally functional, with effective objective communication, room signage, tutorial readability, lock/key feedback, environmental rerouting, and creature-driven progression pressure.
+    </p>
+
+    <p>
+      It also identified several areas for further attention, including recovery from hard-lock states, route clarity during blocked progression, location readability, note review, and reading-mode accessibility.
+    </p>
+
+    <p>
+      Testing is ongoing. Future work is expected to include debug-build testing, playtester feedback reproduction, regression validation, final gameplay area testing, and support for later full-game playtest stages.
+    </p>
+
+    <hr>
+
+    <h2>✅ What This Case Study Shows</h2>
+
+    <ul>
+      <li>Provided structured QA support for an in-development PC psychological horror game during closed playtesting.</li>
+
+      <li>Reviewed community playtest feedback and grouped reports into clearer QA priorities, repeated themes, risk areas, and developer clarification questions.</li>
+
+      <li>Completed a first-time player onboarding and early progression pass without external hints to preserve a genuine new-player perspective.</li>
+
+      <li>Tested onboarding clarity, objective communication, navigation flow, route readability, interaction feedback, note readability, and early usability.</li>
+
+      <li>Identified player-facing friction around recovery, route interpretation, information retention, reading-mode readability, and early progression confidence.</li>
+
+      <li>Suggested debug-build tools to improve future reproduction testing, reduce repeated setup time, and support more efficient regression validation.</li>
+
+      <li>Maintained NDA-safe handling of internal findings while documenting the public QA process for portfolio and recruitment purposes.</li>
+    </ul>
+
+    <hr>
+
+    <section class="section" aria-labelledby="contact">
+      <div class="service-card hero-copy">
+
+        <h2 id="contact">Need QA Support for Your Game?</h2>
+
+        <p class="lead">
+          If you have a demo, PC build, closed playtest, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+        </p>
+
+        <div class="cta-row">
+          <a class="cta-btn primary-cta" href="https://discord.gg/66Tgq6We" target="_blank" rel="noopener">
+            Message Me on Discord
+          </a>
+
+          <a class="cta-btn" href="mailto:kelinacowell.qa@gmail.com?subject=Game%20Testing%20Enquiry">
+            Email Me
+          </a>
+
+          <a class="cta-btn" href="https://www.linkedin.com/in/kelina-cowell-qa-tester" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+
+          <a class="cta-btn" href="https://kelinacowellqa.github.io/freelance-game-qa-services.html">
+            View QA Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <h2>📎 Disclaimer</h2>
+    <p><em>This page documents QA work completed so far by Kelina Cowell for portfolio and recruitment purposes. RESIDUUM is still in active development, and this case study will be updated as further QA passes, debug-build testing, reproduction testing, regression testing, and playtest support are completed. I am not the developer or publisher of RESIDUUM. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, full bug logs, private developer communications, closed playtest materials, and NDA-protected findings are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio</div>
+  </footer>
+</body>
+</html>
