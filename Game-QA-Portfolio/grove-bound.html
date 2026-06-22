@@ -5,16 +5,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Dungeon Raiders - Ongoing Embedded QA Case Study | Kelina Cowell</title>
-  <meta name="description" content="Ongoing embedded QA case study for Dungeon Raiders by Loom & Lore Interactive Games, covering Android gameplay testing, regression verification, mobile usability, UI stability, player-facing readability, and developer collaboration." />
+  <title>Grove Bound - Ongoing QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="Ongoing QA case study for Grove Bound by GDO Games, covering PC itch.io testing, onboarding clarity, progression guidance, regression testing, feature validation, player-facing usability, and developer collaboration." />
 
-  <meta property="og:title" content="Dungeon Raiders - Ongoing Embedded QA Case Study" />
-  <meta property="og:description" content="Ongoing embedded QA case study showing how Kelina Cowell supports Android QA, regression testing, mobile usability, UI stability, player-facing readability, and release support for Dungeon Raiders." />
+  <meta property="og:title" content="Grove Bound - Ongoing QA Case Study" />
+  <meta property="og:description" content="Ongoing QA case study showing how Kelina Cowell supports onboarding, progression clarity, regression testing, feature validation, usability, and Steam demo preparation for Grove Bound." />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
-  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-header.png" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/grove-bound-header.png" />
 
-  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound.html" />
   <link rel="stylesheet" href="/assets/css/site.css?v=5">
 
  <style>
@@ -173,21 +173,6 @@
     border-top:1px solid rgba(255,255,255,.08);
   }
 
-  .method-note{
-    margin:-6px 0 10px;
-    font-size:.95rem;
-    color:#a9b3bd;
-    opacity:.9;
-  }
-
-  .method-note,
-  .method-note a{
-    color:inherit !important;
-    font-size:inherit !important;
-    line-height:inherit !important;
-    opacity:1 !important;
-  }
-
   blockquote{
     border-left:3px solid #00fff0;
     margin:18px 0;
@@ -218,7 +203,7 @@
     margin-bottom:20px;
   }
 
-     .testimonial-card{
+  .testimonial-card{
     margin:24px 0 28px;
     padding:20px 22px;
     background:var(--panel);
@@ -226,10 +211,6 @@
     border-left:4px solid #00fff0;
     border-radius:14px;
     box-shadow:0 10px 30px rgba(0,0,0,.28);
-  }
-
-  .testimonial-card h2{
-    margin:0 0 12px !important;
   }
 
   .testimonial-card blockquote{
@@ -244,8 +225,13 @@
     border-radius:10px;
   }
 
-  .testimonial-card blockquote em{
-    color:#ffffff;
+  .testimonial-label{
+    color:#00fff0;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-size:.82rem;
+    margin-bottom:10px !important;
   }
 
   .testimonial-author{
@@ -253,6 +239,27 @@
     color:#00fff0;
     font-weight:700;
     text-align:right;
+  }
+
+  .impact-image{
+    margin:18px auto;
+    max-width:520px;
+    text-align:center;
+  }
+
+  .impact-image img{
+    width:100%;
+    height:auto;
+    border-radius:14px;
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+
+  .caption{
+    color:#a9b3bd;
+    font-size:.92rem;
+    line-height:1.6;
+    margin-top:8px !important;
   }
 
   @media (max-width:640px){
@@ -270,7 +277,7 @@
     }
   }
 </style>
-  
+
   <script data-goatcounter="https://kelina.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -278,28 +285,28 @@
 <body>
   <main class="wrap">
 
- <header class="hero">
-  <img src="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-header.png" alt="Dungeon Raiders QA case study banner">
-</header>
+    <header class="hero">
+      <img src="https://kelinacowellqa.github.io/assets/img/grove-bound-header.png" alt="Grove Bound QA case study banner">
+    </header>
 
     <nav style="text-align:center;margin-bottom:20px;">
       <a class="cta-btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">Back to Portfolio Hub</a>
     </nav>
 
-    <h1>Dungeon Raiders - Ongoing Embedded QA Case Study</h1>
-    <p class="meta">Role: Head of QA • Studio: Loom &amp; Lore Interactive Games • Platform: Android • Status: Released and receiving ongoing QA support</p>
+    <h1>Grove Bound - Ongoing QA Case Study</h1>
+    <p class="meta">Role: QA Tester • Studio: GDO Games • Platform: PC / Browser / itch.io • Status: In development, with ongoing QA support across active builds</p>
 
     <section aria-labelledby="overview">
       <h2 id="overview">🧾 Project Overview</h2>
 
       <ul>
-        <li><strong>Game:</strong> Dungeon Raiders</li>
-        <li><strong>Studio:</strong> <a href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">Loom &amp; Lore Interactive Games</a></li>
-        <li><strong>Role:</strong> Head of QA</li>
-        <li><strong>Testing dates:</strong> Ongoing from 17 May 2026</li>
-        <li><strong>Status:</strong> Released, with ongoing QA support across updates and new builds</li>
-        <li><strong>Platform:</strong> Android</li>
-        <li><strong>Credit:</strong> Credited in-game as “Head of QA Kelina Cowell”</li>
+        <li><strong>Game:</strong> Grove Bound</li>
+        <li><strong>Studio:</strong> GDO Games</li>
+        <li><strong>Role:</strong> QA Tester</li>
+        <li><strong>Testing dates:</strong> Ongoing from 8 June 2026</li>
+        <li><strong>Status:</strong> In development, with ongoing QA support across builds and updates</li>
+        <li><strong>Platform:</strong> PC / Browser / itch.io</li>
+        <li><strong>Current focus:</strong> Onboarding, progression clarity, feature validation, regression testing, and Steam demo readiness</li>
       </ul>
     </section>
 
@@ -311,51 +318,48 @@
     "@type": "Audience",
     "audienceType": "Indie Developer, QA Lead, Game QA Tester, Recruiter"
   },
-  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
-  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html",
-  "name": "Dungeon Raiders: Ongoing Embedded QA Case Study",
+  "@id": "https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound.html",
+  "url": "https://kelinacowellqa.github.io/Game-QA-Portfolio/grove-bound.html",
+  "name": "Grove Bound: Ongoing QA Case Study",
   "inLanguage": "en-GB",
   "author": { "@type": "Person", "name": "Kelina Cowell" },
   "isBasedOn": {
     "@type": "VideoGame",
-    "name": "Dungeon Raiders",
-    "gamePlatform": ["Android"]
+    "name": "Grove Bound",
+    "gamePlatform": ["PC", "Browser", "itch.io"]
   },
   "about": [
-    { "@type": "Thing", "name": "Embedded QA" },
     { "@type": "Thing", "name": "Game QA" },
-    { "@type": "Thing", "name": "Android QA" },
-    { "@type": "Thing", "name": "Mobile game testing" },
+    { "@type": "Thing", "name": "Indie game QA" },
+    { "@type": "Thing", "name": "PC game testing" },
+    { "@type": "Thing", "name": "Browser game testing" },
     { "@type": "Thing", "name": "Regression testing" },
-    { "@type": "Thing", "name": "Fix validation" },
+    { "@type": "Thing", "name": "Feature validation" },
     { "@type": "Thing", "name": "Player-focused exploratory testing" },
-    { "@type": "Thing", "name": "Patch-note targeted regression" },
-    { "@type": "Thing", "name": "UI stability" },
-    { "@type": "Thing", "name": "Gameplay readability" },
-    { "@type": "Thing", "name": "Save and resume persistence" },
-    { "@type": "Thing", "name": "Class and ability testing" }
+    { "@type": "Thing", "name": "Onboarding clarity" },
+    { "@type": "Thing", "name": "Progression guidance" },
+    { "@type": "Thing", "name": "Steam demo readiness" }
   ],
   "keywords": [
-    "embedded game QA",
-    "Android game QA",
-    "mobile game testing",
+    "game QA",
     "indie game QA",
+    "PC game testing",
+    "browser game testing",
+    "itch.io QA",
     "regression testing",
-    "fix validation",
+    "feature validation",
+    "onboarding clarity",
+    "progression guidance",
     "player-focused exploratory testing",
-    "UI stability testing",
-    "gameplay readability",
-    "save persistence testing",
-    "patch-note targeted regression",
+    "Steam demo QA",
     "structured QA reporting"
   ],
   "additionalProperty": [
-    { "@type": "PropertyValue", "name": "Role", "value": "Head of QA" },
-    { "@type": "PropertyValue", "name": "Studio", "value": "Loom & Lore Interactive Games" },
-    { "@type": "PropertyValue", "name": "Platform", "value": "Android" },
-    { "@type": "PropertyValue", "name": "Status", "value": "Released with ongoing QA support" },
-    { "@type": "PropertyValue", "name": "Testing approach", "value": "Player-focused exploratory testing, patch-note targeted regression, fix validation, persistence testing, and Android mobile usability checks" },
-    { "@type": "PropertyValue", "name": "Credit", "value": "Head of QA Kelina Cowell" }
+    { "@type": "PropertyValue", "name": "Role", "value": "QA Tester" },
+    { "@type": "PropertyValue", "name": "Studio", "value": "GDO Games" },
+    { "@type": "PropertyValue", "name": "Platform", "value": "PC / Browser / itch.io" },
+    { "@type": "PropertyValue", "name": "Status", "value": "In development with ongoing QA support" },
+    { "@type": "PropertyValue", "name": "Testing approach", "value": "Player-focused exploratory QA, onboarding review, progression clarity testing, regression testing, feature validation, and structured reporting" }
   ]
 }
 </script>
@@ -363,16 +367,16 @@
     <h2>Introduction</h2>
 
     <p>
-  This case study covers my ongoing embedded QA work on <a href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener"><em>Dungeon Raiders</em></a>, an Android mobile game by Loom &amp; Lore Interactive Games.
-</p>
+      This case study covers my ongoing QA support for <a href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener"><em>Grove Bound</em></a>, an in-development cozy incremental RPG by GDO Games.
+    </p>
 
-<p>
-  My work on the project has continued across multiple builds, updates, fixes, and new content drops. I have completed eight QA passes so far, covering player-focused exploratory testing, targeted regression, fix validation, save/resume persistence, class behaviour, UI stability, and Android usability.
-</p>
+    <p>
+      My work on the project so far has focused on onboarding, first-session progression, player guidance, crafting and cooking clarity, buildable feature validation, regression testing, and practical feedback across active itch.io builds.
+    </p>
 
-<p>
-  This page summarises the scope and structure of that ongoing QA support without publishing internal bug logs, private developer communication, or sensitive build details.
-</p>
+    <p>
+      Grove Bound is still in development, so this page reflects the QA work completed so far rather than a final project summary. I will continue updating it as new builds are tested, fixes are validated, and the project moves closer to its Steam demo release.
+    </p>
 
     <table>
       <thead>
@@ -380,76 +384,79 @@
       </thead>
       <tbody>
         <tr>
-          <td>Dungeon Raiders</td>
-          <td>Head of QA</td>
-          <td>Released Android game with ongoing QA support</td>
+          <td>Grove Bound</td>
+          <td>QA Tester</td>
+          <td>In development with ongoing QA support</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="cta-row" style="text-align:center;">
-      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">View on Google Play</a>
-      <a class="cta-btn" href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">View Studio</a>
+    <div class="cta-row">
+      <a class="cta-btn" href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener">View on itch.io</a>
     </div>
 
     <hr>
 
     <section class="testimonial-section" aria-labelledby="testimonial-heading">
-  <div class="testimonial-card">
-    <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
+      <div class="testimonial-card">
+        <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
 
-    <blockquote class="testimonial-quote">
-      <p>
-    “Kelina is a pleasure to work with. She is hardworking and provides genuine insight into Grove Bound, approaching it from the perspective of a first-time player. Her feedback on player onboarding was essential and greatly improved the overall flow through her suggestions.
-  </p>
+        <blockquote class="testimonial-quote">
+          <p>
+            “Kelina is a pleasure to work with. She is hardworking and provides genuine insight into Grove Bound, approaching it from the perspective of a first-time player. Her feedback on player onboarding was essential and greatly improved the overall flow through her suggestions.
+          </p>
 
-  <p>
-    She was very good at understanding my needs as a developer and turning them into effective test plans. She required very little supervision and is more than capable of working independently. Her work was always delivered promptly and included excellent breakdowns and documentation.
-  </p>
+          <p>
+            She was very good at understanding my needs as a developer and turning them into effective test plans. She required very little supervision and is more than capable of working independently. Her work was always delivered promptly and included excellent breakdowns and documentation.
+          </p>
 
-  <p>
-    I would highly recommend working with her. The only area I would suggest improving is bug severity and priority classification, which could have been more consistent. However, this is something that could easily be addressed through regular weekly meetings to review and classify issues together or a list of classifications from myself to make putting them into categories easier.”
-  </p>
-    </blockquote>
+          <p>
+            I would highly recommend working with her. The only area I would suggest improving is bug severity and priority classification, which could have been more consistent. However, this is something that could easily be addressed through regular weekly meetings to review and classify issues together or a list of classifications from myself to make putting them into categories easier.”
+          </p>
+        </blockquote>
 
-    <p class="testimonial-author">
-      — Ozzy, Lead Dev, GDO Games
-    </p>
-  </div>
-</section>
+        <p class="testimonial-author">
+          — Ozzy, Lead Dev, GDO Games
+        </p>
+      </div>
+    </section>
 
     <hr>
 
-    <h2 id="role">🎯 My QA Role</h2>
+    <h2 id="role">🎯 My QA Role So Far</h2>
 
     <p>
-      My role is to provide ongoing QA support for Dungeon Raiders across live updates, new features, regression cycles, and player-facing gameplay checks. The work combines exploratory testing, targeted regression, fix validation, smoke testing, persistence checks, and mobile usability review.
+      My role is to provide ongoing QA support for Grove Bound across active builds, player-facing systems, early progression, new feature validation, and regression testing after updates.
     </p>
 
     <p>
-      Because this is a small indie workflow, the aim is not to create unnecessary production overhead. The value comes from clear test focus, structured reporting, useful evidence, fast validation, and practical feedback that helps the developer prioritise fixes and improvements.
+      The developer specifically wanted support around onboarding, object interaction clarity, player feedback, look and feel, and whether the first few minutes gave players enough reason to continue. My first passes were shaped around those needs.
+    </p>
+
+    <p>
+      Because this is an in-development indie project, the goal is to provide useful QA without creating unnecessary production overhead. I focus on clear test priorities, practical reports, player-facing risk, and feedback the developer can act on quickly.
     </p>
 
     <div class="grid-3">
       <section class="card">
         <h3>🧭 QA Focus</h3>
         <ul>
-          <li>Android mobile gameplay</li>
-          <li>UI and overlay stability</li>
-          <li>Gameplay readability</li>
-          <li>Class and ability behaviour</li>
-          <li>Save and resume persistence</li>
-          <li>Player-facing usability</li>
+          <li>Onboarding clarity</li>
+          <li>First-session experience</li>
+          <li>Progression guidance</li>
+          <li>Quest direction</li>
+          <li>System discoverability</li>
+          <li>Player motivation</li>
         </ul>
       </section>
 
       <section class="card">
         <h3>📄 Reporting</h3>
         <ul>
-          <li>Structured QA passes</li>
-          <li>Regression notes</li>
-          <li>Patch-note targeted verification</li>
-          <li>Player-impact explanations</li>
+          <li>Structured QA summaries</li>
+          <li>Bug and friction logs</li>
+          <li>Player-impact notes</li>
+          <li>Priority recommendations</li>
           <li>Screenshot and video evidence</li>
           <li>Clear handover summaries</li>
         </ul>
@@ -458,12 +465,12 @@
       <section class="card">
         <h3>🔁 Validation</h3>
         <ul>
-          <li>Fix validation after updates</li>
-          <li>Regression checks around changed systems</li>
-          <li>New content smoke testing</li>
-          <li>Save/resume checks</li>
-          <li>Menu and transition checks</li>
-          <li>Release and update support</li>
+          <li>Regression testing after fixes</li>
+          <li>Feature validation</li>
+          <li>Buildable system checks</li>
+          <li>Quest guidance retesting</li>
+          <li>Crafting and cooking checks</li>
+          <li>Steam demo preparation support</li>
         </ul>
       </section>
     </div>
@@ -473,11 +480,11 @@
     <h2 id="workflow">🛠️ Workflow & Communication</h2>
 
     <p>
-      Testing is carried out as an ongoing embedded QA workflow, with each pass shaped around the current build, latest patch notes, known risk areas, and player-facing behaviour observed during Android gameplay.
+      Testing began after the developer asked for feedback on onboarding, player guidance, object interaction, player feedback, and early engagement. The first QA pass was carried out from a completely new player perspective to assess whether the opening session clearly explained what Grove Bound wanted the player to do and why.
     </p>
 
     <p>
-      The work is intentionally practical. I focus on what a player can see, misunderstand, break, lose progress through, or become frustrated by during normal play. Where needed, I also use targeted regression and debug-assisted coverage to reach specific systems or later progression states more efficiently.
+      Later testing continued into post-tutorial progression and then into regression and feature validation after an updated build was released. This allowed me to check whether earlier player-facing concerns had improved and whether newly added systems were understandable during normal play.
     </p>
 
     <table>
@@ -487,27 +494,27 @@
       <tbody>
         <tr>
           <td>Communication</td>
-          <td>Ongoing communication with the developer around new builds, patch notes, reported issues, fixes, and retest priorities.</td>
+          <td>Ongoing Discord communication with the developer around test focus, current build state, newly added features, fixes, and follow-up regression needs.</td>
         </tr>
         <tr>
           <td>Planning</td>
-          <td>Each QA pass was planned around the current build state, recent changes, known risk areas, and player-facing impact.</td>
+          <td>Each QA pass was shaped around the current build, developer-requested focus areas, known player-facing risks, and what had changed since the previous session.</td>
         </tr>
         <tr>
           <td>Testing</td>
-          <td>Testing combined player-focused exploratory gameplay, targeted regression, smoke testing, persistence checks, and Android mobile usability review.</td>
+          <td>Testing combined first-time player exploratory QA, post-tutorial progression review, regression testing, and validation of newly added buildable systems.</td>
         </tr>
         <tr>
           <td>Reporting</td>
-          <td>Findings were written clearly with player impact, reproducible behaviour, relevant context, and evidence where useful.</td>
+          <td>Reports summarised what was tested, what worked well, what caused friction, player impact, recommended next steps, and evidence where useful.</td>
         </tr>
         <tr>
           <td>Regression</td>
-          <td>Fixes were retested in later builds, with nearby systems checked where changes could cause regressions.</td>
+          <td>Later testing checked whether onboarding, progression guidance, quest direction, crafting, and cooking improvements had addressed earlier findings.</td>
         </tr>
         <tr>
           <td>Ongoing Support</td>
-          <td>Further QA passes are expected as Dungeon Raiders continues receiving updates, fixes, tuning, and new content.</td>
+          <td>Further QA support is expected across future updates, bug fixes, feature additions, and Steam demo preparation.</td>
         </tr>
       </tbody>
     </table>
@@ -517,35 +524,35 @@
     <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
 
     <p>
-      The test strategy changed depending on the build. Early passes focused on player-facing stability, readability, transition flow, menus, overlays, and mobile interaction behaviour. Later passes became more targeted, focusing on patch notes, regression fixes, class changes, save/resume behaviour, new content, and combat feedback.
+      The initial test strategy was based on the developer's stated concerns: onboarding, object interactions, lack of player feedback, information overload, look and feel, and whether the first few minutes encouraged players to continue.
     </p>
 
     <p>
-      I prioritised issues that could affect normal Android players: confusing UI states, unclear class mechanics, broken resume behaviour, unreliable menu flow, missing feedback, progression friction, shop and economy problems, and anything that could make the game feel unstable or unfinished.
+      I prioritised areas that could affect early retention: unclear goals, weak progression direction, hidden quest access, systems that were discoverable but not clearly useful, missing feedback, and new features that worked mechanically but did not yet communicate their purpose well enough to players.
     </p>
 
     <div class="grid-2">
       <section class="card">
-        <h3>Player-Focused Exploratory Testing</h3>
+        <h3>Player-Focused Exploratory QA</h3>
         <p>
-          I tested the game as a normal Android player would experience it, focusing on menu flow, active gameplay clarity, transition behaviour, readability, touch interaction, Game Over flow, restart behaviour, and usability under pressure.
+          I tested Grove Bound as a new player, focusing on what the game communicated naturally without external explanation. This included tutorial flow, first-session goals, NPC interaction, resource use, early systems, and whether the player had enough reason to keep going.
         </p>
       </section>
 
       <section class="card">
-        <h3>Targeted Regression & Patch Verification</h3>
+        <h3>Regression & Feature Validation</h3>
         <p>
-          When new builds were provided, I tested specific fixes and patch-note changes, including class abilities, relic persistence, save/resume behaviour, reward pools, shop interactions, button feedback, and menu functionality after resume.
+          After updates were made, I retested earlier friction areas and validated new buildable features. The focus was not just whether systems functioned, but whether their purpose, value, feedback, and progression role were clear during normal gameplay.
         </p>
       </section>
     </div>
 
     <hr>
 
-    <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
+    <h2 id="testing-lifecycle">📈 Testing Lifecycle So Far</h2>
 
     <p>
-      The QA work has evolved across multiple passes. Each pass had a defined purpose rather than repeating the same coverage blindly.
+      The QA work so far has moved through three main stages. Each pass had a different purpose rather than repeating the same coverage blindly.
     </p>
 
     <table>
@@ -554,136 +561,139 @@
       </thead>
       <tbody>
         <tr>
-          <td>1. Initial player-facing stability</td>
-          <td>Menu and overlay stability, relic/menu functionality, gameplay readability, transition flow, and mobile interaction behaviour.</td>
-          <td>Identify visible issues likely to appear during standard Android gameplay sessions.</td>
+          <td>1. First-time player onboarding pass</td>
+          <td>Onboarding, tutorial flow, player guidance, feedback, fatigue, lantern communication, interaction clarity, and first-session engagement.</td>
+          <td>Assess whether a new player could understand Grove Bound's core mechanics and opening flow without developer guidance.</td>
         </tr>
         <tr>
-          <td>2. UI and readability regression</td>
-          <td>Recent UI/readability fixes, first-time player clarity, rushed-player behaviour, Game Over flow, restart flow, and player-facing presentation.</td>
-          <td>Check whether the game felt stable, understandable, and presentable enough for more players to see it.</td>
+          <td>2. Post-tutorial progression pass</td>
+          <td>Quest-led exploration, crafting discovery, cooking discovery, new area progression, system purpose, and continued motivation after onboarding.</td>
+          <td>Check whether players had a clear reason to keep playing once the tutorial had ended and more systems began opening up.</td>
         </tr>
         <tr>
-          <td>3. Run-state and economy coverage</td>
-          <td>Win, lose, menu, reset behaviour, save/persistence, gold, Soul Shards, shop purchases, upgrades, relics, unlocks, and Level 1 setup comparison.</td>
-          <td>Assess whether core run flow and player progression systems behaved consistently.</td>
+          <td>3. Regression and feature validation pass</td>
+          <td>Tutorial improvements, progression guidance, quest guidance, crafting clarity, cooking clarity, buildable campfires, and storage crate validation.</td>
+          <td>Validate whether previous concerns had improved and assess whether newly added buildable systems were understandable from a player perspective.</td>
         </tr>
         <tr>
-          <td>4. Combat and progression regression</td>
-          <td>Single sword attacks, Cleave behaviour, Warrior setup, weapon damage upgrades, level-up rewards, Character Sheet access, Legendary Weapon milestone, no-move board refresh, and shop behaviour.</td>
-          <td>Verify whether recent combat, stat, UI, reward, and progression fixes worked correctly.</td>
-        </tr>
-        <tr>
-          <td>5. Save/resume and persistence checks</td>
-          <td>Save/resume progression, Android backgrounding, no-move board refresh, Character Sheet scrolling, duplicate shop prevention, Warrior Thorns access, and shop item persistence.</td>
-          <td>Check whether the game preserved important player state correctly across mobile resume behaviour.</td>
-        </tr>
-        <tr>
-          <td>6. New class and patch-note smoke testing</td>
-          <td>Druid, Fisher, seven-class selection screen, class-specific level-up pools, relic resume regression, button visuals, pressed states, combat feedback, audio changes, and skull-death sound regression.</td>
-          <td>Smoke test new content while also checking regression risks introduced by the update.</td>
-        </tr>
-        <tr>
-          <td>7. Ability and menu regression verification</td>
-          <td>ENTANGLE behaviour, Cursed Blade description, empty-board ability handling, End Run feature, menu reopen behaviour, and Druid/Fisher weapon art persistence after resume.</td>
-          <td>Confirm specific patch-note fixes and ensure key menu and resume behaviours remained stable.</td>
-        </tr>
-        <tr>
-          <td>8. Ongoing update support</td>
-          <td>Further regression, fix validation, new feature testing, class behaviour checks, UI review, and Android gameplay stability.</td>
-          <td>Continue supporting Dungeon Raiders as the game receives additional updates and improvements.</td>
+          <td>4. Ongoing update support</td>
+          <td>Further regression testing, new feature validation, bug fix checks, storage system validation, buildable system review, and Steam demo readiness.</td>
+          <td>Continue supporting the project as Grove Bound moves through active development toward a Steam demo release.</td>
         </tr>
       </tbody>
     </table>
 
     <hr>
 
-    <h2 id="qa-areas">🔍 QA Areas Covered</h2>
+    <h2 id="qa-areas">🔍 QA Areas Covered So Far</h2>
 
     <p>
-      The QA work has covered both functional behaviour and player-facing experience. This includes systems that affect whether players understand what is happening, trust the game state, and feel confident continuing a run.
+      The QA work has covered both functional behaviour and player-facing experience. The main focus has been whether players understand what they are doing, why they are doing it, and how new systems connect to progression.
     </p>
 
     <div class="grid-3">
       <section class="card">
-        <h3>UI Stability</h3>
+        <h3>Onboarding</h3>
         <ul>
-          <li>Menu behaviour</li>
-          <li>Overlay persistence</li>
-          <li>Button feedback</li>
-          <li>Pressed-state visuals</li>
+          <li>Tutorial flow</li>
+          <li>Information pacing</li>
+          <li>Early mechanics</li>
+          <li>First-session clarity</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Gameplay Readability</h3>
+        <h3>Progression Guidance</h3>
         <ul>
-          <li>Combat feedback</li>
-          <li>Class HUD clarity</li>
-          <li>Board icon readability</li>
-          <li>Reward display clarity</li>
+          <li>Post-tutorial direction</li>
+          <li>Short-term goals</li>
+          <li>Quest-led exploration</li>
+          <li>Player motivation</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Mobile Behaviour</h3>
+        <h3>Quest & NPC Flow</h3>
         <ul>
-          <li>Android interaction stability</li>
-          <li>Rapid tapping behaviour</li>
-          <li>Backgrounding and resume</li>
-          <li>Touch-based menu flow</li>
+          <li>Quest discoverability</li>
+          <li>NPC interaction expectations</li>
+          <li>Dialogue guidance</li>
+          <li>Objective clarity</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Combat Systems</h3>
+        <h3>Crafting & Cooking</h3>
         <ul>
-          <li>Sword attack behaviour</li>
-          <li>Cleave behaviour</li>
-          <li>Thorns behaviour</li>
-          <li>Ability handling</li>
+          <li>Recipe clarity</li>
+          <li>Ingredient communication</li>
+          <li>System purpose</li>
+          <li>Progression value</li>
         </ul>
       </section>
 
       <section class="card">
-        <h3>Progression & Economy</h3>
+        <h3>Buildable Systems</h3>
         <ul>
-          <li>Gold behaviour</li>
-          <li>Soul Shards</li>
-          <li>Shop purchases</li>
-          <li>Upgrade persistence</li>
+          <li>Campfire crafting</li>
+          <li>Placement validation</li>
+          <li>Fuel feedback</li>
+          <li>Storage crate test blocking</li>
         </ul>
       </section>
 
       <section class="card">
         <h3>Regression Support</h3>
         <ul>
-          <li>Patch-note verification</li>
-          <li>Fix validation</li>
-          <li>Relic resume checks</li>
-          <li>New content smoke tests</li>
+          <li>Onboarding retests</li>
+          <li>Quest guidance checks</li>
+          <li>Crafting/cooking validation</li>
+          <li>New feature follow-up</li>
         </ul>
       </section>
     </div>
 
     <hr>
 
+    <h2 id="early-impact">📈 Early Impact So Far</h2>
+
+    <p>
+      After the developer implemented several onboarding, tutorial, crafting, and early progression improvements, he shared browser play data showing a visible increase in activity for the updated itch.io build, including a peak of 762 browser plays on 17/06/2026.
+    </p>
+
+    <p>
+      I would not present this as a direct one-to-one result of QA alone, because updates, timing, visibility, player interest, and other factors can all affect play numbers. However, it does show that the areas tested and improved during these early QA passes were connected to a stronger public update.
+    </p>
+
+    <div class="impact-image">
+      <img src="https://kelinacowellqa.github.io/assets/img/grove-bound-browser-plays.png" alt="Grove Bound browser play data showing a peak of 762 browser plays on 17 June 2026">
+      <p class="caption">
+        Browser play data shared by the developer after early onboarding, tutorial, crafting, and progression improvements were implemented.
+      </p>
+    </div>
+
+    <blockquote>
+      This is included as supporting context, not as a claim that QA alone caused the increase. The useful point is that early player-facing improvements were made, then followed by stronger public activity on the updated build.
+    </blockquote>
+
+    <hr>
+
     <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
 
     <p>
-      Dungeon Raiders is a live, evolving project, so the QA support needs to be flexible. Some passes are broad and exploratory. Others are tightly focused on a specific patch, feature, regression risk, or piece of player feedback.
+      Grove Bound is a solo-dev indie project, so the QA support needs to be flexible, practical, and directly useful. Some passes are broad and exploratory. Others are focused on regression testing, specific features, or checking whether previous feedback has been successfully addressed.
     </p>
 
     <p>
-      I separate issues by player impact and test purpose, rather than treating every observation as the same kind of bug. A crash, a broken save/resume state, unclear ability behaviour, missing button feedback, confusing class onboarding, and a balance concern all need different handling.
+      I separate issues by player-facing impact rather than treating every observation as the same kind of bug. A progression blocker, unclear quest direction, missing feedback, confusing system purpose, and a minor dialogue polish issue all need different handling.
     </p>
 
     <p>
-      This helps the developer understand not only what happened, but why it matters, how likely a player is to encounter it, and whether it blocks release, affects presentation, or belongs in a later tuning pass.
+      This helps the developer understand what matters most, what should be fixed before wider player exposure, what can be improved later, and what needs further discussion or shared classification.
     </p>
 
     <blockquote>
-      The focus of this work is ongoing Android QA support: identifying player-facing risks, validating fixes, checking regressions, testing new content, and helping the developer keep Dungeon Raiders stable and readable across updates.
+      The focus of this work is ongoing QA support: identifying player-facing risks, validating fixes, checking regressions, testing new systems, and helping Grove Bound become clearer and more demo-ready across updates.
     </blockquote>
 
     <hr>
@@ -696,76 +706,72 @@
       </thead>
       <tbody>
         <tr>
-          <td>Android Test Device</td>
-          <td>Primary gameplay testing on the live Android platform.</td>
+          <td>PC / Browser Testing</td>
+          <td>Testing the public itch.io build from a player-facing perspective.</td>
         </tr>
         <tr>
-          <td>Structured QA Notes</td>
-          <td>Capturing scope, test style, focus areas, results, regression status, and player-facing impact.</td>
+          <td>Structured QA Reports</td>
+          <td>Summarising scope, test style, focus areas, strong areas, friction areas, outcomes, and recommended next steps.</td>
         </tr>
         <tr>
-          <td>Patch Notes</td>
-          <td>Planning targeted regression passes around new fixes, features, changed systems, and known risk areas.</td>
+          <td>Bug and Friction Logs</td>
+          <td>Capturing issues by charter, area, repro steps, expected result, actual result, player impact, priority, evidence, and status.</td>
         </tr>
         <tr>
           <td>Screenshot Evidence</td>
-          <td>Capturing UI, menu, readability, reward, shop, class, and progression issues where visual evidence was useful.</td>
+          <td>Capturing player-facing clarity, UI, dialogue, progression, and feature validation issues where visual evidence was useful.</td>
         </tr>
         <tr>
           <td>Video Evidence</td>
-          <td>Recording gameplay behaviour, transition flow, ability handling, mobile interaction issues, and regression outcomes.</td>
+          <td>Recording behaviours that were easier to understand through gameplay footage than written description alone.</td>
         </tr>
         <tr>
-          <td>Developer Handover</td>
-          <td>Summarising what was tested, what passed, what failed, what needed fixing, and what should be checked in future builds.</td>
+          <td>Discord Communication</td>
+          <td>Discussing test focus, developer priorities, fixed issues, regression needs, feature behaviour, and portfolio feedback.</td>
         </tr>
       </tbody>
     </table>
 
     <hr>
 
-<h2 id="current-outcome">🚀 Current Outcome</h2>
+    <h2 id="current-outcome">🚀 Current Outcome So Far</h2>
 
-<p>
-  So far, I have completed eight QA passes on Dungeon Raiders, covering Android gameplay stability, UI/readability fixes, class behaviour, combat systems, save/resume persistence, shop and economy interactions, new content smoke testing, and patch-note targeted regression verification.
-</p>
+    <p>
+      So far, my QA work has helped identify and validate improvements to Grove Bound's tutorial flow, onboarding clarity, early progression guidance, quest direction, crafting usability, cooking behaviour, buildable campfires, and storage progression.
+    </p>
 
-<p>
-  The work has helped support ongoing updates by identifying player-facing risks, validating fixes, checking for regressions, and giving the developer clear information before wider player exposure.
-</p>
+    <p>
+      Several findings from my reports have already been fixed or improved by the developer, including tutorial messaging, early progression flow, quest guidance, cooking behaviour, chest-related issues, and first-session friction.
+    </p>
 
-<p>
-  I am credited in the released game as <strong>Head of QA Kelina Cowell</strong>, reflecting my ongoing QA contribution to the project.
-</p>
+    <p>
+      Testing is ongoing. Future passes are expected to cover further regression checks, newly fixed issues, additional buildable systems, storage crate validation, and Steam demo readiness.
+    </p>
 
-<div class="cta-row" style="text-align:center;">
- <a class="cta-btn" href="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-credit.jpeg" target="_blank" rel="noopener">
-    View Credit
-  </a>
-  
-  <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.loomlore.dungeonraiders&hl=en_GB" target="_blank" rel="noopener">
-    View Dungeon Raiders on Google Play
-  </a>
-</div>
+    <div class="cta-row">
+      <a class="cta-btn" href="https://gdogames.itch.io/grovebound" target="_blank" rel="noopener">
+        View Grove Bound on itch.io
+      </a>
+    </div>
 
     <hr>
 
-<h2>✅ What This Case Study Shows</h2>
+    <h2>✅ What This Case Study Shows So Far</h2>
 
-<ul>
-  <li>Provided ongoing embedded QA support across eight Android QA passes, with more testing expected as the game continues to evolve.</li>
+    <ul>
+      <li>Provided ongoing QA support for an in-development PC/browser game across active itch.io builds.</li>
 
-  <li>Used player-focused exploratory testing to identify visible issues affecting normal Android gameplay sessions.</li>
+      <li>Tested onboarding, first-session progression, tutorial clarity, quest guidance, crafting, cooking, inventory, resource interaction, and buildable systems.</li>
 
-  <li>Performed patch-note targeted regression testing to verify fixes, features, class behaviour, menu behaviour, and save/resume stability.</li>
+      <li>Used regression testing to validate whether previous onboarding and progression concerns had improved after updates.</li>
 
-  <li>Tested new content including Druid, Fisher, class-specific reward pools, ability behaviour, relic persistence, and updated UI feedback.</li>
+      <li>Identified player-facing friction around unclear system purpose, missing feedback, progression uncertainty, quest guidance, and blocked feature validation.</li>
 
-  <li>Separated functional bugs, usability concerns, readability issues, progression risks, regression failures, and smoke test outcomes clearly.</li>
+      <li>Provided structured QA reports with practical recommendations, repro steps, player impact, evidence, and follow-up notes.</li>
 
-  <li>Supported a solo indie developer with practical QA feedback that helped keep the project stable, readable, and player-ready across updates.</li>
-</ul>
-    
+      <li>Supported the developer with testing that will continue as Grove Bound moves toward its Steam demo release.</li>
+    </ul>
+
     <hr>
 
     <section class="section" aria-labelledby="contact">
@@ -774,7 +780,7 @@
         <h2 id="contact">Need QA Support for Your Game?</h2>
 
         <p class="lead">
-          If you have a demo, Android build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+          If you have a demo, PC build, browser build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
         </p>
 
         <div class="cta-row">
@@ -801,7 +807,7 @@
     <hr>
 
     <h2>📎 Disclaimer</h2>
-    <p><em>This page documents credited QA work completed by Kelina Cowell for portfolio and recruitment purposes. I am not the developer or publisher of Dungeon Raiders. All trademarks, logos, screenshots, clips, and game assets remain the property of their respective owners. Internal QA details, bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
+    <p><em>This page documents QA work completed so far by Kelina Cowell for portfolio and recruitment purposes. Grove Bound is still in active development, and this page will be updated as further QA passes are completed. I am not the developer or publisher of Grove Bound. All trademarks, logos, screenshots, clips, graphs, and game assets remain the property of their respective owners. Internal QA details, full bug logs, and private developer communications are not published here. If anything needs to be removed or credited differently, please contact me and I’ll update it promptly.</em></p>
 
   </main>
 
