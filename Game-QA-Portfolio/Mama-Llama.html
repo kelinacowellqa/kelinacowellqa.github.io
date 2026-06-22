@@ -355,391 +355,304 @@
 }
 </script>
 
-    <h2>Introduction</h2>
+<section aria-labelledby="role">
+  <h2 id="role">🎯 My QA Role</h2>
 
-    <p>
-      This case study covers my embedded QA work on <a href="https://loom-lore.itch.io/mama-llamas-food-cart-adventures-full-game" target="_blank" rel="noopener"><em>Mama Llama’s Food Cart Adventure</em></a>, a portrait-mode food-cart match-3 game by Loom &amp; Lore Interactive Games.
-    </p>
+  <p>
+    My role was to provide structured embedded QA support during the final stage of development before release. The project was close to launch, so the focus was on identifying player-facing risks, reporting them clearly, supporting fast developer decision-making, and validating fixes before the Google Play release.
+  </p>
 
-    <p>
-      Unlike my public QA mini-passes, this was not a one-off external test of a demo. I worked directly with the developer during release preparation, using structured test planning, daily handovers, evidence capture, fix validation, and regression testing to support the final release.
-    </p>
+  <p>
+    I worked directly with the solo developer through a lightweight two-person workflow. The developer continued building and updating the game, while I provided QA through private Discord channels, a shared Google Sheets workbook, daily Google Docs handovers, and linked screenshot and video evidence.
+  </p>
 
-    <p>
-      This page focuses on the workflow and QA process rather than exposing internal bug details. The aim is to show how I worked with the developer, how I decided what to test, and how the QA work supported release readiness.
-    </p>
+  <p>
+    My responsibilities included release-readiness testing, mobile usability checks, onboarding and readability review, bug and UX reporting, accessibility risk observations, fix validation, and regression testing around affected systems.
+  </p>
+</section>
 
-    <table>
-      <thead>
-        <tr><th>Game</th><th>Role</th><th>Release</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mama Llama’s Food Cart Adventure</td>
-          <td>Embedded QA Tester</td>
-          <td>Released 24 May 2026 on PC and Google Play</td>
-        </tr>
-      </tbody>
-    </table>
+<hr>
 
-    <div class="cta-row" style="text-align:center;">
-      <a class="cta-btn" href="https://loom-lore.itch.io/mama-llamas-food-cart-adventures-full-game" target="_blank" rel="noopener">View PC Version</a>
-      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.llamamomma.loomloregames" target="_blank" rel="noopener">View Google Play Version</a>
-      <a class="cta-btn" href="https://www.linkedin.com/company/loom-lore-games/" target="_blank" rel="noopener">View Studio</a>
-    </div>
-
-    <hr>
-
-    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+    <section class="testimonial-section" aria-labelledby="developer-feedback">
   <div class="testimonial-card">
-    <p class="testimonial-label" id="testimonial-heading">Studio Feedback</p>
+    <p class="testimonial-label" id="developer-feedback">Developer Feedback</p>
 
     <blockquote class="testimonial-quote">
       “Releasing a high-quality game is vital for a new studio. Kelina made sure our Google Play Store launch for <em>Mama Llama</em> went smoothly. She caught critical UI/UX and code bugs before release. Her delivery was highly organized. Every report included thorough documentation, reproducible steps, and helpful screenshots. Kelina handles QA with the finesse of a master.”
     </blockquote>
 
     <p class="testimonial-author">
-      — Emily Ray, Founder & Lead Dev, Loom &amp; Lore Interactive Games
+      — Emily Ray, Founder &amp; Lead Dev, Loom &amp; Lore Interactive Games
     </p>
   </div>
 </section>
 
-    <hr>
+<hr>
 
-    <h2 id="role">🎯 My QA Role</h2>
+<section aria-labelledby="triage-planning">
+  <h2 id="triage-planning">🧠 Triage &amp; Planning</h2>
 
-    <p>
-      My role was to provide structured QA support during the final stage of development before release. The project was close to launch, so the priority was not broad exploratory wandering or deep compatibility coverage. The priority was identifying player-facing risks, reporting them clearly, supporting the developer with actionable feedback, and validating fixes quickly.
-    </p>
+  <p>
+    Because the game was close to release, I prioritised areas that could affect first impressions, mobile usability, player understanding, frustration, and release confidence. I used the current build state, developer context, and visible player-facing risks to design the QA plan.
+  </p>
 
-    <p>
-      I worked as part of a small two-person QA and development workflow: the solo developer building and updating the game, and me providing structured QA support through private Discord channels, daily reports, a shared workbook, and linked evidence.
-    </p>
+  <p>
+    The first priority was understanding how the game felt to a new player. From there, testing expanded into pressure states, longer sessions, progression pacing, recovery systems, visual fatigue, and accessibility-related readability risks.
+  </p>
 
-    <div class="grid-3">
-      <section class="card">
-        <h3>🧭 QA Focus</h3>
-        <ul>
-          <li>Onboarding and tutorial clarity</li>
-          <li>Mobile portrait usability</li>
-          <li>Readability and UX friction</li>
-          <li>Player feedback clarity</li>
-          <li>Accessibility risk observations</li>
-          <li>Progression and frustration points</li>
-        </ul>
-      </section>
+  <p>
+    Findings were separated by impact so the developer could quickly see what needed attention before release, what could be tuned later, and what was already working well enough to preserve.
+  </p>
+</section>
 
-      <section class="card">
-        <h3>📄 Reporting</h3>
-        <ul>
-          <li>Google Sheets QA workbook</li>
-          <li>Test charters</li>
-          <li>Session log</li>
-          <li>Bug and UX observation log</li>
-          <li>Daily Google Docs handovers</li>
-          <li>Screenshot and video evidence links</li>
-        </ul>
-      </section>
+<hr>
 
-      <section class="card">
-        <h3>🔁 Validation</h3>
-        <ul>
-          <li>Fix validation after developer updates</li>
-          <li>Regression checks around affected systems</li>
-          <li>Release-readiness support</li>
-          <li>Player-facing risk review</li>
-          <li>Communication through QA Discord channels</li>
-        </ul>
-      </section>
-    </div>
+<section aria-labelledby="testing-focus">
+  <h2 id="testing-focus">🎮 Testing Focus</h2>
 
-    <hr>
+  <p>
+    Testing focused on the areas most likely to affect the mobile player experience: onboarding clarity, How To Play information, order readability, board readability, swipe interaction, touch input, fail-state communication, special tile feedback, customer pressure, and retry motivation.
+  </p>
 
-    <h2 id="workflow">🛠️ Workflow & Communication</h2>
+  <p>
+    I also reviewed the game from a practical accessibility-risk perspective, looking at contrast, visual scanning load, warning visibility, long-session eye strain, and whether key information remained readable during pressure states.
+  </p>
+</section>
 
-    <p>
-      Communication happened daily through private structured Discord channels, including QA and devlog update channels. This kept the workflow lightweight and appropriate for a solo-dev project. For this team size, Jira would have added unnecessary overhead, so I used a shared Google Sheets Bug Log and daily Google Docs handovers instead.
-    </p>
+<hr>
 
-    <p>
-  The developer could review the end-of-day handover for overall testing progress, then refer separately to the shared Google Sheets bug log for detailed findings, screenshots, and linked video evidence.
-</p>
+<section aria-labelledby="ongoing-support">
+  <h2 id="ongoing-support">🔁 Ongoing Support</h2>
 
-    <table>
-      <thead>
-        <tr><th>Workflow Area</th><th>How It Worked</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Communication</td>
-          <td>Daily communication through private Discord channels, including QA updates and devlog information.</td>
-        </tr>
-        <tr>
-          <td>Planning</td>
-          <td>I created the test plan from scratch using the current build state, devlog context, release priorities, and player-facing risk areas.</td>
-        </tr>
-        <tr>
-          <td>Reporting</td>
-          <td>Findings were organised in a Google Sheets workbook with charters, session logs, bug and UX logs, and linked evidence.</td>
-        </tr>
-        <tr>
-          <td>Handovers</td>
-          <td>At the end of each testing day, I produced a Google Docs handover summarising what was tested, what mattered, and what needed attention.</td>
-        </tr>
-        <tr>
-          <td>Evidence</td>
-          <td>I captured Android gameplay through scrcpy and OBS, edited clips in Microsoft Clipchamp, and shared unlisted YouTube links for easy review.</td>
-        </tr>
-        <tr>
-          <td>Fix Validation</td>
-          <td>After developer updates, I retested fixes and checked surrounding systems for regressions.</td>
-        </tr>
-      </tbody>
-    </table>
+  <p>
+    After the developer pushed fixes, I retested the relevant areas and checked nearby systems for regressions. This helped confirm whether the changes worked as intended and whether they created new issues around connected gameplay, UI, or feedback systems.
+  </p>
 
-    <hr>
+  <p>
+    This support continued through the release-readiness stage and helped the developer judge when the build was ready for launch on Google Play.
+  </p>
+</section>
 
-    <h2 id="test-strategy">🧠 How I Decided What to Test</h2>
+<hr>
 
-    <p>
-      Because the project was so close to release, I prioritised areas that could affect first impressions, mobile usability, player understanding, frustration, and release readiness. I used the developer’s available devlog context and the live build behaviour to design the test plan myself.
-    </p>
+<section aria-labelledby="workflow">
+  <h2 id="workflow">🛠️ Workflow &amp; Communication</h2>
 
-    <p>
-      The first priority was understanding how the game would feel to a new player. From there, testing expanded into pressure states, longer sessions, progression pacing, recovery systems, visual fatigue, and accessibility-related readability risks.
-    </p>
+  <p>
+    Communication happened daily through private Discord channels, including QA and devlog update channels. This kept the process lightweight and suitable for a solo-dev workflow. For this project size, Jira would have added unnecessary overhead, so I used Google Sheets, Google Docs, Discord, and linked evidence instead.
+  </p>
 
-    <div class="grid-2">
-      <section class="card">
-        <h3>Fresh-Player Testing</h3>
-        <p>
-          I tested early onboarding, menu clarity, How To Play information, order readability, swipe interaction understanding, fail-state communication, and whether the core loop made sense without over-explaining itself.
-        </p>
-      </section>
+  <p>
+    The developer could review the end-of-day handover for the overall QA picture, then use the shared bug log for detailed findings, repro steps, screenshots, and linked video evidence.
+  </p>
 
-      <section class="card">
-        <h3>Stress & Long-Session Testing</h3>
-        <p>
-          I also tested higher-pressure gameplay, repeated losses, low-match board states, recovery windows, long-session visual fatigue, and whether frustration affected retry motivation or return motivation.
-        </p>
-      </section>
-    </div>
+  <table>
+    <thead>
+      <tr><th>Workflow Area</th><th>How It Worked</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Communication</td>
+        <td>Daily communication through private Discord channels, including QA updates and devlog context.</td>
+      </tr>
+      <tr>
+        <td>Planning</td>
+        <td>I created the QA plan using the current build state, release priorities, devlog context, and player-facing risk areas.</td>
+      </tr>
+      <tr>
+        <td>Reporting</td>
+        <td>Findings were organised in a Google Sheets workbook with charters, session logs, bug and UX logs, and linked evidence.</td>
+      </tr>
+      <tr>
+        <td>Handovers</td>
+        <td>Daily Google Docs handovers summarised what was tested, what mattered, and what needed developer attention.</td>
+      </tr>
+      <tr>
+        <td>Evidence</td>
+        <td>Gameplay evidence was captured through scrcpy and OBS, edited in Clipchamp, and shared through unlisted YouTube links.</td>
+      </tr>
+      <tr>
+        <td>Fix Validation</td>
+        <td>After updates, I retested fixes and checked connected systems for regressions.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-    <hr>
+<hr>
 
-    <h2 id="testing-lifecycle">📈 Testing Lifecycle</h2>
+<section aria-labelledby="main-testing">
+  <h2 id="main-testing">📱 Mobile Release-Readiness Testing</h2>
 
-    <p>
-      The work followed a release-focused lifecycle. I started with first-session clarity and basic usability, then moved into deeper progression, pressure states, retention friction, and accessibility risk observations.
-    </p>
+  <p>
+    The main testing pass focused on whether Mama Llama’s Food Cart Adventure worked clearly and comfortably as a portrait-mode mobile game close to release. This included the first-session experience, the match-3 loop, customer order readability, mobile interaction, fail states, and how pressure affected player understanding.
+  </p>
 
-    <table>
-      <thead>
-        <tr><th>Stage</th><th>Focus</th><th>Purpose</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1. Onboarding and first session</td>
-          <td>Tutorial clarity, How To Play information, early gameplay understanding, order readability, and fail-state communication.</td>
-          <td>Check whether new players could understand the game quickly and start playing without major confusion.</td>
-        </tr>
-        <tr>
-          <td>2. Core gameplay readability</td>
-          <td>Board readability, food recognition, customer orders, match feedback, combo clarity, and special tile communication.</td>
-          <td>Check whether the match-3 loop stayed understandable during active play.</td>
-        </tr>
-        <tr>
-          <td>3. Pressure and progression</td>
-          <td>Escalating customer pressure, repeated failures, recovery windows, order size, low-match board states, and retry motivation.</td>
-          <td>Identify where challenge became frustration and where player agency started to feel reduced.</td>
-        </tr>
-        <tr>
-          <td>4. Mobile usability</td>
-          <td>Portrait layout, one-handed play, touch input, edge interactions, screen readability, and UI hierarchy.</td>
-          <td>Check whether the game worked comfortably as a portrait mobile experience.</td>
-        </tr>
-        <tr>
-          <td>5. Accessibility risk observations</td>
-          <td>Colour contrast, warning-state visibility, eye strain, visual scanning fatigue, and attention load during pressure states.</td>
-          <td>Surface practical readability risks without turning the pass into a formal accessibility audit.</td>
-        </tr>
-        <tr>
-          <td>6. Fix validation and regression</td>
-          <td>Retesting developer changes and checking nearby systems after updates.</td>
-          <td>Confirm fixes worked and did not create new issues around connected systems.</td>
-        </tr>
-      </tbody>
-    </table>
+  <p>
+    Testing combined fresh-player exploratory QA with longer-session and pressure-state testing. I looked at whether the core loop made sense quickly, whether players could read and respond to orders under pressure, and whether frustration came from fair challenge or unclear feedback.
+  </p>
 
-    <hr>
+  <table>
+    <thead>
+      <tr><th>Test Area</th><th>Observed Focus</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Onboarding</td>
+        <td>Tutorial clarity, How To Play information, early gameplay understanding, and fail-state communication.</td>
+      </tr>
+      <tr>
+        <td>Core Gameplay</td>
+        <td>Board readability, food recognition, order clarity, match feedback, combo clarity, and special tile communication.</td>
+      </tr>
+      <tr>
+        <td>Mobile Usability</td>
+        <td>Portrait layout, one-handed play, touch input, swipe accuracy, edge interactions, and UI hierarchy.</td>
+      </tr>
+      <tr>
+        <td>Pressure States</td>
+        <td>Escalating customer pressure, recovery windows, repeated failures, low-match boards, and retry motivation.</td>
+      </tr>
+      <tr>
+        <td>Accessibility Risks</td>
+        <td>Colour contrast, warning visibility, visual fatigue, scanning load, and low-vision readability risks.</td>
+      </tr>
+      <tr>
+        <td>Fix Validation</td>
+        <td>Retesting developer changes and checking nearby systems after updates.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-    <h2 id="qa-areas">🔍 QA Areas Covered</h2>
+<hr>
 
-    <p>
-      The QA work covered more than functional bug finding. A large part of the value was identifying how the game communicated with players during active mobile play, especially under pressure.
-    </p>
+<section aria-labelledby="risk-areas">
+  <h2 id="risk-areas">⚠️ Current Player-Facing Risk Areas</h2>
 
-    <div class="grid-3">
-      <section class="card">
-        <h3>Player Understanding</h3>
-        <ul>
-          <li>Onboarding clarity</li>
-          <li>How To Play discoverability</li>
-          <li>Core loop comprehension</li>
-          <li>Fail-state communication</li>
-        </ul>
-      </section>
+  <p>
+    The main risks identified were grouped by player impact rather than exposing the internal bug log. This kept the portfolio case study focused on QA judgement while keeping private project details protected.
+  </p>
 
-      <section class="card">
-        <h3>Mobile Readability</h3>
-        <ul>
-          <li>Portrait UI hierarchy</li>
-          <li>Food icon recognition</li>
-          <li>Customer order readability</li>
-          <li>Visual scanning fatigue</li>
-        </ul>
-      </section>
+  <table>
+    <thead>
+      <tr><th>Risk Area</th><th>Player Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Onboarding Clarity</td>
+        <td>New players may misunderstand key actions if tutorial and How To Play information is not clear enough.</td>
+      </tr>
+      <tr>
+        <td>Mobile Readability</td>
+        <td>Food icons, customer orders, and board information need to remain readable during fast play on a portrait screen.</td>
+      </tr>
+      <tr>
+        <td>Pressure-State Feedback</td>
+        <td>Players may feel frustration if escalating pressure is not supported by clear feedback and fair recovery windows.</td>
+      </tr>
+      <tr>
+        <td>Touch Interaction</td>
+        <td>Swipe accuracy and edge interactions can affect player confidence during active gameplay.</td>
+      </tr>
+      <tr>
+        <td>Accessibility Risk</td>
+        <td>Contrast, visual fatigue, and warning visibility may create barriers for players during longer sessions.</td>
+      </tr>
+      <tr>
+        <td>Regression Risk</td>
+        <td>Late fixes can affect nearby UI, feedback, or gameplay systems if not retested before release.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-      <section class="card">
-        <h3>Gameplay Pressure</h3>
-        <ul>
-          <li>Progression pacing</li>
-          <li>Recovery windows</li>
-          <li>Retry motivation</li>
-          <li>Fairness perception</li>
-        </ul>
-      </section>
+<hr>
 
-      <section class="card">
-        <h3>Interaction Reliability</h3>
-        <ul>
-          <li>Touch responsiveness</li>
-          <li>Swipe accuracy</li>
-          <li>Invalid swap feedback</li>
-          <li>Cascade stability</li>
-        </ul>
-      </section>
+<section aria-labelledby="developer-collaboration">
+  <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
 
-      <section class="card">
-        <h3>Accessibility Risks</h3>
-        <ul>
-          <li>Text contrast concerns</li>
-          <li>Peripheral warning visibility</li>
-          <li>Low-vision readability risks</li>
-          <li>Long-session eye strain</li>
-        </ul>
-      </section>
+  <p>
+    Because this was a small indie workflow, the reporting needed to be structured without becoming heavy. The goal was to give the developer clear information that could be acted on quickly.
+  </p>
 
-      <section class="card">
-        <h3>Release Support</h3>
-        <ul>
-          <li>Fix verification</li>
-          <li>Regression checks</li>
-          <li>Prioritised handovers</li>
-          <li>Release-readiness feedback</li>
-        </ul>
-      </section>
-    </div>
+  <p>
+    I avoided dumping raw observations without context. Instead, I grouped findings by player impact, explained why they mattered, and separated functional issues from UX observations, accessibility risks, progression concerns, and positive validation.
+  </p>
 
-    <hr>
+  <p>
+    This meant the developer could see not just what needed fixing, but what was working well, what was worth preserving, and where changes would have the highest release impact.
+  </p>
+</section>
 
-    <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
+<hr>
 
-    <p>
-      Because this was a small indie workflow, the reporting needed to be structured without becoming heavy. The goal was to give the developer clear information that could be acted on quickly.
-    </p>
+<section aria-labelledby="tools">
+  <h2 id="tools">🧰 Tools &amp; Evidence Workflow</h2>
 
-    <p>
-      I avoided dumping raw observations without context. Instead, I grouped findings by player impact, explained why they mattered, and separated functional issues from UX observations, accessibility risks, progression concerns, and positive validation.
-    </p>
+  <table>
+    <thead>
+      <tr><th>Tool / Method</th><th>Used For</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Android Device Testing</td>
+        <td>Testing the Google Play release candidate on mobile hardware.</td>
+      </tr>
+      <tr>
+        <td>Google Sheets</td>
+        <td>QA workbook containing charters, session logs, bug and UX logs, notes, and structured tracking.</td>
+      </tr>
+      <tr>
+        <td>Google Docs</td>
+        <td>Daily QA handovers summarising what was tested, what was found, and what needed developer attention.</td>
+      </tr>
+      <tr>
+        <td>Discord</td>
+        <td>Private QA communication with the developer, including reports, updates, and handovers.</td>
+      </tr>
+      <tr>
+        <td>scrcpy</td>
+        <td>Android screen capture from the test device.</td>
+      </tr>
+      <tr>
+        <td>OBS Studio</td>
+        <td>Recording gameplay evidence during mobile testing.</td>
+      </tr>
+      <tr>
+        <td>Microsoft Clipchamp</td>
+        <td>Editing clips into shorter evidence videos for easier developer review.</td>
+      </tr>
+      <tr>
+        <td>YouTube Unlisted</td>
+        <td>Private evidence storage and easy sharing through report links.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-    <p>
-      This meant the developer could see not just what was wrong, but what was working well, what was worth preserving, and where fixes or tuning would have the highest release impact.
-    </p>
+<hr>
 
-    <blockquote>
-      The focus of this work was structured release support: identifying player-facing risks, explaining them clearly, validating fixes, and helping the developer prepare the game for release.
-    </blockquote>
+<section aria-labelledby="case-study-shows">
+  <h2 id="case-study-shows">✅ What This Case Study Shows</h2>
 
-    <hr>
+  <ul>
+    <li>Designed a release-focused QA plan using devlog context, current build state, and release priorities.</li>
+    <li>Provided embedded QA support directly to a solo indie developer during the final pre-release stage.</li>
+    <li>Tested onboarding, mobile usability, readability, pressure states, accessibility risks, and player-facing friction.</li>
+    <li>Translated gameplay observations into structured handovers with repro steps, impact notes, screenshots, and video evidence.</li>
+    <li>Validated developer fixes and performed regression checks around affected systems after updates.</li>
+    <li>Supported release readiness without adding unnecessary process overhead to a small-team workflow.</li>
+  </ul>
 
-    <h2 id="tools">🧰 Tools & Evidence Workflow</h2>
+  <div class="cta-row">
+    <a class="cta-btn" href="https://kelinacowellqa.github.io/assets/img/MamaLlamaCredit.png" target="_blank" rel="noopener">View Credit</a>
+    <a class="cta-btn" href="https://loom-lore.itch.io/mama-llamas-food-cart-adventures-full-game" target="_blank" rel="noopener">PC Release</a>
+    <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.llamamomma.loomloregames" target="_blank" rel="noopener">Google Play Release</a>
+  </div>
+</section>
 
-    <table>
-      <thead>
-        <tr><th>Tool</th><th>Used For</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Google Sheets</td>
-          <td>QA workbook containing charters, session logs, bug and UX logs, notes, and structured tracking.</td>
-        </tr>
-        <tr>
-          <td>Google Docs</td>
-          <td>Daily end-of-day QA handovers summarising what was tested, what was found, and what needed developer attention.</td>
-        </tr>
-        <tr>
-          <td>Discord</td>
-          <td>Private QA communication with the developer, including sharing reports, clarifying updates, and posting handovers.</td>
-        </tr>
-        <tr>
-          <td>scrcpy</td>
-          <td>Android screen capture from the test device.</td>
-        </tr>
-        <tr>
-          <td>OBS Studio</td>
-          <td>Recording gameplay evidence during mobile testing.</td>
-        </tr>
-        <tr>
-          <td>Microsoft Clipchamp</td>
-          <td>Editing clips into shorter evidence videos for easier developer review.</td>
-        </tr>
-        <tr>
-          <td>YouTube Unlisted</td>
-          <td>Private evidence storage and easy sharing through report links.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr>
-
-    <h2 id="release-outcome">🚀 Release Outcome</h2>
-
-    <p>
-      The QA pass identified enough relevant player-facing risks for the developer to make targeted fixes and judge the build ready for release after validation.
-    </p>
-
-    <p>
-      After the developer pushed fixes, I retested the relevant areas and performed regression checks around connected systems. The game then released on PC and Google Play on 24 May 2026.
-    </p>
-
-    <p>
-      I was also credited in the released game, which reflects my direct QA contribution to the project.
-    </p>
-
-    <div class="cta-row" style="text-align:center;">
-      <a class="cta-btn" href="https://kelinacowellqa.github.io/assets/img/MamaLlamaCredit.png" target="_blank" rel="noopener">View Credit</a>
-      <a class="cta-btn" href="https://loom-lore.itch.io/mama-llamas-food-cart-adventures-full-game" target="_blank" rel="noopener">PC Release</a>
-      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.llamamomma.loomloregames" target="_blank" rel="noopener">Google Play Release</a>
-    </div>
-
-    <hr>
-
-<h2>✅ What This Case Study Shows</h2>
-
-<ul>
-  <li>Designed a release-focused QA plan from scratch using devlog context, current build state, and release priorities.</li>
-
-  <li>Worked directly with a solo indie developer without overcomplicating communication or workflow structure.</li>
-
-  <li>Translated gameplay observations into structured handovers covering bugs, UX friction, accessibility risks, and positive validation.</li>
-
-  <li>Tested from both fresh-player and stress-testing perspectives across onboarding, progression, and long-session gameplay.</li>
-
-  <li>Validated developer fixes and performed regression checks around affected systems after updates.</li>
-
-  <li>Supported release readiness without introducing unnecessary production overhead for a two-person workflow.</li>
-</ul>
+<hr>
     
     <hr>
 
