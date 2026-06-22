@@ -262,8 +262,29 @@
     .testimonial-author{
       text-align:left;
     }
+
+    .project-overview-grid{
+  display:grid;
+  grid-template-columns:1fr 460px;
+  gap:24px;
+  align-items:start;
+}
+
+.project-overview-video iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:none;
+  border-radius:12px;
+  box-shadow:
+    0 0 12px rgba(0,255,240,.18),
+    0 0 24px rgba(0,255,240,.08);
+}
+
+@media (max-width:900px){
+  .project-overview-grid{
+    grid-template-columns:1fr 500px;
   }
-</style>
+}
   </style>
 
   <script data-goatcounter="https://kelina.goatcounter.com/count"
@@ -284,11 +305,14 @@
     <h1>Nothing Strange Here - QA Case Study</h1>
     <p class="meta">Role: External QA Tester • Studio: Dandelion Developers • Demo: Steam Next Fest June 2026 • Platform Tested: Windows PC</p>
 
-    <section aria-labelledby="overview">
-      <h2 id="overview">🧾 Project Overview</h2>
+<section aria-labelledby="overview">
+  <h2 id="overview">🧾 Project Overview</h2>
 
+  <div class="project-overview-grid">
+
+    <div class="project-overview-text">
       <ul>
-        <li><strong>Game:</strong> Nothing Strange Here </li>
+        <li><strong>Game:</strong> Nothing Strange Here</li>
         <li><strong>Studio:</strong> Dandelion Developers</li>
         <li><strong>Credited Role:</strong> Development Quality Assurance</li>
         <li><strong>Testing date:</strong> 29 May 2026</li>
@@ -298,8 +322,20 @@
         <li><strong>Platform tested:</strong> Windows PC</li>
         <li><strong>Public demo:</strong> Steam Next Fest June 2026</li>
       </ul>
-    </section>
+    </div>
 
+    <div class="project-overview-video">
+      <iframe
+        src="https://www.youtube.com/embed/75nAwZOT0Ug"
+        title="Nothing Strange Here Trailer"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
