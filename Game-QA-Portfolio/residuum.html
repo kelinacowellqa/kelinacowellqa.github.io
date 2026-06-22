@@ -204,65 +204,85 @@
     }
 
     .testimonial-card{
-      margin:24px 0 28px;
-      padding:20px 22px;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-left:4px solid #00fff0;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.28);
-    }
+  margin:24px 0 28px;
+  padding:20px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:4px solid #00fff0;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
+}
 
-    .testimonial-card blockquote{
-      margin:0;
-      padding:14px 18px;
-      border-left:0;
-      background:rgba(0,255,240,.04);
-      color:#cfd6dd;
-      font-size:1.05rem;
-      line-height:1.75;
-      font-style:italic;
-      border-radius:10px;
-    }
+.testimonial-card h2{
+  margin:0 0 12px !important;
+}
 
-    .testimonial-label{
-      color:#00fff0;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      font-size:.82rem;
-      margin-bottom:10px !important;
-    }
+.testimonial-card blockquote{
+  margin:0;
+  padding:14px 18px;
+  border-left:0;
+  background:rgba(0,255,240,.04);
+  color:#cfd6dd;
+  font-size:1.05rem;
+  line-height:1.75;
+  font-style:italic;
+  border-radius:10px;
+}
 
-    .testimonial-author{
-      margin:14px 0 0 !important;
-      color:#00fff0;
-      font-weight:700;
-      text-align:right;
-    }
+.testimonial-card blockquote em{
+  color:#ffffff;
+}
 
-    .caption{
-      color:#a9b3bd;
-      font-size:.92rem;
-      line-height:1.6;
-      margin-top:8px !important;
-    }
+.testimonial-author{
+  margin:14px 0 0 !important;
+  color:#00fff0;
+  font-weight:700;
+  text-align:right;
+}
 
-    @media (max-width:640px){
-      .testimonial-card{
-        padding:16px;
-      }
+.project-overview-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) 500px;
+  gap:28px;
+  align-items:start;
+}
 
-      .testimonial-card blockquote{
-        padding:12px 14px;
-        font-size:1rem;
-      }
+.project-overview-video{
+  padding-top:6px;
+}
 
-      .testimonial-author{
-        text-align:left;
-      }
-    }
-  </style>
+.project-overview-video iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  display:block;
+  border:none;
+  border-radius:12px;
+  box-shadow:
+    0 0 12px rgba(0,255,240,.18),
+    0 0 24px rgba(0,255,240,.08);
+}
+
+@media (max-width:900px){
+  .project-overview-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
+  .testimonial-card{
+    padding:16px;
+  }
+
+  .testimonial-card blockquote{
+    padding:12px 14px;
+    font-size:1rem;
+  }
+
+  .testimonial-author{
+    text-align:left;
+  }
+}
+    </style>
 
   <script data-goatcounter="https://kelina.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -281,9 +301,12 @@
 
     <h1>RESIDUUM - Ongoing QA Case Study</h1>
 
-    <section aria-labelledby="overview">
-      <h2 id="overview">🧾 Project Overview</h2>
+   <section aria-labelledby="overview">
+  <h2 id="overview">🧾 Project Overview</h2>
 
+  <div class="project-overview-grid">
+
+    <div class="project-overview-text">
       <ul>
         <li><strong>Game:</strong> RESIDUUM</li>
         <li><strong>Developer:</strong> Will Nightingale</li>
@@ -294,7 +317,20 @@
         <li><strong>Current focus:</strong> Playtest feedback triage, onboarding clarity, early progression testing, usability review, reproduction planning, and future regression support</li>
         <li><strong>Coverage note:</strong> This page reflects QA work completed so far and will be updated as additional passes are completed.</li>
       </ul>
-    </section>
+    </div>
+
+    <div class="project-overview-video">
+      <iframe
+        src="https://www.youtube.com/embed/GrixicT9Dag"
+        title="RESIDUUM Trailer"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
 
 <script type="application/ld+json">
 {
