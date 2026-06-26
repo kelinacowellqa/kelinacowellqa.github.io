@@ -233,6 +233,35 @@
     margin:18px 0 0;
   }
 
+  .detail-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
+  margin:18px 0 24px;
+}
+
+.detail-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(0,255,240,.16);
+  border-radius:14px;
+  padding:18px;
+}
+
+.detail-card h3{
+  margin:0 0 10px;
+  color:var(--teal);
+  font-size:1rem;
+}
+
+.detail-card p{
+  margin:0;
+}
+
+@media (max-width:900px){
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+
   .credibility-row{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -442,14 +471,6 @@
         </p>
       </div>
 
-     ***********
-
-        <p>
-          <strong>Limit Break 2026</strong><br>
-          Currently part of the <em>Limit Break Mentorship Programme</em>, receiving mentorship from <strong>Jordan Stewart, QA Lead at Supermassive Games</strong>, on advanced testing workflows and QA processes.
-        </p>
-      </div>
-
     </div>
 
     <aside class="portfolio-preview">
@@ -475,6 +496,37 @@
 </section>
 
 <hr>
+
+  <section class="section" aria-labelledby="recognition-details">
+  <h2 id="recognition-details">Recognition & Professional Development</h2>
+
+  <div class="detail-grid">
+
+    <article class="detail-card">
+      <h3>APX Certified Practitioner</h3>
+      <p>
+        Certified in Accessible Player Experiences, supporting my focus on player-centred QA, usability, readability, onboarding clarity, and accessibility-related barriers in games.
+      </p>
+    </article>
+
+    <article class="detail-card">
+      <h3>Limit Break Mentee 2026</h3>
+      <p>
+        Selected for the Limit Break Mentorship Programme 2026, receiving mentorship from <strong>Jordan Stewart, QA Lead at Supermassive Games</strong>, focused on advanced QA workflows and industry development.
+      </p>
+    </article>
+
+    <article class="detail-card">
+      <h3>Prince William BAFTA Bursary Recipient 2026</h3>
+      <p>
+        Awarded support through the Prince William BAFTA Bursary, helping with professional development, training, and progression within the UK games industry.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+    <hr>
 
 <section class="section" aria-labelledby="how">
   <h2 id="how">How I Work</h2>
