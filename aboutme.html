@@ -124,24 +124,9 @@
     margin:22px 0;
   }
 
-  .intro{
+   .intro{
     display:block;
     margin:8px 0 6px;
-  }
-
-  .intro-main{
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-  }
-
-  .headshot{
-    width:132px;
-    height:132px;
-    object-fit:cover;
-    border-radius:12px;
-    border:1px solid var(--line);
-    flex:0 0 auto;
   }
 
   .section{
@@ -153,120 +138,61 @@
     font-size:1.25rem;
   }
 
-  .muted{
-    color:var(--muted);
+  .about-text{
+    min-width:0;
+    max-width:560px;
   }
 
-  .callouts{
+  .portfolio-preview{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(0,255,240,.16);
+    border-radius:14px;
+    padding:22px;
     width:100%;
     box-sizing:border-box;
-    background:rgba(15,18,21,.55);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:var(--r);
-    padding:18px 20px;
-    margin:22px 0 6px;
+    align-self:start;
   }
 
-  .callouts ul{
-    margin-bottom:0;
+  .portfolio-preview h3{
+    margin:0 0 12px;
+    color:var(--teal);
   }
 
-  .cta-row{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px 12px;
-    margin:18px 0 0;
+  .portfolio-preview p{
+    margin:0 0 16px;
+    line-height:1.6;
   }
 
-  footer{
-    max-width:var(--max);
-    margin:34px auto 0;
-    padding:18px 18px 26px;
-    border-top:1px solid rgba(255,255,255,.08);
-    text-align:center;
-    font-size:.9em;
-    opacity:.85;
+  .portfolio-preview ul{
+    margin:16px 0 20px;
+    padding-left:0;
+    list-style:none;
   }
 
-  .credibility-row{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:16px;
-  margin:24px 0;
-}
-
-.credibility-card{
-  display:flex;
-  align-items:center;
-  gap:14px;
-
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(0,255,240,.16);
-  border-radius:14px;
-  padding:14px 16px;
-
-  min-height:80px;
-}
-
-.credibility-badge{
-  width:60px;
-  height:60px;
-  object-fit:contain;
-  flex-shrink:0;
-  margin:0;
-}
-
-.credibility-card p{
-  margin:0;
-  font-weight:600;
-  text-align:left;
-}
-
-  .about-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:40px;
-    align-items:start;
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:40px;
-    align-items:start;
-}
-
-.portfolio-preview{
-    background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:24px;
-    position:sticky;
-    top:30px;
-}
-
-.portfolio-preview h3{
-    margin-top:0;
-}
-
-.portfolio-preview ul{
-    margin:20px 0;
-    padding-left:18px;
-}
-
-.portfolio-preview li{
-    margin-bottom:10px;
-}
-
-  .headshot{
-    width:120px;
-    height:120px;
+  .portfolio-preview li{
+    margin-bottom:8px;
+    line-height:1.5;
   }
 
-    .headshot{
-      width:120px;
-      height:120px;
+  .portfolio-preview li::before{
+    content:"✓";
+    color:var(--teal);
+    font-weight:700;
+    margin-right:8px;
+  }
+
+  @media (max-width:800px){
+    .about-grid{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .about-left{
+      flex-direction:column;
+    }
+
+    .portfolio-preview{
+      max-width:none;
     }
   }
 </style>
@@ -361,74 +287,73 @@
 </section>
 
     <!-- Intro -->
-    <div class="about-grid">
-
-  <div class="about-left">
 <section class="section" aria-labelledby="about-title">
   <h1 id="about-title">About Kelina Cowell</h1>
 
-  <div class="intro">
+  <div class="about-grid">
 
-    <div class="intro-main">
+    <div class="about-left">
 
       <img
         class="headshot"
         src="assets/img/Kelina Cowell.jpg"
         alt="Portrait of Kelina Cowell"
-        width="264" height="264"
+        width="264"
+        height="264"
         loading="lazy"
         decoding="async"
       />
 
-     <div>
-<p>
-  UK-based <strong>Game QA Tester</strong> working across indie projects from early development through release.
-</p>
+      <div class="about-text">
+        <p>
+          UK-based <strong>Game QA Tester</strong> working across indie projects from early development through release.
+        </p>
 
-<p>
-  <strong>Head of QA - Loom &amp; Lore Games</strong><br>
-  Shipped: <em>Mama Llama’s Food Cart Adventure</em>, <em>Dungeon Raiders</em><br>
-  In Development: <em>After Hours</em>, <em>Prime Time: Slime Time</em>
-</p>
+        <p>
+          <strong>Head of QA - Loom &amp; Lore Games</strong><br>
+          Shipped: <em>Mama Llama’s Food Cart Adventure</em>, <em>Dungeon Raiders</em><br>
+          In Development: <em>After Hours</em>, <em>Prime Time: Slime Time</em>
+        </p>
 
-<p>
-  <strong>Dev QA - Dandelion Developers</strong><br>
-  Shipped: <em>Nothing Strange Here</em>
-</p>
+        <p>
+          <strong>Dev QA - Dandelion Developers</strong><br>
+          Shipped: <em>Nothing Strange Here</em>
+        </p>
 
-<p>
-  <strong>QA Lead - GDO Games</strong><br>
-  In Development: <em>Grove Bound</em>
-</p>
+        <p>
+          <strong>QA Lead - GDO Games</strong><br>
+          In Development: <em>Grove Bound</em>
+        </p>
 
-<p>
-  <strong>QA Support - Will Nightingale</strong><br>
-  In Development: <em>RESIDUUM</em>
-</p>
-</div>
+        <p>
+          <strong>QA Support - Will Nightingale</strong><br>
+          In Development: <em>RESIDUUM</em>
+        </p>
+      </div>
 
-  <aside class="portfolio-preview">
+    </div>
 
-    <h3>QA Portfolio</h3>
+    <aside class="portfolio-preview">
+      <h3>QA Portfolio</h3>
 
-    <p>
-      Explore the projects behind my QA experience, from shipped titles to games currently in development. Each case study documents my role, the testing approach, developer feedback, and evidence of my contribution throughout development and release.
-    </p>
+      <p>
+        Explore the projects behind my QA experience, from shipped titles to games currently in development. Each case study documents my role, testing approach, developer feedback, and evidence of my contribution throughout development and release.
+      </p>
 
-    <ul>
-      <li>✓ Detailed QA case studies</li>
-      <li>✓ Studio testimonials</li>
-      <li>✓ Shipped game credits</li>
-      <li>✓ My QA workflows and methodologies</li>
-    </ul>
+      <ul>
+        <li>Detailed QA case studies</li>
+        <li>Studio testimonials</li>
+        <li>Shipped game credits</li>
+        <li>QA workflows and methodologies</li>
+      </ul>
 
-    <a class="btn" href="Game-QA-Portfolio.html">
-      View my QA Portfolio
-    </a>
+      <a class="btn" href="Game-QA-Portfolio.html">
+        View my QA Portfolio
+      </a>
+    </aside>
 
-  </aside>
-
-</div>
+  </div>
+</section>
 
 <hr>
 
