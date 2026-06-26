@@ -189,41 +189,39 @@
     opacity:.85;
   }
 
-.achievement-card{
-  display:flex;
-  gap:24px;
-  align-items:center;
+  .credibility-row{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
   margin:24px 0;
 }
 
-.achievement-badge{
-  width:220px !important;
-  max-width:220px !important;
-  height:auto !important;
-  flex-shrink:0;
-  border-radius:12px;
+.credibility-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(0,255,240,.16);
+  border-radius:14px;
+  padding:14px 16px;
+
+  min-height:80px;
+}
+
+.credibility-badge{
+  width:60px;
+  height:60px;
   object-fit:contain;
+  flex-shrink:0;
+  margin:0;
 }
 
-.achievement-content{
-  flex:1;
+.credibility-card p{
+  margin:0;
+  font-weight:600;
+  text-align:left;
 }
-
-.achievement-content h3{
-  margin:0 0 10px;
-  color:var(--teal);
-}
-
-@media (max-width:700px){
-  .achievement-card{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .achievement-badge{
-    width:260px !important;
-    max-width:100% !important;
-  }
 
   .headshot{
     width:120px;
@@ -287,6 +285,48 @@
     <!-- Intro -->
 <section class="section" aria-labelledby="about-title">
   <h1 id="about-title">About Kelina Cowell</h1>
+
+               <section class="credibility-strip" aria-labelledby="credibility">
+
+  <div class="credibility-row">
+
+<div class="credibility-card">
+  <img
+    src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/APX Badge.png"
+    alt="APX Certified Practitioner"
+    class="credibility-badge"
+  >
+  <p>APX Certified Practitioner</p>
+</div>
+
+<div class="credibility-card">
+  <img
+    src="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/assets/img/LB_Mentee_Gif_SQ.gif"
+    alt="Limit Break Mentee 2026"
+    class="credibility-badge"
+  >
+  <p>Limit Break Mentee 2026</p>
+</div>
+
+<div class="credibility-card">
+  <p>Prince William BAFTA Bursary Recipient 2026</p>
+</div>
+
+    <!-- Add later -->
+    <!--
+    <div class="credibility-card">
+      <img
+        src="assets/img/IG50-Badge.png"
+        alt="IG50 Winner 2026"
+        class="credibility-badge"
+      >
+      <p>IG50 Winner 2026</p>
+    </div>
+    -->
+
+  </div>
+
+</section>
 
   <div class="intro">
 
@@ -368,105 +408,6 @@
   <p>
     I work best with teams that value practical QA, clear communication, and structured feedback during development and release preparation.
   </p>
-</section>
-
-<hr>
-
-<section class="section" aria-labelledby="training">
-  <h2 id="training">Training & Professional Development</h2>
-
-   <p>
-    My QA development includes structured game QA training, self-directed portfolio projects, accessibility certification, Jira workflow training, and hands-on indie QA support.
-  </p>
-
-    <div class="achievement-card">
-
-  <img
-    src="assets/img/APX Badge.png"
-    alt="APX Certified Practitioner"
-    class="achievement-badge"
-  >
-
-  <div class="achievement-content">
-    <h3>APX Certified Practitioner</h3>
-
-    <p>
-      Certified through AbleGamers, demonstrating practical knowledge,
-      demonstrating practical knowledge of accessibility principles,
-      player barriers, and inclusive game design considerations.
-    </p>
-
-    <p>
-      The APX programme focuses on identifying accessibility barriers,
-      understanding player needs, and supporting more inclusive player
-      experiences across game systems, interfaces, and content.
-    </p>
-
-  </div>
-
-</div>
-
-  <p>
-    I developed my QA approach through the <strong>Game Academy bootcamp</strong>, self-directed testing projects, and current QA work on indie games in active development.
-  </p>
-
-  <p>
-    I also completed Jira-focused training covering issue tracking, Scrum, Kanban, and user stories.
-  </p>
-
-  <p>
-    For full details and certificates, see my
-    <a href="https://kelinacowellqa.github.io/Manual-QA-Portfolio-Kelina-Cowell/education/">Education page</a>.
-  </p>
-</section>
-
-<hr>
-
-          <section class="section" aria-labelledby="recognition">
-  <h2 id="recognition">Industry Recognition</h2>
-
-  <div class="achievement-card">
-
-  <img
-    src="assets/img/LB_Mentee_Gif_SQ.gif"
-    alt="Limit Break Mentee 2026"
-    class="achievement-badge"
-  >
-
-  <div class="achievement-content">
-    <h3>Limit Break Mentorship Programme (2026)</h3>
-
-    <p>
-      <strong>Selected for the Limit Break Mentorship Programme (2026)</strong>,
-      receiving mentorship from <strong>Jordan Stewart, QA Lead at Supermassive Games</strong>,
-      as part of a UK games industry talent development programme.
-    </p>
-
-    <p>
-      The programme provides mentorship, industry guidance, and professional development
-      support for emerging games industry talent.
-    </p>
-  </div>
-
-</div>
-
-  <div class="achievement-card">
-
-<div class="achievement-content">
-  <h3>Prince William BAFTA Bursary Recipient (2026)</h3>
-
-  <p>
-    <strong>Awarded a Prince William BAFTA Bursary</strong> to support professional development, training, equipment, and career progression within the games industry.
-  </p>
-
-  <p>
-    The bursary supports professional development, training, equipment, and career progression for emerging talent within the creative industries.
-  </p>
-
-</div>
-
-  </div>
-
 </section>
 
     <hr>
