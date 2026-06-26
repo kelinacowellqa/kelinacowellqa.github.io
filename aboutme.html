@@ -223,6 +223,35 @@
   text-align:left;
 }
 
+  .about-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:40px;
+    align-items:start;
+}
+
+.portfolio-preview{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:24px;
+    position:sticky;
+    top:30px;
+}
+
+.portfolio-preview h3{
+    margin-top:0;
+}
+
+.portfolio-preview ul{
+    margin:20px 0;
+    padding-left:18px;
+}
+
+.portfolio-preview li{
+    margin-bottom:10px;
+}
+
   .headshot{
     width:120px;
     height:120px;
@@ -325,6 +354,9 @@
 </section>
 
     <!-- Intro -->
+    <div class="about-grid">
+
+  <div class="about-left">
 <section class="section" aria-labelledby="about-title">
   <h1 id="about-title">About Kelina Cowell</h1>
 
@@ -367,13 +399,29 @@
   In Development: <em>RESIDUUM</em>
 </p>
 </div>
-    </div>
+
+  <aside class="portfolio-preview">
+
+    <h3>QA Portfolio</h3>
 
     <p>
-    <a class="btn" href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">
+      Explore detailed QA case studies covering my role on each project, developer testimonials, shipped game credits, QA workflows, and release outcomes.
+    </p>
+
+    <ul>
+      <li>🎮 Individual project case studies</li>
+      <li>💬 Studio testimonials</li>
+      <li>🏆 Shipped game credits</li>
+      <li>📋 QA workflows and methodologies</li>
+    </ul>
+
+    <a class="btn" href="Game-QA-Portfolio.html">
       View my QA Portfolio
     </a>
-  </p>
+
+  </aside>
+
+</div>
 
 <hr>
 
