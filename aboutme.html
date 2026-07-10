@@ -314,12 +314,73 @@ footer{
     max-width:none;
   }
 
-  .credibility-row,
-  .detail-grid{
+.recognition-row{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
+  margin:26px 0 32px;
+}
+
+.recognition-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(0,255,240,.16);
+  border-radius:14px;
+  padding:18px;
+}
+
+.recognition-card h3{
+  margin:0 0 8px;
+  font-size:1.05rem;
+}
+
+.recognition-card p{
+  margin:0;
+  font-size:.96rem;
+}
+
+.recognition-badge{
+  width:120px;
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 0 12px;
+  border-radius:10px;
+}
+
+/* NEW */
+
+.recognition-card-featured{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.recognition-card-featured .recognition-badge{
+  width:120px;
+  height:auto;
+  margin:0;
+  flex-shrink:0;
+}
+
+.recognition-content{
+  flex:1;
+}
+
+.recognition-content h3{
+  margin-top:0;
+}
+
+@media (max-width:760px){
+
+  .recognition-row{
     grid-template-columns:1fr;
   }
 
-}
+  .recognition-card-featured{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
 
 @media (max-width:600px){
 
