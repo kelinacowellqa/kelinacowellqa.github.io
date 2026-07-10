@@ -301,18 +301,7 @@ footer{
   opacity:.85;
 }
 
-/* ---------- Responsive ---------- */
-
-@media (max-width:900px){
-
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .portfolio-preview{
-    max-width:none;
-  }
+/* ---------- Recognition ---------- */
 
 .recognition-row{
   display:grid;
@@ -347,8 +336,6 @@ footer{
   border-radius:10px;
 }
 
-/* NEW */
-
 .recognition-card-featured{
   display:flex;
   align-items:center;
@@ -370,17 +357,46 @@ footer{
   margin-top:0;
 }
 
-@media (max-width:760px){
+/* ---------- Responsive ---------- */
+
+@media (max-width:1000px){
+
+  .credibility-row{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width:900px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .portfolio-preview{
+    max-width:none;
+  }
+
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
 
   .recognition-row{
     grid-template-columns:1fr;
   }
+
+}
+
+@media (max-width:760px){
 
   .recognition-card-featured{
     flex-direction:column;
     align-items:center;
     text-align:center;
   }
+
+}
 
 @media (max-width:600px){
 
@@ -393,8 +409,13 @@ footer{
     height:120px;
   }
 
+  .credibility-row{
+    grid-template-columns:1fr;
+  }
+
 }
-  </style>
+
+</style>
   
   <script data-goatcounter="https://kelina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
