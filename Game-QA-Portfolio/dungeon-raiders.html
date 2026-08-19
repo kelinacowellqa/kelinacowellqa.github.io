@@ -17,7 +17,7 @@
   <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/dungeon-raiders.html" />
   <link rel="stylesheet" href="/assets/css/site.css?v=5">
 
- <style>
+<style>
   .hero{
     width:100%;
     height:260px;
@@ -57,14 +57,40 @@
   }
 
   @keyframes heroPulse{
-    0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
-    50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
-    100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    0%{
+      box-shadow:
+        0 0 14px rgba(0,255,240,0.28),
+        0 0 28px rgba(0,255,240,0.16),
+        0 0 52px rgba(0,255,240,0.10);
+    }
+
+    50%{
+      box-shadow:
+        0 0 22px rgba(0,255,240,0.42),
+        0 0 42px rgba(0,255,240,0.24),
+        0 0 72px rgba(0,255,240,0.14);
+    }
+
+    100%{
+      box-shadow:
+        0 0 14px rgba(0,255,240,0.28),
+        0 0 28px rgba(0,255,240,0.16),
+        0 0 52px rgba(0,255,240,0.10);
+    }
   }
 
-  body h2{ margin:32px 0 12px !important; }
-  body hr{ margin:28px 0 !important; }
-  body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+  body h2{
+    margin:32px 0 12px !important;
+  }
+
+  body hr{
+    margin:28px 0 !important;
+  }
+
+  body p{
+    line-height:1.7 !important;
+    margin:0 0 14px !important;
+  }
 
   body ul,
   body ol{
@@ -132,6 +158,52 @@
     .grid-3,
     .grid-2{
       grid-template-columns:1fr;
+    }
+  }
+
+  /* PROJECT OVERVIEW */
+
+  .project-overview-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 500px;
+    gap:28px;
+    align-items:start;
+    width:100%;
+  }
+
+  .project-overview-text{
+    min-width:0;
+  }
+
+  .project-overview-text ul{
+    margin-top:0 !important;
+  }
+
+  .project-overview-video{
+    min-width:0;
+    padding-top:6px;
+  }
+
+  .project-overview-video iframe{
+    width:100%;
+    aspect-ratio:16 / 9;
+    display:block;
+    border:0;
+    border-radius:12px;
+    background:#000;
+    box-shadow:
+      0 0 12px rgba(0,255,240,.18),
+      0 0 24px rgba(0,255,240,.08);
+  }
+
+  @media (max-width:900px){
+    .project-overview-grid{
+      grid-template-columns:1fr;
+    }
+
+    .project-overview-video{
+      width:100%;
+      max-width:700px;
     }
   }
 
@@ -218,7 +290,7 @@
     margin-bottom:20px;
   }
 
-     .testimonial-card{
+  .testimonial-card{
     margin:24px 0 28px;
     padding:20px 22px;
     background:var(--panel);
