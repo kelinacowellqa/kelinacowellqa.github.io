@@ -405,15 +405,15 @@
   <h2 id="role">🎯 My QA Role</h2>
 
   <p>
-    I provide embedded QA support for Grove Bound during active development, with an initial focus on onboarding, player guidance, object interaction clarity, progression flow, and the overall first-session experience.
+    I am credited as QA Lead on Grove Bound, providing ongoing QA throughout active development and adapting testing priorities alongside the project's development needs.
   </p>
 
   <p>
-    The developer wanted feedback on whether new players could understand what the game was asking them to do, whether the early systems felt clear enough without explanation, and whether the opening experience gave players enough reason to continue. My first QA passes were shaped around those needs rather than broad, unfocused play.
+    My initial work focused on onboarding, player guidance, object interaction clarity, progression flow, and the overall first-session experience. More recently, my testing has expanded into targeted quest and progression validation ahead of further content development.
   </p>
 
   <p>
-    My responsibilities included exploratory QA, player-facing risk identification, structured reporting, regression testing, feature validation, and practical recommendations to support future Steam demo readiness.
+    My responsibilities include exploratory QA, player-facing risk identification, test planning, structured reporting, regression testing, quest and feature validation, dialogue quality checks, and practical recommendations to support continued development and future Steam demo readiness.
   </p>
 </section>
 
@@ -445,15 +445,17 @@ I would highly recommend working with her. The only area I would suggest improvi
 
     <hr>
 
-    <div class="grid-3">
+<div class="grid-3">
+
   <section class="card">
     <h3>🧠 Triage &amp; Planning</h3>
     <ul>
-      <li>Reviewed onboarding concerns</li>
-      <li>Prioritised first-session risks</li>
-      <li>Flagged progression blockers</li>
-      <li>Separated bugs from clarity issues</li>
-      <li>Planned focused regression checks</li>
+      <li>Aligned testing with current development priorities</li>
+      <li>Prioritised player-facing and progression risks</li>
+      <li>Defined focused test scope for each pass</li>
+      <li>Separated functional issues from clarity and usability concerns</li>
+      <li>Planned targeted regression and follow-up testing</li>
+      <li>Documented blocked and untested areas</li>
     </ul>
   </section>
 
@@ -461,10 +463,14 @@ I would highly recommend working with her. The only area I would suggest improvi
     <h3>🎮 Testing Focus</h3>
     <ul>
       <li>Tutorial and onboarding flow</li>
-      <li>Early progression guidance</li>
-      <li>Quest and NPC direction</li>
-      <li>Crafting and cooking clarity</li>
-      <li>Buildable system validation</li>
+      <li>Early progression and player guidance</li>
+      <li>Quest progression and objective clarity</li>
+      <li>Inventory and quest-item interactions</li>
+      <li>Puzzle and progression validation</li>
+      <li>Resource gathering and crafting</li>
+      <li>Cooking and buildable systems</li>
+      <li>NPC interaction and dialogue quality</li>
+      <li>Feature discoverability</li>
     </ul>
   </section>
 
@@ -472,12 +478,14 @@ I would highly recommend working with her. The only area I would suggest improvi
     <h3>🔁 Ongoing Support</h3>
     <ul>
       <li>Regression testing after fixes</li>
-      <li>Reproduction checks</li>
-      <li>New feature validation</li>
-      <li>Storage and buildable testing</li>
-      <li>Steam demo readiness support</li>
+      <li>Fix and reproduction validation</li>
+      <li>New feature and system validation</li>
+      <li>Targeted testing using developer-provided QA saves</li>
+      <li>Quest and progression validation</li>
+      <li>Continued Steam demo readiness support</li>
     </ul>
   </section>
+
 </div>
 
 <hr>
@@ -486,21 +494,28 @@ I would highly recommend working with her. The only area I would suggest improvi
   <h2 id="workflow">🛠️ Workflow &amp; Communication</h2>
 
   <p>
-    Testing was carried out through ongoing collaboration with the developer using Discord. Each pass focused
-    on current development priorities, player-facing risks, and recently implemented changes.
+    Testing is carried out through ongoing collaboration with the developer using Discord. Testing priorities
+    are aligned with current development needs, previously identified risks, newly implemented changes, and
+    areas requiring focused validation.
   </p>
 
   <p>
-    Findings were delivered through structured QA reports supported by screenshots, video evidence, bug logs,
-    friction logs, and practical recommendations. Follow-up sessions were then used to validate fixes and assess
-    whether previous concerns had improved.
+    My approach varies depending on the objective of each pass, ranging from first-time-player exploratory
+    testing to targeted regression, feature validation, and quest testing. Developer-provided QA saves are
+    used where appropriate to reach specific progression states efficiently and avoid unnecessary replay.
+  </p>
+
+  <p>
+    Findings are delivered through structured QA reports supported by screenshots, video evidence, bug logs,
+    friction logs, and practical recommendations. Follow-up passes are used to validate fixes, check for
+    regressions, and assess whether previously reported concerns have improved.
   </p>
 
   <table>
     <thead>
       <tr>
         <th>Workflow Area</th>
-        <th>How It Worked</th>
+        <th>How It Works</th>
       </tr>
     </thead>
     <tbody>
@@ -510,23 +525,27 @@ I would highly recommend working with her. The only area I would suggest improvi
       </tr>
       <tr>
         <td>Planning</td>
-        <td>Testing aligned with current build priorities and known risks.</td>
+        <td>Testing aligned with current development priorities, known risks, and requested validation areas.</td>
       </tr>
       <tr>
         <td>Testing</td>
-        <td>Exploratory testing, feature validation, and regression testing.</td>
+        <td>Exploratory testing, targeted regression, feature validation, and quest testing.</td>
+      </tr>
+      <tr>
+        <td>Test States</td>
+        <td>Developer-provided QA saves used to reach specific progression points for focused testing.</td>
       </tr>
       <tr>
         <td>Reporting</td>
-        <td>Structured reports covering findings, impact, and recommendations.</td>
+        <td>Structured reports documenting scope, findings, player impact, and recommendations.</td>
       </tr>
       <tr>
         <td>Evidence</td>
-        <td>Screenshots and gameplay recordings used where appropriate.</td>
+        <td>Screenshots and gameplay recordings used to support findings where appropriate.</td>
       </tr>
       <tr>
         <td>Follow-up</td>
-        <td>Fix validation and regression testing across later builds.</td>
+        <td>Fix validation and regression testing across subsequent builds.</td>
       </tr>
     </tbody>
   </table>
@@ -537,66 +556,157 @@ I would highly recommend working with her. The only area I would suggest improvi
 <section aria-labelledby="main-testing">
   <h2 id="main-testing">🧭 Onboarding, Progression &amp; Feature Validation</h2>
 
-  <p>
-    A significant portion of testing focused on whether Grove Bound successfully communicated its mechanics,
-    objectives, and progression systems to a new player without external guidance.
-  </p>
+ <p>
+  Testing has evolved alongside Grove Bound's development, beginning with broad first-time-player
+  and onboarding evaluation before expanding into regression testing, feature validation, targeted
+  quest testing, and system-level investigation.
+</p>
 
-  <p>
-    Testing covered tutorial flow, post-tutorial progression, NPC guidance, crafting discovery, cooking systems,
-    buildable structures, resource management, and feature usability.
-  </p>
+<p>
+  Coverage has included onboarding, progression, quest flow, inventory interactions, crafting,
+  cooking, buildable systems, dialogue, save integrity, puzzles, and player-facing usability.
+  Testing priorities have changed between builds based on development needs and previously
+  identified risks.
+</p>
 
-  <p>
-    The objective was not simply to verify functionality, but to assess whether players understood why systems
-    existed, how they connected to progression, and what actions they should take next.
-  </p>
+<p>
+  The timeline below shows how QA coverage has developed across the project rather than representing
+  a single testing pass.
+</p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Test Area</th>
-        <th>Observed Focus</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Tutorial Flow</td>
-        <td>Clarity of onboarding and information pacing.</td>
-      </tr>
-      <tr>
-        <td>Early Progression</td>
-        <td>Player motivation and direction after onboarding.</td>
-      </tr>
-      <tr>
-        <td>Quest Guidance</td>
-        <td>Objective communication and discoverability.</td>
-      </tr>
-      <tr>
-        <td>NPC Interaction</td>
-        <td>Dialogue clarity and progression support.</td>
-      </tr>
-      <tr>
-        <td>Crafting</td>
-        <td>Recipe understanding and progression value.</td>
-      </tr>
-      <tr>
-        <td>Cooking</td>
-        <td>System usability and player feedback.</td>
-      </tr>
-      <tr>
-        <td>Buildable Systems</td>
-        <td>Campfires, storage, and feature discoverability.</td>
-      </tr>
-      <tr>
-        <td>Regression Testing</td>
-        <td>Validation of fixes and previously reported concerns.</td>
-      </tr>
-    </tbody>
-  </table>
+<table class="qa-timeline">
+  <thead>
+    <tr>
+      <th>Testing Area</th>
+      <th>Jun 2026</th>
+      <th>Jul 2026</th>
+      <th>Aug 2026</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Tutorial &amp; Onboarding</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+
+    <tr>
+      <td>First-Session Experience</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+
+    <tr>
+      <td>Progression &amp; Player Guidance</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Quest Validation</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Inventory &amp; Item Interactions</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Crafting &amp; Resource Systems</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Cooking Systems</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Buildable &amp; Storage Systems</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+
+    <tr>
+      <td>Puzzle / Logic Progression</td>
+      <td>—</td>
+      <td>—</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Dialogue System &amp; Content Quality</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Save / Load Integrity</td>
+      <td>—</td>
+      <td>✓</td>
+      <td>—</td>
+    </tr>
+
+    <tr>
+      <td>Regression &amp; Fix Validation</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="table-note">
+  ✓ Tested during this period &nbsp;&nbsp; — Not tested or not a focus during this period
+</p>
 </section>
 
 <hr>
+
+    <section aria-labelledby="quest-progression-testing">
+  <h2 id="quest-progression-testing">🗺️ Quest &amp; Progression Testing</h2>
+
+  <p>
+    As development progressed, my testing expanded into focused validation of existing quest content ahead of further planned content development.
+  </p>
+
+  <p>
+    I carried out exploratory quest playthroughs from a first-time-player perspective, testing progression flow, objective clarity, inventory interactions, puzzles, resource gathering, crafting, cooking, and NPC dialogue.
+  </p>
+
+  <p>
+    A key part of this testing was evaluating not only whether quest systems functioned correctly, but whether the intended progression could be understood using the information available to the player.
+  </p>
+
+  <p>
+    Where progression became unclear, I avoided requesting the intended solution from the developer. Instead, I tested logical player actions, documented the resulting behaviour, and reported where the progression path could not be determined naturally. This preserved the value of the first-time-player perspective and helped identify potential discoverability and guidance issues.
+  </p>
+
+  <p>
+    The testing included both successful end-to-end quest validation and investigation of progression friction. Individual systems were tested independently where appropriate to help distinguish between a functional problem and unclear communication of the intended interaction.
+  </p>
+
+  <p>
+    Dialogue was also reviewed during these passes for grammar, spelling, punctuation, capitalisation, and formatting issues.
+  </p>
+</section>
+
+    <hr>
 
 <section aria-labelledby="risk-areas">
   <h2 id="risk-areas">⚠️ Current Player-Facing Risk Areas</h2>
@@ -611,7 +721,7 @@ I would highly recommend working with her. The only area I would suggest improvi
     <tbody>
       <tr>
         <td>Progression Clarity</td>
-        <td>Players may become unsure what to do next after completing objectives.</td>
+        <td>Players may become unsure how to progress when the intended next action is not sufficiently communicated.</td>
       </tr>
       <tr>
         <td>System Discoverability</td>
@@ -619,11 +729,11 @@ I would highly recommend working with her. The only area I would suggest improvi
       </tr>
       <tr>
         <td>Feature Communication</td>
-        <td>Mechanics may function correctly while their purpose remains unclear.</td>
+        <td>Mechanics may function correctly while their purpose or intended use remains unclear.</td>
       </tr>
       <tr>
-        <td>Crafting &amp; Building Guidance</td>
-        <td>Players may struggle to understand unlock paths and progression requirements.</td>
+        <td>Quest &amp; System Guidance</td>
+        <td>Players may understand an objective but struggle to identify the required item, interaction, or system needed to progress.</td>
       </tr>
       <tr>
         <td>Feedback Visibility</td>
@@ -631,30 +741,37 @@ I would highly recommend working with her. The only area I would suggest improvi
       </tr>
       <tr>
         <td>Retention Risk</td>
-        <td>Confusion during early gameplay can reduce motivation to continue playing.</td>
+        <td>Repeated uncertainty around progression or system use can interrupt gameplay flow and reduce motivation to continue.</td>
       </tr>
     </tbody>
   </table>
 </section>
 
 <hr>
-
+    
 <section aria-labelledby="developer-collaboration">
   <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
 
   <p>
-    Testing priorities were agreed collaboratively based on the developer's current concerns, active feature work,
-    and player-facing risks identified during earlier passes.
+    Testing priorities are agreed collaboratively based on current development needs, active feature work,
+    upcoming testing requirements, and player-facing risks identified during previous QA passes.
   </p>
 
   <p>
-    Feedback was reported in a practical way, separating progression blockers, usability concerns, clarity issues,
-    and lower-priority observations to help support development decisions.
+    As development has progressed, testing has moved from broad first-time-player and onboarding evaluation
+    into more targeted regression, feature, progression, and quest validation. Developer-provided QA saves
+    are used where appropriate to reach specific test states efficiently.
   </p>
 
   <p>
-    The project remains an ongoing collaboration, with future testing expected to focus on new features,
-    regression coverage, and Steam demo readiness as development continues.
+    Feedback is reported in a practical way, separating functional defects, progression blockers, usability
+    and discoverability concerns, content-quality issues, and lower-priority observations to support
+    development decisions.
+  </p>
+
+  <p>
+    The project remains an ongoing collaboration, with QA priorities continuing to evolve alongside
+    development and future Steam demo readiness.
   </p>
 </section>
 
@@ -672,32 +789,40 @@ I would highly recommend working with her. The only area I would suggest improvi
     </thead>
     <tbody>
       <tr>
-        <td>PC / Browser Testing</td>
-        <td>Testing active itch.io builds.</td>
+        <td>PC Testing</td>
+        <td>Testing development builds and targeted gameplay scenarios.</td>
+      </tr>
+      <tr>
+        <td>Browser Testing</td>
+        <td>Testing browser-based builds and player-facing functionality.</td>
+      </tr>
+      <tr>
+        <td>Developer-Provided Save States</td>
+        <td>Accessing specific progression points for focused quest and feature testing.</td>
       </tr>
       <tr>
         <td>Google Docs</td>
-        <td>QA summaries and reporting.</td>
+        <td>QA summaries and structured test reporting.</td>
       </tr>
       <tr>
         <td>Google Sheets</td>
-        <td>Bug logs and friction logs.</td>
+        <td>Bug logs and friction tracking.</td>
       </tr>
       <tr>
         <td>Discord</td>
-        <td>Communication and feedback discussion.</td>
+        <td>Developer communication, testing priorities, and feedback discussion.</td>
       </tr>
       <tr>
         <td>Screenshot Evidence</td>
-        <td>Visual issue documentation.</td>
+        <td>Visual issue documentation and supporting evidence.</td>
       </tr>
       <tr>
         <td>Video Evidence</td>
-        <td>Capturing gameplay behaviour and repro evidence.</td>
+        <td>Capturing gameplay behaviour and reproduction evidence.</td>
       </tr>
       <tr>
         <td>itch.io</td>
-        <td>Build access and testing.</td>
+        <td>Accessing and testing available project builds.</td>
       </tr>
     </tbody>
   </table>
@@ -709,14 +834,19 @@ I would highly recommend working with her. The only area I would suggest improvi
   <h2 id="case-study-shows">✅ What This Case Study Shows</h2>
 
   <ul>
-    <li>Ongoing QA support for an actively developed indie project.</li>
+    <li>Ongoing QA Lead responsibility on an actively developed indie project.</li>
     <li>Player-focused exploratory testing from a first-time user perspective.</li>
-    <li>Identification of onboarding, progression, and usability risks.</li>
-    <li>Structured reporting with clear player-impact analysis.</li>
-    <li>Regression testing and feature validation across multiple updates.</li>
-    <li>Practical collaboration with a solo indie developer.</li>
-    <li>Support for long-term demo readiness and player experience improvements.</li>
+    <li>Targeted quest, progression, and feature validation using developer-provided test states.</li>
+    <li>Identification of onboarding, progression, usability, and discoverability risks.</li>
+    <li>Testing of interconnected inventory, crafting, cooking, and progression systems.</li>
+    <li>Investigation of progression friction while distinguishing functional issues from unclear player guidance.</li>
+    <li>Dialogue and content-quality checks alongside functional gameplay testing.</li>
+    <li>Structured QA reporting with defined scope, findings, and player-impact analysis.</li>
+    <li>Regression testing and feature validation across multiple development updates.</li>
+    <li>Independent testing based on priorities agreed directly with the developer.</li>
+    <li>Ongoing contribution to player-experience improvements and future demo readiness.</li>
   </ul>
+</section>
 
   
  <div class="cta-row">
