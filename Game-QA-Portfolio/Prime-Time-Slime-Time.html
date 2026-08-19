@@ -1,1 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="91dd4980-fd90-49a2-bfd4-85a7a6778b60"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+  <title>Prime Time: Slime Time - QA Case Study | Kelina Cowell</title>
+  <meta name="description" content="QA case study for Prime Time: Slime Time by Loom & Lore Interactive Games, covering Android mobile testing, exploratory QA, regression testing, performance validation, onboarding, gameplay readability, input stability, progression systems, and mobile usability." />
+
+  <meta property="og:title" content="Prime Time: Slime Time - QA Case Study" />
+  <meta property="og:description" content="QA case study showing Kelina Cowell's Android testing work on Prime Time: Slime Time, including exploratory QA, regression testing, performance validation, input stability, gameplay readability, and mobile usability." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://kelinacowellqa.github.io/Game-QA-Portfolio/prime-time-slime-time.html" />
+  <meta property="og:image" content="https://kelinacowellqa.github.io/assets/img/prime-time-slime-time-header.png" />
+
+  <link rel="canonical" href="https://kelinacowellqa.github.io/Game-QA-Portfolio/prime-time-slime-time.html" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=5">
+
+  <style>
+    .hero{
+      width:100%;
+      height:260px;
+      position:relative;
+      margin:28px 0 26px !important;
+      padding:0 !important;
+      border:0;
+      border-radius:20px;
+      background:transparent !important;
+      box-shadow:none !important;
+      overflow:visible !important;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center center;
+      border-radius:20px;
+      border:0;
+      box-shadow:none !important;
+      background:transparent;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:20px;
+      pointer-events:none;
+      box-shadow:
+        0 0 14px rgba(0,255,240,0.28),
+        0 0 28px rgba(0,255,240,0.16),
+        0 0 52px rgba(0,255,240,0.10);
+      animation:heroPulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes heroPulse{
+      0%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+      50%{ box-shadow:0 0 22px rgba(0,255,240,0.42),0 0 42px rgba(0,255,240,0.24),0 0 72px rgba(0,255,240,0.14); }
+      100%{ box-shadow:0 0 14px rgba(0,255,240,0.28),0 0 28px rgba(0,255,240,0.16),0 0 52px rgba(0,255,240,0.10); }
+    }
+
+    body h2{ margin:32px 0 12px !important; }
+    body hr{ margin:28px 0 !important; }
+    body p{ line-height:1.7 !important; margin:0 0 14px !important; }
+
+    body ul,
+    body ol{
+      margin:12px 0 20px !important;
+      padding-left:1.3rem !important;
+    }
+
+    body li{
+      line-height:1.7 !important;
+      margin:8px 0 !important;
+    }
+
+    .cta-row{
+      margin:20px 0 34px !important;
+      text-align:center;
+    }
+
+    .cta-row .cta-btn{
+      margin:6px 8px;
+    }
+
+    @media (max-width:560px){
+      .cta-row .cta-btn{
+        display:block;
+        margin:8px auto;
+        width:fit-content;
+      }
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin:12px 0;
+    }
+
+    .grid-3 .card,
+    .grid-2 .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:16px;
+    }
+
+    .grid-3 .card h3,
+    .grid-2 .card h3{
+      margin-top:0;
+    }
+
+    @media (max-width:900px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#0f1215;
+      border:1px solid rgba(255,255,255,.08);
+      margin:12px 0;
+      border-radius:8px;
+      overflow:hidden;
+    }
+
+    thead th{
+      background:rgba(0,255,240,.08);
+      color:#00fff0;
+      text-align:left;
+      font-weight:700;
+      font-size:14px;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody td,
+    tbody th{
+      color:#cfd6dd;
+      padding:12px 14px;
+      vertical-align:top;
+    }
+
+    thead th+th,
+    tbody td+td,
+    tbody th+td{
+      border-left:1px solid rgba(255,255,255,.08);
+    }
+
+    tbody tr+tr td,
+    tbody tr+tr th{
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    blockquote{
+      border-left:3px solid #00fff0;
+      margin:18px 0;
+      padding:12px 18px;
+      background:rgba(0,255,240,.04);
+      color:#cfd6dd;
+    }
+
+    .service-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .service-card.hero-copy{
+      max-width:900px;
+      margin:0 auto;
+      padding:20px 24px;
+      text-align:center;
+    }
+
+    .service-card.hero-copy h2{
+      margin-top:0;
+    }
+
+    .service-card.hero-copy .lead{
+      margin-bottom:20px;
+    }
+
+    .testimonial-card{
+      margin:24px 0 28px;
+      padding:20px 22px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-left:4px solid #00fff0;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.28);
+    }
+
+    .testimonial-card h2{
+      margin:0 0 12px !important;
+    }
+
+    .testimonial-card blockquote{
+      margin:0;
+      padding:14px 18px;
+      border-left:0;
+      background:rgba(0,255,240,.04);
+      color:#cfd6dd;
+      font-size:1.05rem;
+      line-height:1.75;
+      font-style:italic;
+      border-radius:10px;
+    }
+
+    .testimonial-author{
+      margin:14px 0 0 !important;
+      color:#00fff0;
+      font-weight:700;
+      text-align:right;
+    }
+
+    .project-overview-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 500px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .project-overview-video{
+      padding-top:6px;
+    }
+
+    .project-overview-video iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      display:block;
+      border:none;
+      border-radius:12px;
+      box-shadow:
+        0 0 12px rgba(0,255,240,.18),
+        0 0 24px rgba(0,255,240,.08);
+    }
+
+    @media (max-width:900px){
+      .project-overview-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .testimonial-card{
+        padding:16px;
+      }
+
+      .testimonial-card blockquote{
+        padding:12px 14px;
+        font-size:1rem;
+      }
+
+      .testimonial-author{
+        text-align:left;
+      }
+    }
+  </style>
+
+  <script data-goatcounter="https://kelina.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <main class="wrap">
+
+   <header class="hero">
+  <img src="https://kelinacowellqa.github.io/assets/img/prime-time-slime-time-header.png"
+       alt="Prime Time: Slime Time QA case study banner">
+</header>
+
+    <nav style="text-align:center;margin-bottom:20px;">
+      <a class="cta-btn"
+         href="https://kelinacowellqa.github.io/Game-QA-Portfolio.html">
+        Back to Portfolio Hub
+      </a>
+    </nav>
+
+  <h1>Prime Time: Slime Time - QA Case Study</h1>
+
+    <!-- PROJECT OVERVIEW -->
+
+   <section aria-labelledby="overview">
+  <h2 id="overview">🧾 Project Overview</h2>
+
+  <div class="project-overview-grid">
+
+    <div class="project-overview-text">
+      <ul>
+        <li><strong>Game:</strong> Prime Time: Slime Time</li>
+        <li><strong>Studio:</strong> Loom &amp; Lore Interactive Games</li>
+        <li><strong>Role:</strong> Head of QA</li>
+        <li><strong>Testing dates:</strong> 26 May 2026 – 8 July 2026</li>
+        <li><strong>Status:</strong> Development currently paused</li>
+        <li><strong>Platform:</strong> Android Mobile</li>
+        <li><strong>Testing focus:</strong> Exploratory QA, regression testing, mobile input stability, performance validation, onboarding, gameplay readability, progression systems, and mobile usability</li>
+      </ul>
+    </div>
+    </section>
+
+    <hr>
+
+    <!-- MY QA ROLE -->
+
+   <section aria-labelledby="role">
+  <h2 id="role">🎯 My QA Role</h2>
+
+  <p>
+    As Head of QA for Loom &amp; Lore Interactive Games, I provided QA support for Prime Time: Slime Time during its Android closed-testing development period. My role focused on evaluating the game from a player-facing perspective while identifying functional, usability, readability, input, progression, and performance issues across successive builds.
+  </p>
+
+  <p>
+    Testing began with broad exploratory coverage of onboarding, combat readability, mobile controls, upgrade systems, pickups, progression flow, and run-state stability. As development continued, my testing shifted into targeted regression and devlog-driven validation, allowing reported fixes and newly implemented systems to be checked against the specific changes introduced in each build.
+  </p>
+
+  <p>
+    My responsibilities included exploratory QA, regression testing, mobile usability testing, performance validation, input and joystick testing, progression and economy validation, new feature testing, gameplay smoke testing, player-facing risk assessment, evidence capture, and structured reporting. Repeated regression passes were also used to track issues across builds and distinguish successful fixes from remaining or newly introduced concerns.
+  </p>
+</section>
+
+    <hr>
+
+   <!-- QA SUMMARY CARDS -->
+
+<div class="grid-3">
+
+  <section class="card">
+    <h3>🧠 Triage &amp; Planning</h3>
+    <ul>
+      <li>Reviewed build changes and developer update notes</li>
+      <li>Prioritised player-facing and gameplay-impacting risks</li>
+      <li>Defined focused regression scope for each build</li>
+      <li>Separated functional issues from usability and clarity concerns</li>
+      <li>Documented blocked, partially verified, and untested areas</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3>🎮 Testing Focus</h3>
+    <ul>
+      <li>Mobile input and joystick stability</li>
+      <li>Gameplay performance and extended-run behaviour</li>
+      <li>Onboarding, readability, and player guidance</li>
+      <li>Combat, upgrades, pickups, and progression systems</li>
+      <li>Economy, rewards, menus, and mobile usability</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3>🔁 QA Follow-Up</h3>
+    <ul>
+      <li>Regression testing across updated Android builds</li>
+      <li>Joystick and input fix validation</li>
+      <li>Repeated late-run performance testing</li>
+      <li>New feature and economy system validation</li>
+      <li>Gameplay smoke testing after changes</li>
+    </ul>
+  </section>
+
+</div>
+
+    <hr>
+
+    <!-- WORKFLOW -->
+
+  <section aria-labelledby="workflow">
+  <h2 id="workflow">🛠️ Workflow &amp; Communication</h2>
+
+  <p>
+    Testing was planned around the current Android build, recent developer changes, previously reported issues, and the player-facing risks identified during earlier passes. Initial exploratory testing established the main usability and gameplay concerns, while later passes became increasingly targeted as fixes and new systems were introduced.
+  </p>
+
+  <p>
+    Test passes included player-focused exploratory gameplay, targeted regression, devlog-driven validation, gameplay smoke testing, mobile usability checks, and extended performance testing. Where performance issues affected reliable validation, testing was stopped or marked as blocked rather than treating incomplete coverage as a pass or failure.
+  </p>
+
+  <p>
+    Findings were documented through structured QA reports covering test scope, build situation, observed behaviour, player impact, passed areas, remaining concerns, and verification limitations. Video evidence was used where useful to demonstrate gameplay behaviour, while later builds were used to retest fixes and track how previously reported issues changed across development.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Workflow Area</th>
+        <th>How It Worked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Communication</td>
+        <td>Direct communication with the developer around builds, changes, reported issues, fixes, and follow-up priorities.</td>
+      </tr>
+      <tr>
+        <td>Planning</td>
+        <td>Testing scope was based on current build changes, previous findings, known risks, and systems requiring regression coverage.</td>
+      </tr>
+      <tr>
+        <td>Testing</td>
+        <td>Player-focused exploratory QA, targeted regression, devlog-driven validation, mobile usability testing, gameplay smoke testing, and extended performance testing.</td>
+      </tr>
+      <tr>
+        <td>Reporting</td>
+        <td>Structured QA summaries documented scope, results, player impact, passed areas, open concerns, blocked coverage, and follow-up requirements.</td>
+      </tr>
+      <tr>
+        <td>Evidence</td>
+        <td>Gameplay recordings and supporting observations were used to document reproducible behaviour and compare results across builds.</td>
+      </tr>
+      <tr>
+        <td>Follow-Up</td>
+        <td>Updated builds were retested to verify fixes, identify regressions, and track changes in input stability, performance, usability, and gameplay systems.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <hr>
+
+    <!-- QA COVERAGE / TIMELINE -->
+
+<section aria-labelledby="main-testing">
+  <h2 id="main-testing">🎮 QA Coverage &amp; Testing Timeline</h2>
+
+  <p>
+    Testing evolved across successive Android builds as Prime Time: Slime Time moved through closed testing.
+    Initial coverage focused on first-time-player experience, mobile controls, gameplay readability, progression,
+    and run stability. Later passes shifted toward targeted regression, new feature validation, economy systems,
+    and repeated investigation of performance under sustained gameplay load.
+  </p>
+
+  <p>
+    Coverage included onboarding, joystick and touch input, combat readability, pickups, upgrades, progression,
+    run-state behaviour, economy and reward systems, mobile UI, new features, and extended performance testing.
+    Previously reported issues were revisited across later builds to verify fixes and track remaining behaviour.
+  </p>
+
+  <table class="qa-timeline">
+    <thead>
+      <tr>
+        <th>Testing Area</th>
+        <th>May 2026</th>
+        <th>Jun 2026</th>
+        <th>Jul 2026</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>First-Time Player &amp; Onboarding</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>Mobile Input &amp; Joystick Stability</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>Gameplay &amp; Combat Readability</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Pickup Visibility &amp; Feedback</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Upgrade &amp; Progression Clarity</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Run-State, Game Over &amp; Restart Flow</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>UI &amp; Mobile Usability</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Economy &amp; Reward Systems</td>
+        <td>—</td>
+        <td>✓</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>New Feature Validation</td>
+        <td>—</td>
+        <td>✓</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>Gameplay Performance</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Extended Performance Stress Testing</td>
+        <td>—</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Regression &amp; Fix Validation</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="table-note">
+    ✓ Tested during this period &nbsp;&nbsp; — Not tested or not a focus during this period
+  </p>
+</section>
+
+    <hr>
+
+<section aria-labelledby="focused-testing">
+  <h2 id="focused-testing">📱 Mobile Input &amp; Performance Testing</h2>
+
+  <p>
+    A major part of testing focused on mobile input stability and gameplay performance during increasingly demanding combat states. Early testing identified severe joystick instability that caused rapid directional snapping and loss of movement control, alongside performance degradation that became increasingly noticeable as runs progressed.
+  </p>
+
+  <p>
+    I tested movement under different gameplay conditions, including rapid direction changes, persistent weapon and environmental effects, increasing enemy density, overlapping visual effects, and longer runs. Following updates, targeted regression passes were used to determine whether previously reproduced input problems remained present and whether performance improvements held under sustained gameplay load.
+  </p>
+
+  <p>
+    Input behaviour and performance were evaluated separately where possible. This helped distinguish direct control problems, such as unwanted directional snapping, from reduced responsiveness caused by falling frame rates. Where performance degradation made other gameplay systems unreliable to assess, those tests were recorded as blocked or incomplete rather than being treated as valid pass or fail results.
+  </p>
+
+  <p>
+    Repeated testing showed measurable improvement across builds. The severe joystick snapping identified during early testing was no longer reproduced after subsequent fixes, while later performance testing showed the game progressing from sustained late-run degradation to intermittent FPS drops with recovery. A later build successfully completed a full 30-minute run under sustained gameplay load, while remaining performance concerns were documented for further investigation.
+  </p>
+</section>
+
+    <hr>
+
+   <!-- PLAYER-FACING RISKS -->
+
+<section aria-labelledby="risk-areas">
+  <h2 id="risk-areas">⚠️ Key Player-Facing Risk Areas</h2>
+
+  <p>
+    The areas below summarise the types of player-facing risk identified and evaluated during testing
+    without publishing private bug reports or internal development information.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Risk Area</th>
+        <th>Player Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Performance Stability</td>
+        <td>Frame-rate degradation during longer or effect-heavy runs can reduce responsiveness, disrupt combat timing, and make later gameplay difficult to assess or play reliably.</td>
+      </tr>
+
+      <tr>
+        <td>Mobile Input Reliability</td>
+        <td>Movement instability or delayed response can directly affect dodging, positioning, survivability, and player confidence in the controls.</td>
+      </tr>
+
+      <tr>
+        <td>Gameplay Readability</td>
+        <td>Heavy enemy density, effects, projectiles, and pickups can make important gameplay information harder to identify during active combat.</td>
+      </tr>
+
+      <tr>
+        <td>Onboarding &amp; Player Guidance</td>
+        <td>Important mechanics can be missed when instructions are difficult to access, incomplete, or disconnected from the player's first gameplay experience.</td>
+      </tr>
+
+      <tr>
+        <td>Progression &amp; Upgrade Clarity</td>
+        <td>Unclear upgrade effects, synergies, pickups, or progression feedback can make it difficult for players to understand how their choices affect a run.</td>
+      </tr>
+
+      <tr>
+        <td>Mobile UI &amp; Navigation</td>
+        <td>Scrolling, visibility, or interaction problems can prevent players from comfortably accessing instructions, upgrades, menus, and other important information on a mobile screen.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <hr>
+
+    <!-- DEVELOPER COLLABORATION -->
+
+  <section aria-labelledby="developer-collaboration">
+  <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
+
+  <p>
+    Testing priorities were shaped around the developer's current build changes, devlog updates, known issues, and areas requiring focused validation. This allowed each QA pass to concentrate on the systems most affected by recent development work rather than repeatedly covering the entire game.
+  </p>
+
+  <p>
+    Testing evolved in response to the project's needs. Early passes focused heavily on first-time-player experience, mobile controls, gameplay readability, onboarding, and progression clarity. Later passes became increasingly regression-focused, covering fixes and newly implemented systems such as joystick behaviour, pickup visibility, upgrade communication, the Gift Shop economy, Reroll and Banish functionality, mobile scrolling, and late-run performance.
+  </p>
+
+  <p>
+    Findings were separated according to their purpose and player impact. Functional defects, performance problems, usability concerns, readability issues, blocked verification, and areas requiring further monitoring were documented separately so that confirmed failures were not confused with observations or systems that could not yet be fully validated. Video evidence and gameplay observations were provided where useful for reproduction and investigation.
+  </p>
+
+  <p>
+    QA support continued across multiple updated Android builds, including targeted retesting after fixes and follow-up investigation of recurring performance and input concerns. Development is currently paused, so the case study represents the testing completed during the project's active development period.
+  </p>
+</section>
+
+    <hr>
+
+    <!-- TOOLS -->
+
+   <section aria-labelledby="tools">
+  <h2 id="tools">🧰 Tools &amp; Evidence Workflow</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tool / Method</th>
+        <th>Used For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Motorola g54 5G</td>
+        <td>Primary Android test device used for gameplay, mobile controls, UI, performance, progression, and regression testing.</td>
+      </tr>
+      <tr>
+        <td>Structured QA Reports</td>
+        <td>Documenting test scope, build context, results, passed areas, player-facing issues, blocked verification, and follow-up requirements.</td>
+      </tr>
+      <tr>
+        <td>Structured Bug &amp; Friction Logging</td>
+        <td>Separating functional defects, usability concerns, readability issues, performance problems, and observations requiring further investigation.</td>
+      </tr>
+      <tr>
+        <td>Developer Communication</td>
+        <td>Discussing new builds, devlog changes, known issues, regression priorities, clarification requests, and follow-up testing.</td>
+      </tr>
+      <tr>
+        <td>Screenshot Evidence</td>
+        <td>Capturing UI, onboarding, readability, progression, upgrade, shop, and other player-facing issues where visual evidence was useful.</td>
+      </tr>
+      <tr>
+        <td>Video Evidence</td>
+        <td>Recording gameplay behaviour, input problems, performance degradation, reproduction attempts, and regression results for developer review.</td>
+      </tr>
+      <tr>
+        <td>Android Closed Test Builds</td>
+        <td>Testing successive development builds and validating fixes, new systems, gameplay changes, and regressions before wider release.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <hr>
+
+    <!-- CASE STUDY SUMMARY -->
+<section aria-labelledby="case-study-shows">
+  <h2 id="case-study-shows">✅ What This Case Study Shows</h2>
+
+  <ul>
+    <li>Player-focused exploratory testing across multiple Android closed-test builds.</li>
+    <li>Targeted regression testing to verify fixes, new features, UI changes, and gameplay systems across successive updates.</li>
+    <li>Reproduction and follow-up investigation of a severe mobile input issue affecting joystick stability and player control.</li>
+    <li>Performance testing across extended gameplay sessions, including tracking late-run FPS degradation and improvement between builds.</li>
+    <li>Evaluation of onboarding, gameplay readability, pickup visibility, upgrade communication, survivability feedback, and mobile usability.</li>
+    <li>Validation of progression and economy systems including upgrades, persistent currency, reward payouts, Reroll, Banish, and Gift Shop behaviour.</li>
+    <li>Clear separation of confirmed defects, usability concerns, performance risks, passed regressions, blocked tests, and areas requiring continued monitoring.</li>
+    <li>Evidence-based reporting using gameplay recordings and structured QA summaries to support developer investigation and fix validation.</li>
+    <li>Adaptation of test scope as the project evolved, moving from broad first-time-player testing into increasingly targeted regression and performance validation.</li>
+  </ul>
+</section>
+
+    <!-- PROJECT LINKS -->
+
+    <div class="cta-row">
+      <!-- ADD ONLY LINKS THAT ARE PUBLIC AND APPROPRIATE -->
+      <a class="cta-btn"
+         href="[PUBLIC GAME / STUDIO URL]"
+         target="_blank"
+         rel="noopener">
+        View [GAME NAME]
+      </a>
+    </div>
+
+    <hr>
+
+    <!-- CONTACT -->
+
+    <section class="section" aria-labelledby="contact">
+      <div class="service-card hero-copy">
+
+        <h2 id="contact">Need QA Support for Your Game?</h2>
+
+        <p class="lead">
+          If you have a demo, PC build, browser build, update, or release candidate that needs structured QA support, message me with the platform, build, and what you need checked.
+        </p>
+
+        <div class="cta-row">
+          <a class="cta-btn primary-cta"
+             href="https://discord.gg/66Tgq6We"
+             target="_blank"
+             rel="noopener">
+            Message Me on Discord
+          </a>
+
+          <a class="cta-btn"
+             href="mailto:kelinacowell.qa@gmail.com?subject=Game%20Testing%20Enquiry">
+            Email Me
+          </a>
+
+          <a class="cta-btn"
+             href="https://www.linkedin.com/in/kelina-cowell-qa-tester"
+             target="_blank"
+             rel="noopener">
+            LinkedIn
+          </a>
+
+          <a class="cta-btn"
+             href="https://kelinacowellqa.github.io/freelance-game-qa-services.html">
+            View QA Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- DISCLAIMER -->
+
+    <h2>📎 Disclaimer</h2>
+
+    <p>
+      <em>
+        This page documents QA work completed by Kelina Cowell for portfolio and recruitment purposes.
+        [GAME NAME] is currently not in active development. I am not the developer or publisher of
+        [GAME NAME]. All trademarks, logos, screenshots, clips, graphs, and game assets remain the
+        property of their respective owners. Internal QA details, full bug logs, private builds, and
+        private developer communications are not published here. If anything needs to be removed or
+        credited differently, please contact me and I’ll update it promptly.
+      </em>
+    </p>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <script>document.write(new Date().getFullYear())</script> Kelina Cowell • QA Portfolio
+    </div>
+  </footer>
+
+</body>
+</html>
