@@ -366,15 +366,26 @@
   <h2 id="role">🎯 My QA Role</h2>
 
   <p>
-    My role is to provide ongoing embedded QA support for Dungeon Raiders across live updates, new builds, regression cycles, and player-facing gameplay checks. The work combines exploratory testing, patch-note targeted regression, fix validation, smoke testing, persistence checks, and Android mobile usability review.
+    I am credited as Head of QA on Dungeon Raiders, providing ongoing embedded QA across live updates,
+    development builds, regression cycles, hotfixes, and new content.
   </p>
 
   <p>
-    Because the game is actively updated, each pass is shaped around the current build state, recent fixes, new content, known risks, and what a normal Android player is likely to encounter during play.
+    My testing has evolved alongside the project, combining player-focused exploratory QA, patch-note targeted
+    regression, fix validation, smoke testing, save and persistence checks, combat and progression testing,
+    and mobile usability review. Testing has primarily been carried out on Android, with additional regression
+    coverage on Windows builds where required.
   </p>
 
   <p>
-    I am credited in the released game as <strong>Head of QA Kelina Cowell</strong>, reflecting my ongoing QA contribution to the project.
+    Each QA pass is shaped around the current build state, recent changes, known risks, and the developer's
+    testing priorities. This allows testing to move between broad player-facing evaluation and focused
+    verification of specific systems or fixes as development requires.
+  </p>
+
+  <p>
+    I am credited in the released game as <strong>Head of QA Kelina Cowell</strong>, reflecting my ongoing
+    contribution to the project's quality across development and post-release updates.
   </p>
 </section>
 
@@ -396,39 +407,46 @@
 
 <hr>
 
-    <div class="grid-3">
+<div class="grid-3">
+
   <section class="card">
     <h3>🧠 Triage &amp; Planning</h3>
     <ul>
       <li>Reviewed patch notes and build changes</li>
-      <li>Identified regression risk areas</li>
-      <li>Prioritised Android player impact</li>
-      <li>Separated bugs from tuning concerns</li>
-      <li>Planned targeted retest coverage</li>
+      <li>Identified regression and player-facing risk areas</li>
+      <li>Defined focused scope for each QA pass</li>
+      <li>Separated functional issues from usability and tuning concerns</li>
+      <li>Planned targeted regression and fix validation</li>
+      <li>Documented blocked and unverified test areas</li>
     </ul>
   </section>
 
   <section class="card">
     <h3>🎮 Testing Focus</h3>
     <ul>
-      <li>Android gameplay stability</li>
-      <li>UI and menu behaviour</li>
-      <li>Class and ability behaviour</li>
-      <li>Save and resume persistence</li>
+      <li>Gameplay and combat stability</li>
+      <li>UI, menus, and mobile usability</li>
+      <li>Class, ability, and reward behaviour</li>
+      <li>Save, resume, and persistence</li>
+      <li>Progression and state transitions</li>
       <li>Shop and economy consistency</li>
+      <li>Player feedback and readability</li>
+      <li>New content and feature validation</li>
     </ul>
   </section>
 
   <section class="card">
     <h3>🔁 Ongoing Support</h3>
     <ul>
-      <li>Patch-note regression testing</li>
-      <li>Fix validation after updates</li>
+      <li>Patch-note targeted regression testing</li>
+      <li>Fix and hotfix validation</li>
       <li>New content smoke testing</li>
-      <li>Connected-system retesting</li>
-      <li>Future Android update support</li>
+      <li>Live and development build testing</li>
+      <li>Connected-system regression checks</li>
+      <li>Ongoing post-release QA support</li>
     </ul>
   </section>
+
 </div>
 
 <hr>
@@ -437,41 +455,61 @@
   <h2 id="workflow">🛠️ Workflow &amp; Communication</h2>
 
   <p>
-    Testing is carried out as an ongoing embedded QA workflow. Each pass is shaped around the current build, latest patch notes, known risk areas, and player-facing behaviour observed during Android gameplay.
+    Testing is carried out as an ongoing embedded QA workflow. Each pass is shaped around the current build,
+    latest patch notes, known risk areas, recent fixes, and the developer's current testing priorities.
   </p>
 
   <p>
-    The workflow is intentionally practical. I focus on what a player can see, misunderstand, break, lose progress through, or become frustrated by during normal play. Where needed, I also use targeted regression and debug-assisted coverage to reach specific systems or later progression states more efficiently.
+    My approach varies depending on the purpose of each build, ranging from player-focused exploratory testing
+    to targeted regression, hotfix verification, new content smoke testing, and persistence checks. Debug-assisted
+    testing is used where appropriate to reach later progression states or specific systems more efficiently.
+  </p>
+
+  <p>
+    Testing is primarily performed on Android, with additional Windows build coverage where required. Findings
+    are documented with clear scope, results, player impact, supporting evidence, and any areas that remain
+    blocked or unverified.
   </p>
 
   <table>
     <thead>
-      <tr><th>Workflow Area</th><th>How It Worked</th></tr>
+      <tr>
+        <th>Workflow Area</th>
+        <th>How It Works</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
         <td>Communication</td>
-        <td>Ongoing communication with the developer around new builds, patch notes, reported issues, fixes, and retest priorities.</td>
+        <td>Ongoing communication with the developer around builds, patch notes, reported issues, fixes, and retest priorities.</td>
       </tr>
       <tr>
         <td>Planning</td>
-        <td>Each QA pass was planned around the current build state, recent changes, known risk areas, and player-facing impact.</td>
+        <td>QA passes are scoped around current changes, known risks, player impact, and requested validation areas.</td>
       </tr>
       <tr>
         <td>Testing</td>
-        <td>Testing combined player-focused exploratory gameplay, targeted regression, smoke testing, persistence checks, and Android mobile usability review.</td>
+        <td>Player-focused exploratory QA, targeted regression, hotfix verification, smoke testing, persistence checks, and mobile usability review.</td>
+      </tr>
+      <tr>
+        <td>Test Coverage</td>
+        <td>Live, development, and Windows builds are tested as required, with debug-assisted coverage used for targeted progression checks.</td>
       </tr>
       <tr>
         <td>Reporting</td>
-        <td>Findings were written clearly with player impact, reproducible behaviour, relevant context, and evidence where useful.</td>
+        <td>Structured QA reports document scope, findings, player impact, results, and supporting evidence where appropriate.</td>
       </tr>
       <tr>
         <td>Regression</td>
-        <td>Fixes were retested in later builds, with nearby systems checked where changes could cause regressions.</td>
+        <td>Fixes are retested in subsequent builds, with connected systems checked for potential regressions.</td>
+      </tr>
+      <tr>
+        <td>Limitations</td>
+        <td>Blocked, inaccessible, or unverified scenarios are documented clearly rather than reported as passed or failed.</td>
       </tr>
       <tr>
         <td>Ongoing Support</td>
-        <td>Further QA passes are expected as Dungeon Raiders continues receiving updates, fixes, tuning, and new content.</td>
+        <td>Continued post-release QA across updates, hotfixes, fixes, tuning, and new content.</td>
       </tr>
     </tbody>
   </table>
@@ -480,114 +518,217 @@
 <hr>
 
 <section aria-labelledby="main-testing">
-  <h2 id="main-testing">🎮 Android Regression &amp; Gameplay Systems Testing</h2>
+  <h2 id="main-testing">🎮 QA Coverage &amp; Development Timeline</h2>
 
   <p>
-    The main testing work has focused on keeping Dungeon Raiders stable, readable, and consistent across Android updates. This includes normal gameplay flow, class behaviour, combat feedback, menu interaction, save/resume persistence, reward behaviour, shop systems, and regression risks introduced by fixes or new content.
+    Testing has evolved alongside Dungeon Raiders, beginning with broad player-focused Android testing
+    before expanding into targeted regression, persistence testing, new content validation, live-build
+    verification, and post-release hotfix testing.
   </p>
 
   <p>
-    Testing has included both player-focused exploratory passes and targeted regression passes. Exploratory testing helped identify visible issues during normal play, while patch-note targeted regression checked whether specific fixes, features, class changes, and menu behaviours worked correctly after updates.
+    Coverage has included gameplay stability, combat and class systems, UI and mobile usability,
+    progression, save and resume behaviour, shops and economy, rewards, boss encounters, and
+    player-facing feedback. Testing priorities have shifted between builds based on recent changes,
+    known risks, and the areas requiring focused validation.
   </p>
 
-  <table>
+  <p>
+    The timeline below shows how my QA coverage has expanded and shifted alongside the project's development.
+  </p>
+
+  <table class="qa-timeline">
     <thead>
-      <tr><th>Test Area</th><th>Observed Focus</th></tr>
+      <tr>
+        <th>Testing Area</th>
+        <th>May 2026</th>
+        <th>Jun 2026</th>
+        <th>Jul 2026</th>
+        <th>Aug 2026</th>
+      </tr>
     </thead>
+
     <tbody>
       <tr>
-        <td>Android Gameplay Stability</td>
-        <td>Normal gameplay flow, transitions, touch interaction, run-state behaviour, and mobile usability.</td>
+        <td>Player-Focused Exploratory QA</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>—</td>
       </tr>
+
       <tr>
-        <td>UI &amp; Menu Behaviour</td>
-        <td>Menu flow, overlays, button feedback, pressed states, readability, and reopen behaviour after resume.</td>
+        <td>Gameplay &amp; Combat Systems</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
       </tr>
+
       <tr>
-        <td>Combat Systems</td>
-        <td>Sword attacks, Cleave, Thorns, ENTANGLE behaviour, ability handling, combat feedback, and empty-board ability behaviour.</td>
+        <td>Class &amp; Ability Behaviour</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
       </tr>
+
       <tr>
-        <td>Class Behaviour</td>
-        <td>Warrior, Druid, Fisher, class-specific level-up pools, class selection, and weapon art persistence.</td>
+        <td>UI, Menus &amp; Readability</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
       </tr>
+
       <tr>
-        <td>Save &amp; Resume Persistence</td>
-        <td>Android backgrounding, resume flow, relic persistence, shop item persistence, and menu functionality after resume.</td>
+        <td>Save, Resume &amp; Persistence</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
       </tr>
+
       <tr>
-        <td>Shop &amp; Economy</td>
-        <td>Gold, Soul Shards, upgrades, duplicate purchase prevention, shop behaviour, and progression reward consistency.</td>
+        <td>Progression &amp; State Transitions</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
       </tr>
+
+      <tr>
+        <td>Shop, Economy &amp; Rewards</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>Boss &amp; Encounter Behaviour</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
       <tr>
         <td>Patch-Note Regression</td>
-        <td>Verification of listed fixes, changed systems, class updates, UI changes, and nearby regression risks.</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
       </tr>
+
       <tr>
-        <td>New Content Smoke Testing</td>
-        <td>New classes, updated reward pools, new features, menu additions, and release/update readiness checks.</td>
+        <td>New Content &amp; Feature Validation</td>
+        <td>—</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>✓</td>
+      </tr>
+
+      <tr>
+        <td>Debug-Assisted Testing</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+
+      <tr>
+        <td>Hotfix / Live-Build Verification</td>
+        <td>✓</td>
+        <td>✓</td>
+        <td>—</td>
+        <td>✓</td>
       </tr>
     </tbody>
   </table>
+
+  <p class="table-note">
+    ✓ Tested during this period &nbsp;&nbsp; — Not tested or not a focus during this period
+  </p>
 </section>
 
 <hr>
 
 <section aria-labelledby="risk-areas">
-  <h2 id="risk-areas">⚠️ Current Player-Facing Risk Areas</h2>
+  <h2 id="risk-areas">⚠️ Key Player-Facing Risk Areas</h2>
 
   <p>
-    The risks below are grouped by player impact rather than listing individual internal bug reports. This keeps the case study focused on QA judgement while protecting private project details.
+    Testing prioritises areas where defects or unclear behaviour could have the greatest impact on
+    player experience. These risk areas guide exploratory testing, regression coverage, and
+    follow-up validation across updates.
   </p>
 
   <table>
     <thead>
-      <tr><th>Risk Area</th><th>Player Impact</th></tr>
+      <tr>
+        <th>Risk Area</th>
+        <th>Player Impact</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Save / Resume Reliability</td>
-        <td>Mobile players expect interrupted sessions to resume correctly. Persistence issues can damage trust quickly.</td>
+        <td>Save &amp; Resume Reliability</td>
+        <td>Interrupted sessions need to restore progression, inventory, rewards, and gameplay state consistently.</td>
       </tr>
       <tr>
-        <td>UI &amp; Overlay Stability</td>
-        <td>Menus, overlays, and buttons need to behave consistently so players do not feel the game state is unstable.</td>
+        <td>UI &amp; Menu Stability</td>
+        <td>Menus, overlays, buttons, and gameplay screens need to transition cleanly without obscuring information or disrupting interaction.</td>
       </tr>
       <tr>
         <td>Class &amp; Ability Clarity</td>
-        <td>Unclear ability behaviour can make class mechanics feel unreliable, especially when players are making run-critical choices.</td>
+        <td>Players need to understand how class mechanics and abilities behave so they can make informed gameplay decisions.</td>
       </tr>
       <tr>
-        <td>Combat Feedback</td>
-        <td>Players need clear feedback when damage, abilities, rewards, or deaths occur so they understand the outcome of their actions.</td>
+        <td>Combat &amp; Gameplay Feedback</td>
+        <td>Clear visual and gameplay feedback helps players understand damage, abilities, rewards, state changes, and the outcome of their actions.</td>
+      </tr>
+      <tr>
+        <td>Progression &amp; Reward Integrity</td>
+        <td>Progression triggers, upgrades, rewards, and statistics need to behave consistently so players can trust their progress.</td>
       </tr>
       <tr>
         <td>Shop &amp; Economy Consistency</td>
-        <td>Upgrade, purchase, and reward issues can affect progression trust and make the economy feel unreliable.</td>
+        <td>Purchases, costs, upgrades, and reward behaviour need to remain accurate and predictable throughout progression.</td>
       </tr>
       <tr>
         <td>Regression Risk After Updates</td>
-        <td>New features and fixes can affect nearby systems, especially menus, persistence, class behaviour, and reward flow.</td>
+        <td>Changes to one system can affect connected gameplay, persistence, UI, progression, or reward behaviour in later builds.</td>
       </tr>
     </tbody>
   </table>
 </section>
-
+    
 <hr>
 
 <section aria-labelledby="developer-collaboration">
   <h2 id="developer-collaboration">🤝 Working With the Developer</h2>
 
   <p>
-    Dungeon Raiders is a live, evolving project, so the QA support needs to stay flexible. Some passes are broad and exploratory. Others are tightly focused on a patch, feature, regression risk, or piece of player feedback.
+    Dungeon Raiders is a live, evolving project, so testing priorities are adapted around current development
+    needs, new builds, patch notes, hotfixes, known risks, and areas requiring focused validation.
   </p>
 
   <p>
-    I separate issues by player impact and test purpose rather than treating every observation as the same kind of bug. A broken save/resume state, unclear ability behaviour, missing button feedback, confusing class behaviour, and a balance concern all need different handling.
+    QA passes range from broad player-focused exploratory testing to tightly scoped regression, feature
+    validation, and hotfix verification. Where a test cannot be completed because the required scenario,
+    information, or test state is unavailable, I document the limitation and request clarification rather
+    than treating the result as a failure.
   </p>
 
   <p>
-    This helps the developer understand not only what happened, but why it matters, how likely a player is to encounter it, and whether it blocks release, affects presentation, or belongs in a later tuning pass.
+    Findings are separated by functional impact, progression risk, usability, presentation, and tuning
+    considerations so the developer can quickly understand what happened, why it matters to the player,
+    and what requires further investigation or regression coverage.
+  </p>
+
+  <p>
+    This creates an ongoing feedback loop between development and QA, with fixes and changes validated
+    in subsequent builds while connected systems are checked for potential regressions.
   </p>
 </section>
 
@@ -598,32 +739,47 @@
 
   <table>
     <thead>
-      <tr><th>Tool / Method</th><th>Used For</th></tr>
+      <tr>
+        <th>Tool / Method</th>
+        <th>Used For</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
         <td>Android Test Device</td>
-        <td>Primary gameplay testing on the live Android platform.</td>
+        <td>Primary gameplay, mobile usability, live-build, and persistence testing.</td>
       </tr>
       <tr>
-        <td>Structured QA Notes</td>
-        <td>Capturing scope, test style, focus areas, results, regression status, and player-facing impact.</td>
+        <td>Windows Testing</td>
+        <td>Additional regression coverage on Windows builds where required.</td>
+      </tr>
+      <tr>
+        <td>Live &amp; Test Builds</td>
+        <td>Validating released updates, development changes, new content, and hotfixes.</td>
+      </tr>
+      <tr>
+        <td>Debug-Assisted Testing</td>
+        <td>Reaching specific progression states and later gameplay areas efficiently for targeted validation.</td>
+      </tr>
+      <tr>
+        <td>Structured QA Reports</td>
+        <td>Documenting scope, test style, findings, results, limitations, regression status, and player impact.</td>
       </tr>
       <tr>
         <td>Patch Notes</td>
-        <td>Planning targeted regression passes around new fixes, features, changed systems, and known risk areas.</td>
+        <td>Planning targeted regression coverage around fixes, features, system changes, and known risks.</td>
       </tr>
       <tr>
         <td>Screenshot Evidence</td>
-        <td>Capturing UI, menu, readability, reward, shop, class, and progression issues where visual evidence was useful.</td>
+        <td>Documenting visual, UI, readability, progression, and gameplay findings.</td>
       </tr>
       <tr>
         <td>Video Evidence</td>
-        <td>Recording gameplay behaviour, transition flow, ability handling, mobile interaction issues, and regression outcomes.</td>
+        <td>Capturing gameplay behaviour, reproduction steps, transitions, and regression outcomes.</td>
       </tr>
       <tr>
-        <td>Developer Handover</td>
-        <td>Summarising what was tested, what passed, what failed, what needed fixing, and what should be checked in future builds.</td>
+        <td>Developer Reporting</td>
+        <td>Communicating results, open findings, passed fixes, blocked coverage, and areas requiring follow-up.</td>
       </tr>
     </tbody>
   </table>
@@ -635,13 +791,17 @@
   <h2 id="case-study-shows">✅ What This Case Study Shows</h2>
 
   <ul>
-    <li>Provided ongoing embedded QA support across eight Android QA passes, with more testing expected as the game continues to evolve.</li>
-    <li>Used player-focused exploratory testing to identify visible issues affecting normal Android gameplay sessions.</li>
-    <li>Performed patch-note targeted regression testing to verify fixes, features, class behaviour, menu behaviour, and save/resume stability.</li>
-    <li>Tested new content including Druid, Fisher, class-specific reward pools, ability behaviour, relic persistence, and updated UI feedback.</li>
-    <li>Separated functional bugs, usability concerns, readability issues, progression risks, regression failures, and smoke test outcomes clearly.</li>
-    <li>Supported a solo indie developer with practical QA feedback that helped keep the project stable, readable, and player-ready across updates.</li>
+    <li>Ongoing Head of QA support for a released indie game across development builds, live updates, and hotfixes.</li>
+    <li>Player-focused exploratory testing alongside targeted regression, fix validation, and new content smoke testing.</li>
+    <li>Cross-platform QA coverage, primarily on Android with additional Windows regression testing where required.</li>
+    <li>Testing across combat, classes, abilities, progression, rewards, UI, economy, save/resume persistence, and gameplay state management.</li>
+    <li>Structured patch-note regression to verify fixes while checking connected systems for unintended regressions.</li>
+    <li>Clear distinction between passed, failed, partially verified, blocked, and unverified test coverage.</li>
+    <li>Identification and communication of functional, usability, readability, progression, persistence, and player-facing risks.</li>
+    <li>Ongoing collaboration with a solo developer through repeated build-test-report-fix-regression cycles.</li>
+    <li>Post-release QA support focused on maintaining stability and player experience as the game continues to evolve.</li>
   </ul>
+</section>
 
     <div class="cta-row">
     <a class="cta-btn" href="https://kelinacowellqa.github.io/assets/img/dungeon-raiders-credit.jpeg" target="_blank" rel="noopener">View Credit</a>
