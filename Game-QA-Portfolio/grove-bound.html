@@ -456,20 +456,22 @@ I would highly recommend working with her."
     </ul>
   </section>
 
-  <section class="card">
-    <h3>🎮 Testing Focus</h3>
-    <ul>
-      <li>Tutorial and onboarding flow</li>
-      <li>Early progression and player guidance</li>
-      <li>Quest progression and objective clarity</li>
-      <li>Inventory and quest-item interactions</li>
-      <li>Puzzle and progression validation</li>
-      <li>Resource gathering and crafting</li>
-      <li>Cooking and buildable systems</li>
-      <li>NPC interaction and dialogue quality</li>
-      <li>Feature discoverability</li>
-    </ul>
-  </section>
+<section class="card">
+  <h3>🎮 Testing Focus</h3>
+  <ul>
+    <li>Tutorial, onboarding and player guidance</li>
+    <li>Early-game progression and feature discoverability</li>
+    <li>Quest progression and objective clarity</li>
+    <li>Inventory and quest-item interactions</li>
+    <li>Resource gathering and crafting</li>
+    <li>Cooking and buildable systems</li>
+    <li>Farming setup, planting and crop lifecycle</li>
+    <li>Watering, crop growth and harvesting behaviour</li>
+    <li>Crop processing and food-production workflows</li>
+    <li>NPC interaction and dialogue quality</li>
+    <li>Player feedback and UX clarity</li>
+  </ul>
+</section>
 
   <section class="card">
     <h3>🔁 Ongoing Support</h3>
@@ -553,22 +555,28 @@ I would highly recommend working with her."
 <section aria-labelledby="main-testing">
   <h2 id="main-testing">🧭 Onboarding, Progression &amp; Feature Validation</h2>
 
- <p>
-  Testing has evolved alongside Grove Bound's development, beginning with broad first-time-player
-  and onboarding evaluation before expanding into regression testing, feature validation, targeted
-  quest testing, and system-level investigation.
-</p>
+  <p>
+    Testing has evolved alongside Grove Bound's development, beginning with broad first-time-player
+    and onboarding evaluation before expanding into regression testing, feature validation, targeted
+    quest testing, and system-level investigation.
+  </p>
 
-<p>
-  Coverage has included onboarding, progression, quest flow, inventory interactions, crafting,
-  cooking, buildable systems, dialogue, save integrity, puzzles, and player-facing usability.
-  Testing priorities have changed between builds based on development needs and previously
-  identified risks.
-</p>
+  <p>
+    Coverage has included onboarding, progression, quest flow, inventory interactions, resource gathering,
+    crafting, cooking, buildable systems, farming, dialogue, save integrity, puzzles, and player-facing
+    usability. Farming coverage included equipment crafting, farm patch placement, planting, watering,
+    crop growth and harvesting, repeat-harvest crops, and crop-to-food production workflows.
+  </p>
 
-<p>
-  The timeline below shows how my QA coverage has expanded and shifted alongside the project's development.
-</p>
+  <p>
+    Testing priorities have changed between builds based on development needs and previously identified
+    risks, with findings separated between functional defects and player-experience or communication issues
+    where appropriate.
+  </p>
+
+  <p>
+    The timeline below shows how my QA coverage has expanded and shifted alongside the project's development.
+  </p>
 
 <table class="qa-timeline">
   <thead>
@@ -577,6 +585,8 @@ I would highly recommend working with her."
       <th>Jun 2026</th>
       <th>Jul 2026</th>
       <th>Aug 2026</th>
+      <th>Sep 2026</th>
+      <th>Oct 2026</th>
     </tr>
   </thead>
 
@@ -586,11 +596,15 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>—</td>
       <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
 
     <tr>
       <td>First-Session Experience</td>
       <td>✓</td>
+      <td>—</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
@@ -600,6 +614,8 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>—</td>
       <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
     </tr>
 
     <tr>
@@ -607,12 +623,16 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>—</td>
       <td>✓</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
 
     <tr>
       <td>Inventory &amp; Item Interactions</td>
       <td>✓</td>
       <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
     </tr>
 
@@ -621,12 +641,16 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>—</td>
       <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
     </tr>
 
     <tr>
       <td>Cooking Systems</td>
       <td>✓</td>
       <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
     </tr>
 
@@ -635,6 +659,26 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>—</td>
       <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Farming &amp; Crop Lifecycle</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+
+    <tr>
+      <td>Growth &amp; Harvest Behaviour</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
     </tr>
 
     <tr>
@@ -642,10 +686,14 @@ I would highly recommend working with her."
       <td>—</td>
       <td>—</td>
       <td>✓</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
 
     <tr>
       <td>Dialogue System &amp; Content Quality</td>
+      <td>✓</td>
+      <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -656,6 +704,8 @@ I would highly recommend working with her."
       <td>—</td>
       <td>✓</td>
       <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
     </tr>
 
     <tr>
@@ -663,6 +713,17 @@ I would highly recommend working with her."
       <td>✓</td>
       <td>✓</td>
       <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+
+    <tr>
+      <td>Player Experience &amp; UX Feedback</td>
+      <td>✓</td>
+      <td>—</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
     </tr>
   </tbody>
 </table>
@@ -674,7 +735,7 @@ I would highly recommend working with her."
 
 <hr>
 
-    <section aria-labelledby="quest-progression-testing">
+<section aria-labelledby="quest-progression-testing">
   <h2 id="quest-progression-testing">🗺️ Quest &amp; Progression Testing</h2>
 
   <p>
@@ -690,15 +751,49 @@ I would highly recommend working with her."
   </p>
 
   <p>
-    Where progression became unclear, I avoided requesting the intended solution from the developer. Instead, I tested logical player actions, documented the resulting behaviour, and reported where the progression path could not be determined naturally. This preserved the value of the first-time-player perspective and helped identify potential discoverability and guidance issues.
+    Where progression became unclear, I avoided requesting the intended solution from the developer. Instead, I tested logical player actions, documented the resulting behaviour, and reported where the progression path could not be determined naturally. This preserved the value of the first-time-player perspective and helped identify discoverability and guidance issues.
   </p>
 
   <p>
-    The testing included both successful end-to-end quest validation and investigation of progression friction. Individual systems were tested independently where appropriate to help distinguish between a functional problem and unclear communication of the intended interaction.
+    Individual systems and progression steps were isolated where appropriate to distinguish functional defects from unclear instructions, missing feedback, or player-facing communication issues. This allowed findings to be reported according to the underlying problem rather than treating every unexpected result as a bug.
   </p>
 
   <p>
-    Dialogue was also reviewed during these passes for grammar, spelling, punctuation, capitalisation, and formatting issues.
+    Dialogue was also reviewed during these passes for grammar, spelling, punctuation, capitalisation, formatting, and clarity.
+  </p>
+</section>
+
+    <hr>
+
+    <section aria-labelledby="farming-testing">
+  <h2 id="farming-testing">🌱 Farming System &amp; Crop Lifecycle Testing</h2>
+
+  <p>
+    As the farming system was introduced, I carried out a dedicated charter-based QA pass covering the full player workflow from crafting farming equipment through to planting, crop growth, harvesting, and food production.
+  </p>
+
+  <p>
+    Testing covered Bucket and Farming Patch Kit crafting, farm patch placement, seed interactions, watering, crop growth, harvesting behaviour, repeat-harvest crops, and crop-to-food workflows including Bread, Baked Potato, and Roasted Carrot.
+  </p>
+
+  <p>
+    All six available crop types were planted and grown. I used controlled comparison testing with two Sunflowers planted at the same time, watering one while leaving the other untreated. The watered crop reached maturity first, confirming that watering was affecting growth while also allowing the visual feedback for watered soil to be evaluated.
+  </p>
+
+  <p>
+    Harvest testing also identified differences between crop types. Carrot and Potato crops cleared their plots after harvest, while Blue Berry and Red Berry bushes remained in place and produced further harvests. I tested the Clear interaction separately to confirm that persistent berry bushes could be deliberately removed by the player.
+  </p>
+
+  <p>
+    The pass identified functional issues affecting farm patch placement, crop-state dialogue, Blueberry visuals, and Sunflower harvesting. Where a result was ambiguous, I investigated further rather than immediately treating it as a defect.
+  </p>
+
+  <p>
+    One Sunflower finding initially appeared to be a harvesting bug because gathering the mature crop produced no inventory item. Discussion with the developer established that Sunflowers are intended to act as permanent light sources and harvesting them awards XP instead. I reclassified the finding as player-experience feedback, as this behaviour and the purpose of the crop were not communicated to the player in-game.
+  </p>
+
+  <p>
+    This pass combined functional validation with exploratory testing and player-experience analysis, with findings separated between confirmed defects, intended behaviour, and areas where additional guidance or feedback could improve player understanding.
   </p>
 </section>
 
@@ -719,30 +814,40 @@ I would highly recommend working with her."
         <td>Progression Clarity</td>
         <td>Players may become unsure how to progress when the intended next action is not sufficiently communicated.</td>
       </tr>
+
       <tr>
         <td>System Discoverability</td>
-        <td>Some systems can be overlooked or misunderstood without sufficient guidance.</td>
+        <td>New systems, including farming interactions, may be difficult to discover or understand without sufficient in-game guidance.</td>
       </tr>
+
       <tr>
         <td>Feature Communication</td>
-        <td>Mechanics may function correctly while their purpose or intended use remains unclear.</td>
+        <td>Mechanics may function as intended while their purpose or behaviour remains unclear. This can cause intended functionality to appear broken or incomplete to the player.</td>
       </tr>
+
       <tr>
         <td>Quest &amp; System Guidance</td>
-        <td>Players may understand an objective but struggle to identify the required item, interaction, or system needed to progress.</td>
+        <td>Players may understand the overall objective but struggle to identify the required item, interaction, location, or system needed to progress.</td>
       </tr>
+
       <tr>
-        <td>Feedback Visibility</td>
-        <td>Important information can occasionally be easy to miss during normal play.</td>
+        <td>Interaction Feedback</td>
+        <td>Missing or unclear prompts, state information, and interaction feedback can make it difficult for players to understand whether an action has succeeded or what options are available.</td>
       </tr>
+
+      <tr>
+        <td>Reward Communication</td>
+        <td>Rewards such as Gold or XP may be missed when the game does not provide clear feedback, leaving players uncertain about the outcome of an interaction.</td>
+      </tr>
+
       <tr>
         <td>Retention Risk</td>
-        <td>Repeated uncertainty around progression or system use can interrupt gameplay flow and reduce motivation to continue.</td>
+        <td>Repeated uncertainty around progression, interactions, or system behaviour can interrupt gameplay flow and reduce motivation to continue.</td>
       </tr>
     </tbody>
   </table>
 </section>
-
+    
 <hr>
     
 <section aria-labelledby="developer-collaboration">
@@ -831,14 +936,18 @@ I would highly recommend working with her."
 
   <ul>
     <li>Ongoing QA Lead responsibility on an actively developed indie project.</li>
-    <li>Player-focused exploratory testing from a first-time user perspective.</li>
-    <li>Targeted quest, progression, and feature validation using developer-provided test states.</li>
-    <li>Identification of onboarding, progression, usability, and discoverability risks.</li>
-    <li>Testing of interconnected inventory, crafting, cooking, and progression systems.</li>
-    <li>Investigation of progression friction while distinguishing functional issues from unclear player guidance.</li>
+    <li>Player-focused exploratory testing from a first-time-user perspective.</li>
+    <li>Charter-based testing adapted to developer priorities and changing builds.</li>
+    <li>Targeted quest, progression, farming, and feature validation using developer-provided test states.</li>
+    <li>Testing of interconnected inventory, gathering, crafting, farming, cooking, and progression systems.</li>
+    <li>End-to-end validation of gameplay workflows, including planting, growth, harvesting, crop processing, and food production.</li>
+    <li>Controlled comparison testing to validate system behaviour, including the effect of watering on crop growth.</li>
+    <li>Identification of onboarding, progression, usability, feedback, and feature-discoverability risks.</li>
+    <li>Investigation of unexpected behaviour to distinguish functional defects, intended behaviour, and player-experience issues.</li>
+    <li>Reclassification of findings when developer clarification establishes intended design behaviour.</li>
     <li>Dialogue and content-quality checks alongside functional gameplay testing.</li>
-    <li>Structured QA reporting with defined scope, findings, and player-impact analysis.</li>
-    <li>Regression testing and feature validation across multiple development updates.</li>
+    <li>Structured QA reporting with reproducible findings, evidence, player-impact analysis, and clear developer recommendations.</li>
+    <li>Regression planning and feature validation across multiple development updates.</li>
     <li>Independent testing based on priorities agreed directly with the developer.</li>
     <li>Ongoing contribution to player-experience improvements and future demo readiness.</li>
   </ul>
