@@ -765,38 +765,38 @@ I would highly recommend working with her."
 
     <hr>
 
-    <section aria-labelledby="farming-testing">
+ <section aria-labelledby="farming-testing">
   <h2 id="farming-testing">🌱 Farming System &amp; Crop Lifecycle Testing</h2>
 
   <p>
-    As the farming system was introduced, I carried out a dedicated charter-based QA pass covering the full player workflow from crafting farming equipment through to planting, crop growth, harvesting, and food production.
+    As the farming system was introduced, I carried out a dedicated charter-based QA pass covering the player workflow from crafting farming equipment through to planting, crop growth, harvesting, and food production.
   </p>
 
   <p>
-    Testing covered Bucket and Farming Patch Kit crafting, farm patch placement, seed interactions, watering, crop growth, harvesting behaviour, repeat-harvest crops, and crop-to-food workflows including Bread, Baked Potato, and Roasted Carrot.
+    Testing covered equipment crafting, farm patch placement, seed interactions, watering, crop growth, harvesting behaviour, crop persistence, and crop-to-food production workflows.
   </p>
 
   <p>
-    All six available crop types were planted and grown. I used controlled comparison testing with two Sunflowers planted at the same time, watering one while leaving the other untreated. The watered crop reached maturity first, confirming that watering was affecting growth while also allowing the visual feedback for watered soil to be evaluated.
+    I planted and grew all available crop types and used controlled comparison testing to investigate the effect of watering on crop growth. Two crops were planted at the same time under different conditions, allowing growth behaviour and player-facing visual feedback to be compared directly.
   </p>
 
   <p>
-    Harvest testing also identified differences between crop types. Carrot and Potato crops cleared their plots after harvest, while Blue Berry and Red Berry bushes remained in place and produced further harvests. I tested the Clear interaction separately to confirm that persistent berry bushes could be deliberately removed by the player.
+    Harvest testing covered multiple crop behaviours, including single-harvest and persistent crops. I also tested the interactions available to the player after harvesting to verify that crop and plot states behaved consistently throughout the farming lifecycle.
   </p>
 
   <p>
-    The pass identified functional issues affecting farm patch placement, crop-state dialogue, Blueberry visuals, and Sunflower harvesting. Where a result was ambiguous, I investigated further rather than immediately treating it as a defect.
+    The pass identified issues affecting feature interaction, crop-state communication, visual consistency, and harvesting behaviour. Where results were ambiguous, I investigated further rather than immediately classifying unexpected behaviour as a defect.
   </p>
 
   <p>
-    One Sunflower finding initially appeared to be a harvesting bug because gathering the mature crop produced no inventory item. Discussion with the developer established that Sunflowers are intended to act as permanent light sources and harvesting them awards XP instead. I reclassified the finding as player-experience feedback, as this behaviour and the purpose of the crop were not communicated to the player in-game.
+    One finding initially appeared to be a functional issue. After reproducing the behaviour and discussing the intended design with the developer, I established that the underlying functionality was working as designed but was not sufficiently communicated to the player. I reclassified the finding as player-experience feedback rather than retaining it as a bug.
   </p>
 
   <p>
-    This pass combined functional validation with exploratory testing and player-experience analysis, with findings separated between confirmed defects, intended behaviour, and areas where additional guidance or feedback could improve player understanding.
+    This pass combined functional validation, exploratory testing, controlled comparison testing, and player-experience analysis. Findings were separated between confirmed defects, intended behaviour, and areas where clearer guidance or feedback could improve player understanding.
   </p>
 </section>
-
+    
     <hr>
 
 <section aria-labelledby="risk-areas">
