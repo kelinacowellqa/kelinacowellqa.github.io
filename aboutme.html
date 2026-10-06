@@ -169,8 +169,8 @@
 
   .about-grid{
     display:grid;
-    grid-template-columns:minmax(0, 1fr) 360px;
-    gap:48px;
+    grid-template-columns:minmax(0, 1fr) 320px;
+    gap:36px;
     align-items:start;
     width:100%;
   }
@@ -181,6 +181,7 @@
     gap:24px;
     align-items:start;
     min-width:0;
+    width:100%;
   }
 
   .headshot{
@@ -255,6 +256,7 @@
     border-radius:14px;
     padding:22px;
     width:100%;
+    min-width:0;
     align-self:start;
   }
 
@@ -457,6 +459,7 @@
     }
 
     .portfolio-preview{
+      width:100%;
       max-width:none;
     }
 
@@ -616,58 +619,67 @@
         decoding="async"
       />
 
-<div class="about-text">
-  <p class="about-intro">
-    UK-based <strong>Game QA Tester</strong> working across indie projects
-    from early development through release.
-  </p>
+      <div class="about-text">
 
-  <div class="qa-role">
-    <h3>Head of QA</h3>
-    <p class="qa-studio">Loom &amp; Lore Games</p>
-    <p>
-      <span class="status-label">Shipped:</span>
-      <em>Mama Llama’s Food Cart Adventure</em>, <em>Dungeon Raiders</em>
-    </p>
-    <p>
-      <span class="status-label">In Development:</span>
-      <em>After Hours</em>, <em>Prime Time: Slime Time</em>
-    </p>
-  </div>
+        <p class="about-intro">
+          UK-based <strong>Game QA Tester</strong> working across indie projects
+          from early development through release.
+        </p>
 
-  <div class="qa-role">
-    <h3>QA Lead</h3>
-    <p class="qa-studio">GDO Games</p>
-    <p>
-      <span class="status-label">In Development:</span>
-      <em>Grove Bound</em>
-    </p>
-  </div>
+        <div class="qa-role">
+          <h3>Head of QA</h3>
+          <p class="qa-studio">Loom &amp; Lore Games</p>
+          <p>
+            <span class="status-label">Shipped:</span>
+            <em>Mama Llama’s Food Cart Adventure</em>,
+            <em>Dungeon Raiders</em>
+          </p>
+          <p>
+            <span class="status-label">In Development:</span>
+            <em>After Hours</em>,
+            <em>Prime Time: Slime Time</em>
+          </p>
+        </div>
 
-  <div class="qa-role">
-    <h3>Dev QA</h3>
-    <p class="qa-studio">Dandelion Developers</p>
-    <p>
-      <span class="status-label">Shipped:</span>
-      <em>Nothing Strange Here</em>
-    </p>
-  </div>
+        <div class="qa-role">
+          <h3>QA Lead</h3>
+          <p class="qa-studio">GDO Games</p>
+          <p>
+            <span class="status-label">In Development:</span>
+            <em>Grove Bound</em>
+          </p>
+        </div>
 
-  <div class="qa-role">
-    <h3>QA Support</h3>
-    <p class="qa-studio">Will Nightingale</p>
-    <p>
-      <span class="status-label">In Development:</span>
-      <em>RESIDUUM</em>
-    </p>
-  </div>
-</div>
+        <div class="qa-role">
+          <h3>Dev QA</h3>
+          <p class="qa-studio">Dandelion Developers</p>
+          <p>
+            <span class="status-label">Shipped:</span>
+            <em>Nothing Strange Here</em>
+          </p>
+        </div>
+
+        <div class="qa-role">
+          <h3>QA Support</h3>
+          <p class="qa-studio">Will Nightingale</p>
+          <p>
+            <span class="status-label">In Development:</span>
+            <em>RESIDUUM</em>
+          </p>
+        </div>
+
+      </div>
+
+    </div> <!-- closes about-left -->
 
     <aside class="portfolio-preview">
       <h3>QA Portfolio</h3>
 
       <p>
-        Explore the projects behind my QA experience, from shipped titles to games currently in development. Each case study documents my role, testing approach, developer feedback, and evidence of my contribution throughout development and release.
+        Explore the projects behind my QA experience, from shipped titles to
+        games currently in development. Each case study documents my role,
+        testing approach, developer feedback, and evidence of my contribution
+        throughout development and release.
       </p>
 
       <ul>
@@ -682,7 +694,8 @@
       </a>
     </aside>
 
-  </div>
+  </div> <!-- closes about-grid -->
+
 </section>
 
 <hr>
